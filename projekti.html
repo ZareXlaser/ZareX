@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+  <title>Čiščenje projektov - ŽareX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9; color:#222;}
+    header {background:#193a65; color:white; padding:15px; text-align:center;}
+    h1 {margin:0;}
+    .gallery {display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:15px; padding:20px;}
+    .gallery img {width:100%; border-radius:12px; box-shadow:0 4px 6px rgba(0,0,0,0.2); cursor:pointer; transition:transform 0.3s;}
+    .gallery img:hover {transform:scale(1.05);}
+    .back {display:block; text-align:center; margin:20px; text-decoration:none; color:#193a65; font-weight:bold;}
+    .lightbox {display:none; position:fixed; z-index:1000; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center;}
+    .lightbox img {max-width:90%; max-height:80%; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.8);}
+    .lightbox:target {display:flex;}
+    .close {position:absolute; top:20px; right:40px; font-size:2em; color:white; text-decoration:none; font-weight:bold;}
+  </style>
+</head>
+<body>
+  <header><h1>Čiščenje projektov</h1></header>
+  <section class="gallery">
+    <a href="#img1"><img src="projektova1.jpg" alt="Čiščenje projektove 1"></a>
+    <a href="#img2"><img src="projektova2.jpg" alt="Čiščenje projektove 2"></a>
+    <a href="#img3"><img src="projektova3.jpg" alt="Čiščenje projektove 3"></a>
+  </section>
+  <div id="img1" class="lightbox"><a href="#" class="close">&times;</a><img src="projektova1.jpg" alt="Čiščenje projektove 1"></div>
+  <div id="img2" class="lightbox"><a href="#" class="close">&times;</a><img src="projektova2.jpg" alt="Čiščenje projektove 2"></div>
+  <div id="img3" class="lightbox"><a href="#" class="close">&times;</a><img src="projektova3.jpg" alt="Čiščenje projektove 3"></div>
+  <a href="index.html" class="back">⬅ Nazaj na glavno stran</a>
+</body>
+</html>
