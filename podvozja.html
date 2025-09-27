@@ -2,32 +2,132 @@
 <html lang="sl">
 <head>
   <meta charset="UTF-8">
-  <title>Čiščenje podvozja - ŽareX</title>
+  <title>ŽareX - Čiščenje podvozja</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    body {font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9; color:#222;}
-    header {background:#193a65; color:white; padding:15px; text-align:center;}
-    h1 {margin:0;}
-    .gallery {display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:15px; padding:20px;}
-    .gallery img {width:100%; border-radius:12px; box-shadow:0 4px 6px rgba(0,0,0,0.2); cursor:pointer; transition:transform 0.3s;}
-    .gallery img:hover {transform:scale(1.05);}
-    .back {display:block; text-align:center; margin:20px; text-decoration:none; color:#193a65; font-weight:bold;}
-    .lightbox {display:none; position:fixed; z-index:1000; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center;}
-    .lightbox img {max-width:90%; max-height:80%; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.8);}
-    .lightbox:target {display:flex;}
-    .close {position:absolute; top:20px; right:40px; font-size:2em; color:white; text-decoration:none; font-weight:bold;}
+    body {font-family: Arial, sans-serif; margin:0; padding:0; background:#193a65;}
+    header {background:#193a65; color:#fff; padding:20px; text-align:center;}
+    header h1 {margin:0;}
+
+    .gallery {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+      gap:20px;
+      padding:40px;
+      max-width:1600px;
+      margin:0 auto;
+      justify-items:center;
+    }
+    .gallery img {
+      width:100%;
+      max-width:800px;
+      height:100%;
+      max-height:800px;
+      aspect-ratio:1/1;
+      border-radius:10px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.6);
+      cursor:pointer;
+      transition: transform 0.3s ease;
+      object-fit: cover;
+    }
+    .gallery img:hover {
+      transform:scale(1.05);
+    }
+
+    .lightbox {
+      display:none;
+      position:fixed;
+      z-index:999;
+      top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.9);
+      justify-content:center;
+      align-items:center;
+    }
+    .lightbox img {
+      max-width:90%;
+      max-height:80%;
+      border-radius:10px;
+    }
+    .lightbox:target {
+      display:flex;
+    }
+    .close {
+      position:absolute;
+      top:20px;
+      right:30px;
+      color:#fff;
+      font-size:40px;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    .back-button {
+      text-align: center;
+      margin: 40px 0;
+    }
+    .back-button a {
+      display: inline-block;
+      padding: 14px 30px;
+      background: #fff;
+      color: #193a65;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .back-button a i {
+      margin-right: 8px;
+      color: #193a65;
+    }
+    .back-button a:hover {
+      background: #0056b3;
+      color: #fff;
+    }
+    .back-button a:hover i {
+      color: #fff;
+    }
   </style>
 </head>
 <body>
-  <header><h1>Čiščenje podvozja</h1></header>
-  <section class="gallery">
-    <a href="#img1"><img src="podvozjaa1.jpg" alt="Čiščenje podvozjae 1"></a>
-    <a href="#img2"><img src="podvozjaa2.jpg" alt="Čiščenje podvozjae 2"></a>
-    <a href="#img3"><img src="podvozjaa3.jpg" alt="Čiščenje podvozjae 3"></a>
-  </section>
-  <div id="img1" class="lightbox"><a href="#" class="close">&times;</a><img src="podvozjaa1.jpg" alt="Čiščenje podvozjae 1"></div>
-  <div id="img2" class="lightbox"><a href="#" class="close">&times;</a><img src="podvozjaa2.jpg" alt="Čiščenje podvozjae 2"></div>
-  <div id="img3" class="lightbox"><a href="#" class="close">&times;</a><img src="podvozjaa3.jpg" alt="Čiščenje podvozjae 3"></div>
-  <a href="index.html" class="back">⬅ Nazaj na glavno stran</a>
+  <header>
+    <h1>Čiščenje podvozja</h1>
+  </header>
+
+  <!-- Galerija podvozja -->
+  <div class="gallery">
+    <a href="#img1">
+      <img src="podvozje1.jpg" alt="Podvozje 1">
+    </a>
+    <a href="#img2">
+      <img src="podvozje2.jpg" alt="Podvozje 2">
+    </a>
+    <a href="#img3">
+      <img src="podvozje3.jpg" alt="Podvozje 3">
+    </a>
+  </div>
+
+  <!-- Gumb nazaj -->
+  <div class="back-button">
+    <a href="index.html"><i class="fas fa-home"></i> Nazaj na začetno stran</a>
+  </div>
+
+  <!-- Lightboxi -->
+  <div id="img1" class="lightbox">
+    <a href="#" class="close">&times;</a>
+    <img src="podvozje1.jpg" alt="Podvozje 1">
+  </div>
+
+  <div id="img2" class="lightbox">
+    <a href="#" class="close">&times;</a>
+    <img src="podvozje2.jpg" alt="Podvozje 2">
+  </div>
+
+  <div id="img3" class="lightbox">
+    <a href="#" class="close">&times;</a>
+    <img src="podvozje3.jpg" alt="Podvozje 3">
+  </div>
 </body>
 </html>
