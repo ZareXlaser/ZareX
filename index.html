@@ -12,11 +12,26 @@
     * {margin:0; padding:0; box-sizing:border-box;}
     body {font-family: Arial, sans-serif; line-height: 1.6; color: #222;}
     header {display:flex; justify-content:space-between; align-items:center; padding:15px 30px;
-            background:white; box-shadow:0 2px 6px rgba(0,0,0,0.1); position:sticky; top:0; z-index:1000;}
-    nav a {margin-left:20px; text-decoration:none; color:#193a65; font-weight:bold; transition:color 0.3s;}
-    nav a:hover {color:#0056b3;}
+            background:#193a65; box-shadow:0 2px 6px rgba(0,0,0,0.1); position:sticky; top:0; z-index:1000;}
+    nav a {margin-left:20px; text-decoration:none; color:white; font-weight:bold; position:relative;}
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      background: white;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+    nav a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
 
-    .logo {height:80px;} /* povečani logo */
+    .logo {height:80px;}
 
     /* HERO video sekcija */
     .hero {
@@ -41,24 +56,25 @@
     .hero-content {
       position: relative;
       z-index: 1;
-      max-width: 800px;
-      padding: 20px;
-      background: rgba(0,0,0,0.4);
-      border-radius: 10px;
+      max-width: 900px;
+      padding: 30px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 15px;
     }
-    .hero h1 {font-size:2.2em; margin-bottom:15px;}
-    .hero h3 {margin-bottom:15px; font-weight:normal;}
+    .hero h1 {font-size:2.8em; margin-bottom:20px;}
+    .hero h3 {margin-bottom:20px; font-weight:normal; font-size:1.5em;}
+    .hero p {font-size:1.1em; line-height:1.8;}
 
     /* STORITVE */
     .services {
       background:#193a65;
       color:white;
-      padding:100px 30px; /* povečano */
+      padding:100px 30px;
       text-align:center;
     }
     .services h2 {
       margin-bottom:50px;
-      font-size:2.5em; /* večji naslov */
+      font-size:2.5em;
     }
     .service-grid {
       display:grid; 
@@ -72,33 +88,91 @@
       transition: transform 0.3s ease;
     }
     .service-item img {
-      width:110%; /* večje slike */
+      width:110%;
       max-width:400px;
       border-radius:15px; 
       box-shadow:0 6px 12px rgba(0,0,0,0.4);
       transition: transform 0.3s ease;
     }
-    .service-item:hover img {
-      transform: scale(1.08); /* povečava ob hoverju */
-    }
+    .service-item:hover img {transform: scale(1.08);}    
     .service-item p {
       margin-top:15px;
-      font-size:1.2em; /* večje besedilo */
+      font-size:1.2em;
       color:white;
       font-weight:bold;
     }
 
-    /* Kontakt sekcija sa video pozadinom */
+    /* Novo polje Kratko o podjetju */
+    .about-short {
+      margin-top: 60px;
+      text-align: left;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      background: rgba(255,255,255,0.06);
+      padding: 30px;
+      border-radius: 15px;
+    }
+    .about-short h2 {
+      margin-bottom: 20px;
+      font-size: 2em;
+      text-align: center;
+    }
+    .about-short p {
+      margin-bottom:15px;
+      font-size:1.1em;
+      line-height:1.8;
+    }
+
+    /* Sekcija pokritosti Slovenije */
+    .coverage {
+      margin-top: 20px;
+      padding:30px;
+      background: rgba(0,0,0,0.6);
+      border-radius:15px;
+      text-align:center;
+      max-width:700px;
+      margin-left:auto;
+      margin-right:auto;
+      opacity:0;
+      transform:translateY(30px);
+      transition: all 1s ease;
+      position: relative;
+    }
+    .coverage.visible {
+      opacity:1;
+      transform:translateY(0);
+    }
+    .coverage img {
+      width:100%;
+      max-width:500px;
+      height:auto;
+      display:block;
+      margin:0 auto;
+      transition: transform 2s ease;
+    }
+    .coverage.visible img {
+      transform: scale(1.05);
+    }
+    .coverage-text {
+      margin-top:20px;
+      color:#fff;
+    }
+    .coverage-text h3 {margin-bottom:10px; font-size:1.8em;}
+    .coverage-text p {margin-bottom:15px; font-size:1.1em;}
+
+    /* Kontakt sekcija */
     .contact {
       position: relative;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       color: white;
       overflow: hidden;
-      flex-direction: column;
+      gap:40px;
     }
     .contact-video {
       position: absolute;
@@ -109,21 +183,38 @@
       object-fit: cover;
       z-index: 0;
     }
-    .contact-content {
+    .contact-container {
       position: relative;
       z-index: 1;
-      max-width: 800px;
-      padding: 20px;
-      background: rgba(0,0,0,0.4);
-      border-radius: 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: stretch;
+      gap: 40px;
+      max-width: 1200px;
+      width: 100%;
+      padding: 30px;
     }
+    .contact-content, .company-info {
+      flex: 1;
+      background: rgba(0,0,0,0.6);
+      padding: 30px;
+      border-radius: 15px;
+    }
+
     .contact-content a {display:block; margin:8px 0; color:white; text-decoration:none; font-weight:bold;}
     .contact-content a:hover {text-decoration:underline;}
     .social-icons {margin-top: 15px; display: flex; justify-content: center; gap: 20px;}
     .social-icons a {font-size: 1.8em; color:white; transition:transform 0.3s ease, color 0.3s ease;}
-    .social-icons a:hover {color:#ccc; transform: scale(1.2);} /* povečava ikon ob hoverju */
+    .social-icons a:hover {color:#ccc; transform: scale(1.2);}
 
     footer {text-align:center; padding:15px; background:#193a65; color:white;}
+
+    @media (max-width:800px){
+      .about-short{padding:20px}
+      .hero h1{font-size:2em}
+      .contact-container{flex-direction:column}
+    }
   </style>
 </head>
 <body>
@@ -135,17 +226,17 @@
     </nav>
   </header>
 
-  <!-- HERO sekcija sa video pozadinom -->
+  <!-- HERO sekcija -->
   <section class="hero">
     <video autoplay muted loop playsinline class="hero-video">
       <source src="video.mp4" type="video/mp4">
       Tvoj brskalnik ne podpira video ozadij.
     </video>
     <div class="hero-content">
-      <h1>ŽareX – hitra, učinkovita in varna rešitev za vaše površine</h1>
-      <h3>Smo zanesljiv partner</h3>
-      <p>Z uporabo sodobne tehnologije odstranjujemo rjo, nečistoče in prevleke brez kemikalij ter brez poškodb površin. 
-         Specializirani smo za lasersko čiščenje kovin, lesa in kamna, kjer ohranjamo kakovost in podaljšujemo življenjsko dobo materialov.</p>
+      <h1>Čistoča prihodnosti z ŽAREX</h1>
+      <h3>Strokovnost, izkušnje in odgovornost pri vsakem projektu</h3>
+      <p>S sodobnimi tehnologijami poskrbimo za varno in učinkovito odstranjevanje rje, nečistoč in prevlek brez kemikalij ter brez poškodb površin. 
+      Naše storitve zajemajo čiščenje kovin, lesa, kamna, čiščenje in zaščito podvozij vozil ter pripravo tal za epoksidne premaze.</p>
     </div>
   </section>
 
@@ -166,24 +257,53 @@
         <p>Večji projekti</p>
       </a>
     </div>
+
+    <!-- Novo polje Kratko o podjetju -->
+    <div class="about-short">
+      <h2>Kratko o podjetju</h2>
+      <p>Podjetje ŽAREX iz Škofje Loke združuje bogate izkušnje, strokovnost in odgovoren pristop.</p>
+      <p>Našim strankam nudimo širok spekter rešitev s področja laserskega čiščenja kovin, lesa in kamna.</p>
+      <p>Prav tako izvajamo čiščenje in zaščito podvozij avtomobilov ter pripravo in izvedbo tal za epoksidne premaze, 
+      s katerimi dosežemo popoln oprijem in dolgo življenjsko dobo zaščite.</p>
+      <p>Ponosni smo na strokovno izvedbo, prilagodljivost ter ponudbe, s katerimi zagotavljamo kakovost in zadovoljstvo naročnikov.</p>
+    </div>
   </section>
 
-  <!-- Kontakt sekcija sa video pozadinom -->
+  <!-- KONTAKT + O PODJETJU -->
   <section id="kontakt" class="contact">
     <video autoplay muted loop playsinline class="contact-video">
       <source src="contact.mp4" type="video/mp4">
       Tvoj brskalnik ne podpira video ozadij.
     </video>
-    <div class="contact-content">
-      <h2>KONTAKT</h2>
-      <p>Frankovo naselje 43<br>4220 Škofja Loka</p>
-      <a href="mailto:zarexlaser@gmail.com">✉ zarexlaser@gmail.com</a>
-      <a href="tel:+38670808884">☎ +386 70 808 884</a>
-      <div class="social-icons">
-        <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <div class="contact-container">
+      <div class="contact-content">
+        <h2>KONTAKT</h2>
+        <p>Frankovo naselje 43<br>4220 Škofja Loka</p>
+        <a href="mailto:zarexlaser@gmail.com">✉ zarexlaser@gmail.com</a>
+        <a href="tel:+38670808884">☎ +386 70 808 884</a>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <div class="company-info">
+        <h2>O PODJETJU</h2>
+        <p>ŽAREX, Žarko Vukotić s.p.<br>
+        Kotnikova ulica 5, Ljubljana<br>
+        Matična številka: 7333269000<br>
+        Davčna številka: 23306068</p>
+      </div>
+    </div>
+
+    <!-- Pokritost Slovenije sekcija -->
+    <div class="coverage" id="coverage">
+      <img src="slovenia-map.png" alt="Zemljevid Slovenije">
+      <div class="coverage-text">
+        <h3>Delujemo po celi Sloveniji</h3>
+        <p>Kjerkoli nas potrebujete — iz Škofje Loke do največjih mest in industrijskih centrov. Hitro in zanesljivo pridemo na lokacijo ter izvedemo delo strokovno in varno.</p>
       </div>
     </div>
   </section>
@@ -191,5 +311,16 @@
   <footer>
     <p>© 2025 ŽareX - Vse pravice pridržane</p>
   </footer>
+
+  <script>
+    // Fade-in animacija sekcije coverage
+    document.addEventListener('scroll', function() {
+      const coverage = document.getElementById('coverage');
+      const rect = coverage.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        coverage.classList.add('visible');
+      }
+    });
+  </script>
 </body>
 </html>
