@@ -15,42 +15,141 @@
             background:white; box-shadow:0 2px 6px rgba(0,0,0,0.1); position:sticky; top:0; z-index:1000;}
     nav a {margin-left:20px; text-decoration:none; color:#193a65; font-weight:bold; transition:color 0.3s;}
     nav a:hover {color:#0056b3;}
-    .hero {text-align:center; padding:80px 20px; background:linear-gradient(to right, #f9f9f9, #e6eef6);}
-    .hero h1 {font-size:2.2em; margin-bottom:15px; color:#193a65;}
-    .hero h3 {margin-bottom:15px; font-weight:normal; color:#333;}
-    .services {background:#193a65; color:white; padding:60px 20px; text-align:center;}
-    .services h2 {margin-bottom:30px;}
-    .service-grid {display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-                   gap:20px; max-width:1000px; margin:0 auto;}
-    .service-item {text-align:center;}
-    .service-item img {width:100%; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.3);}
-    .service-item p {margin-top:10px; font-weight:bold; color:white;}
-    .contact {padding:60px 20px; text-align:center;}
-    .contact h2 {margin-bottom:20px;}
-    .contact a {display:block; margin:8px 0; color:#193a65; text-decoration:none; font-weight:bold;}
-    .contact a:hover {text-decoration:underline;}
+
+    .logo {height:80px;} /* povečani logo */
+
+    /* HERO video sekcija */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 20px;
+      background: rgba(0,0,0,0.4);
+      border-radius: 10px;
+    }
+    .hero h1 {font-size:2.2em; margin-bottom:15px;}
+    .hero h3 {margin-bottom:15px; font-weight:normal;}
+
+    /* STORITVE */
+    .services {
+      background:#193a65;
+      color:white;
+      padding:100px 30px; /* povečano */
+      text-align:center;
+    }
+    .services h2 {
+      margin-bottom:50px;
+      font-size:2.5em; /* večji naslov */
+    }
+    .service-grid {
+      display:grid; 
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:30px; 
+      max-width:1200px; 
+      margin:0 auto;
+    }
+    .service-item {
+      text-align:center;
+      transition: transform 0.3s ease;
+    }
+    .service-item img {
+      width:110%; /* večje slike */
+      max-width:400px;
+      border-radius:15px; 
+      box-shadow:0 6px 12px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+    }
+    .service-item:hover img {
+      transform: scale(1.08); /* povečava ob hoverju */
+    }
+    .service-item p {
+      margin-top:15px;
+      font-size:1.2em; /* večje besedilo */
+      color:white;
+      font-weight:bold;
+    }
+
+    /* Kontakt sekcija sa video pozadinom */
+    .contact {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+      flex-direction: column;
+    }
+    .contact-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .contact-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 20px;
+      background: rgba(0,0,0,0.4);
+      border-radius: 10px;
+    }
+    .contact-content a {display:block; margin:8px 0; color:white; text-decoration:none; font-weight:bold;}
+    .contact-content a:hover {text-decoration:underline;}
     .social-icons {margin-top: 15px; display: flex; justify-content: center; gap: 20px;}
-    .social-icons a {font-size: 1.8em; color:#193a65; transition:color 0.3s;}
-    .social-icons a:hover {color:#0056b3;}
+    .social-icons a {font-size: 1.8em; color:white; transition:transform 0.3s ease, color 0.3s ease;}
+    .social-icons a:hover {color:#ccc; transform: scale(1.2);} /* povečava ikon ob hoverju */
+
     footer {text-align:center; padding:15px; background:#193a65; color:white;}
   </style>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="ŽareX logo" height="40">
+    <img src="logo.png" alt="ŽareX logo" class="logo">
     <nav>
       <a href="#storitev">Storitve</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
   </header>
 
+  <!-- HERO sekcija sa video pozadinom -->
   <section class="hero">
-    <h1>LASERSKO ČIŠČENJE KOVIN, LESA IN KAMNA</h1>
-    <h3>Brez kemikalij – brez poškodb površin</h3>
-    <p>Lasersko čiščenje rje, umazanije, plastike na industrijskih oblikah ter oksidacije na oblikah za ulivanje.</p>
-    <!-- Gumb za brezplačni test je odstranjen -->
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="video.mp4" type="video/mp4">
+      Tvoj brskalnik ne podpira video ozadij.
+    </video>
+    <div class="hero-content">
+      <h1>ŽareX – hitra, učinkovita in varna rešitev za vaše površine</h1>
+      <h3>Smo zanesljiv partner</h3>
+      <p>Z uporabo sodobne tehnologije odstranjujemo rjo, nečistoče in prevleke brez kemikalij ter brez poškodb površin. 
+         Specializirani smo za lasersko čiščenje kovin, lesa in kamna, kjer ohranjamo kakovost in podaljšujemo življenjsko dobo materialov.</p>
+    </div>
   </section>
 
+  <!-- STORITVE -->
   <section id="storitev" class="services">
     <h2>STORITVE</h2>
     <div class="service-grid">
@@ -69,14 +168,23 @@
     </div>
   </section>
 
+  <!-- Kontakt sekcija sa video pozadinom -->
   <section id="kontakt" class="contact">
-    <h2>KONTAKT</h2>
-    <p>Frankovo naselje 43<br>4220 Škofja Loka</p>
-    <a href="mailto:wolffire118@gmail.com">✉ wolffire118@gmail.com</a>
-    <a href="tel:+38670808884">☎ +386 70 808 884</a>
-    <div class="social-icons">
-      <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <video autoplay muted loop playsinline class="contact-video">
+      <source src="contact.mp4" type="video/mp4">
+      Tvoj brskalnik ne podpira video ozadij.
+    </video>
+    <div class="contact-content">
+      <h2>KONTAKT</h2>
+      <p>Frankovo naselje 43<br>4220 Škofja Loka</p>
+      <a href="mailto:zarexlaser@gmail.com">✉ zarexlaser@gmail.com</a>
+      <a href="tel:+38670808884">☎ +386 70 808 884</a>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
     </div>
   </section>
 
