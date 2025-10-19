@@ -1,259 +1,76 @@
 <!DOCTYPE html>
 <html lang="sl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>O nas — ŽareX</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --dark-blue: #003366;
-      --dark-blue-2: #00264d;
-      --accent-blue: #004aad;
-      --accent-green: #32CD32;
-      --text-light: #ffffff;
-      --card-max-width: 980px;
-    }
-
-    *{box-sizing: border-box;}
-    body {
-      margin: 0;
-      font-family: "Poppins", Arial, sans-serif;
-      background-color: var(--dark-blue);
-      color: var(--text-light);
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    header {
-      background-color: var(--dark-blue);
-      color: var(--text-light);
-      padding: 22px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-      position: relative;
-      z-index: 1001;
-    }
-
-    .menu-btn {
-      font-size: 34px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      color: var(--text-light);
-      margin-right: 14px;
-      transition: transform 0.2s ease;
-    }
-
-    .menu-btn:hover { transform: scale(1.1); }
-
-    .header-title {
-      flex-grow: 1;
-      text-align: center;
-      font-weight: 700;
-      font-size: 1.3rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .header-logo {
-      width: 190px;
-      height: 80px;
-      object-fit: contain;
-    }
-
-    .sidebar {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: var(--dark-blue-2);
-      overflow-x: hidden;
-      transition: 0.4s;
-      padding-top: 100px;
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .sidebar img { width: 130px; margin-bottom: 20px; object-fit: contain; }
-    .sidebar a {
-      padding: 12px 0;
-      text-decoration: none;
-      font-size: 18px;
-      color: var(--text-light);
-      display: block;
-      width: 100%;
-      text-align: center;
-      transition: 0.25s;
-    }
-    .sidebar a:hover { background-color: #0055aa; }
-    .closebtn { position: absolute; top: 15px; right: 25px; font-size: 35px; color: var(--text-light); cursor: pointer; }
-
-    #overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 999;
-    }
-
-    main {
-      padding: 48px 20px;
-      max-width: var(--card-max-width);
-      margin: 0 auto;
-    }
-
-    .info-box {
-      background: rgba(200, 200, 200, 0.08);
-      border: 1px solid rgba(255,255,255,0.1);
-      backdrop-filter: blur(6px);
-      border-radius: 14px;
-      padding: 30px 36px;
-      margin-bottom: 38px;
-      color: var(--text-light);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-    }
-
-    .info-box:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 14px 40px rgba(0,0,0,0.35);
-    }
-
-    .info-box h2 {
-      color: var(--text-light);
-      margin: 0 0 18px 0;
-      font-size: 1.7rem;
-      letter-spacing: 0.3px;
-      text-align: center;
-    }
-
-    .info-box h3 {
-      color: var(--accent-green);
-      font-size: 1.05rem;
-      margin-top: 18px;
-      margin-bottom: 12px;
-    }
-
-    .info-box p {
-      margin: 0 0 14px 0;
-      color: rgba(255,255,255,0.92);
-      font-weight: 400;
-    }
-
-    .info-box ul {
-      margin: 12px 0 0 0;
-      padding-left: 20px;
-      text-align: left;
-    }
-
-    .info-box li {
-      margin-bottom: 10px;
-      line-height: 1.6;
-      position: relative;
-      padding-left: 26px;
-    }
-
-    .info-box li::before {
-      content: "✔";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: var(--accent-green);
-      font-weight: 700;
-    }
-
-    .highlight {
-      color: var(--accent-blue);
-      font-weight: 600;
-    }
-
-    footer {
-      text-align: center;
-      background-color: var(--dark-blue-2);
-      color: var(--text-light);
-      padding: 20px;
-      font-size: 0.95rem;
-      margin-top: 24px;
-    }
-
-    .sidebar-open { width: 280px; }
-
-    @media (max-width: 900px) {
-      .info-box { padding: 22px; }
-      .info-box h2 { font-size: 1.35rem; }
-      main { padding: 30px 16px; }
-    }
-
-    @media (max-width: 520px) {
-      header { padding: 16px; }
-      .menu-btn { font-size: 28px; }
-      .header-logo { width: 130px; height: 60px; }
-      .header-title { font-size: 1rem; letter-spacing: 0.5px; }
-      .info-box { padding: 18px; border-radius: 12px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<title>O nas - ŽareX Lasersko Čiščenje</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  * {margin:0; padding:0; box-sizing:border-box;}
+  body {font-family: Arial, sans-serif; background:#0f2748; color:white; overflow-x:hidden; animation:fadeIn 1s ease;}
+  header {display:flex; justify-content:center; align-items:center; padding:25px 0; background:#193a65; box-shadow:0 2px 6px rgba(0,0,0,0.3); position:sticky; top:0; z-index:1000;}
+  .logo {height:120px; filter:drop-shadow(0 0 10px rgba(255,255,255,0.7)); transition:transform 0.3s ease;}
+  .logo:hover {transform:scale(1.05);}
+  main {max-width:900px; margin:50px auto; padding:20px; background:rgba(255,255,255,0.08); border-radius:20px; box-shadow:0 6px 12px rgba(0,0,0,0.4); backdrop-filter:blur(5px);}
+  h1, h2 {text-align:center; margin-bottom:20px;}
+  h1 {font-size:2.4em; color:white;}
+  h2 {font-size:1.8em; color:#00ff9d; text-shadow:0 0 10px #00ff9d; margin-top:30px;}
+  p {margin-bottom:15px; line-height:1.7; color:#eaeaea; font-size:1.1em;}
+  ul {margin-left:30px; line-height:1.8;}
+  li::marker {color:#00ff9d;}
+  .highlight {color:#00ff9d; text-shadow:0 0 10px #00ff9d; font-weight:bold;}
+  .emoji {font-size:1.2em;}
+  .back-button {text-align:center; margin:40px 0;}
+  .back-button a {background:white; color:#193a65; padding:12px 30px; border-radius:8px; text-decoration:none; font-weight:bold; box-shadow:0 4px 10px rgba(0,0,0,0.3); transition:background 0.3s ease, color 0.3s ease;}
+  .back-button a:hover {background:#193a65; color:white;}
+  footer {text-align:center; padding:15px; background:#193a65; color:white; margin-top:60px;}
+  @keyframes fadeIn {from {opacity:0;} to {opacity:1;}}
+  @keyframes reveal {from {opacity:0; transform:translateY(30px);} to {opacity:1; transform:translateY(0);}}
+  .reveal {opacity:0; transform:translateY(30px); transition:opacity 1s ease, transform 1s ease;}
+  .reveal.active {opacity:1; transform:translateY(0);}
+  @media (max-width:768px){.logo{height:90px;} h1{font-size:2em;} main{margin:20px; padding:15px;} .back-button a{padding:10px 20px; font-size:1em;}}
+</style>
 </head>
 <body>
-  <header>
-    <button class="menu-btn" onclick="openSidebar()">☰</button>
-    <div class="header-title">LASERSKO ČIŠČENJE ŽAREX, ŽARKO VUKOTIĆ S.P.</div>
-    <img src="logo.png" alt="ŽareX logo" class="header-logo"/>
-  </header>
-  <div class="sidebar" id="sidebar">
-    <img alt="ŽareX logo" src="logo.png"/>
-    <a href="index.html">Začetna</a>
-    <a href="index.html#storitev">Storitve</a>
-    <a href="index.html#reviews">Recenzije</a>
-    <a href="galerija.html">Galerija</a>
-    <a href="cenik.html">Cenik</a>
-    <a href="onama.html">O nas</a>
-    <a href="index.html#kontakt">Kontakt</a>
-    <span class="closebtn" onclick="closeSidebar()">×</span>
-  </div>
-  <div id="overlay" onclick="closeSidebar()"></div>
-  <main>
-    <section class="info-box">
-      <h2>Kdo smo 👥</h2>
-      <p>Smo <strong>ŽAREX</strong> iz Škofje Loke — majhna, zanesljiva ekipa z dolgoletnimi izkušnjami v delu z materiali in površinami.</p>
-      <p>Pri nas združujemo tehnično znanje in občutek za kvaliteto, da vsaki stranki ponudimo rešitev, ki dela stvari bolj preproste in trajne.</p>
-      <p class="highlight">Najbolj nas veseli, ko stranke dobijo čisto, pripravljeno površino brez skrbi — hitro, brez prahu in brez nepotrebnih kemikalij.</p>
-    </section>
-    <section class="info-box">
-      <h2>Kako deluje lasersko čiščenje ⚙️</h2>
-      <p>Lasersko čiščenje je nežna, a učinkovita metoda odstranjevanja umazanije, oksidov, premazov ali starih slojev.</p>
-      <p>Deluje z usmerjenimi kratkimi impulzi svetlobe, ki nežno odmikajo neželene snovi, ne da bi poškodovali osnovni material.</p>
-      <ul>
-        <li><strong>Neagresivno do materiala:</strong> zaščiti osnovno površino.</li>
-        <li><strong>Brez kemije:</strong> primerno tam, kjer je čistoča in varnost prioriteti.</li>
-        <li><strong>Natančno:</strong> prilagodimo moč in hitrost za najboljši rezultat.</li>
-      </ul>
-    </section>
-    <section class="info-box">
-      <h2>ŽAREX – Čista tehnologija za čisto prihodnost 🌍</h2>
-      <p>Pri <strong>ŽAREX-u</strong> verjamemo, da napredek in skrb za okolje lahko hodita z roko v roki.</p>
-      <p>Zato uporabljamo lasersko čiščenje, ki je hitro, učinkovito in prijazno do narave — brez kemikalij in brez odpadne vode.</p>
-    </section>
-  </main>
-  <footer>&copy; 2025 ŽareX — Vse pravice pridržane.</footer>
-  <script>
-    function openSidebar() {
-      document.getElementById("sidebar").classList.add("sidebar-open");
-      document.getElementById("overlay").style.display = "block";
-    }
-    function closeSidebar() {
-      document.getElementById("sidebar").classList.remove("sidebar-open");
-      document.getElementById("overlay").style.display = "none";
-    }
-  </script>
+<header>
+  <img src="logo.png" alt="ŽareX logo" class="logo">
+</header>
+<main>
+  <h1 class="reveal">✨ O NAS</h1>
+  <section class="reveal">
+    <h2>💡 Kdo smo</h2>
+    <p>Smo <span class="highlight">ŽAREX</span> iz Škofje Loke — majhna, zanesljiva ekipa z dolgoletnimi izkušnjami v delu z materiali in površinami. 🔧</p>
+    <p>Pri nas združujemo tehnično znanje in občutek za kvaliteto, da vsaki stranki ponudimo rešitev, ki dela stvari <span class="highlight">bolj preproste</span> in <span class="highlight">trajnejše</span>. ✨</p>
+    <p><em>Najbolj nas veseli, ko stranke dobijo čisto, pripravljeno površino brez skrbi — hitro, brez prahu in brez nepotrebnih kemikalij. 🌿</em></p>
+  </section>
+  <section class="reveal">
+    <h2>🔬 Kako deluje lasersko čiščenje</h2>
+    <p>Lasersko čiščenje je nežna, a učinkovita metoda odstranjevanja umazanije, oksidov, premazov ali starih slojev.</p>
+    <ul>
+      <li><span class="highlight">Neagresivno do materiala:</span> zaščiti osnovno površino.</li>
+      <li><span class="highlight">Brez kemije:</span> primerno tam, kjer je čistoča in varnost prioriteti.</li>
+      <li><span class="highlight">Natančno in prilagodljivo:</span> moč in hitrost prilagodimo za popoln rezultat.</li>
+    </ul>
+  </section>
+  <section class="reveal">
+    <h2>🌟 ŽAREX – Čista tehnologija za čisto prihodnost</h2>
+    <p>Pri <strong class="highlight">ŽAREX-u</strong> verjamemo, da lahko <span class="highlight">napredek</span> in <span class="highlight">skrb za okolje</span> hodita z roko v roki. 🌿</p>
+    <p>Zato uporabljamo lasersko čiščenje, ki je hitro, učinkovito in prijazno do narave — <span class="highlight">brez kemikalij</span> in <span class="highlight">brez odpadne vode</span>. 💧</p>
+  </section>
+</main>
+<div class="back-button"><a href="index.html"><i class="fas fa-home"></i> Nazaj na začetno stran</a></div>
+<footer><p>© 2025 ŽareX - Vse pravice pridržane</p></footer>
+<script>
+const reveals = document.querySelectorAll('.reveal');
+function revealOnScroll() {
+  const triggerBottom = window.innerHeight * 0.85;
+  reveals.forEach(el => {
+    const boxTop = el.getBoundingClientRect().top;
+    if(boxTop < triggerBottom) el.classList.add('active');
+  });
+}
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+</script>
 </body>
 </html>

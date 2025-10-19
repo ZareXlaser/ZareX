@@ -1,178 +1,172 @@
 <!DOCTYPE html>
 <html lang="sl">
 <head>
-  <meta charset="UTF-8">
-  <title>ŽareX - Projekti</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    body {font-family: Arial, sans-serif; margin:0; padding:0; background:#193a65;}
-    header {background:#193a65; color:#fff; padding:20px; text-align:center;}
-    header h1 {margin:0;}
+<meta charset="utf-8" />
+<title>Večji projekti — ŽareX</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<style>
+  * {margin:0; padding:0; box-sizing:border-box;}
+  body {font-family: Arial, sans-serif; background:#0f2748; color:white; overflow-x:hidden;}
 
-    .gallery {
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-      gap:20px;
-      padding:40px;
-      max-width:1600px;
-      margin:0 auto;
-      justify-items:center;
-    }
-    .gallery img, .gallery video {
-      width:100%;
-      max-width:800px;
-      height:100%;
-      max-height:800px;
-      aspect-ratio:1/1;
-      border-radius:10px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.6);
-      cursor:pointer;
-      transition: transform 0.3s ease;
-      object-fit: cover;
-    }
-    .gallery img:hover, .gallery video:hover {
-      transform:scale(1.05);
-    }
+  header {display:flex; justify-content:center; align-items:center; padding:15px 30px; background:#193a65; box-shadow:0 2px 6px rgba(0,0,0,0.3); position:sticky; top:0; z-index:1000;}
+  .logo {height:100px; filter:drop-shadow(0 0 8px rgba(255,255,255,0.6));}
 
-    .video-container {
-      position: relative;
-      display: inline-block;
-      width:100%;
-      max-width:800px;
-      aspect-ratio:1/1;
-    }
-    .play-icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 3em;
-      color: white;
-      opacity: 0.8;
-      pointer-events: none;
-    }
+  h1 {text-align:center; background:#193a65; color:white; padding:25px 0; font-size:2em; margin-bottom:30px;}
 
-    .lightbox {
-      display:none;
-      position:fixed;
-      z-index:999;
-      top:0; left:0; width:100%; height:100%;
-      background:rgba(0,0,0,0.9);
-      justify-content:center;
-      align-items:center;
-    }
-    .lightbox img, .lightbox video {
-      max-width:90%;
-      max-height:80%;
-      border-radius:10px;
-    }
-    .lightbox:target {
-      display:flex;
-    }
-    .close {
-      position:absolute;
-      top:20px;
-      right:30px;
-      color:#fff;
-      font-size:40px;
-      text-decoration:none;
-      font-weight:bold;
-    }
+  .section {padding:20px; text-align:center;}
 
-    .back-button {
-      text-align: center;
-      margin: 40px 0;
-    }
-    .back-button a {
-      display: inline-block;
-      padding: 14px 30px;
-      background: #fff;
-      color: #193a65;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1em;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-    .back-button a i {
-      margin-right: 8px;
-      color: #193a65;
-    }
-    .back-button a:hover {
-      background: #0056b3;
-      color: #fff;
-    }
-    .back-button a:hover i {
-      color: #fff;
-    }
-  </style>
+  .folder-grid {display:flex; flex-wrap:wrap; justify-content:center; gap:25px;}
+  .folder {width:200px; background:#244c88; border-radius:12px; padding:10px; cursor:pointer; transition:transform 0.3s ease, background 0.3s ease;}
+  .folder:hover {transform:scale(1.05); background:#305da5;}
+  .folder img {width:100%; border-radius:8px; height:130px; object-fit:cover;}
+  .folder-name {margin-top:8px; font-weight:bold; color:white; font-size:1em;}
+
+  .folder-content {display:none; margin-top:30px;}
+  .folder-content.active {display:block;}
+
+  .media-grid {display:flex; flex-wrap:wrap; justify-content:center; gap:15px;}
+  .media-grid img, .media-grid video {width:220px; border-radius:10px; cursor:pointer; transition:transform 0.3s ease; border:2px solid white;}
+  .media-grid img:hover, .media-grid video:hover {transform:scale(1.05);}
+
+  footer {text-align:center; padding:15px; background:#193a65; color:white; margin-top:60px;}
+
+  /* Lightbox */
+  .lightbox {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:5000;}
+  .lightbox.active {display:flex;}
+  .lightbox-content {position:relative; max-width:90%; max-height:90%;}
+  .lightbox-content img, .lightbox-content video {max-width:100%; max-height:90vh; border-radius:10px; box-shadow:0 0 20px rgba(255,255,255,0.3);}
+
+  .lightbox-close {position:absolute; top:-40px; right:0; color:white; font-size:2em; cursor:pointer; background:rgba(0,0,0,0.6); border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center;}
+  .lightbox-prev, .lightbox-next {position:absolute; top:50%; transform:translateY(-50%); font-size:3em; color:white; cursor:pointer; padding:10px; background:rgba(0,0,0,0.4); border-radius:50%; transition:background 0.3s;}
+  .lightbox-prev:hover, .lightbox-next:hover {background:rgba(0,0,0,0.7);}
+  .lightbox-prev {left:-60px;}
+  .lightbox-next {right:-60px;}
+
+  @media (max-width:768px) {
+    .media-grid img, .media-grid video {width:45%;}
+    .lightbox-prev {left:10px;}
+    .lightbox-next {right:10px;}
+    .lightbox-close {top:10px; right:10px;}
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Večji projekti</h1>
-  </header>
+<header>
+  <img src="logo.png" alt="ŽareX logo" class="logo" />
+</header>
 
-  <!-- Galerija projektov -->
-  <div class="gallery">
-    <a href="#img1">
-      <img src="projektova1.jpg" alt="Projekt 1">
-    </a>
+<h1>Večji projekti</h1>
 
-    <!-- Video kot del galerije -->
-    <a href="#video2" class="video-container">
-      <video class="video-thumb" autoplay muted loop>
-        <source src="projektova2.mp4" type="video/mp4">
-        Tvoj brskalnik ne podpira videoposnetkov.
-      </video>
-      <i class="fas fa-play-circle play-icon"></i>
-    </a>
-
-    <a href="#img3">
-      <img src="projektova3.jpg" alt="Projekt 3">
-    </a>
-
-    <!-- Drugi video kot del galerije -->
-    <a href="#video4" class="video-container">
-      <video class="video-thumb" autoplay muted loop>
-        <source src="projektova4.mp4" type="video/mp4">
-        Tvoj brskalnik ne podpira videoposnetkov.
-      </video>
-      <i class="fas fa-play-circle play-icon"></i>
-    </a>
+<div class="section">
+  <div class="folder" data-target="proj1">
+    <img src="prikolica.jpg" alt="Projekt prikolica" />
+    <div class="folder-name">Tridelna, triosna, 22m dolga kontejnerska prikolica</div>
   </div>
 
-  <!-- Gumb nazaj -->
-  <div class="back-button">
-    <a href="index.html"><i class="fas fa-home"></i> Nazaj na začetno stran</a>
+  <div class="folder-content" id="proj1">
+    <div class="media-grid">
+      <img src="prikolica1.jpg" alt="prikolica1" />
+      <img src="prikolica2.jpg" alt="prikolica2" />
+      <img src="prikolica3.jpg" alt="prikolica3" />
+      <img src="prikolica4.jpg" alt="prikolica4" />
+      <img src="prikolica5.jpg" alt="prikolica5" />
+      <img src="prikolica6.jpg" alt="prikolica6" />
+      <video controls muted src="prikolica7.mp4"></video>
+    </div>
   </div>
+</div>
 
-  <!-- Lightboxi -->
-  <div id="img1" class="lightbox">
-    <a href="#" class="close">&times;</a>
-    <img src="projektova1.jpg" alt="Projekt 1">
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <span class="lightbox-prev" id="lightbox-prev">&#10094;</span>
+    <span class="lightbox-next" id="lightbox-next">&#10095;</span>
+    <img id="lightbox-img" src="" alt="preview" />
+    <video id="lightbox-video" controls style="display:none;"></video>
   </div>
+</div>
 
-  <div id="video2" class="lightbox">
-    <a href="#" class="close">&times;</a>
-    <video controls autoplay muted>
-      <source src="projektova2.mp4" type="video/mp4">
-      Tvoj brskalnik ne podpira videoposnetkov.
-    </video>
-  </div>
+<div class="back-button" style="text-align:center; margin:40px 0;">
+  <a href="index.html" style="background:white; color:#193a65; padding:12px 30px; border-radius:8px; text-decoration:none; font-weight:bold; box-shadow:0 4px 10px rgba(0,0,0,0.3);"><i class="fas fa-home"></i> Nazaj na začetno stran</a>
+</div>
 
-  <div id="img3" class="lightbox">
-    <a href="#" class="close">&times;</a>
-    <img src="projektova3.jpg" alt="Projekt 3">
-  </div>
+<footer><p>© 2025 ŽareX - Vse pravice pridržane</p></footer>
 
-  <div id="video4" class="lightbox">
-    <a href="#" class="close">&times;</a>
-    <video controls autoplay muted>
-      <source src="projektova4.mp4" type="video/mp4">
-      Tvoj brskalnik ne podpira videoposnetkov.
-    </video>
-  </div>
+<script>
+  const folders=document.querySelectorAll('.folder');
+  const contents=document.querySelectorAll('.folder-content');
+  folders.forEach(folder=>{
+    folder.addEventListener('click',()=>{
+      const target=folder.getAttribute('data-target');
+      contents.forEach(c=>c.classList.remove('active'));
+      document.getElementById(target).classList.add('active');
+      window.scrollTo({top:folder.offsetTop+80,behavior:'smooth'});
+    });
+  });
+
+  const lightbox=document.getElementById('lightbox');
+  const lbImg=document.getElementById('lightbox-img');
+  const lbVid=document.getElementById('lightbox-video');
+  const lbClose=document.getElementById('lightbox-close');
+  const lbPrev=document.getElementById('lightbox-prev');
+  const lbNext=document.getElementById('lightbox-next');
+
+  const mediaElements=Array.from(document.querySelectorAll('.media-grid img, .media-grid video'));
+  let currentIndex=0;
+
+  function showMedia(index){
+    const el=mediaElements[index];
+    if(!el)return;
+    if(el.tagName==='IMG'){
+      lbVid.style.display='none';
+      lbImg.style.display='block';
+      lbImg.src=el.src;
+    }else{
+      lbImg.style.display='none';
+      lbVid.style.display='block';
+      lbVid.src=el.src;
+    }
+    lightbox.classList.add('active');
+    currentIndex=index;
+  }
+
+  mediaElements.forEach((el,i)=>{
+    el.addEventListener('click',()=>showMedia(i));
+  });
+
+  lbClose.addEventListener('click',()=>{
+    lightbox.classList.remove('active');
+    lbVid.pause();
+  });
+
+  lbPrev.addEventListener('click',e=>{
+    e.stopPropagation();
+    currentIndex=(currentIndex-1+mediaElements.length)%mediaElements.length;
+    showMedia(currentIndex);
+  });
+
+  lbNext.addEventListener('click',e=>{
+    e.stopPropagation();
+    currentIndex=(currentIndex+1)%mediaElements.length;
+    showMedia(currentIndex);
+  });
+
+  lightbox.addEventListener('click',e=>{
+    if(e.target===lightbox){
+      lightbox.classList.remove('active');
+      lbVid.pause();
+    }
+  });
+
+  // Swipe support for mobile
+  let startX=0;
+  lightbox.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;});
+  lightbox.addEventListener('touchend',e=>{
+    const endX=e.changedTouches[0].clientX;
+    if(startX-endX>50){lbNext.click();}
+    else if(endX-startX>50){lbPrev.click();}
+  });
+</script>
 </body>
 </html>

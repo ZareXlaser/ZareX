@@ -7,7 +7,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
 <style>
-    * {margin:0; padding:0; box-sizing:border-box;}
+    * {margin:0; padding:0;;}
     body {font-family: Arial, sans-serif; line-height:1.6; color:#222; overflow-x:hidden; background:#f7f7f7;}
 
     /* HEADER */
@@ -20,33 +20,6 @@
     .header-title {color:white; font-size:1.2em; font-weight:bold; text-align:center; flex:1; letter-spacing:0.5px; text-transform:uppercase;}
     .logo {height:80px;}
 
-    /* Hamburger meni */
-    .menu-toggle {
-      position:relative; width:36px; height:26px;
-      border:none; background:none; cursor:pointer;
-      display:flex; flex-direction:column; justify-content:space-between;
-      z-index:2500;
-    }
-    .menu-toggle span {display:block; height:4px; background-color:white; border-radius:2px; transition:all 0.3s ease;}
-    .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translateY(10px);}
-    .menu-toggle.active span:nth-child(2){opacity:0;}
-    .menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translateY(-10px);}
-
-    /* Sidebar */
-    .sidebar {
-      position:fixed; left:-320px; top:0; width:300px; height:100%;
-      background:#193a65; color:white; display:flex; flex-direction:column;
-      align-items:center; padding-top:40px; transition:all 0.4s ease;
-      opacity:0; box-shadow:4px 0 10px rgba(0,0,0,0.3); z-index:2000;
-    }
-    .sidebar.active {left:0; opacity:1;}
-    .sidebar img {width:120px; margin-bottom:20px;}
-    .sidebar a {
-      width:100%; padding:18px 25px; color:white; text-decoration:none;
-      font-weight:bold; font-size:1.2em; border-bottom:1px solid rgba(255,255,255,0.1);
-      text-align:center; transition:background 0.3s;
-    }
-    .sidebar a:hover {background:rgba(255,255,255,0.1);}
 
     /* NASLOVI */
     h1, h2 {
@@ -136,27 +109,42 @@
     .lightbox-prev:hover, .lightbox-next:hover { color: #ccc; }
     .lightbox-prev { left: -60px; }
     .lightbox-next { right: -60px; }
+.back-button {
+      text-align: center;
+      margin: 40px 0;
+    }
+    .back-button a {
+      display: inline-block;
+      padding: 14px 30px;
+      background: #fff;
+      color: #193a65;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .back-button a i {
+      margin-right: 8px;
+      color: #193a65;
+    }
+    .back-button a:hover {
+      background: #0056b3;
+      color: #fff;
+    }
+    .back-button a:hover i {
+      color: #fff;
+    }
 
   </style>
 </head>
 <body>
 <!-- HEADER -->
 <header>
-<button class="menu-toggle" id="menu-btn"><span></span><span></span><span></span></button>
 <div class="header-title">LASERSKO ČIŠČENJE ŽAREX, ŽARKO VUKOTIĆ S.P.</div>
 <img alt="ŽareX logo" class="logo" src="logo.png"/>
 </header>
-<!-- SIDEBAR -->
-<div class="sidebar" id="sidebar">
-<img alt="ŽareX logo" src="logo.png"/>
-<a href="index.html">Začetna</a>
-<a href="index.html#storitev">Storitve</a>
-<a href="index.html#reviews">Recenzije</a>
-<a href="galerija.html">Galerija</a>
-<a href="cenik.html">Cenik</a>
-<a href="onama.html">O nas</a>
-<a href="index.html#kontakt">Kontakt</a>
-</div>
 <!-- GLAVNI SADRŽAJ -->
 <h1>Lasersko čiščenje podvozja</h1>
 <div class="section">
@@ -191,24 +179,9 @@
 <img src="felge1.jpg"/><img src="felge2.jpg"/><img src="felge3.jpg"/><img src="felge4.jpg"/><img src="felge5.jpg"/><img src="felge6.jpg"/><video controls="" muted="muted" src="felge7.mp4"></video>
 </div><div class="textbox" contenteditable="true"></div></div>
 </div>
-<h2>Večji projekti</h2>
-<div class="section">
-<div class="folder" data-target="proj1" style="margin-left:auto;margin-right:auto;"><img src="prikolica.jpg"/><div class="folder-name">Tridelna, triosna, 22m dolga kontejnerska prikolica</div></div>
-<div class="folder-content" id="proj1"><div class="media-grid">
-<img src="prikolica1.jpg"/><img src="prikolica2.jpg"/><img src="prikolica3.jpg"/><img src="prikolica4.jpg"/><img src="prikolica5.jpg"/><img src="prikolica6.jpg"/><video controls="" muted="muted" src="prikolica7.mp4"></video>
-</div><div class="textbox" contenteditable="true"></div></div>
-</div>
-<h2>Lasersko čiščenje kamna</h2>
-<div class="section">
-<div class="folder" data-target="stone1" style="margin-left:auto;margin-right:auto;"><img src="graniti.jpg"/><div class="folder-name">Čiščenje granita in mramorja</div></div>
-<div class="folder-content" id="stone1"><div class="media-grid">
-<img src="graniti1.jpg"/><img src="graniti2.jpg"/><video controls="" muted="muted" src="graniti3.mp4"></video>
-</div><div class="textbox" contenteditable="true"></div></div>
-<div class="folder" data-target="stone2" style="margin-left:auto;margin-right:auto;"><img src="beton.jpg"/><div class="folder-name">Brušenje betona, priprava za epoxy premaze</div></div>
-<div class="folder-content" id="stone2"><div class="media-grid">
-<video controls="" muted="muted" src="beton1.mp4"></video>
-</div><div class="textbox" contenteditable="true"></div></div>
-<div class="textbox" contenteditable="true"></div>
+<!-- Gumb nazaj -->
+  <div class="back-button">
+    <a href="index.html"><i class="fas fa-home"></i> Nazaj na začetno stran</a>
 </div>
 <footer><p>© 2025 ŽareX - Vse pravice pridržane</p></footer>
 <!-- LIGHTBOX -->
@@ -222,20 +195,7 @@
 </div>
 </div>
 <script>
-    // Hamburger meni
-    const menuBtn=document.getElementById('menu-btn');
-    const sidebar=document.getElementById('sidebar');
-    menuBtn.addEventListener('click',()=>{
-      sidebar.classList.toggle('active');
-      menuBtn.classList.toggle('active');
-    });
-    document.addEventListener('click',e=>{
-      if(!sidebar.contains(e.target)&&!menuBtn.contains(e.target)){
-        sidebar.classList.remove('active');
-        menuBtn.classList.remove('active');
-      }
-    });
-
+    
     // Otvaranje foldera
     const folders=document.querySelectorAll('.folder');
     const contents=document.querySelectorAll('.folder-content');

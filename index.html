@@ -8,20 +8,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:Arial,sans-serif;line-height:1.6;color:#222;overflow-x:hidden;}
-header{display:flex;justify-content:space-between;align-items:center;padding:15px 30px;background:#193a65;box-shadow:0 2px 6px rgba(0,0,0,0.1);position:sticky;top:0;z-index:1000;}
-.header-title{color:white;font-size:1.2em;font-weight:bold;text-align:center;flex:1;text-transform:uppercase;}
-.logo{height:80px;}
-.menu-toggle{position:relative;width:36px;height:26px;border:none;background:none;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;z-index:2500;}
-.menu-toggle span{display:block;height:4px;background-color:white;border-radius:2px;transition:all 0.3s ease;}
-.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translateY(10px);}
-.menu-toggle.active span:nth-child(2){opacity:0;}
-.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translateY(-10px);}
-.sidebar{position:fixed;left:-320px;top:0;width:300px;height:100%;background:#193a65;color:white;display:flex;flex-direction:column;align-items:center;padding-top:40px;transition:all 0.4s ease;opacity:0;box-shadow:4px 0 10px rgba(0,0,0,0.3);z-index:2000;}
-.sidebar.active{left:0;opacity:1;}
-.sidebar img{width:120px;margin-bottom:20px;}
-.sidebar a{width:100%;padding:18px 25px;color:white;text-decoration:none;font-weight:bold;font-size:1.2em;border-bottom:1px solid rgba(255,255,255,0.1);text-align:center;transition:background 0.3s;}
-.sidebar a:hover{background:rgba(255,255,255,0.1);}
+body{font-family:Arial,sans-serif;line-height:1.6;color:white;overflow-x:hidden;background:#0f2748;}
+header{display:flex;justify-content:center;align-items:center;padding:15px 30px;background:#193a65;box-shadow:0 2px 6px rgba(0,0,0,0.3);position:sticky;top:0;z-index:1000;}
+.logo{height:100px;filter:drop-shadow(0 0 10px rgba(255,255,255,0.7));}
 .hero{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:white;overflow:hidden;}
 .hero-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
 .hero-content{position:relative;z-index:1;max-width:900px;padding:30px;background:rgba(0,0,0,0.5);border-radius:15px;}
@@ -33,14 +22,19 @@ header{display:flex;justify-content:space-between;align-items:center;padding:15p
 .service-item img{width:100%;max-width:400px;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.4);transition:transform 0.3s ease;}
 .service-item:hover img{transform:scale(1.08);}
 .service-item p{margin-top:15px;font-size:1.2em;color:white;font-weight:bold;}
-.reviews{background:white;color:black;padding:80px 20px;text-align:center;}
+.reviews{background:#193a65;color:white;padding:80px 20px;text-align:center;}
 #review-list{max-width:700px;margin:0 auto;min-height:160px;}
-.review-card{display:none;opacity:0;transition:opacity 0.8s ease-in-out;padding:20px;background:white;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+.review-card{display:none;opacity:0;transition:opacity 0.8s ease-in-out;padding:20px;background:rgba(255,255,255,0.1);border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.3);}
 .review-card.active{display:block;opacity:1;}
 .slider-buttons{margin-top:20px;display:flex;justify-content:center;gap:20px;}
-.slider-buttons button{background:black;color:white;border:none;padding:10px 18px;border-radius:50%;font-size:1.3em;cursor:pointer;transition:background 0.3s;}
-.slider-buttons button:hover{background:#333;}
+.slider-buttons button{background:white;color:#193a65;border:none;padding:10px 18px;border-radius:50%;font-size:1.3em;cursor:pointer;transition:background 0.3s;}
+.slider-buttons button:hover{background:#ccc;}
 .rating{color:#facc15;margin-left:5px;}
+.cenik-section {background:#193a65;color:white;text-align:center;padding:60px 20px;}
+.cenik-section h2 {font-size:2em;margin-bottom:10px;}
+.cenik-section p {margin-bottom:20px;font-size:1.1em;}
+.cenik-btn {background:white;color:#193a65;border:none;padding:12px 30px;border-radius:8px;font-size:1.1em;cursor:pointer;transition:background 0.3s;}
+.cenik-btn:hover {background:#ccc;}
 .contact{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:white;overflow:hidden;gap:20px;padding:40px 0;}
 .contact-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
 .contact-container{position:relative;z-index:1;display:flex;flex-direction:row;justify-content:center;align-items:stretch;gap:40px;max-width:1200px;width:100%;padding:30px;}
@@ -56,29 +50,16 @@ header{display:flex;justify-content:space-between;align-items:center;padding:15p
 .coverage-inner img{width:100%;max-width:450px;height:auto;border-radius:10px;box-shadow:0 6px 12px rgba(0,0,0,0.4);margin-bottom:20px;}
 .coverage-text h3{margin-bottom:10px;font-size:1.8em;}
 .coverage-text p{font-size:1.1em;max-width:700px;margin:0 auto;}
+.onas-btn {margin-top:15px;background:white;color:#193a65;border:2px solid white;padding:14px 35px;font-size:1.1em;border-radius:10px;font-weight:bold;cursor:pointer;transition:all 0.3s ease;}
+.onas-btn:hover {background:#193a65;color:white;}
 footer{text-align:center;padding:15px;background:#193a65;color:white;}
 @media (max-width:1000px){.contact-container{flex-direction:column;}.coverage-inner{padding:20px;min-height:350px;}}
 </style>
 </head>
 <body>
 <header>
-<button class="menu-toggle" id="menu-btn"><span></span><span></span><span></span></button>
-<div class="header-title">LASERSKO ČIŠČENJE ŽAREX, ŽARKO VUKOTIĆ S.P.</div>
 <img src="logo.png" alt="ŽareX logo" class="logo">
 </header>
-
-<!-- Sidebar -->
-  <div class="sidebar" id="sidebar">
-    <img src="logo.png" alt="ŽareX logo">
-    <a href="index.html">Začetna</a>
-    <a href="#storitev">Storitve</a>
-    <a href="#reviews">Recenzije</a>
-    <a href="galerija.html">Galerija</a>
-    <a href="cenik.html">Cenik</a>
-    <a href="onama.html">O nas</a>
-    <a href="#kontakt">Kontakt</a>
-  </div>
-
 <section class="hero" id="hero">
 <video autoplay loop muted playsinline class="hero-video"><source src="video.mp4" type="video/mp4"></video>
 <div class="hero-content">
@@ -91,8 +72,8 @@ footer{text-align:center;padding:15px;background:#193a65;color:white;}
 <section class="services" id="storitev">
 <h2>STORITVE</h2>
 <div class="service-grid">
-<a class="service-item" href="kovine.html"><img src="storitev1.jpg" alt="Čiščenje kovin"><p>Čiščenje kovin</p></a>
-<a class="service-item" href="podvozja.html"><img src="storitev2.jpg" alt="Čiščenje podvozja"><p>Čiščenje podvozja</p></a>
+<a class="service-item" href="kovine.html"><img src="storitev1.jpg" alt="Čiščenje ostalih materijalov"><p>Čiščenje ostalih materijalov</p></a>
+<a class="service-item" href="galerija.html"><img src="storitev2.jpg" alt="Galerija"><p>Čiščenje podvozja</p></a>
 <a class="service-item" href="projekti.html"><img src="storitev3.jpg" alt="Večji projekti"><p>Večji projekti</p></a>
 </div>
 </section>
@@ -106,6 +87,13 @@ footer{text-align:center;padding:15px;background:#193a65;color:white;}
 <button class="prev">❮</button>
 <button class="next">❯</button>
 </div>
+</section>
+
+<!-- Novo polje za cenik -->
+<section class="cenik-section" id="cenik">
+  <h2>Naš Cenik</h2>
+  <p>Oglejte si podrobnosti o naših storitvah in cenah.</p>
+  <button onclick="window.location.href='cenik.html'" class="cenik-btn">Odpri cenik</button>
 </section>
 
 <section class="contact" id="kontakt">
@@ -126,10 +114,10 @@ footer{text-align:center;padding:15px;background:#193a65;color:white;}
 <div class="company-info">
 <h2>O PODJETJU</h2>
 <p>ŽAREX, Žarko Vukotić s.p.<br>Kotnikova ulica 5, Ljubljana<br>Matična številka: 7333269000<br>Davčna številka: 23306068</p>
+<button onclick="window.location.href='onama.html'" class="onas-btn">O nas</button>
 </div>
 </div>
 
-<!-- Mapa znotraj kontakt sekcije -->
 <div class="coverage" id="coverage">
 <div class="coverage-inner">
 <img src="slovenia-map.png" alt="Zemljevid Slovenije">
@@ -143,146 +131,15 @@ footer{text-align:center;padding:15px;background:#193a65;color:white;}
 
 <footer><p>© 2025 ŽareX - Vse pravice pridržane</p></footer>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=OVDEAPIKEY:&libraries=places&v=weekly"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0BtKOrB-zqYAumWwcsEoa2LdhOku5TlE&libraries=places&v=weekly"></script>
 <script>
-// === HAMBURGER MENI ===
-const menuBtn = document.getElementById("menu-btn");
-const sidebar = document.getElementById("sidebar");
-menuBtn.addEventListener("click", () => {
-  menuBtn.classList.toggle("active");
-  sidebar.classList.toggle("active");
-});
-
-// === GOOGLE RECENZIJE (ORIGINALNI JEZIK) ===
-function escapeHtml(s) {
-  return s ? s.replace(/&/g, "&amp;")
-           .replace(/</g, "&lt;")
-           .replace(/>/g, "&gt;")
-           .replace(/"/g, "&quot;")
-           .replace(/'/g, "&#039;") : "";
-}
-
-function renderReviews(reviews) {
-  const container = document.getElementById("review-list");
-  container.innerHTML = "";
-  if (!reviews || reviews.length === 0) {
-    container.innerHTML = "<p>Ni javno dostopnih mnenj.</p>";
-    return;
-  }
-
-  reviews.slice(0, 5).forEach((r, i) => {
-    const card = document.createElement("div");
-    card.className = "review-card" + (i === 0 ? " active" : "");
-    card.innerHTML = `
-      <strong>${escapeHtml(r.author_name || "Anonimno")}</strong>
-      <span class="rating">★ ${r.rating || ""}</span>
-      <p>${escapeHtml(r.text || "")}</p>
-      <small>${new Date(r.time * 1000).toLocaleDateString()}</small>
-    `;
-    container.appendChild(card);
-  });
-  initSlider();
-}
-
-function showError(msg) {
-  document.getElementById("review-list").innerHTML =
-    '<p style="color:red;">Napaka pri nalaganju mnenj: ' + escapeHtml(msg) + "</p>";
-}
-
-window.initReviews = function() {
-  try {
-    const placeId = "ChIJzQxqen3JekcR2FiFb6QlxQg";
-    const service = new google.maps.places.PlacesService(document.createElement("div"));
-    service.getDetails({
-      placeId: placeId,
-      fields: ["name", "rating", "reviews", "user_ratings_total"]
-    }, (place, status) => {
-      if (status !== google.maps.places.PlacesServiceStatus.OK) {
-        showError(status);
-        return;
-      }
-
-      // ✅ sigurno uzimamo originalni tekst ako postoji
-      const reviews = (place.reviews || []).map(r => {
-        let text = "";
-        try {
-          if (r.original_text && r.original_text.text) {
-            text = r.original_text.text; // originalni jezik
-          } else {
-            text = r.text || ""; // fallback
-          }
-        } catch (e) {
-          text = r.text || "";
-        }
-
-        return {
-          author_name: r.author_name,
-          rating: r.rating,
-          text: text,
-          time: r.time
-        };
-      });
-
-      renderReviews(reviews);
-    });
-  } catch (err) {
-    showError(err.message || "Napaka");
-  }
-};
-
-function waitForGoogle() {
-  if (window.google && google.maps && google.maps.places) {
-    window.initReviews();
-  } else {
-    setTimeout(waitForGoogle, 300);
-  }
-}
-waitForGoogle();
-
-// === SLIDER FUNKCIJA ===
-function initSlider() {
-  const reviews = document.querySelectorAll(".review-card");
-  const nextBtn = document.querySelector(".next");
-  const prevBtn = document.querySelector(".prev");
-  if (!reviews.length || !nextBtn || !prevBtn) return;
-
-  let current = 0;
-  let interval;
-
-  function showReview(index) {
-    reviews.forEach((r, i) => r.classList.toggle("active", i === index));
-  }
-
-  function next() {
-    current = (current + 1) % reviews.length;
-    showReview(current);
-  }
-
-  function prev() {
-    current = (current - 1 + reviews.length) % reviews.length;
-    showReview(current);
-  }
-
-  function startAuto() { interval = setInterval(next, 4000); }
-  function stopAuto() { clearInterval(interval); }
-
-  nextBtn.addEventListener("click", () => { stopAuto(); next(); startAuto(); });
-  prevBtn.addEventListener("click", () => { stopAuto(); prev(); startAuto(); });
-
-  startAuto();
-}
-
-// === FADE-IN MAPA ===
-window.addEventListener("scroll", () => {
-  const coverage = document.getElementById("coverage");
-  if (!coverage) return;
-  const rect = coverage.getBoundingClientRect();
-  if (rect.top < window.innerHeight - 100) {
-    coverage.classList.add("visible");
-  }
-});
+function escapeHtml(s){return s?s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\"/g,"&quot;").replace(/'/g,"&#039;"):"";}
+function renderReviews(reviews){const c=document.getElementById("review-list");c.innerHTML="";if(!reviews||reviews.length===0){c.innerHTML="<p>Ni javno dostopnih mnenj.</p>";return;}reviews.slice(0,5).forEach((r,i)=>{const card=document.createElement("div");card.className="review-card"+(i===0?" active":"");card.innerHTML=`<strong>${escapeHtml(r.author_name||"Anonimno")}</strong><span class='rating'>★ ${r.rating||""}</span><p>${escapeHtml(r.text||"")}</p><small>${new Date(r.time*1000).toLocaleDateString()}</small>`;c.appendChild(card);});initSlider();}
+function showError(m){document.getElementById("review-list").innerHTML='<p style="color:red;">Napaka pri nalaganju mnenj: '+escapeHtml(m)+"</p>";}
+window.initReviews=function(){try{const p="ChIJzQxqen3JekcR2FiFb6QlxQg";const s=new google.maps.places.PlacesService(document.createElement("div"));s.getDetails({placeId:p,fields:["name","rating","reviews","user_ratings_total"]},(place,status)=>{if(status!==google.maps.places.PlacesServiceStatus.OK){showError(status);return;}const reviews=(place.reviews||[]).map(r=>{let t="";try{t=r.original_text&&r.original_text.text?r.original_text.text:r.text||"";}catch(e){t=r.text||"";}return{author_name:r.author_name,rating:r.rating,text:t,time:r.time};});renderReviews(reviews);});}catch(e){showError(e.message||"Napaka");}};
+function waitForGoogle(){if(window.google&&google.maps&&google.maps.places){window.initReviews();}else{setTimeout(waitForGoogle,300);}}waitForGoogle();
+function initSlider(){const r=document.querySelectorAll(".review-card"),n=document.querySelector(".next"),p=document.querySelector(".prev");if(!r.length||!n||!p)return;let i=0,t;function showReview(e){r.forEach((a,s)=>a.classList.toggle("active",s===e));}function next(){i=(i+1)%r.length;showReview(i);}function prev(){i=(i-1+r.length)%r.length;showReview(i);}function start(){t=setInterval(next,4000);}function stop(){clearInterval(t);}n.addEventListener("click",()=>{stop();next();start();});p.addEventListener("click",()=>{stop();prev();start();});start();}
+window.addEventListener("scroll",()=>{const c=document.getElementById("coverage");if(!c)return;const r=c.getBoundingClientRect();if(r.top<window.innerHeight-100){c.classList.add("visible");}});
 </script>
-
 </body>
 </html>
-
