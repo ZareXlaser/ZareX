@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+  <title>Cenik - ŽareX Lasersko Čiščenje</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: #193a65;
+      color: white;
+      overflow-x:hidden;
+    }
+
+    header {
+      display:flex; justify-content:space-between; align-items:center;
+      padding:15px 30px; background:#193a65;
+      box-shadow:0 2px 6px rgba(0,0,0,0.1);
+      position:sticky; top:0; z-index:1000;
+    }
+
+    .header-title {
+      color:white;
+      font-size:1.2em;
+      font-weight:bold;
+      text-align:center;
+      flex:1;
+      letter-spacing:0.5px;
+      text-transform: uppercase;
+    }
+
+    .logo {height:80px;}
+
+    /* Hamburger dugme */
+    .menu-toggle {
+      position: relative;
+      width: 36px;
+      height: 26px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 2500;
+    }
+    .menu-toggle span {
+      display: block;
+      height: 4px;
+      background-color: white;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .menu-toggle.active span:nth-child(1) {transform: rotate(45deg) translateY(10px);}
+    .menu-toggle.active span:nth-child(2) {opacity: 0;}
+    .menu-toggle.active span:nth-child(3) {transform: rotate(-45deg) translateY(-10px);}
+
+    /* Sidebar meni */
+    .sidebar {
+      position: fixed;
+      left: -320px;
+      top: 0;
+      width: 300px;
+      height: 100%;
+      background: #193a65;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 40px;
+      transition: all 0.4s ease;
+      opacity: 0;
+      box-shadow: 4px 0 10px rgba(0,0,0,0.3);
+      z-index: 2000;
+    }
+    .sidebar.active {left: 0; opacity: 1;}
+    .sidebar img {width: 120px; margin-bottom: 20px;}
+    .sidebar a {
+      width: 100%;
+      padding: 18px 25px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2em;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      text-align:center;
+      transition: background 0.3s;
+    }
+    .sidebar a:hover {background: rgba(255,255,255,0.1);}
+
+    /* Glavni deo stranice */
+    .cenik-section {
+      text-align:center;
+      padding: 100px 20px;
+    }
+    .cenik-section h1 {
+      font-size:2.5em;
+      margin-bottom:40px;
+      letter-spacing:1px;
+    }
+
+    table {
+      width:90%;
+      max-width:800px;
+      margin:0 auto;
+      border-collapse: collapse;
+      background:white;
+      color:#193a65;
+      border-radius:15px;
+      overflow:hidden;
+      box-shadow:0 6px 12px rgba(0,0,0,0.3);
+    }
+    th, td {
+      padding:18px;
+      border-bottom:1px solid #ddd;
+      font-size:1.1em;
+    }
+    th {
+      background:#193a65;
+      color:white;
+      text-transform:uppercase;
+      letter-spacing:0.5px;
+    }
+    tr:last-child td {border-bottom:none;}
+    tr:hover td {background:#f1f1f1;}
+
+    footer {text-align:center; padding:15px; background:#193a65; color:white;}
+  </style>
+</head>
+<body>
+
+  <header>
+    <button class="menu-toggle" id="menu-btn">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="header-title">LASERSKO ČIŠČENJE ŽAREX, ŽARKO VUKOTIĆ S.P.</div>
+    <img src="logo.png" alt="ŽareX logo" class="logo">
+  </header>
+
+  <!-- SIDEBAR meni -->
+  <div class="sidebar" id="sidebar">
+    <img src="logo.png" alt="ŽareX logo">
+    <a href="index.html">Začetna</a>
+    <a href="galerija.html">Galerija</a>
+    <a href="cenik.html">Cenik</a>
+    <a href="onama.html">O nas</a>
+    <a href="#kontakt">Kontakt</a>
+  </div>
+
+  <section class="cenik-section">
+    <h1>CENIK STORITEV</h1>
+    <table>
+      <tr>
+        <th>Storitev</th>
+        <th>Opis</th>
+        <th>Cena</th>
+      </tr>
+      <tr>
+        <td>Lasersko čiščenje kovin </td>
+        <td>Lasersko odstranjevanje rje in oksidov z vseh kovinskih površin.</td>
+        <td>od 49 €</td>
+      </tr>
+      <tr>
+        <td>Čiščenje podvozja z zaščito - Osnovno </td>
+        <td>Lasersko odstranimo rjo in nanesemo bitumensko zaščito. Zaščiti avto pred vlago, soljo in obrabo.</td>
+        <td>od 149 €</td>
+      </tr>
+       <tr>
+        <td>Čiščenje podvozja - Rust remover + Bitumen </td>
+        <td>Za podvozja z vidno rjo! Najprej odstranimo rjo, nato nanesemo Rust Remover in bitumensko zaščito za daljšo življenjsko dobo.</td>
+        <td>od 249 €</td>
+      </tr>
+       <tr>
+        <td>Čiščenje podvozja- PREMIUM </td>
+        <td>Najboljša zaščita za tvoje podvozje! Lasersko čiščenje, Rust Remover, bitumen, vosek in Raptor premaz – trpežna, dolgotrajna zaščita pred rjo in poškodbami.
+
+         Trajnost do 10 let (odvisno od uporabe).</td>
+        <td>od 349 €</td>
+      </tr>
+      <tr>
+        <td>Večji projekti</td>
+        <td>Čiščenje večjih objektov in industrijskih površin.</td>
+        <td>po dogovoru + potni stroški </td>
+      </tr>
+      <tr>
+        <td>Lasersko čiščenje/ obnova kamna </td>
+        <td>Lasersko odstranjevanje nečistot z vseh tipov kamna (granit, mermer).</td>
+        <td>od 49 €</td>
+      </tr>
+      <tr>
+        <td>LASER-EPOXY  </td>
+        <td>Brušenje betona z laserjem, priprava za epoxy premaze.HITRO in enostavno!</td>
+        <td>od 69 € /m2 </td>
+      </tr>
+
+      <tr>
+        <td>Obnova lesa </td>
+        <td>Lasersko obnovimo in vrnemo prvobitni izgled vseh vrst lesa. Odlično za kredarice, glazbene inštrumente, pohištvo!</td>
+        <td>od 49 €</td>
+      </tr>
+
+    </table>
+  </section>
+<!-- Opombe o cenah -->
+<section aria-label="Opombe o cenah" 
+style="background:white; color:#193a65; 
+max-width:800px; margin:50px auto; 
+padding:30px; border-radius:20px; 
+box-shadow:0 6px 12px rgba(0,0,0,0.3); text-align:left;">
+  <h2 style="text-align:center; margin-bottom:20px;">Opombe o cenah</h2>
+  <ul style="list-style-type:disc; padding-left:30px; line-height:1.8;">
+    <li>Cene so okvirne.</li>
+    <li>Cene se lahko zvišajo za 20–30% glede na stanje obrabljenosti ter porabo ur in materialov.</li>
+    <li>Končno ponudbo vedno dobite po ogledu in oceni stanja (osebno ali prek spodaj navedenih kontaktov).</li>
+  </ul>
+</section>
+
+<!-- Kontakt / CTA -->
+<section id="kontakt" aria-label="Kontakt" 
+style="background:white; color:#193a65; 
+max-width:800px; margin:50px auto; 
+padding:30px; border-radius:20px; 
+box-shadow:0 6px 12px rgba(0,0,0,0.3); text-align:center;">
+  <h2 style="margin-bottom:20px;">Kontakt in rezervacije</h2>
+  <p style="margin-bottom:10px;">Link do spletnih strani: 
+    <a href="https://zarex.si" target="_blank" rel="noopener" style="color:#193a65; font-weight:bold;">zarex.si</a>
+  </p>
+
+  <!-- Družbena omrežja -->
+  <div style="margin:15px 0;">
+    <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank" style="margin:0 10px; color:#193a65;">
+      <i class="fab fa-facebook fa-2x"></i>
+    </a>
+    <a href="https://www.tiktok.com/@zarexlaser" target="_blank" style="margin:0 10px; color:#193a65;">
+      <i class="fab fa-tiktok fa-2x"></i>
+    </a>
+    <a href="https://api.whatsapp.com/send/?phone=38670808884&text&type=phone_number&app_absent=0" target="_blank" style="margin:0 10px; color:#193a65;">
+      <i class="fab fa-whatsapp fa-2x"></i>
+    </a>
+    <a href="https://www.instagram.com/vukoticzarko/" target="_blank" style="margin:0 10px; color:#193a65;">
+      <i class="fab fa-instagram fa-2x"></i>
+    </a>
+  </div>
+
+  <p style="font-size:1.3em; font-weight:bold; margin-top:20px;">
+    Za več informacij ali rezervacijo pošljite povpraševanje ali pokličite:
+  </p>
+  <p style="font-size:1.5em; font-weight:bold; margin-top:10px;">
+    Telefon: 070 808 884 | Email: 
+    <a href="mailto:zarexlaser@gmail.com" style="color:#193a65;">zarexlaser@gmail.com</a>
+  </p>
+</section>
+  </main>
+</body>
+</html>
+
+
+  <footer>
+    <p>© 2025 ŽareX - Vse pravice pridržane</p>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const sidebar = document.getElementById('sidebar');
+    menuBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+      menuBtn.classList.toggle('active');
+    });
+    document.addEventListener('click', (e) => {
+      if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
+        sidebar.classList.remove('active');
+        menuBtn.classList.remove('active');
+      }
+    });
+  </script>
+
+</body>
+</html>
