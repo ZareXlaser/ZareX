@@ -6,74 +6,101 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
 <style>
-* {margin:0; padding:0;}
-body {font-family: Arial, sans-serif; line-height:1.6; color:#222; overflow-x:hidden; background:#f7f7f7;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Arial,sans-serif;line-height:1.6;color:white;overflow-x:hidden;background:#0f2748;}
 
-header {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:15px 30px; background:#193a65;
-  box-shadow:0 2px 6px rgba(0,0,0,0.1);
-  position:sticky; top:0; z-index:1000;
+header{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:15px 30px;
+  background:#193a65;
+  box-shadow:0 2px 6px rgba(0,0,0,0.3);
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
-.header-title {color:white; font-size:1.2em; font-weight:bold; text-align:center; flex:1; letter-spacing:0.5px; text-transform:uppercase;}
-.logo {height:80px;}
+.logo{height:100px;filter:drop-shadow(0 0 8px rgba(255,255,255,0.6));}
 
-h1, h2 {
-  text-align:center; margin:0; padding:25px 0;
-  background-color:#193a65; color:white; font-size:1.8em;
+h1{
+  text-align:center;
+  background:#193a65;
+  color:white;
+  padding:25px 0;
+  font-size:2em;
+  margin-bottom:30px;
 }
 
-.section {background-color:white; padding:30px;}
+.section{padding:20px;text-align:center;}
 
-/* FOLDERS */
-.folder-grid {display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:25px; margin:0 auto; text-align:center;}
-.folder {
-  width:180px; background-color:#e6f0ff; border:2px solid #004aad;
-  border-radius:10px; text-align:center; padding:10px; cursor:pointer;
-  transition:transform 0.2s ease;
+.folder-grid{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:25px;
+  margin:0 auto;
+  text-align:center;
 }
-.folder:hover {transform:scale(1.05);}
-.folder img {width:100%; height:120px; object-fit:cover; border-radius:6px; margin-bottom:10px;}
-.folder-name {color:#004aad; font-weight:bold; font-size:14px;}
 
-.folder-content {display:none; margin-top:25px; text-align:center; animation:fadeIn 0.4s ease;}
-.folder-content.active {display:block;}
-
-.media-grid {display:flex; flex-wrap:wrap; justify-content:center; gap:15px; margin-top:20px;}
-.media-grid img, .media-grid video {
-  width:220px; height:auto; border-radius:10px; border:2px solid #ccc;
-  cursor:pointer; transition:transform 0.3s ease;
+.folder{
+  width:180px;
+  background:#244c88;
+  border-radius:10px;
+  padding:10px;
+  cursor:pointer;
+  transition:transform 0.2s ease,background 0.3s ease;
 }
-.media-grid img:hover, .media-grid video:hover {transform:scale(1.05);}
+.folder:hover{transform:scale(1.05);background:#305da5;}
+.folder img{width:100%;height:120px;object-fit:cover;border-radius:6px;margin-bottom:10px;}
+.folder-name{color:white;font-weight:bold;font-size:14px;}
 
-.textbox {
-  margin-top:10px; padding:10px; border:1px solid #ccc; border-radius:6px;
-  width:90%; max-width:900px; margin-left:auto; margin-right:auto;
-  min-height:60px; background-color:#fafafa;
+.folder-content{display:none;margin-top:25px;text-align:center;animation:fadeIn 0.4s ease;}
+.folder-content.active{display:block;}
+
+.media-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;margin-top:20px;}
+.media-grid img,.media-grid video{
+  width:220px;
+  height:auto;
+  border-radius:10px;
+  border:2px solid #fff;
+  cursor:pointer;
+  transition:transform 0.3s ease;
 }
-.textbox[contenteditable="true"]:focus {outline:2px solid #004aad; background-color:#fff;}
+.media-grid img:hover,.media-grid video:hover{transform:scale(1.05);}
 
-footer {text-align:center; padding:15px; background:#193a65; color:white;}
+footer{text-align:center;padding:15px;background:#193a65;color:white;margin-top:40px;}
 
-@keyframes fadeIn {from{opacity:0; transform:translateY(-10px);} to{opacity:1; transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-10px);}to{opacity:1;transform:translateY(0);}}
 
-/* LIGHTBOX */
-.lightbox {
-  display:none; position:fixed; top:0; left:0; width:100%; height:100%;
-  background:rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:5000;
+.lightbox{
+  display:none;
+  position:fixed;
+  top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.85);
+  justify-content:center;
+  align-items:center;
+  z-index:5000;
 }
-.lightbox.active {display:flex;}
-.lightbox-content {
-  max-width:30%;
-  max-height:30%;
-  position:relative; display:flex; justify-content:center; align-items:center;
+.lightbox.active{display:flex;}
+.lightbox-content{
+  max-width:80%;
+  max-height:80%;
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 .lightbox-content img,
-.lightbox-content video {
-  width:auto; height:auto; max-width:100%; max-height:100%;
-  border-radius:8px; box-shadow:0 0 15px rgba(0,0,0,0.4);
+.lightbox-content video{
+  width:auto;
+  height:auto;
+  max-width:100%;
+  max-height:100%;
+  border-radius:8px;
+  box-shadow:0 0 15px rgba(0,0,0,0.4);
 }
-.lightbox-close {
+.lightbox-close{
   position:absolute;
   top:10px;
   right:10px;
@@ -90,47 +117,49 @@ footer {text-align:center; padding:15px; background:#193a65; color:white;}
   align-items:center;
   justify-content:center;
 }
-.lightbox-prev, .lightbox-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: white;
-  font-size: 2.5em;
-  cursor: pointer;
-  user-select: none;
-  padding: 0 15px;
-  transition: color 0.2s;
+.lightbox-prev,.lightbox-next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  color:white;
+  font-size:2.5em;
+  cursor:pointer;
+  user-select:none;
+  padding:0 15px;
+  transition:color 0.2s;
 }
-.lightbox-prev:hover, .lightbox-next:hover { color: #ccc; }
-.lightbox-prev { left: -60px; }
-.lightbox-next { right: -60px; }
+.lightbox-prev:hover,.lightbox-next:hover{color:#ccc;}
+.lightbox-prev{left:-60px;}
+.lightbox-next{right:-60px;}
 
-.back-button {
-  text-align: center;
-  margin: 40px 0;
+.back-button{text-align:center;margin:40px 0;}
+.back-button a{
+  display:inline-block;
+  padding:14px 30px;
+  background:#fff;
+  color:#193a65;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:1.1em;
+  box-shadow:0 4px 10px rgba(0,0,0,0.4);
+  transition:background 0.3s ease,color 0.3s ease;
 }
-.back-button a {
-  display: inline-block;
-  padding: 14px 30px;
-  background: #fff;
-  color: #193a65;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1em;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-  transition: background 0.3s ease, color 0.3s ease;
+.back-button a i{margin-right:8px;color:#193a65;}
+.back-button a:hover{background:#0056b3;color:#fff;}
+.back-button a:hover i{color:#fff;}
+
+@media(max-width:768px){
+  .folder{width:45%;}
+  .media-grid img,.media-grid video{width:45%;}
+  .lightbox-prev{left:10px;}
+  .lightbox-next{right:10px;}
 }
-.back-button a i {margin-right: 8px; color: #193a65;}
-.back-button a:hover {background: #0056b3; color: #fff;}
-.back-button a:hover i {color: #fff;}
 </style>
 </head>
 <body>
-
 <header>
-  <div class="header-title">LASERSKO ČIŠČENJE ŽAREX, ŽARKO VUKOTIĆ S.P.</div>
-  <img alt="ŽareX logo" class="logo" src="logo.png"/>
+  <img src="logo.png" alt="ŽareX logo" class="logo"/>
 </header>
 
 <h1>Lasersko čiščenje podvozja</h1>
@@ -146,42 +175,19 @@ footer {text-align:center; padding:15px; background:#193a65; color:white;}
     <div class="folder" data-target="f7"><img src="slikica7.jpg"/><div class="folder-name">Platišča / felte</div></div>
   </div>
 
-  <div class="folder-content" id="f1"><div class="media-grid">
-    <img src="touran1.jpg"/><img src="touran2.jpg"/><img src="touran3.jpg"/><img src="touran4.jpg"/><img src="touran5.jpg"/><img src="touran6.jpg"/>
-  </div><div class="textbox" contenteditable="true"></div></div>
-
-  <div class="folder-content" id="f2"><div class="media-grid">
-    <img src="avalanche1.jpg"/><img src="avalanche2.jpg"/><img src="avalanche3.jpg"/><img src="avalanche4.jpg"/><img src="avalanche5.jpg"/><img src="avalanche6.jpg"/><video controls muted src="avalanche.mp4"></video>
-  </div><div class="textbox" contenteditable="true"></div></div>
-
-  <div class="folder-content" id="f3"><div class="media-grid">
-    <img src="yaris1.jpg"/><img src="yaris2.jpg"/><img src="yaris3.jpg"/><img src="yaris4.jpg"/><img src="yaris5.jpg"/><img src="yaris6.jpg"/><video controls muted src="yaris7.mp4"></video>
-  </div><div class="textbox" contenteditable="true"></div></div>
-
-  <div class="folder-content" id="f4"><div class="media-grid">
-    <img src="superb1.jpg"/><img src="superb2.jpg"/><img src="superb3.jpg"/><img src="superb4.jpg"/><img src="superb5.jpg"/><img src="superb6.jpg"/><video controls muted src="superb7.mp4"></video>
-  </div><div class="textbox" contenteditable="true"></div></div>
-
-  <div class="folder-content" id="f5"><div class="media-grid">
-    <img src="bmw1.jpg"/><img src="bmw2.jpg"/><img src="bmw3.jpg"/><img src="bmw4.jpg"/><img src="bmw5.jpg"/><img src="bmw6.jpg"/><video controls muted src="bmw.mp4"></video>
-  </div><div class="textbox" contenteditable="true"></div></div>
-
-  <div class="folder-content" id="f6"><div class="media-grid">
-    <img src="volvo1.jpg"/><img src="volvo2.jpg"/><img src="volvo3.jpg"/><img src="volvo4.jpg"/><img src="volvo5.jpg"/><img src="volvo6.jpg"/><video controls muted src="volvo7.mp4"></video>
-  </div><div class="textbox" contenteditable="true"></div></div>
-
-  <div class="folder-content" id="f7"><div class="media-grid">
-    <img src="felge1.jpg"/><img src="felge2.jpg"/><img src="felge3.jpg"/><img src="felge4.jpg"/><img src="felge5.jpg"/><img src="felge6.jpg"/><video controls muted src="felge7.mp4"></video>
-  </div><div class="textbox" contenteditable="true"></div></div>
+  <div class="folder-content" id="f1"><div class="media-grid"><img src="touran1.jpg"/><img src="touran2.jpg"/><img src="touran3.jpg"/><img src="touran4.jpg"/><img src="touran5.jpg"/><img src="touran6.jpg"/></div></div>
+  <div class="folder-content" id="f2"><div class="media-grid"><img src="avalanche1.jpg"/><img src="avalanche2.jpg"/><img src="avalanche3.jpg"/><img src="avalanche4.jpg"/><img src="avalanche5.jpg"/><img src="avalanche6.jpg"/><video controls muted src="avalanche.mp4"></video></div></div>
+  <div class="folder-content" id="f3"><div class="media-grid"><img src="yaris1.jpg"/><img src="yaris2.jpg"/><img src="yaris3.jpg"/><img src="yaris4.jpg"/><img src="yaris5.jpg"/><img src="yaris6.jpg"/><video controls muted src="yaris7.mp4"></video></div></div>
+  <div class="folder-content" id="f4"><div class="media-grid"><img src="superb1.jpg"/><img src="superb2.jpg"/><img src="superb3.jpg"/><img src="superb4.jpg"/><img src="superb5.jpg"/><img src="superb6.jpg"/><video controls muted src="superb7.mp4"></video></div></div>
+  <div class="folder-content" id="f5"><div class="media-grid"><img src="bmw1.jpg"/><img src="bmw2.jpg"/><img src="bmw3.jpg"/><img src="bmw4.jpg"/><img src="bmw5.jpg"/><img src="bmw6.jpg"/><video controls muted src="bmw.mp4"></video></div></div>
+  <div class="folder-content" id="f6"><div class="media-grid"><img src="volvo1.jpg"/><img src="volvo2.jpg"/><img src="volvo3.jpg"/><img src="volvo4.jpg"/><img src="volvo5.jpg"/><img src="volvo6.jpg"/><video controls muted src="volvo7.mp4"></video></div></div>
+  <div class="folder-content" id="f7"><div class="media-grid"><img src="felge1.jpg"/><img src="felge2.jpg"/><img src="felge3.jpg"/><img src="felge4.jpg"/><img src="felge5.jpg"/><img src="felge6.jpg"/><video controls muted src="felge7.mp4"></video></div></div>
 </div>
 
-<div class="back-button">
-  <a href="index.html"><i class="fas fa-home"></i> Nazaj na začetno stran</a>
-</div>
+<div class="back-button"><a href="index.html"><i class="fas fa-home"></i> Nazaj na začetno stran</a></div>
 
 <footer><p>© 2025 ŽareX - Vse pravice pridržane</p></footer>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <div class="lightbox-content">
     <span class="lightbox-close" id="lightbox-close">×</span>
@@ -193,81 +199,49 @@ footer {text-align:center; padding:15px; background:#193a65; color:white;}
 </div>
 
 <script>
-  // Prikaz/skrivanje posameznih map
-  const folders = document.querySelectorAll('.folder');
-
-  folders.forEach(folder => {
-    folder.addEventListener('click', () => {
-      const target = folder.getAttribute('data-target');
-      const content = document.getElementById(target);
-
-      if (content.classList.contains('active')) {
+  const folders=document.querySelectorAll('.folder');
+  const allContents=document.querySelectorAll('.folder-content');
+  folders.forEach(folder=>{
+    folder.addEventListener('click',()=>{
+      const target=folder.getAttribute('data-target');
+      const content=document.getElementById(target);
+      if(content.classList.contains('active')){
         content.classList.remove('active');
-      } else {
-        content.classList.add('active');
-        if (window.innerWidth <= 768) {
-          content.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        return;
+      }
+      allContents.forEach(c=>c.classList.remove('active'));
+      content.classList.add('active');
+      if(window.innerWidth<=768){
+        content.scrollIntoView({behavior:'smooth',block:'start'});
       }
     });
   });
 
-  // LIGHTBOX funkcionalnost
   const lightbox=document.getElementById('lightbox');
   const lbImg=document.getElementById('lightbox-img');
   const lbVid=document.getElementById('lightbox-video');
   const lbClose=document.getElementById('lightbox-close');
   const lbPrev=document.getElementById('lightbox-prev');
   const lbNext=document.getElementById('lightbox-next');
-
-  let mediaElements = [];
-  let currentIndex = 0;
-
-  document.querySelectorAll('.media-grid img, .media-grid video').forEach(el => {
-    mediaElements.push(el);
-    el.addEventListener('click', () => showMedia(mediaElements.indexOf(el)));
-  });
+  const mediaElements=Array.from(document.querySelectorAll('.media-grid img, .media-grid video'));
+  let currentIndex=0;
 
   function showMedia(index){
     const el=mediaElements[index];
-    if(!el) return;
+    if(!el)return;
     if(el.tagName==='IMG'){
-      lbVid.style.display='none';
-      lbImg.style.display='block';
-      lbImg.src=el.src;
-    } else {
-      lbImg.style.display='none';
-      lbVid.style.display='block';
-      lbVid.src=el.src;
+      lbVid.style.display='none';lbImg.style.display='block';lbImg.src=el.src;
+    }else{
+      lbImg.style.display='none';lbVid.style.display='block';lbVid.src=el.src;
     }
-    lightbox.classList.add('active');
-    currentIndex=index;
+    lightbox.classList.add('active');currentIndex=index;
   }
 
-  lbClose.addEventListener('click',()=>{
-    lightbox.classList.remove('active');
-    lbVid.pause();
-  });
-
-  lbPrev.addEventListener('click',e=>{
-    e.stopPropagation();
-    currentIndex=(currentIndex-1+mediaElements.length)%mediaElements.length;
-    showMedia(currentIndex);
-  });
-
-  lbNext.addEventListener('click',e=>{
-    e.stopPropagation();
-    currentIndex=(currentIndex+1)%mediaElements.length;
-    showMedia(currentIndex);
-  });
-
-  lightbox.addEventListener('click',e=>{
-    if(e.target===lightbox){
-      lightbox.classList.remove('active');
-      lbVid.pause();
-    }
-  });
+  mediaElements.forEach((el,i)=>{el.addEventListener('click',()=>showMedia(i));});
+  lbClose.addEventListener('click',()=>{lightbox.classList.remove('active');lbVid.pause();});
+  lbPrev.addEventListener('click',e=>{e.stopPropagation();currentIndex=(currentIndex-1+mediaElements.length)%mediaElements.length;showMedia(currentIndex);});
+  lbNext.addEventListener('click',e=>{e.stopPropagation();currentIndex=(currentIndex+1)%mediaElements.length;showMedia(currentIndex);});
+  lightbox.addEventListener('click',e=>{if(e.target===lightbox){lightbox.classList.remove('active');lbVid.pause();}});
 </script>
-
 </body>
 </html>
