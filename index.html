@@ -131,7 +131,7 @@ footer{text-align:center;padding:15px;background:#193a65;color:white;}
 
 <footer><p>© 2025 ŽareX - Vse pravice pridržane</p></footer>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0BtKOrB-zqYAumWwcsEoa2LdhOku5TlE&libraries=places&v=weekly"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=APIKLJUCOVDE&libraries=places&v=weekly"></script>
 <script>
 function escapeHtml(s){return s?s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\"/g,"&quot;").replace(/'/g,"&#039;"):"";}
 function renderReviews(reviews){const c=document.getElementById("review-list");c.innerHTML="";if(!reviews||reviews.length===0){c.innerHTML="<p>Ni javno dostopnih mnenj.</p>";return;}reviews.slice(0,5).forEach((r,i)=>{const card=document.createElement("div");card.className="review-card"+(i===0?" active":"");card.innerHTML=`<strong>${escapeHtml(r.author_name||"Anonimno")}</strong><span class='rating'>★ ${r.rating||""}</span><p>${escapeHtml(r.text||"")}</p><small>${new Date(r.time*1000).toLocaleDateString()}</small>`;c.appendChild(card);});initSlider();}
@@ -143,3 +143,4 @@ window.addEventListener("scroll",()=>{const c=document.getElementById("coverage"
 </script>
 </body>
 </html>
+
