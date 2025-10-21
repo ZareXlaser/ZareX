@@ -23,18 +23,21 @@ header{display:flex;justify-content:center;align-items:center;padding:15px 30px;
 .service-item:hover img{transform:scale(1.08);}
 .service-item p{margin-top:15px;font-size:1.2em;color:white;font-weight:bold;}
 .reviews{background:#193a65;color:white;padding:80px 20px;text-align:center;}
-#review-list{max-width:700px;margin:0 auto;min-height:160px;}
-.review-card{display:none;opacity:0;transition:opacity 0.8s ease-in-out;padding:20px;background:rgba(255,255,255,0.1);border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.3);}
-.review-card.active{display:block;opacity:1;}
+.reviews h2{font-size:2.5em;margin-bottom:30px;}
+.review-slider{position:relative;max-width:700px;margin:0 auto;}
+.review-slide{display:none;}
+.review-slide img{width:100%;border-radius:15px;box-shadow:0 6px 12px rgba(0,0,0,0.4);}
 .slider-buttons{margin-top:20px;display:flex;justify-content:center;gap:20px;}
 .slider-buttons button{background:white;color:#193a65;border:none;padding:10px 18px;border-radius:50%;font-size:1.3em;cursor:pointer;transition:background 0.3s;}
 .slider-buttons button:hover{background:#ccc;}
-.rating{color:#facc15;margin-left:5px;}
-.cenik-section {background:#193a65;color:white;text-align:center;padding:60px 20px;}
-.cenik-section h2 {font-size:2em;margin-bottom:10px;}
-.cenik-section p {margin-bottom:20px;font-size:1.1em;}
-.cenik-btn {background:white;color:#193a65;border:none;padding:12px 30px;border-radius:8px;font-size:1.1em;cursor:pointer;transition:background 0.3s;}
-.cenik-btn:hover {background:#ccc;}
+
+.cenik-section{background:#193a65;color:white;padding:80px 20px;text-align:center;}
+.cenik-section h2{font-size:2.5em;margin-bottom:20px;}
+.cenik-btn{background:white;color:#193a65;border:none;padding:14px 35px;border-radius:10px;font-size:1.1em;cursor:pointer;transition:all 0.3s ease;}
+.cenik-btn:hover{background:#ccc;}
+.cenik-container{display:flex;justify-content:center;align-items:center;background:rgba(0,0,0,0.6);border-radius:15px;padding:40px;max-width:1200px;margin:0 auto;min-height:400px;}
+.cenik-content{text-align:center;}
+
 .contact{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:white;overflow:hidden;gap:20px;padding:40px 0;}
 .contact-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
 .contact-container{position:relative;z-index:1;display:flex;flex-direction:row;justify-content:center;align-items:stretch;gap:40px;max-width:1200px;width:100%;padding:30px;}
@@ -50,97 +53,132 @@ header{display:flex;justify-content:center;align-items:center;padding:15px 30px;
 .coverage-inner img{width:100%;max-width:450px;height:auto;border-radius:10px;box-shadow:0 6px 12px rgba(0,0,0,0.4);margin-bottom:20px;}
 .coverage-text h3{margin-bottom:10px;font-size:1.8em;}
 .coverage-text p{font-size:1.1em;max-width:700px;margin:0 auto;}
-.onas-btn {margin-top:15px;background:white;color:#193a65;border:2px solid white;padding:14px 35px;font-size:1.1em;border-radius:10px;font-weight:bold;cursor:pointer;transition:all 0.3s ease;}
-.onas-btn:hover {background:#193a65;color:white;}
+.onas-btn{margin-top:15px;background:white;color:#193a65;border:2px solid white;padding:14px 35px;font-size:1.1em;border-radius:10px;font-weight:bold;cursor:pointer;transition:all 0.3s ease;}
+.onas-btn:hover{background:#193a65;color:white;}
 footer{text-align:center;padding:15px;background:#193a65;color:white;}
-@media (max-width:1000px){.contact-container{flex-direction:column;}.coverage-inner{padding:20px;min-height:350px;}}
+@media(max-width:1000px){.contact-container{flex-direction:column;}.coverage-inner{padding:20px;min-height:350px;}}
 </style>
 </head>
 <body>
 <header>
-<img src="logo.png" alt="ŽareX logo" class="logo">
+  <img src="logo.png" alt="ŽareX logo" class="logo">
 </header>
+
 <section class="hero" id="hero">
-<video autoplay loop muted playsinline class="hero-video"><source src="video.mp4" type="video/mp4"></video>
-<div class="hero-content">
-<h1>Čistota prihodnosti z ŽAREX</h1>
-<h3>Strokovnost, izkušnje in odgovornost pri vsakem projektu</h3>
-<p>S sodobnimi tehnologijami poskrbimo za varno in učinkovito odstranjevanje rje, nečistoč in prevlek brez kemikalij ter brez poškodb površin.</p>
-</div>
+  <video autoplay loop muted playsinline class="hero-video"><source src="video.mp4" type="video/mp4"></video>
+  <div class="hero-content">
+    <h1>Čistota prihodnosti z ŽAREX</h1>
+    <h3>Strokovnost, izkušnje in odgovornost pri vsakem projektu</h3>
+    <p>S sodobnimi tehnologijami poskrbimo za varno in učinkovito odstranjevanje rje, nečistoč in prevlek brez kemikalij ter brez poškodb površin.</p>
+  </div>
 </section>
 
 <section class="services" id="storitev">
-<h2>STORITVE</h2>
-<div class="service-grid">
-<a class="service-item" href="kovine.html"><img src="storitev1.jpg" alt="Čiščenje ostalih materijalov"><p>Čiščenje ostalih materijalov</p></a>
-<a class="service-item" href="galerija.html"><img src="storitev2.jpg" alt="Galerija"><p>Čiščenje podvozja</p></a>
-<a class="service-item" href="projekti.html"><img src="storitev3.jpg" alt="Večji projekti"><p>Večji projekti</p></a>
-</div>
+  <h2>STORITVE</h2>
+  <div class="service-grid">
+    <a class="service-item" href="kovine.html"><img src="storitev1.jpg" alt="Čiščenje ostalih materijalov"><p>Čiščenje ostalih materijalov</p></a>
+    <a class="service-item" href="galerija.html"><img src="storitev2.jpg" alt="Galerija"><p>Čiščenje podvozja</p></a>
+    <a class="service-item" href="projekti.html"><img src="storitev3.jpg" alt="Večji projekti"><p>Večji projekti</p></a>
+  </div>
 </section>
 
 <section class="reviews" id="reviews">
-<h2>Google mnenja</h2>
-<div class="review-slider" id="review-slider">
-<div id="review-list">Nalaganje mnenj...</div>
-</div>
-<div class="slider-buttons">
-<button class="prev">❮</button>
-<button class="next">❯</button>
-</div>
+  <h2>Google mnenja</h2>
+  <div class="review-slider">
+    <div class="review-slide"><img src="mnenje1.png" alt="Mnenje 1"></div>
+    <div class="review-slide"><img src="mnenje2.png" alt="Mnenje 2"></div>
+    <div class="review-slide"><img src="mnenje3.png" alt="Mnenje 3"></div>
+    <div class="review-slide"><img src="mnenje4.png" alt="Mnenje 4"></div>
+    <div class="review-slide"><img src="mnenje5.png" alt="Mnenje 5"></div>
+    <div class="review-slide"><img src="mnenje6.png" alt="Mnenje 6"></div>
+    <div class="review-slide"><img src="mnenje7.png" alt="Mnenje 7"></div>
+    <div class="review-slide"><img src="mnenje8.png" alt="Mnenje 8"></div>
+    <div class="review-slide"><img src="mnenje9.png" alt="Mnenje 9"></div>
+    <div class="review-slide"><img src="mnenje10.png" alt="Mnenje 10"></div>
+    <div class="review-slide"><img src="mnenje11.png" alt="Mnenje 11"></div>
+  </div>
+  <div class="slider-buttons">
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
+  </div>
 </section>
 
-<!-- Novo polje za cenik -->
 <section class="cenik-section" id="cenik">
-  <h2>Naš Cenik</h2>
-  <p>Oglejte si podrobnosti o naših storitvah in cenah.</p>
-  <button onclick="window.location.href='cenik.html'" class="cenik-btn">Odpri cenik</button>
+  <div class="cenik-container">
+    <div class="cenik-content">
+      <h2>CENIK</h2>
+      <p>Oglejte si podrobnosti o naših storitvah in cenah.</p>
+      <button onclick="window.location.href='cenik.html'" class="cenik-btn">Odpri cenik</button>
+    </div>
+  </div>
 </section>
 
 <section class="contact" id="kontakt">
-<video autoplay loop muted playsinline class="contact-video"><source src="contact.mp4" type="video/mp4"></video>
-<div class="contact-container">
-<div class="contact-content">
-<h2>KONTAKT</h2>
-<p>Frankovo naselje 43<br>4220 Škofja Loka</p>
-<a href="mailto:zarexlaser@gmail.com">✉ zarexlaser@gmail.com</a>
-<a href="tel:+38670808884">☎ +386 70 808 884</a>
-<div class="social-icons">
-<a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
-<a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
-<a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
-<a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
-</div>
-</div>
-<div class="company-info">
-<h2>O PODJETJU</h2>
-<p>ŽAREX, Žarko Vukotić s.p.<br>Kotnikova ulica 5, Ljubljana<br>Matična številka: 7333269000<br>Davčna številka: 23306068</p>
-<button onclick="window.location.href='onama.html'" class="onas-btn">O nas</button>
-</div>
-</div>
+  <video autoplay loop muted playsinline class="contact-video"><source src="contact.mp4" type="video/mp4"></video>
+  <div class="contact-container">
+    <div class="contact-content">
+      <h2>KONTAKT</h2>
+      <p>Frankovo naselje 43<br>4220 Škofja Loka</p>
+      <a href="mailto:zarexlaser@gmail.com">✉ zarexlaser@gmail.com</a>
+      <a href="tel:+38670808884">☎ +386 70 808 884</a>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="company-info">
+      <h2>O PODJETJU</h2>
+      <p>ŽAREX, Žarko Vukotić s.p.<br>Kotnikova ulica 5, Ljubljana<br>Matična številka: 7333269000<br>Davčna številka: 23306068</p>
+      <button onclick="window.location.href='onama.html'" class="onas-btn">O nas</button>
+    </div>
+  </div>
 
-<div class="coverage" id="coverage">
-<div class="coverage-inner">
-<img src="slovenia-map.png" alt="Zemljevid Slovenije">
-<div class="coverage-text">
-<h3>Delujemo po celi Sloveniji</h3>
-<p>Kjerkoli nas potrebujete — iz Škofje Loke do največjih mest in industrijskih centrov. Hitro in zanesljivo pridemo na lokacijo ter izvedemo delo strokovno in varno.</p>
-</div>
-</div>
-</div>
+  <div class="coverage" id="coverage">
+    <div class="coverage-inner">
+      <img src="slovenia-map.png" alt="Zemljevid Slovenije">
+      <div class="coverage-text">
+        <h3>Delujemo po celi Sloveniji</h3>
+        <p>Kjerkoli nas potrebujete — iz Škofje Loke do največjih mest in industrijskih centrov. Hitro in zanesljivo pridemo na lokacijo ter izvedemo delo strokovno in varno.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer><p>© 2025 ŽareX - Vse pravice pridržane</p></footer>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=APIKLJUCOVDE&libraries=places&v=weekly"></script>
 <script>
-function escapeHtml(s){return s?s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\"/g,"&quot;").replace(/'/g,"&#039;"):"";}
-function renderReviews(reviews){const c=document.getElementById("review-list");c.innerHTML="";if(!reviews||reviews.length===0){c.innerHTML="<p>Ni javno dostopnih mnenj.</p>";return;}reviews.slice(0,5).forEach((r,i)=>{const card=document.createElement("div");card.className="review-card"+(i===0?" active":"");card.innerHTML=`<strong>${escapeHtml(r.author_name||"Anonimno")}</strong><span class='rating'>★ ${r.rating||""}</span><p>${escapeHtml(r.text||"")}</p><small>${new Date(r.time*1000).toLocaleDateString()}</small>`;c.appendChild(card);});initSlider();}
-function showError(m){document.getElementById("review-list").innerHTML='<p style="color:red;">Napaka pri nalaganju mnenj: '+escapeHtml(m)+"</p>";}
-window.initReviews=function(){try{const p="ChIJzQxqen3JekcR2FiFb6QlxQg";const s=new google.maps.places.PlacesService(document.createElement("div"));s.getDetails({placeId:p,fields:["name","rating","reviews","user_ratings_total"]},(place,status)=>{if(status!==google.maps.places.PlacesServiceStatus.OK){showError(status);return;}const reviews=(place.reviews||[]).map(r=>{let t="";try{t=r.original_text&&r.original_text.text?r.original_text.text:r.text||"";}catch(e){t=r.text||"";}return{author_name:r.author_name,rating:r.rating,text:t,time:r.time};});renderReviews(reviews);});}catch(e){showError(e.message||"Napaka");}};
-function waitForGoogle(){if(window.google&&google.maps&&google.maps.places){window.initReviews();}else{setTimeout(waitForGoogle,300);}}waitForGoogle();
-function initSlider(){const r=document.querySelectorAll(".review-card"),n=document.querySelector(".next"),p=document.querySelector(".prev");if(!r.length||!n||!p)return;let i=0,t;function showReview(e){r.forEach((a,s)=>a.classList.toggle("active",s===e));}function next(){i=(i+1)%r.length;showReview(i);}function prev(){i=(i-1+r.length)%r.length;showReview(i);}function start(){t=setInterval(next,4000);}function stop(){clearInterval(t);}n.addEventListener("click",()=>{stop();next();start();});p.addEventListener("click",()=>{stop();prev();start();});start();}
-window.addEventListener("scroll",()=>{const c=document.getElementById("coverage");if(!c)return;const r=c.getBoundingClientRect();if(r.top<window.innerHeight-100){c.classList.add("visible");}});
+let slideIndex = 0;
+const slides = document.querySelectorAll('.review-slide');
+const nextBtn = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
+
+function showSlide(index){
+  slides.forEach((slide,i)=>{
+    slide.style.display = (i === index) ? 'block' : 'none';
+  });
+}
+function nextSlide(){
+  slideIndex = (slideIndex + 1) % slides.length;
+  showSlide(slideIndex);
+}
+function prevSlide(){
+  slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+  showSlide(slideIndex);
+}
+nextBtn.addEventListener('click',()=>{nextSlide();resetAutoSlide();});
+prevBtn.addEventListener('click',()=>{prevSlide();resetAutoSlide();});
+let autoSlide = setInterval(nextSlide,4000);
+function resetAutoSlide(){clearInterval(autoSlide);autoSlide=setInterval(nextSlide,4000);}
+showSlide(slideIndex);
+
+window.addEventListener('scroll',()=>{
+  const c=document.getElementById('coverage');
+  if(!c)return;
+  const r=c.getBoundingClientRect();
+  if(r.top<window.innerHeight-100){c.classList.add('visible');}
+});
 </script>
 </body>
 </html>
-
