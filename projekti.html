@@ -14,16 +14,37 @@
 
   h1 {text-align:center; background:#193a65; color:white; padding:25px 0; font-size:2em; margin-bottom:30px;}
 
-  .section {padding:20px; text-align:center;}
+  .section {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-  .folder-grid {display:flex; flex-wrap:wrap; justify-content:center; gap:25px;}
-  .folder {width:200px; background:#244c88; border-radius:12px; padding:10px; cursor:pointer; transition:transform 0.3s ease, background 0.3s ease;}
-  .folder:hover {transform:scale(1.05); background:#305da5;}
-  .folder img {width:100%; border-radius:8px; height:130px; object-fit:cover;}
-  .folder-name {margin-top:8px; font-weight:bold; color:white; font-size:1em;}
+  .folder {
+    width: 220px;
+    background: #244c88;
+    border-radius: 12px;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .folder:hover {transform: scale(1.05); background: #305da5;}
+  .folder img {width: 100%; border-radius: 8px; height: 140px; object-fit: cover;}
+  .folder-name {margin-top: 10px; font-weight: bold; color: white; font-size: 1em;}
 
-  .folder-content {display:none; margin-top:30px;}
-  .folder-content.active {display:block;}
+  .folder-content {
+    display: none;
+    margin-top: 25px;
+    width: 100%;
+    max-width: 1000px;
+  }
+  .folder-content.active {display: block;}
 
   .media-grid {display:flex; flex-wrap:wrap; justify-content:center; gap:15px;}
   .media-grid img, .media-grid video {width:220px; border-radius:10px; cursor:pointer; transition:transform 0.3s ease; border:2px solid white;}
@@ -44,7 +65,8 @@
   .lightbox-next {right:-60px;}
 
   @media (max-width:768px) {
-    .media-grid img, .media-grid video {width:45%;}
+    .folder {width: 80%; max-width: 300px;}
+    .media-grid img, .media-grid video {width: 100%; max-width: 100%;}
     .lightbox-prev {left:10px;}
     .lightbox-next {right:10px;}
     .lightbox-close {top:10px; right:10px;}
@@ -94,14 +116,24 @@
 <footer><p>© 2025 ŽareX - Vse pravice pridržane</p></footer>
 
 <script>
-  const folders=document.querySelectorAll('.folder');
-  const contents=document.querySelectorAll('.folder-content');
-  folders.forEach(folder=>{
-    folder.addEventListener('click',()=>{
-      const target=folder.getAttribute('data-target');
-      contents.forEach(c=>c.classList.remove('active'));
-      document.getElementById(target).classList.add('active');
-      window.scrollTo({top:folder.offsetTop+80,behavior:'smooth'});
+  const folders = document.querySelectorAll('.folder');
+  const contents = document.querySelectorAll('.folder-content');
+
+  folders.forEach(folder => {
+    folder.addEventListener('click', () => {
+      const target = folder.getAttribute('data-target');
+      const content = document.getElementById(target);
+
+      // Ako je već otvoren — zatvori
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        return;
+      }
+
+      // Inače zatvori sve ostale i otvori ovaj
+      contents.forEach(c => c.classList.remove('active'));
+      content.classList.add('active');
+      folder.scrollIntoView({behavior: 'smooth', block: 'center'});
     });
   });
 
