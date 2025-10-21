@@ -6,49 +6,57 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <style>
-  * {margin:0; padding:0; box-sizing:border-box;}
-  body {font-family: Arial, sans-serif; background:#0f2748; color:white; overflow-x:hidden;}
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family: Arial, sans-serif; background:#0f2748; color:white; overflow-x:hidden;}
 
-  header {display:flex; justify-content:center; align-items:center; padding:15px 30px; background:#193a65; box-shadow:0 2px 6px rgba(0,0,0,0.3); position:sticky; top:0; z-index:1000;}
-  .logo {height:100px; filter:drop-shadow(0 0 8px rgba(255,255,255,0.6));}
+header {display:flex; justify-content:center; align-items:center; padding:15px 30px; background:#193a65; box-shadow:0 2px 6px rgba(0,0,0,0.3); position:sticky; top:0; z-index:1000;}
+.logo {height:100px; filter:drop-shadow(0 0 8px rgba(255,255,255,0.6));}
 
-  h1 {text-align:center; background:#193a65; color:white; padding:25px 0; font-size:2em; margin-bottom:30px;}
+h1 {text-align:center; background:#193a65; color:white; padding:25px 0; font-size:2em; margin-bottom:30px;}
 
-  .section {padding:20px; text-align:center;}
+.section {padding:20px; text-align:center;}
 
-  .folder-grid {display:flex; flex-wrap:wrap; justify-content:center; gap:25px;}
-  .folder {width:200px; background:#244c88; border-radius:12px; padding:10px; cursor:pointer; transition:transform 0.3s ease, background 0.3s ease;}
-  .folder:hover {transform:scale(1.05); background:#305da5;}
-  .folder img {width:100%; border-radius:8px; height:130px; object-fit:cover;}
-  .folder-name {margin-top:8px; font-weight:bold; color:white; font-size:1em;}
+/* FOLDERI RAZPOREDENI KOT GALERIJA */
+.folder-grid {display:flex; flex-wrap:wrap; justify-content:center; gap:25px; margin-bottom:30px;}
+.folder {
+  width:200px; background:#244c88; border-radius:12px; padding:10px;
+  cursor:pointer; transition:transform 0.3s ease, background 0.3s ease;
+}
+.folder:hover {transform:scale(1.05); background:#305da5;}
+.folder img {width:100%; border-radius:8px; height:130px; object-fit:cover;}
+.folder-name {margin-top:8px; font-weight:bold; color:white; font-size:1em;}
 
-  .folder-content {display:none; margin-top:30px;}
-  .folder-content.active {display:block;}
+/* VSEBINA MAPE */
+.folder-content {display:none; margin-top:30px; text-align:center;}
+.folder-content.active {display:block;}
 
-  .media-grid {display:flex; flex-wrap:wrap; justify-content:center; gap:15px;}
-  .media-grid img, .media-grid video {width:220px; border-radius:10px; cursor:pointer; transition:transform 0.3s ease; border:2px solid white;}
-  .media-grid img:hover, .media-grid video:hover {transform:scale(1.05);}
+.media-grid {display:flex; flex-wrap:wrap; justify-content:center; gap:15px;}
+.media-grid img, .media-grid video {
+  width:220px; border-radius:10px; cursor:pointer; transition:transform 0.3s ease; border:2px solid white;
+}
+.media-grid img:hover, .media-grid video:hover {transform:scale(1.05);}
 
-  footer {text-align:center; padding:15px; background:#193a65; color:white; margin-top:60px;}
+footer {text-align:center; padding:15px; background:#193a65; color:white; margin-top:60px;}
 
-  /* Lightbox */
-  .lightbox {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:5000; opacity:0; transition:opacity 0.4s ease;}
-  .lightbox.active {display:flex; opacity:1;}
-  .lightbox-content {position:relative; max-width:90%; max-height:90%;}
-  .lightbox-content img, .lightbox-content video {max-width:100%; max-height:90vh; border-radius:10px; box-shadow:0 0 20px rgba(255,255,255,0.3); transition:transform 0.4s ease;}
+/* Lightbox */
+.lightbox {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:5000;}
+.lightbox.active {display:flex;}
+.lightbox-content {position:relative; max-width:90%; max-height:90%;}
+.lightbox-content img, .lightbox-content video {max-width:100%; max-height:90vh; border-radius:10px; box-shadow:0 0 20px rgba(255,255,255,0.3);}
 
-  .lightbox-close {position:absolute; top:-40px; right:0; color:white; font-size:2em; cursor:pointer; background:rgba(0,0,0,0.6); border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center;}
-  .lightbox-prev, .lightbox-next {position:absolute; top:50%; transform:translateY(-50%); font-size:3em; color:white; cursor:pointer; padding:10px; background:rgba(0,0,0,0.4); border-radius:50%; transition:background 0.3s;}
-  .lightbox-prev:hover, .lightbox-next:hover {background:rgba(0,0,0,0.7);}
-  .lightbox-prev {left:-60px;}
-  .lightbox-next {right:-60px;}
+.lightbox-close {position:absolute; top:-40px; right:0; color:white; font-size:2em; cursor:pointer; background:rgba(0,0,0,0.6); border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center;}
+.lightbox-prev, .lightbox-next {position:absolute; top:50%; transform:translateY(-50%); font-size:3em; color:white; cursor:pointer; padding:10px; background:rgba(0,0,0,0.4); border-radius:50%; transition:background 0.3s;}
+.lightbox-prev:hover, .lightbox-next:hover {background:rgba(0,0,0,0.7);}
+.lightbox-prev {left:-60px;}
+.lightbox-next {right:-60px;}
 
-  @media (max-width:768px) {
-    .media-grid img, .media-grid video {width:45%;}
-    .lightbox-prev {left:10px;}
-    .lightbox-next {right:10px;}
-    .lightbox-close {top:10px; right:10px;}
-  }
+@media (max-width:768px) {
+  .media-grid img, .media-grid video {width:45%;}
+  .folder {width:45%;}
+  .lightbox-prev {left:10px;}
+  .lightbox-next {right:10px;}
+  .lightbox-close {top:10px; right:10px;}
+}
 </style>
 </head>
 <body>
@@ -59,9 +67,17 @@
 <h1>Lasersko čiščenje drugih materialov</h1>
 
 <div class="section">
-  <div class="folder" data-target="stone1">
-    <img src="graniti.jpg" alt="Graniti" />
-    <div class="folder-name">Čiščenje granita in mramorja</div>
+
+  <div class="folder-grid">
+    <div class="folder" data-target="stone1">
+      <img src="graniti.jpg" alt="Graniti" />
+      <div class="folder-name">Čiščenje granita in mramorja</div>
+    </div>
+
+    <div class="folder" data-target="stone2">
+      <img src="beton.jpg" alt="Beton" />
+      <div class="folder-name">Brušenje betona, priprava za epoxy premaze</div>
+    </div>
   </div>
 
   <div class="folder-content" id="stone1">
@@ -72,16 +88,12 @@
     </div>
   </div>
 
-  <div class="folder" data-target="stone2">
-    <img src="beton.jpg" alt="Beton" />
-    <div class="folder-name">Brušenje betona, priprava za epoxy premaze</div>
-  </div>
-
   <div class="folder-content" id="stone2">
     <div class="media-grid">
       <video controls muted src="beton1.mp4"></video>
     </div>
   </div>
+
 </div>
 
 <div class="lightbox" id="lightbox">
@@ -101,17 +113,35 @@
 <footer><p>© 2025 ŽareX - Vse pravice pridržane</p></footer>
 
 <script>
-  const folders=document.querySelectorAll('.folder');
-  const contents=document.querySelectorAll('.folder-content');
-  folders.forEach(folder=>{
-    folder.addEventListener('click',()=>{
-      const target=folder.getAttribute('data-target');
-      contents.forEach(c=>c.classList.remove('active'));
-      document.getElementById(target).classList.add('active');
-      window.scrollTo({top:folder.offsetTop+80,behavior:'smooth'});
+  // Samo ena mapa odprta naenkrat
+  const folders = document.querySelectorAll('.folder');
+  const allContents = document.querySelectorAll('.folder-content');
+
+  folders.forEach(folder => {
+    folder.addEventListener('click', () => {
+      const target = folder.getAttribute('data-target');
+      const content = document.getElementById(target);
+
+      // Če je ta že odprta – zapri
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        return;
+      }
+
+      // Zapri vse mape
+      allContents.forEach(c => c.classList.remove('active'));
+
+      // Odpri izbrano mapo
+      content.classList.add('active');
+
+      // Na mobilnih – pomakni pogled
+      if (window.innerWidth <= 768) {
+        content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
   });
 
+  // LIGHTBOX
   const lightbox=document.getElementById('lightbox');
   const lbImg=document.getElementById('lightbox-img');
   const lbVid=document.getElementById('lightbox-video');
@@ -119,8 +149,13 @@
   const lbPrev=document.getElementById('lightbox-prev');
   const lbNext=document.getElementById('lightbox-next');
 
-  const mediaElements=Array.from(document.querySelectorAll('.media-grid img, .media-grid video'));
-  let currentIndex=0;
+  let mediaElements = [];
+  let currentIndex = 0;
+
+  document.querySelectorAll('.media-grid img, .media-grid video').forEach(el => {
+    mediaElements.push(el);
+    el.addEventListener('click', () => showMedia(mediaElements.indexOf(el)));
+  });
 
   function showMedia(index){
     const el=mediaElements[index];
@@ -137,10 +172,6 @@
     lightbox.classList.add('active');
     currentIndex=index;
   }
-
-  mediaElements.forEach((el,i)=>{
-    el.addEventListener('click',()=>showMedia(i));
-  });
 
   lbClose.addEventListener('click',()=>{
     lightbox.classList.remove('active');
@@ -164,15 +195,6 @@
       lightbox.classList.remove('active');
       lbVid.pause();
     }
-  });
-
-  // Swipe support for mobile
-  let startX=0;
-  lightbox.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;});
-  lightbox.addEventListener('touchend',e=>{
-    const endX=e.changedTouches[0].clientX;
-    if(startX-endX>50){lbNext.click();}
-    else if(endX-startX>50){lbPrev.click();}
   });
 </script>
 </body>
