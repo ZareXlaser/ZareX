@@ -38,26 +38,65 @@ header{display:flex;justify-content:center;align-items:center;padding:15px 30px;
 .cenik-container{display:flex;justify-content:center;align-items:center;background:rgba(0,0,0,0.6);border-radius:15px;padding:40px;max-width:1200px;margin:0 auto;min-height:400px;}
 .cenik-content{text-align:center;}
 
+/* --- KONTAKT SEKCIJA --- */
 .contact{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:white;overflow:hidden;gap:20px;padding:40px 0;}
 .contact-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
 .contact-container{position:relative;z-index:1;display:flex;flex-direction:row;justify-content:center;align-items:stretch;gap:40px;max-width:1200px;width:100%;padding:30px;}
 .contact-content,.company-info{flex:1;background:rgba(0,0,0,0.6);padding:30px;border-radius:15px;text-align:center;min-height:400px;}
+
+/* --- VEČJA PISAVA KONTAKT & PODJETJE --- */
+.contact-content h2,
+.company-info h2{font-size:2.8em;}
+.contact-content p,
+.contact-content a,
+.company-info p{font-size:1.3em;}
 .contact-content a{display:block;margin:8px 0;color:white;text-decoration:none;font-weight:bold;}
 .contact-content a:hover{text-decoration:underline;}
+
+/* --- VEČJE IKONE DRUŽBENIH OMREŽIJ --- */
 .social-icons{margin-top:15px;display:flex;justify-content:center;gap:20px;}
-.social-icons a{font-size:1.8em;color:white;transition:transform 0.3s ease,color 0.3s ease;}
+.social-icons a{font-size:2.3em;color:white;transition:transform 0.3s ease,color 0.3s ease;}
 .social-icons a:hover{color:#ccc;transform:scale(1.2);}
+
+/* --- GUMB "O NAS" --- */
+.onas-btn{margin-top:15px;background:white;color:#193a65;border:2px solid white;padding:16px 40px;font-size:1.4em;border-radius:10px;font-weight:bold;cursor:pointer;transition:all 0.3s ease;}
+.onas-btn:hover{background:#193a65;color:white;}
+
+/* --- KARTA SLOVENIJE --- */
 .coverage{position:relative;z-index:1;width:100%;display:flex;justify-content:center;align-items:center;margin-top:-20px;opacity:0;transform:translateY(30px);transition:all 0.8s ease;}
 .coverage.visible{opacity:1;transform:translateY(0);}
 .coverage-inner{background:rgba(0,0,0,0.6);border-radius:15px;max-width:1200px;width:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;color:white;text-align:center;padding:40px;min-height:400px;}
 .coverage-inner img{width:100%;max-width:450px;height:auto;border-radius:10px;box-shadow:0 6px 12px rgba(0,0,0,0.4);margin-bottom:20px;}
 .coverage-text h3{margin-bottom:10px;font-size:1.8em;}
 .coverage-text p{font-size:1.1em;max-width:700px;margin:0 auto;}
-.onas-btn{margin-top:15px;background:white;color:#193a65;border:2px solid white;padding:14px 35px;font-size:1.1em;border-radius:10px;font-weight:bold;cursor:pointer;transition:all 0.3s ease;}
-.onas-btn:hover{background:#193a65;color:white;}
+
 footer{text-align:center;padding:15px;background:#193a65;color:white;}
-@media(max-width:1000px){.contact-container{flex-direction:column;}.coverage-inner{padding:20px;min-height:350px;}}
+
+/* --- ODZIVNOST ZA MOBILNE NAPRAVE --- */
+@media(max-width:1000px){
+  .contact-container{flex-direction:column;gap:20px;}
+  .contact-content,.company-info{min-height:auto;}
+  .contact-content h2,
+  .company-info h2{font-size:2em;}
+  .contact-content p,
+  .contact-content a,
+  .company-info p{font-size:1.1em;}
+  .social-icons a{font-size:2em;}
+  .onas-btn{font-size:1.2em;padding:14px 30px;}
+  .coverage-inner{padding:20px;min-height:350px;}
+}
+
+@media(max-width:600px){
+  .contact-content h2,
+  .company-info h2{font-size:1.8em;}
+  .contact-content p,
+  .contact-content a,
+  .company-info p{font-size:1em;}
+  .social-icons a{font-size:1.8em;}
+  .onas-btn{font-size:1.1em;padding:12px 26px;}
+}
 </style>
+
 </head>
 <body>
 <header>
@@ -76,9 +115,19 @@ footer{text-align:center;padding:15px;background:#193a65;color:white;}
 <section class="services" id="storitev">
   <h2>STORITVE</h2>
   <div class="service-grid">
-    <a class="service-item" href="kovine.html"><img src="storitev1.jpg" alt="Čiščenje ostalih materijalov"><p>Čiščenje ostalih materijalov</p></a>
     <a class="service-item" href="galerija.html"><img src="storitev2.jpg" alt="Galerija"><p>Čiščenje podvozja</p></a>
+    <a class="service-item" href="kovine.html"><img src="storitev1.jpg" alt="Čiščenje ostalih materijalov"><p>Čiščenje ostalih materijalov</p></a>
     <a class="service-item" href="projekti.html"><img src="storitev3.jpg" alt="Večji projekti"><p>Večji projekti</p></a>
+  </div>
+</section>
+
+<section class="cenik-section" id="cenik">
+  <div class="cenik-container">
+    <div class="cenik-content">
+      <h2>CENIK</h2>
+      <p>Oglejte si podrobnosti o naših storitvah in cenah.</p>
+      <button onclick="window.location.href='cenik.html'" class="cenik-btn">Odpri cenik</button>
+    </div>
   </div>
 </section>
 
@@ -103,15 +152,6 @@ footer{text-align:center;padding:15px;background:#193a65;color:white;}
   </div>
 </section>
 
-<section class="cenik-section" id="cenik">
-  <div class="cenik-container">
-    <div class="cenik-content">
-      <h2>CENIK</h2>
-      <p>Oglejte si podrobnosti o naših storitvah in cenah.</p>
-      <button onclick="window.location.href='cenik.html'" class="cenik-btn">Odpri cenik</button>
-    </div>
-  </div>
-</section>
 
 <section class="contact" id="kontakt">
   <video autoplay loop muted playsinline class="contact-video"><source src="contact.mp4" type="video/mp4"></video>
