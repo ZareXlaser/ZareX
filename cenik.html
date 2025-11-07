@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-
 <html lang="sl">
 <head>
 <meta charset="utf-8"/>
-<title>Cenik - ŽareX Lasersko Čiščenje</title>
+<title>Akcijske cene - ŽareX Lasersko Čiščenje</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
 <style>
@@ -14,7 +13,35 @@
   .logo {height:120px; filter:drop-shadow(0 0 10px rgba(255,255,255,0.7)); transition:transform 0.3s ease;}
   .logo:hover {transform:scale(1.05);}
 
-  h1 {text-align:center; color:white; margin:40px 0 20px; font-size:2.5em;}
+  h1 {
+    text-align:center;
+    color:white;
+    margin:40px 0 20px;
+    font-size:2.5em;
+    font-weight:bold;
+    text-shadow: 0 0 10px rgba(0,200,255,0.6),
+                 0 0 20px rgba(0,200,255,0.8),
+                 0 0 30px rgba(0,200,255,1),
+                 0 0 40px rgba(255,255,255,0.9);
+    animation: pulse 2s infinite ease-in-out;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      text-shadow: 0 0 10px rgba(0,200,255,0.6),
+                   0 0 20px rgba(0,200,255,0.8),
+                   0 0 30px rgba(0,200,255,1),
+                   0 0 40px rgba(255,255,255,0.9);
+      transform: scale(1);
+    }
+    50% {
+      text-shadow: 0 0 20px rgba(0,220,255,1),
+                   0 0 40px rgba(0,220,255,1),
+                   0 0 60px rgba(255,255,255,1),
+                   0 0 80px rgba(0,220,255,1);
+      transform: scale(1.08);
+    }
+  }
 
   table {width:90%; max-width:900px; margin:0 auto; border-collapse:collapse; background:white; color:#193a65; border-radius:15px; overflow:hidden; box-shadow:0 6px 12px rgba(0,0,0,0.4);}
   th, td {padding:18px; border-bottom:1px solid #ddd; font-size:1.1em;}
@@ -22,7 +49,6 @@
   tr:last-child td {border-bottom:none;}
   tr:hover td {background:#f1f1f1;}
 
-  /* Providna polja */
   .notes, .contact-section {
     background: rgba(25, 58, 101, 0.6);
     backdrop-filter: blur(10px);
@@ -42,7 +68,6 @@
 
   .notes ul {list-style: disc; padding-left: 30px; line-height: 1.8;}
 
-  /* Družbena omrežja */
   .social-icons {
     margin: 25px 0;
     display: flex;
@@ -60,7 +85,6 @@
     color: #00bfff;
   }
 
-  /* Kontakt ikone */
   .contact-info {
     display: flex;
     justify-content: center;
@@ -71,27 +95,10 @@
     font-size: 1.3em;
   }
 
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .contact-item i {
-    font-size: 1.5em;
-    color: #ffffff;
-  }
-
-  .contact-item a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  .contact-item a:hover {
-    text-decoration: underline;
-    color: #ffffff;
-  }
+  .contact-item {display: flex; align-items: center; gap: 10px;}
+  .contact-item i {font-size: 1.5em; color: #ffffff;}
+  .contact-item a {color: white; text-decoration: none; font-weight: bold;}
+  .contact-item a:hover {text-decoration: underline; color: #ffffff;}
 
   .back-button {text-align:center; margin:40px 0;}
   .back-button a {background:white; color:#193a65; padding:12px 30px; border-radius:8px; text-decoration:none; font-weight:bold; box-shadow:0 4px 10px rgba(0,0,0,0.3); transition:background 0.3s ease, color 0.3s ease;}
@@ -113,10 +120,9 @@
 <header>
 <img alt="ŽareX logo" class="logo" src="logo.png"/>
 </header>
-<h1>CENIK STORITEV</h1>
+<h1>🔥 AKCIJSKE CENE STORITEV 🔥</h1>
 
 <table>
-  <!-- PODVOZJE SEKCIJA -->
   <tr style="background:#193a65; height:60px; text-align:center; color:white; font-size:1.3em; font-weight:bold;">
     <td colspan="3">Lasersko čiščenje in zaščita podvozja</td>
   </tr>
@@ -124,25 +130,19 @@
   <tr><td>Čiščenje podvozja - Rust remover + Bitumen</td><td>Za podvozja z vidno rjo! Najprej odstranimo rjo, nato nanesemo Rust Remover in bitumensko zaščito.</td><td>od 249 €</td></tr>
   <tr><td>Čiščenje podvozja - PREMIUM</td><td>Najboljša zaščita: lasersko čiščenje, Rust Remover, vosek in Raptor premaz. Trajnost do 10 let.</td><td>od 349 €</td></tr>
 
-  <!-- MODRA LOČILNA VRSTICA: DRUGE STORITVE -->
   <tr style="background:#193a65; height:60px; text-align:center; color:white; font-size:1.3em; font-weight:bold;">
     <td colspan="3">Druge storitve</td>
   </tr>
-
-  <!-- OSTALO -->
   <tr><td>LASER-EPOXY</td><td>Brušenje betona z laserjem, priprava za epoxy premaze. HITRO in enostavno!</td><td>od 30 € /m2</td></tr>
   <tr><td>Lasersko čiščenje kovin</td><td>Lasersko odstranjevanje rje in oksidov z vseh kovinskih površin.</td><td>od 49 € /h</td></tr>
   <tr><td>Lasersko čiščenje/obnova kamna</td><td>Lasersko odstranjevanje nečistot z vseh tipov kamna (granit, mermer).</td><td>od 39 € /h</td></tr>
   <tr><td>Obnova lesa</td><td>Lasersko obnovimo in vrnemo prvobitni izgled vseh vrst lesa. Odlično za pohištvo, inštrumente, itd.</td><td>od 30 €/ m2</td></tr>
 
-  <!-- MODRA VRSTICA: VEČJI PROJEKTI -->
   <tr style="background:#193a65; height:60px; text-align:center; color:white; font-size:1.3em; font-weight:bold;">
     <td colspan="3">Večji projekti</td>
   </tr>
-
   <tr><td>Večji projekti</td><td>Čiščenje večjih objektov in industrijskih površin.</td><td>po dogovoru + potni stroški</td></tr>
 
-  <!-- MODRA VRSTICA ZA ZAKLJUČEK -->
   <tr style="background:#193a65; height:40px;"><td colspan="3"></td></tr>
 </table>
 
@@ -154,6 +154,7 @@
 <li>Končno ponudbo prejmete po ogledu in oceni stanja.</li>
 </ul>
 </section>
+
 <section class="contact-section">
 <h2>Kontakt in rezervacije</h2>
 <div class="social-icons">
@@ -163,19 +164,12 @@
 <a href="https://api.whatsapp.com/send/?phone=38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
 </div>
 <div class="contact-info">
-<div class="contact-item">
-<i class="fas fa-phone"></i>
-<a href="tel:+38670808884">070 808 884</a>
-</div>
-<div class="contact-item">
-<i class="fas fa-envelope"></i>
-<a href="mailto:zarexlaser@gmail.com">zarexlaser@gmail.com</a>
-</div>
+<div class="contact-item"><i class="fas fa-phone"></i><a href="tel:+38670808884">070 808 884</a></div>
+<div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:zarexlaser@gmail.com">zarexlaser@gmail.com</a></div>
 </div>
 </section>
-<div class="back-button">
-<a href="index.html"><i class="fas fa-home"></i> Nazaj na začetno stran</a>
-</div>
+
+<div class="back-button"><a href="index.html"><i class="fas fa-home"></i> Nazaj na začetno stran</a></div>
 <footer><p>© 2025 ŽareX - Vse pravice pridržane</p></footer>
 </body>
 </html>
