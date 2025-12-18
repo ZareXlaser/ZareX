@@ -3,22 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ŽareX - Lasersko Čiščenje</title>
+  <title>Lasersko Čiščenje- ŽAREX</title>
   <meta name="description" content="ŽareX - Strokovno lasersko čiščenje kovin in površin po vsej Sloveniji. Brez kemikalij, hitro, učinkovito in okolju prijazno.">
-  <meta name="keywords" content="lasersko čiščenje, odstranjevanje rje, čiščenje kovin, ŽareX, Slovenija">
+  <meta name="keywords" content="lasersko čiščenje, lasersko odstranjevanje rje,lasersko čiščenje kovin,izposoja laserja, lasersko čiščenje podvozja ŽareX, Slovenija">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
 
   <style>
     *{margin:0;padding:0;box-sizing:border-box;}
-    body{
-      font-family:Arial,sans-serif;
-      line-height:1.6;
-      color:white;
-      overflow-x:hidden;
-      background:#0f2748;
-      padding-top:130px; /* prostor za header */
-    }
+body{
+  font-family:'Saira', sans-serif;
+  line-height:1.6;
+  color:white;
+  overflow-x:hidden;
+  background: linear-gradient(145deg, #1c1c1e, #2f3237) !important;
+
+  padding-top:130px;
+}
 
     /* HEADER */
     header{
@@ -39,47 +43,45 @@
       filter:drop-shadow(0 0 10px rgba(255,255,255,0.7));
     }
 
-    /* GIVEAWAY TRAKA (od roba do roba, glass efekt, infinity ticker) */
-    .giveaway-ticker{
-      position:relative;
-      width:100vw;
-      background:linear-gradient(90deg, rgba(25,58,101,0.7), rgba(15,39,72,0.8));
-      backdrop-filter:blur(10px);
-      color:white;
-      padding:10px 0;
-      overflow:hidden;
-      font-weight:bold;
-      font-size:1.2em;
-      white-space:nowrap;
-      border-top:1px solid rgba(255,255,255,0.15);
-      border-bottom:1px solid rgba(255,255,255,0.15);
-      text-shadow:0 0 8px rgba(255,255,255,0.7);
-      box-shadow:0 2px 6px rgba(0,0,0,0.3);
-      margin-top:10px;
-    }
-    .ticker-track{
-      display:flex;
-      width:max-content;
-      animation:scrollTicker 20s linear infinite;
-    }
-    .ticker-track span{
-      margin-right:80px;
-    }
-    @keyframes scrollTicker{
-      0%{transform:translateX(0);}
-      100%{transform:translateX(-50%);}
-    }
-
-    /* HERO */
-    .hero{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:white;overflow:hidden;}
+    /* HERO - UPDATED PREMIUM DESIGN */
+    .hero{
+  position:relative;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  overflow:hidden;
+  padding:20px;
+}
     .hero-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
-    .hero-content{position:relative;z-index:1;max-width:900px;padding:30px;background:rgba(0,0,0,0.5);border-radius:15px;}
-    .hero h1{font-size:2.8em;margin-bottom:20px;}
-    .hero h3{margin-bottom:20px;font-weight:normal;font-size:1.5em;}
+    .hero-content{
+  position:relative;
+  z-index:1;
+  max-width:850px;
+  padding:45px;
+  background:rgba(0,0,0,0.55);
+  border-radius:20px;
+  backdrop-filter:blur(6px);
+  box-shadow:0 8px 25px rgba(0,0,0,0.5);
+}
+    .hero h1{
+  font-size:3.4em;
+  margin-bottom:20px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+    .hero h3{
+  margin-bottom:25px;
+  font-weight:500;
+  font-size:1.7em;
+  opacity:0.9;
+}
 
     /* STORITVE */
-    .services{background:#193a65;color:white;padding:100px 30px;text-align:center;}
-    .services h2{margin-bottom:50px;font-size:2.5em;}
+    .services{background:#193a6500;color:white;padding:0;text-align:center;}
+    .services h2{margin-bottom:20px;font-size:3.5em;}
     .service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;max-width:1200px;margin:0 auto;}
  .service-item img{
       width:100%;
@@ -168,75 +170,648 @@
       .coverage-inner{padding:20px;min-height:350px;}
     }
     @media(max-width:600px){
+  .hero{height:85vh; padding:10px;}
+  .hero-content{padding:28px; border-radius:15px;}
+  .hero h1{font-size:2.2em;}
+  .hero h3{font-size:1.2em;}
+  .hero p{font-size:1.05em;}
+
       header{padding:10px 20px;}
       .logo{height:80px;}
-      .giveaway-ticker{font-size:1em;padding:6px 0;}
       body{padding-top:120px;}
       .contact-content h2,.company-info h2{font-size:1.8em;}
       .contact-content p,.contact-content a,.company-info p{font-size:1em;}
       .social-icons a{font-size:1.8em;}
       .onas-btn{font-size:1.1em;padding:12px 26px;}
     }
-  </style>
+  
+/* NEW HEADER CSS */
+.header-inner{
+  width:100%;
+  max-width:1400px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.nav-links{
+  display:flex;
+  gap:25px;
+  align-items:center;
+}
+.nav-links a{
+  color:white;
+  text-decoration:none;
+  font-size:1.35em;
+  font-weight:600;
+  transition:0.3s ease;
+}
+.nav-links a:hover{opacity:0.7;}
+
+/* CTA BUTTON */
+.cta-btn{
+  background:white;
+  color:#193a65 !important;
+  padding:10px 24px;
+  border-radius:8px;
+  font-weight:bold;
+  transition:0.3s ease;
+}
+.cta-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 15px rgba(255,255,255,0.7);
+}
+
+/* HAMBURGER */
+.hamburger{
+  display:none;
+  font-size:2em;
+  color:white;
+  cursor:pointer;
+}
+
+/* MOBILE MENU */
+.mobile-menu{
+  display:none;
+  flex-direction:column;
+  background:#0f2748;
+  width:100%;
+  padding:20px;
+  text-align:center;
+  gap:18px;
+}
+.mobile-menu a{
+  color:white;
+  text-decoration:none;
+  font-size:1.4em;
+}
+.cta-mobile{
+  background:white;
+  color:#193a65 !important;
+  padding:12px 30px;
+  border-radius:10px;
+  font-weight:bold;
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:900px){
+  .nav-links{display:none;}
+  .hamburger{display:block;}
+}
+
+
+/* HERO BTN */
+.hero-btn{
+  display:inline-block;
+  margin-top:20px;
+  background:white;
+  color:#193a65;
+  padding:14px 32px;
+  border-radius:10px;
+  font-size:1.3em;
+  font-weight:bold;
+  text-decoration:none;
+  transition:0.3s;
+}
+.hero-btn:hover{transform:scale(1.05);}
+
+/* NEW OFFER BOXES */
+.offer-boxes{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:35px;
+  max-width:1400px;
+  margin:0 auto 40px auto;
+  padding:0 20px;
+}
+.folder-card{
+  position:relative;
+  background:#0b1c33;
+  border:2px solid rgba(255,255,255,0.25);
+  border-radius:18px;
+  height:260px;
+  display:flex;
+  align-items:flex-end;
+  padding:25px;
+  font-size:1.45em;
+  font-weight:bold;
+  color:white;
+  text-decoration:none;
+  transition:0.3s ease;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  box-shadow:0 10px 20px rgba(0,0,0,0.4);
+}
+.folder-card:hover{
+  transform:scale(1.04);
+  box-shadow:0 0 25px rgba(0,150,255,0.7);
+}
+.folder-card.new::before{
+  content:"NOVO";
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:red;
+  color:white;
+  padding:4px 10px;
+  border-radius:6px;
+  font-size:0.85em;
+  font-weight:bold;
+}
+/* END */
+.services-wide {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.sv-btn {
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8em;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  margin: 0;
+  transition: 0.3s ease;
+}
+
+.sv-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(0, 150, 255, 0.7);
+}
+
+/* MOBILE – en stolpec */
+@media(max-width:900px) {
+  .services-wide {
+    grid-template-columns: 1fr;
+  }
+  .sv-btn {
+    height: 260px;
+    font-size: 1.6em;
+  }
+}
+.cenik-section {
+  padding: 0px;
+  margin: 0;
+}
+
+.cenik-wide {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+}
+
+.cenik-box {
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.4em;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: 0.3s ease;
+}
+
+.cenik-box:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(255,255,255,0.6);
+}
+
+@media(max-width:900px){
+  .cenik-wide {
+    grid-template-columns: 1fr;
+  }
+  .cenik-box { height: 350px; }
+}
+
+/* GLASS EFFECT + SHINE */
+.sv-btn {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(255,255,255,0.05); /* svetel steklen sijaj */
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* premikajoči se odsev */
+.sv-btn::before {
+  content: "";
+  position: absolute;
+  top: -120%;
+  left: -50%;
+  width: 200%;
+  height: 300%;
+  background: linear-gradient(
+    115deg,
+    rgba(255,255,255,0.2) 0%,
+    rgba(255,255,255,0.07) 30%,
+    rgba(255,255,255,0) 60%
+  );
+  transform: rotate(25deg);
+  animation: shineMove 6s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes shineMove {
+  0% { transform: translateX(-60%) rotate(25deg); }
+  100% { transform: translateX(60%) rotate(25deg); }
+}
+
+/* GLOBAL SIVKASTI TONI – PREPIŠEJO MODRE */
+body {
+    background: #0f2748 !important;
+}
+
+header {
+    background: #0f2748 !important;
+}
+.services,
+.cenik-section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.reviews {
+    position: relative;
+    background: url('tvoja-slika.jpg') center/cover no-repeat !important;
+    color: white;
+    padding: 80px 20px;
+}
+.reviews::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45); /* polprosojen črn sloj */
+    z-index: 0;
+}
+
+.reviews * {
+    position: 0;
+    z-index: 1;
+}
+
+.contact-content,
+.company-info,
+.coverage-inner {
+    background: rgba(50, 50, 52, 0.65) !important;
+}
+
+.services-wide .sv-btn {
+    background-color: rgba(60, 60, 63, 0.4) !important;
+    border-color: rgba(255,255,255,0.2) !important;
+}
+.reviews-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.45; /* Lahko povečaš ali zmanjšaš */
+}
+
+.reviews * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Posamezne slike */
+.cenik-img {
+    background-image: url('cenik-bg.jpg') !important;
+}
+
+.galerija-img {
+    background-image: url('galerija-bg.jpg') !important;
+}
+
+/* GLASS EFFECT za kartice */
+.cenik-box {
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    border-radius: 0px !important;
+}
+
+/* Premikajoči se sij (kot na tvojih sv-btn) */
+.cenik-box::before {
+    content: "";
+    position: absolute;
+    top: -120%;
+    left: -50%;
+    width: 200%;
+    height: 300%;
+    background: linear-gradient(
+        115deg,
+        rgba(255,255,255,0.5) 0%,
+        rgba(255,255,255,0.1) 30%,
+        rgba(255,255,255,0) 60%
+    );
+    transform: rotate(25deg);
+    animation: cenikShine 7s infinite linear;
+    pointer-events: none;
+}
+
+@keyframes cenikShine {
+    0% { transform: translateX(-60%) rotate(25deg); }
+    100% { transform: translateX(60%) rotate(25deg); }
+}
+
+/* FORCE FIX ZA ZEMLJEVID – prikaže ga takoj */
+.coverage {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    display: block !important;
+    visibility: visible !important;
+    height: auto !important;
+    overflow: visible !important;
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+.coverage-inner {
+    opacity: 1 !important;
+    display: flex !important;
+}
+
+.coverage img {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    max-width: 480px !important;
+}
+.coverage {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+.coverage-inner {
+    margin: 0 auto !important;
+    text-align: center !important;
+    justify-content: center !important;
+}
+/* --- GLASS CENTERED REVIEWS BOX --- */
+.reviews-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#sliderFrame {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 25px;
+    background: rgba(255,255,255,0.85); /* BELO STEKLENO OZADJE */
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.review-card {
+    display: flex !important;
+    flex-direction: column;
+    gap: 15px;
+    background: transparent;
+    color: #000 !important;   /* ČRNO besedilo za kontrast */
+}
+
+.review-card .review-text {
+    color: #000 !important;
+}
+
+.review-card .rating {
+    color: #ffb400;
+}
+
+/* DOTS center fix */
+.dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background: #ffffffaa;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot.active {
+    background: #ffffff;
+    transform: scale(1.2);
+}
+
+/* Arrow buttons – centered under box */
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 30px;
+}
+
+.arrow {
+    background: #ffffffcc;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.arrow:hover {
+    background: #fff;
+    transform: scale(1.1);
+}
+
+
+</style>
 </head>
 
 <body>
 
   <header>
-    <img src="logo.png" alt="ŽareX logo" class="logo">
-    <div class="giveaway-ticker">
-      <div class="ticker-track">
-        <span>🎉 K MALU GIVEAWAY ! PODARJAMO LASERSKO ČIŠČENJE + BITUMENSKO ZAŠČITO PODVOZJA 🎁 | SODELUJ IN ZADENI! 🚀 |</span>
-        <span>🎉 K MALU GIVEAWAY ! PODARJAMO LASERSKO ČIŠČENJE + BITUMENSKO ZAŠČITO PODVOZJA 🎁 | SODELUJ IN ZADENI! 🚀 |</span>
-        <span>🎉 K MALU GIVEAWAY ! PODARJAMO LASERSKO ČIŠČENJE + BITUMENSKO ZAŠČITO PODVOZJA 🎁 | SODELUJ IN ZADENI! 🚀 |</span>
+    <div class="header-inner">
+      <img src="logo.png" alt="ŽareX logo" class="logo">
+      <nav class="nav-links">
+  <a href="#hero">Domov</a>
+  <a href="#ponudba">Ponudba</a>
+  <a href="#reviews">Mnenja</a>
+  <a href="#cenik">Galerija</a>
+  <a href="#cenik">Cenik</a>
+  <a href="#kontakt">Kontakt</a>
+  <a href="ponudba.html" class="cta-btn">Dobi ponudbo</a>
+</nav>
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fa fa-bars"></i>
       </div>
     </div>
+    <div class="mobile-menu" id="mobileMenu">
+  <a href="#hero" onclick="toggleMenu()">Domov</a>
+  <a href="#ponudba" onclick="toggleMenu()">Ponudba</a>
+  <a href="#reviews" onclick="toggleMenu()">Mnenja</a>
+  <a href="galerija.html" onclick="toggleMenu()">Galerija</a>
+  <a href="#cenik" onclick="toggleMenu()">Cenik</a>
+  <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
+  <a href="ponudba.html" class="cta-mobile">Dobi ponudbo</a>
+</div>
   </header>
 
   <section class="hero" id="hero">
     <video autoplay loop muted playsinline class="hero-video"><source src="video.mp4" type="video/mp4"></video>
     <div class="hero-content">
-      <h1>Čistota prihodnosti z ŽAREX</h1>
-      <h3>Strokovnost, izkušnje in odgovornost pri vsakem projektu</h3>
-      <p>S sodobnimi tehnologijami poskrbimo za varno in učinkovito odstranjevanje rje, nečistoč in prevlek brez kemikalij ter brez poškodb površin.</p>
+      <h1>Od A do Žarex</h1>
+      <h3>LASERSKO ČIŠČENJE POVRŠIN • PREMAZI • ZAŠČITA • BARVANJE</h3>
+      <p>Z Žarex dobite vse na enem mestu – odstranjevanje rje in nečistoč, zaščitne premaze ter barvanje po potrebi za popoln končni rezultat.</p>
+      <a href="ponudba.html" class="hero-btn">DOBI PONUDBO</a>
     </div>
   </section>
 
-  <section class="services" id="storitev">
+  <section class="services" id="ponudba">
     <h2>STORITVE</h2>
-    <div class="service-grid">
-      <a class="service-item" href="galerija.html"><img src="storitev2.jpg" alt="Galerija"><p>Čiščenje podvozja</p></a>
-      <a class="service-item" href="kovine.html"><img src="storitev1.jpg" alt="Čiščenje ostalih materialov"><p>Čiščenje ostalih materialov</p></a>
-      <a class="service-item" href="projekti.html"><img src="storitev3.jpg" alt="Večji projekti"><p>Večji projekti</p></a>
+
+  <div class="services-wide">
+  <a class="sv-btn" style="background-image:url('1k.jpg');" href="lasersko-ciscenje-kovin.html">Lasersko čiščenje kovin</a>
+  <a class="sv-btn" style="background-image:url('2k.jpg');" href="lasersko-ciscenje-kamna.html">Lasersko čiščenje kamna</a>
+  <a class="sv-btn" style="background-image:url('3k.jpg');" href="lasersko-ciscenje-lesa.html">Lasersko čiščenje lesa</a>
+  
+  <a class="sv-btn" style="background-image:url('4k.jpg');" href="industrijsko-lasersko-ciscenje.html">Industrijsko lasersko čiščenje</a>
+  <a class="sv-btn new" style="background-image:url('5k.jpg');" href="barvanje-in-zascita.html">Zaščita in barvanje podvozja</a>
+  <a class="sv-btn new" style="background-image:url('6k.jpg');" href="izposoja-laserja.html">Izposoja laserja</a>
+</div>
+
+    
+      
+      
+      
+      
+      
     </div>
   </section>
 
-  <section class="cenik-section" id="cenik">
-    <div class="cenik-container">
-      <div class="cenik-content">
-        <h2>CENIK</h2>
-        <p>Oglejte si podrobnosti o naših storitvah in cenah.</p>
-        <button onclick="window.location.href='cenik.html'" class="cenik-btn">Odpri cenik</button>
+<section class="cenik-section" id="cenik">
+  <div class="cenik-wide">
+    <a href="cenik.html" class="cenik-box" style="background-image:url('price.jpg');">
+      CENIK
+    </a>
+    <a href="GALERIJA.html" class="cenik-box" style="background-image:url('gallery.jpg');">
+      GALERIJA
+    </a>
+  </div>
+</section>
+
+  
+<section class="reviews" id="reviews">
+  <h2>Google mnenja</h2>
+
+  <div class="reviews-wrap" aria-live="polite">
+    <div class="slider-frame" id="sliderFrame">
+      <div id="cardContainer"></div>
+
+      <div class="controls">
+        <button id="prevBtn" class="arrow">❮</button>
+        <button id="nextBtn" class="arrow">❯</button>
       </div>
     </div>
-  </section>
+    <div class="dots" id="dotsContainer"></div>
+  </div>
+</section>
 
-  <section class="reviews" id="reviews">
-    <h2>Google mnenja</h2>
-    <div class="review-slider">
-      <div class="review-slide"><img src="mnenje1.png" alt="Mnenje 1"></div>
-      <div class="review-slide"><img src="mnenje2.png" alt="Mnenje 2"></div>
-      <div class="review-slide"><img src="mnenje3.png" alt="Mnenje 3"></div>
-      <div class="review-slide"><img src="mnenje4.png" alt="Mnenje 4"></div>
-    </div>
-    <div class="slider-buttons">
-      <button class="prev">❮</button>
-      <button class="next">❯</button>
-    </div>
-  </section>
+<script>
+(async function(){
+  const proxy = 'https://delicate-night-a2cb.vukoticdeana.workers.dev/';
+  let reviews = [];
+
+  function fetchWithTimeout(url, timeout = 8000){
+    return Promise.race([
+      fetch(url, {cache: 'no-store'}),
+      new Promise((_, rej)=>setTimeout(()=>rej(new Error('timeout')), timeout))
+    ]).then(r => r.json());
+  }
+
+  try{
+    const data = await fetchWithTimeout(proxy, 8000);
+    if(Array.isArray(data)) reviews = data;
+    else if(Array.isArray(data.reviews)) reviews = data.reviews;
+  }catch(e){
+    reviews = [{author_name:"Napaka", profile_photo_url:"https://via.placeholder.com/64", rating:5, text:"Mnenij ni mogoče naložiti.", relative_time_description:""}];
+  }
+
+  const cardContainer=document.getElementById('cardContainer');
+  const dotsContainer=document.getElementById('dotsContainer');
+  let index=0;
+
+  function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+
+  function makeCard(item){
+    const c=document.createElement('article');
+    c.className='review-card';
+    c.innerHTML=`
+      <div class="avatar"><img src="${esc(item.profile_photo_url)}"></div>
+      <div class="review-body">
+        <div class="review-meta">
+          <div class="author">${esc(item.author_name)}</div>
+          <div class="time">${esc(item.relative_time_description)}</div>
+        </div>
+        <div class="rating">${'★'.repeat(item.rating||5)}</div>
+        <div class="review-text">${esc(item.text)}</div>
+      </div>`;
+    return c;
+  }
+
+  function build(){
+    cardContainer.innerHTML='';
+    dotsContainer.innerHTML='';
+    reviews.forEach((r,i)=>{
+      const dot=document.createElement('div');
+      dot.className='dot';
+      dot.onclick=()=>{index=i;render();};
+      dotsContainer.appendChild(dot);
+      const c=makeCard(r);
+      c.style.display='none';
+      cardContainer.appendChild(c);
+    });
+  }
+
+  function render(){
+    [...cardContainer.children].forEach((c,i)=>{
+      c.style.display=(i===index?'flex':'none');
+    });
+    [...dotsContainer.children].forEach((d,i)=>d.classList.toggle('active',i===index));
+  }
+
+  build();
+  render();
+})();
+</script>
+
 
   <section class="contact" id="kontakt">
-    <video autoplay loop muted playsinline class="contact-video"><source src="contact.mp4" type="video/mp4"></video>
     <div class="contact-container">
       <div class="contact-content">
         <h2>KONTAKT</h2>
@@ -258,14 +833,15 @@
     </div>
 
     <div class="coverage" id="coverage">
-      <div class="coverage-inner">
-        <img src="slovenia-map.png" alt="Zemljevid Slovenije">
-        <div class="coverage-text">
-          <h3>Delujemo po celi Sloveniji</h3>
-          <p>Kjerkoli nas potrebujete — iz Škofje Loke do največjih mest in industrijskih centrov. Hitro in zanesljivo pridemo na lokacijo ter izvedemo delo strokovno in varno.</p>
-        </div>
-      </div>
+    <div class="coverage-inner">
+    <img src="slovenia-map.png" alt="Zemljevid Slovenije">
+    <div class="coverage-text">
+      <h3>Delujemo po celi Sloveniji</h3>
+      <p>Kjerkoli nas potrebujete — iz Škofje Loke do največjih mest in industrijskih centrov. 
+         Hitro in zanesljivo pridemo na lokacijo ter izvedemo delo strokovno in varno.</p>
     </div>
+  </div>
+</div>
   </section>
 
   <footer><p>© 2025 ŽareX - Vse pravice pridržane</p></footer>
@@ -292,5 +868,17 @@
     });
   </script>
 
+<script>
+function toggleMenu(){
+  const m=document.getElementById('mobileMenu');
+  m.style.display=(m.style.display==='flex')?'none':'flex';
+}
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const c = document.getElementById("coverage");
+    if (c) c.classList.add("visible");
+});
+</script>
 </body>
 </html>

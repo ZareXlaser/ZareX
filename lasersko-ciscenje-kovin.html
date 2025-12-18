@@ -1,0 +1,520 @@
+ <!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ŽareX - Lasersko čiščenje kovin</title>
+  <meta name="description" content="Lasersko čiščenje kovin – natančno odstranjevanje rje, premazov, oksidacije in industrijskih nečistoč brez poškodb površine.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Saira',sans-serif;background:#0f2748;color:white;padding-top:120px}
+
+    header{position:fixed;top:0;width:100%;z-index:1100;background:#0f2748;padding:12px 28px;box-shadow:0 2px 6px rgba(0,0,0,0.3)}
+    .header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .logo{height:80px}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{color:white;text-decoration:none;font-weight:600;font-size:1.2em}
+    .cta-btn{background:white;color:#193a65 !important;padding:10px 20px;border-radius:10px;font-weight:bold;text-decoration:none}
+
+    .cta-btn:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 15px rgba(255,255,255,0.7);
+    }
+
+    .social-icons{display:flex;gap:15px;font-size:1.4em}
+    .social-icons a{color:white}
+
+    .page-hero{max-width:1200px;margin:40px auto;padding:28px;background:rgba(255,255,255,0.03);border-radius:14px;backdrop-filter:blur(6px)}
+    .page-hero h1{font-size:2.8em;margin-bottom:10px}
+    .page-hero p{font-size:1.15em;opacity:0.95}
+
+    .content{max-width:1200px;margin:20px auto;padding:20px;display:grid;grid-template-columns:1fr 380px;gap:30px}
+
+    /* LEVA STRAN OSTANE ISTA */
+    .main{background:rgba(255,255,255,0.03);padding:22px;border-radius:12px}
+    .main h2{margin-bottom:10px}
+    .main p{line-height:1.6;margin-bottom:12px;color:#e8eef8}
+    .features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+    .feature{background:rgba(255,255,255,0.04);padding:14px;border-radius:10px}
+    .feature p{color:#dbe4f3}
+
+    /* NOVA DESNA STRAN */
+    .aside{background:rgba(255,255,255,0.03);padding:20px;border-radius:12px}
+
+    /* GALERIJA 3×2 */
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+      margin-bottom:15px;
+    }
+    .gallery-grid img{
+      width:100%;
+      height:110px;
+      object-fit:cover;
+      border-radius:8px;
+      transition:0.3s;
+    }
+    .gallery-grid img:hover{
+      transform:scale(1.05);
+      box-shadow:0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .gallery-link{
+      display:block;
+      text-align:center;
+      font-size:1.1em;
+      color:#cdd9f2;
+      text-decoration:underline;
+      margin-bottom:20px;
+    }
+
+    /* SOCIAL GRID 2×2 */
+    .social-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+      margin-top:10px;
+    }
+    .social-grid img{
+      width:100%;
+      height:90px;
+      object-fit:cover;
+      border-radius:10px;
+      transition:0.3s;
+    }
+    .social-grid img:hover{
+      transform:scale(1.05);
+      box-shadow:0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .divider{
+      height:1px;
+      background:rgba(255,255,255,0.06);
+      margin:20px 0;
+      border-radius:3px;
+    }
+
+    .aside h3{text-align:center;margin-bottom:10px}
+    .aside p{text-align:center;color:#dbe4f3}
+
+    .cta{
+      display:block;
+      text-align:center;
+      margin:10px auto;
+      background:white;
+      color:#0f2748;
+      padding:12px 18px;
+      border-radius:10px;
+      font-weight:700;
+      max-width:220px;
+      text-decoration:none;
+    }
+
+    .contact-box{text-align:center;margin-top:20px}
+
+    @media(max-width:900px){
+      .content{grid-template-columns:1fr}
+      .logo{height:70px}
+    }
+/* ========================
+   1️⃣ OSNOVNA TIPOGRAFIJA
+======================== */
+
+body{
+  font-size:17px;
+  line-height:1.7;
+  color:#f4f6ff !important;
+}
+
+/* naslovi */
+h1{font-size:2.65rem;font-weight:700;}
+h2{font-size:2rem;margin:20px 0;}
+h3{font-size:1.35rem;font-weight:600;}
+
+/* paragraph */
+p{
+  font-size:1.08rem;
+  color:#f4f6ff !important;
+}
+
+/* ========================
+   2️⃣ KONTRAST + BERLJIVOST
+========================= */
+
+.main p, .page-hero p{
+  color:#f4f6ff !important;
+  opacity:0.93;
+}
+
+/* več prostora med sekcijami */
+.main h2{
+  margin-top:25px;
+  margin-bottom:15px;
+}
+
+/* ========================
+   3️⃣ FEATURE BOXES
+========================= */
+
+.features{
+  gap:20px !important;
+}
+
+.feature{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.16);
+  border-radius:14px;
+  padding:20px !important;
+  box-shadow:0 4px 20px rgba(0,0,0,0.15);
+  transition:0.35s;
+}
+
+.feature:hover{
+  transform:translateY(-4px);
+  box-shadow:0 6px 22px rgba(0,0,0,0.25);
+}
+
+/* ========================
+   3.1 ikone pri feature
+========================= */
+.feature strong::before{
+  font-family:"Font Awesome 6 Free";
+  font-weight:900;
+  margin-right:8px;
+  opacity:0.85;
+}
+
+/* posamezne ikone */
+.feature:nth-child(1) strong::before{content:"\f00c";} /* check */
+.feature:nth-child(2) strong::before{content:"\f4fd";} /* lightning */
+.feature:nth-child(3) strong::before{content:"\f0e7";} /* bolt */
+.feature:nth-child(4) strong::before{content:"\f06c";} /* leaf */
+
+/* ========================
+   4️⃣ LONG TEXT UTRUJENOST
+========================= */
+
+/* razmik med odstavki */
+.main p{
+  margin-bottom:20px !important;
+}
+
+/* več prostora okoli glavnih sekcij */
+.main{
+  padding:30px;
+}
+
+/* dodatni vizualni "air space" */
+.main h2::after{
+  content:"";
+  display:block;
+  width:40px;
+  height:2px;
+  background:#4ba3ff;
+  margin-top:10px;
+  border-radius:2px;
+  opacity:0.45;
+}
+/* =========================
+   MOBILNA OPTIMIZACIJA
+   lasersko-ciscenje-kovin
+========================= */
+
+@media (max-width: 768px) {
+
+  body {
+    padding-top: 110px;
+    font-size: 16px;
+  }
+
+  /* HEADER */
+  header {
+    padding: 10px 18px;
+  }
+
+  .logo {
+    height: 65px;
+  }
+
+  .nav-links {
+    display: none; /* isto kot index */
+  }
+
+  /* HERO */
+  .page-hero {
+    margin: 20px 14px;
+    padding: 22px;
+    border-radius: 16px;
+  }
+
+  .page-hero h1 {
+    font-size: 2.1em;
+    line-height: 1.2;
+  }
+
+  .page-hero p {
+    font-size: 1.05em;
+  }
+
+  /* CONTENT STACK */
+  .content {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 0 12px;
+  }
+
+  /* MAIN TEXT */
+  .main {
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  .main h2 {
+    font-size: 1.55em;
+  }
+
+  .main p {
+    font-size: 1.02em;
+  }
+
+  /* FEATURES – 1 COLUMN */
+  .features {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .feature {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  /* ASIDE */
+  .aside {
+    padding: 22px;
+    border-radius: 16px;
+  }
+
+  .aside h3 {
+    font-size: 1.35em;
+  }
+
+  /* GALERIJA – 2 STOLPCA */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-grid img {
+    height: 120px;
+    border-radius: 12px;
+  }
+
+  /* SOCIAL GRID */
+  .social-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .social-grid img {
+    height: 100px;
+    border-radius: 14px;
+  }
+
+  /* CTA */
+  .cta {
+    padding: 14px 20px;
+    font-size: 1.05em;
+    border-radius: 14px;
+  }
+
+  /* KONTAKT */
+  .contact-box p {
+    font-size: 1em;
+  }
+}
+
+/* =========================
+   HAMBURGER – MOBILE MENU
+========================= */
+
+.hamburger {
+  display: none;
+  font-size: 2em;
+  color: white;
+  cursor: pointer;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: #0f2748;
+  width: 100%;
+  padding: 22px;
+  text-align: center;
+  gap: 18px;
+}
+
+.mobile-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.35em;
+  font-weight: 600;
+}
+
+.cta-mobile {
+  background: white;
+  color: #193a65 !important;
+  padding: 14px 30px;
+  border-radius: 12px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* AKTIVACIJA NA MOBILE */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+}
+.mobile-menu {
+  position: fixed;
+  top: 100px;
+  left: 0;
+  z-index: 1099;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-inner">
+      <img src="logo.png" class="logo" alt="ŽareX logo">
+
+      <nav class="nav-links">
+  <a href="index.html#hero">Domov</a>
+  <a href="index.html#ponudba">Ponudba</a>
+  <a href="index.html#reviews">Mnenja</a>
+  <a href="index.html#cenik">Galerija</a>
+  <a href="index.html#cenik">Cenik</a>
+  <a href="index.html#kontakt">Kontakt</a>
+  <a href="ponudba.html" class="cta-btn">Dobi ponudbo</a>
+</nav>
+
+<!-- HAMBURGER MORA BITI IZVEN NAV -->
+<div class="hamburger" onclick="toggleMenu()">
+  <i class="fa fa-bars"></i>
+</div>
+
+
+
+        <div class="social-icons">
+          <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </nav>
+    </div>
+  </header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#hero" onclick="toggleMenu()">Domov</a>
+  <a href="index.html#ponudba" onclick="toggleMenu()">Ponudba</a>
+  <a href="index.html#reviews" onclick="toggleMenu()">Mnenja</a>
+  <a href="index.html#cenik" onclick="toggleMenu()">Galerija</a>
+  <a href="index.html#cenik" onclick="toggleMenu()">Cenik</a>
+  <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
+  <a href="ponudba.html" class="cta-mobile">Dobi ponudbo</a>
+</div>
+
+
+  <section class="page-hero">
+    <h1>Lasersko čiščenje kovin</h1>
+    <p>Najsodobnejša metoda za odstranjevanje rje, oksidacije, toplotnih sledi, premazov in industrijskih nečistoč z vseh vrst kovinskih površin – hitro, natančno in brez poškodb.</p>
+  </section>
+
+  <div class="content">
+
+    <!-- LEVA STRAN (NE SPREMENIMO) -->
+    <article class="main">
+      <h2>Kaj je lasersko čiščenje kovin?</h2>
+      <p>Laserska tehnologija deluje tako, da usmerjen pulzirajoč laserski žarek selektivno odstranjuje kontaminacijo, premaze in okside s kovinske površine, pri tem pa podlage ne poškoduje ali segreje do stopnje deformacije.</p>
+
+      <h2>Prednosti</h2>
+      <div class="features">
+        <div class="feature"><strong>Brez abrazije</strong><p>Ni brušenja, peskanja ali kemikalij – kovina ostane nepoškodovana.</p></div>
+        <div class="feature"><strong>Visoka hitrost</strong><p>Idealno za industrijo, serijske procese in velike površine.</p></div>
+        <div class="feature"><strong>Odstranjevanje rje in oksida</strong><p>Popolnoma odstrani površinsko korozijo vseh stopenj.</p></div>
+        <div class="feature"><strong>Okolju prijazno</strong><p>Brez kemikalij, odpadkov in onesnaževanja okolja.</p></div>
+      </div>
+
+      <h2>Uporaba</h2>
+      <p>Avtoindustrija, industrijski stroji, konstrukcije, nerjave jeklo, aluminij, baker, litina, orodja, kalupi, kmetijski stroji, podvozja, navtika in restavriranje kovinskih predmetov.</p>
+
+      <h2>Postopek</h2>
+      <p>Postopek vključuje pregled površine, testni preizkus, nastavitev optimalnih parametrov ter postopno lasersko čiščenje z možnostjo dodatne zaščite po koncu.</p>
+    </article>
+
+    <!-- DESNA STRAN (NOVA) -->
+    <aside class="aside">
+
+      <!-- Galerija -->
+      <div class="gallery-grid">
+        <img src="img/kovina1.jpg" alt="">
+        <img src="img/kovina2.jpg" alt="">
+        <img src="img/kovina3.jpg" alt="">
+        <img src="img/kovina4.jpg" alt="">
+        <img src="img/kovina5.jpg" alt="">
+        <img src="img/kovina6.jpg" alt="">
+      </div>
+
+      <a class="gallery-link" href="galerija-lasersko-ciscenje-kovin.html">Galerija →</a>
+
+      <div class="divider"></div>
+
+      <!-- Hitra ponudba -->
+      <h3>Hitra ponudba</h3>
+      <p>Pošljite kratek opis kovine, mere in stopnjo rje ter prejmete informativno ceno.</p>
+      <a class="cta" href="mailto:zarexlaser@gmail.com">Zahtevaj ponudbo</a>
+
+      <div class="divider"></div>
+
+      <!-- Socialna omrežja -->
+      <h3>Povežite se z nami – Dnevno spremljanje</h3>
+
+      <div class="social-grid">
+        <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><img src="img/fb.jpg" alt=""></a>
+        <a href="https://www.instagram.com/zarexlaser/" target="_blank"><img src="img/ig.jpg" alt=""></a>
+        <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><img src="img/tiktok.jpg" alt=""></a>
+        <a href="https://wa.me/38670808884" target="_blank"><img src="img/wa.jpg" alt=""></a>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Kontakt -->
+      <div class="contact-box">
+        <h3>Kontakt</h3>
+        <p>☎ +386 70 808 884</p>
+        <p>✉ <a href="mailto:zarexlaser@gmail.com" style="color:#cdd9f2;text-decoration:underline">zarexlaser@gmail.com</a></p>
+      </div>
+
+
+    </aside>
+
+  </div>
+<script>
+function toggleMenu(){
+  const m = document.getElementById('mobileMenu');
+  m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
+}
+</script>
+</body>
+</html>

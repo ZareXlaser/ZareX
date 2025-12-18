@@ -1,0 +1,306 @@
+<!-- File: laserskociscenje-kamna.html -->
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ŽareX - Lasersko čiščenje kamna</title>
+  <meta name="description" content="Profesionalno lasersko čiščenje kamnitih površin: fasade, spomeniki, tlakovci in kamnite fasade brez kemije.">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* SHARED CSS (enako kot v izvirniku, samo malo prečiščeno) */
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Saira',sans-serif;background:#0f2748;color:white;padding-top:120px}
+
+    header{position:fixed;top:0;width:100%;z-index:1100;background:#0f2748;padding:12px 28px;box-shadow:0 2px 6px rgba(0,0,0,0.3)}
+    .header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .logo{height:80px}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{color:white;text-decoration:none;font-weight:600;font-size:1.2em}
+    .cta-btn{background:white;color:#193a65 !important;padding:10px 20px;border-radius:10px;font-weight:bold;text-decoration:none}
+    .cta-btn:hover{transform:scale(1.05);box-shadow:0 0 15px rgba(255,255,255,0.7)}
+
+    .social-icons{display:flex;gap:15px;font-size:1.4em}
+    .social-icons a{color:white}
+
+    .page-hero{max-width:1200px;margin:40px auto;padding:28px;background:rgba(255,255,255,0.03);border-radius:14px;backdrop-filter:blur(6px)}
+    .page-hero h1{font-size:2.8em;margin-bottom:10px}
+    .page-hero p{font-size:1.15em;opacity:0.95}
+
+    .content{max-width:1200px;margin:20px auto;padding:20px;display:grid;grid-template-columns:1fr 380px;gap:30px}
+
+    .main{background:rgba(255,255,255,0.03);padding:22px;border-radius:12px}
+    .main h2{margin-bottom:10px}
+    .main p{line-height:1.6;margin-bottom:12px;color:#e8eef8}
+
+    .features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+    .feature{background:rgba(255,255,255,0.04);padding:14px;border-radius:10px}
+    .feature p{color:#dbe4f3}
+
+    .aside{background:rgba(255,255,255,0.03);padding:20px;border-radius:12px}
+
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:15px}
+    .gallery-grid img{width:100%;height:110px;object-fit:cover;border-radius:8px;transition:0.3s}
+    .gallery-grid img:hover{transform:scale(1.05);box-shadow:0 4px 12px rgba(0,0,0,0.4)}
+
+    .gallery-link{text-align:center;display:block;margin-bottom:20px;text-decoration:underline;color:#cdd9f2;font-size:1.1em}
+
+    .social-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:10px}
+    .social-grid img{width:100%;height:90px;object-fit:cover;border-radius:10px;transition:0.3s}
+    .social-grid img:hover{transform:scale(1.05);box-shadow:0 4px 12px rgba(0,0,0,0.4)}
+
+    .divider{height:1px;background:rgba(255,255,255,0.06);margin:20px 0;border-radius:3px}
+    .aside h3{text-align:center;margin-bottom:10px}
+    .aside p{text-align:center;color:#dbe4f3}
+
+    .cta{display:block;text-align:center;margin:10px auto;background:white;color:#0f2748;padding:12px 18px;border-radius:10px;font-weight:700;max-width:220px;text-decoration:none}
+
+    .contact-box{text-align:center;margin-top:20px}
+
+    @media(max-width:900px){.content{grid-template-columns:1fr}.logo{height:70px}}
+
+    /* TIPOGRAFIJA */
+    body{font-size:17px;line-height:1.7;color:#f4f6ff!important}
+    h1{font-size:2.65rem;font-weight:700;} h2{font-size:2rem;margin:20px 0;} h3{font-size:1.35rem;font-weight:600;} p{font-size:1.08rem;color:#f4f6ff!important}
+    .main p{opacity:0.93}
+    .main h2{margin-top:25px;margin-bottom:15px}
+    .features{gap:20px!important}
+    .feature{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);border-radius:14px;padding:20px!important;box-shadow:0 4px 20px rgba(0,0,0,0.15);transition:0.35s}
+    .feature:hover{transform:translateY(-4px);box-shadow:0 6px 22px rgba(0,0,0,0.25)}
+    .feature strong::before{font-family:'Font Awesome 6 Free';font-weight:900;margin-right:8px;opacity:0.85}
+
+    .feature:nth-child(1) strong::before{content:'\f0c2'}
+    .feature:nth-child(2) strong::before{content:'\f0ad'}
+    .feature:nth-child(3) strong::before{content:'\f06e'}
+    .feature:nth-child(4) strong::before{content:'\f06b'}
+
+    .main p{margin-bottom:20px!important}
+    .main{padding:30px}
+    .main h2::after{content:'';display:block;width:40px;height:2px;background:#4ba3ff;margin-top:10px;border-radius:2px;opacity:0.45}
+  /* HAMBURGER */
+.hamburger {
+  display: none;
+  font-size: 2em;
+  color: white;
+  cursor: pointer;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 100%;
+  background: #0f2748;
+  padding: 22px;
+  text-align: center;
+  gap: 18px;
+  flex-direction: column;
+  z-index: 1099;
+}
+
+.mobile-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.35em;
+  font-weight: 600;
+}
+
+.cta-mobile {
+  background: white;
+  color: #193a65 !important;
+  padding: 14px 30px;
+  border-radius: 12px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* MOBILE AKTIVACIJA */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+}
+.header-inner{
+  max-width:1400px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* HAMBURGER TAČNO U SREDINI */
+.hamburger{
+  display:none;
+  font-size:2em;
+  color:white;
+  cursor:pointer;
+}
+
+/* MOBILE RASPORED */
+@media (max-width: 900px){
+  .nav-links{ display:none; }
+
+  .header-inner{
+    display:grid;
+    grid-template-columns: auto 1fr auto;
+    align-items:center;
+  }
+
+  .logo{
+    justify-self:start;
+  }
+
+  .hamburger{
+    display:block;
+    justify-self:center;
+  }
+
+  .social-icons{
+    justify-self:end;
+  }
+}
+
+</style>
+</head>
+<body>
+ <header>
+  <div class="header-inner">
+  <!-- LOGO -->
+  <img src="logo.png" class="logo" alt="ŽareX logo">
+
+  <!-- HAMBURGER U SREDINI -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <i class="fa fa-bars"></i>
+  </div>
+
+  <!-- DESNO: SOCIAL -->
+  <div class="social-icons">
+    <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+
+  <!-- DESKTOP NAV (SAKRIVENA NA MOBILE) -->
+  <nav class="nav-links">
+    <a href="index.html#hero">Domov</a>
+    <a href="index.html#ponudba">Ponudba</a>
+    <a href="index.html#reviews">Mnenja</a>
+    <a href="index.html#cenik">Galerija</a>
+    <a href="index.html#cenik">Cenik</a>
+    <a href="index.html#kontakt">Kontakt</a>
+    <a href="ponudba.html" class="cta-btn">Dobi ponudbo</a>
+  </nav>
+</div>
+    </nav>
+
+    
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#hero" onclick="toggleMenu()">Domov</a>
+  <a href="index.html#ponudba" onclick="toggleMenu()">Ponudba</a>
+  <a href="index.html#reviews" onclick="toggleMenu()">Mnenja</a>
+  <a href="index.html#cenik" onclick="toggleMenu()">Galerija</a>
+  <a href="index.html#cenik" onclick="toggleMenu()">Cenik</a>
+  <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
+
+  <div class="social-icons" style="justify-content:center; margin-top:10px;">
+    <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+
+  <a href="ponudba.html" class="cta-mobile">Dobi ponudbo</a>
+</div>
+
+  <section class="page-hero">
+    <h1>Lasersko čiščenje kamna</h1>
+    <p>Natančno in nežno odstranjevanje umazanije, grafitov, vpadnih usedlin in bioloških oblog z kamnitih površin brez kemikalij in brez poškodb.</p>
+  </section>
+
+  <div class="content">
+    <article class="main">
+      <h2>Zakaj lasersko čiščenje kamna?</h2>
+      <p>Lasersko čiščenje je idealno za zgodovinske spomenike, fasade, tlakovce in naravni kamen. Metoda odstrani neželene usedline, biofilm in barvo brez abrazivnih postopkov ter brez težkih kemikalij.</p>
+
+      <h2>Prednosti</h2>
+      <div class="features">
+        <div class="feature">
+          <strong>Ne-invazivno</strong>
+          <p>Površina se ne poškoduje - material ostane nedotaknjen v globino.</p>
+        </div>
+        <div class="feature">
+          <strong>Ekološko</strong>
+          <p>Deluje brez topil in čistil; ostanki so minimalni in enostavni za odvoz.</p>
+        </div>
+        <div class="feature">
+          <strong>Precizno</strong>
+          <p>Nastavljiva moč za različne tipke kamna in obloge.</p>
+        </div>
+        <div class="feature">
+          <strong>Varno za restavratorska dela</strong>
+          <p>Primerno za občutljive zgodovinske površine in arhitekturne elemente.</p>
+        </div>
+      </div>
+
+      <h2>Postopek</h2>
+      <p>1. Pregled in testna obdelava  
+         2. Nastavitev laserja glede na tip kamna  
+         3. Slojeno odstranjevanje usedlin  
+         4. Končna kontrola in dokumentacija</p>
+
+    </article>
+
+    <aside class="aside">
+      <div class="gallery-grid">
+        <img src="img/graniti2.jpg" alt="">
+        <img src="img/graniti4.jpg" alt="">
+        <img src="img/graniti5.jpg" alt="">
+        <img src="img/graniti8.jpg" alt="">
+        <img src="img/graniti11.jpg" alt="">
+        <img src="img/graniti13.jpg" alt="">
+      </div>
+
+      <a class="gallery-link" href="galerija-lasersko-ciscenje-kamna.html">Galerija →</a>
+
+      <div class="divider"></div>
+
+      <h3>Hitra ponudba</h3>
+      <p>Pošljite fotografijo in opis kamnate površine ter prejmite informativno ponudbo.</p>
+      <a class="cta" href="mailto:zarexlaser@gmail.com">Zahtevaj ponudbo</a>
+
+      <div class="divider"></div>
+
+      <h3>Povežite se z nami</h3>
+     <div class="social-grid">
+        <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><img src="img/fb.jpg" alt=""></a>
+        <a href="https://www.instagram.com/zarexlaser/" target="_blank"><img src="img/ig.jpg" alt=""></a>
+        <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><img src="img/tiktok.jpg" alt=""></a>
+        <a href="https://wa.me/38670808884" target="_blank"><img src="img/wa.jpg" alt=""></a>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="contact-box">
+        <h3>Kontakt</h3>
+        <p>☎ +386 70 808 884</p>
+        <p>✉ <a href="mailto:zarexlaser@gmail.com" style="color:#cdd9f2;text-decoration:underline">zarexlaser@gmail.com</a></p>
+      </div>
+    </aside>
+  </div>
+<script>
+function toggleMenu(){
+  const m = document.getElementById('mobileMenu');
+  m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
+}
+</script>
+
+</body>
+</html>
