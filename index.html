@@ -589,42 +589,39 @@ header {
 }
 
 .review-card {
-    display: flex !important;
+    /* NA POČETKU SAKRIVENA – JS će jednu po jednu stavljati na flex */
+    display: none;
     flex-direction: column;
     gap: 15px;
     background: transparent;
-    color: #000 !important;   /* ČRNO besedilo za kontrast */
+    color: #000 !important;
 }
 
 .review-card .review-text {
     color: #000 !important;
 }
 
+
 .review-card .rating {
     color: #ffb400;
 }
 
-/* DOTS center fix */
+.reviews-wrap {
+    position: relative;
+}
+
+/* DOTS ISPOD KARTICE */
 .dots {
+    position: absolute;
+    bottom: -35px;      /* koliko daleko ispod boxa */
+    left: 50%;
+    transform: translateX(-50%);
+    
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    gap: 8px;
 }
 
-.dot {
-    width: 12px;
-    height: 12px;
-    margin: 0 5px;
-    background: #ffffffaa;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.dot.active {
-    background: #ffffff;
-    transform: scale(1.2);
-}
 
 /* Arrow buttons – centered under box */
 .controls {
@@ -648,8 +645,22 @@ header {
     background: #fff;
     transform: scale(1.1);
 }
+.reviews * {
+    position: relative;
+    z-index: 1;
+}
 
+.avatar {
+  width: 64px;
+  height: 64px;
+}
 
+.avatar img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 </style>
 </head>
 
@@ -730,7 +741,7 @@ header {
   <h2>Google mnenja</h2>
 
   <div class="reviews-wrap" aria-live="polite">
-    <div class="slider-frame" id="sliderFrame">
+    <div id="sliderFrame">
       <div id="cardContainer"></div>
 
       <div class="controls">
@@ -741,74 +752,121 @@ header {
     <div class="dots" id="dotsContainer"></div>
   </div>
 </section>
-
 <script>
-(async function(){
+(async function () {
+
   const proxy = 'https://delicate-night-a2cb.vukoticdeana.workers.dev/';
   let reviews = [];
+  let index = 0;
 
-  function fetchWithTimeout(url, timeout = 8000){
+  function fetchWithTimeout(url, timeout = 8000) {
     return Promise.race([
-      fetch(url, {cache: 'no-store'}),
-      new Promise((_, rej)=>setTimeout(()=>rej(new Error('timeout')), timeout))
+      fetch(url, { cache: 'no-store' }),
+      new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('timeout')), timeout)
+      )
     ]).then(r => r.json());
   }
 
-  try{
+  try {
     const data = await fetchWithTimeout(proxy, 8000);
-    if(Array.isArray(data)) reviews = data;
-    else if(Array.isArray(data.reviews)) reviews = data.reviews;
-  }catch(e){
-    reviews = [{author_name:"Napaka", profile_photo_url:"https://via.placeholder.com/64", rating:5, text:"Mnenij ni mogoče naložiti.", relative_time_description:""}];
+    if (Array.isArray(data)) reviews = data;
+    else if (Array.isArray(data.reviews)) reviews = data.reviews;
+  } catch (e) {
+    reviews = [{
+      author_name: "Napaka",
+      profile_photo_url: "https://via.placeholder.com/64",
+      rating: 5,
+      text: "Mnenij ni mogoče naložiti.",
+      relative_time_description: ""
+    }];
   }
 
-  const cardContainer=document.getElementById('cardContainer');
-  const dotsContainer=document.getElementById('dotsContainer');
-  let index=0;
+  if (!reviews.length) {
+    reviews = [{
+      author_name: "ŽareX",
+      profile_photo_url: "https://via.placeholder.com/64",
+      rating: 5,
+      text: "Zaenkrat še ni mnenj.",
+      relative_time_description: ""
+    }];
+  }
 
-  function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+  const cardContainer = document.getElementById('cardContainer');
+  const dotsContainer = document.getElementById('dotsContainer');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
 
-  function makeCard(item){
-    const c=document.createElement('article');
-    c.className='review-card';
-    c.innerHTML=`
-      <div class="avatar"><img src="${esc(item.profile_photo_url)}"></div>
+  function esc(s) {
+    return String(s || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;');
+  }
+
+  function makeCard(item) {
+    const c = document.createElement('article');
+    c.className = 'review-card';
+    c.innerHTML = `
+      <div class="avatar">
+        <img src="${esc(item.profile_photo_url)}" alt="">
+      </div>
       <div class="review-body">
         <div class="review-meta">
           <div class="author">${esc(item.author_name)}</div>
           <div class="time">${esc(item.relative_time_description)}</div>
         </div>
-        <div class="rating">${'★'.repeat(item.rating||5)}</div>
+        <div class="rating">${'★'.repeat(item.rating || 5)}</div>
         <div class="review-text">${esc(item.text)}</div>
-      </div>`;
+      </div>
+    `;
     return c;
   }
 
-  function build(){
-    cardContainer.innerHTML='';
-    dotsContainer.innerHTML='';
-    reviews.forEach((r,i)=>{
-      const dot=document.createElement('div');
-      dot.className='dot';
-      dot.onclick=()=>{index=i;render();};
+  function build() {
+    cardContainer.innerHTML = '';
+    dotsContainer.innerHTML = '';
+
+    reviews.forEach((r, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'dot';
+      dot.onclick = () => {
+        index = i;
+        render();
+      };
       dotsContainer.appendChild(dot);
-      const c=makeCard(r);
-      c.style.display='none';
-      cardContainer.appendChild(c);
+
+      const card = makeCard(r);
+      card.style.display = 'none';
+      cardContainer.appendChild(card);
     });
   }
 
-  function render(){
-    [...cardContainer.children].forEach((c,i)=>{
-      c.style.display=(i===index?'flex':'none');
+  function render() {
+    [...cardContainer.children].forEach((c, i) => {
+      c.style.display = i === index ? 'flex' : 'none';
     });
-    [...dotsContainer.children].forEach((d,i)=>d.classList.toggle('active',i===index));
+
+    [...dotsContainer.children].forEach((d, i) => {
+      d.classList.toggle('active', i === index);
+    });
   }
 
   build();
   render();
+
+  prevBtn.onclick = () => {
+    index = (index - 1 + reviews.length) % reviews.length;
+    render();
+  };
+
+  nextBtn.onclick = () => {
+    index = (index + 1) % reviews.length;
+    render();
+  };
+
 })();
 </script>
+
 
 
   <section class="contact" id="kontakt">
@@ -846,27 +904,6 @@ header {
 
   <footer><p>© 2025 ŽareX - Vse pravice pridržane</p></footer>
 
-  <script>
-    let slideIndex=0;
-    const slides=document.querySelectorAll('.review-slide');
-    const nextBtn=document.querySelector('.next');
-    const prevBtn=document.querySelector('.prev');
-    function showSlide(i){slides.forEach((s,idx)=>s.style.display=(idx===i)?'block':'none');}
-    function nextSlide(){slideIndex=(slideIndex+1)%slides.length;showSlide(slideIndex);}
-    function prevSlide(){slideIndex=(slideIndex-1+slides.length)%slides.length;showSlide(slideIndex);}
-    nextBtn.addEventListener('click',()=>{nextSlide();resetAutoSlide();});
-    prevBtn.addEventListener('click',()=>{prevSlide();resetAutoSlide();});
-    let autoSlide=setInterval(nextSlide,4000);
-    function resetAutoSlide(){clearInterval(autoSlide);autoSlide=setInterval(nextSlide,4000);}
-    showSlide(slideIndex);
-
-    window.addEventListener('scroll',()=>{
-      const c=document.getElementById('coverage');
-      if(!c)return;
-      const r=c.getBoundingClientRect();
-      if(r.top<window.innerHeight-100){c.classList.add('visible');}
-    });
-  </script>
 
 <script>
 function toggleMenu(){
