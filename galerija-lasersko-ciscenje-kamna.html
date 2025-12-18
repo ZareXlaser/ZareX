@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="utf-8" />
+<title>Lasersko čiščenje kamna — ŽareX</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<style>
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family: Arial, sans-serif; background:#0f2748; color:white; overflow-x:hidden;}
+
+header{position:sticky;top:0;width:100%;z-index:1100;background:#0f2748;padding:12px 28px;box-shadow:0 2px 6px rgba(0,0,0,0.3)}
+    .header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .logo{height:80px}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{color:white;text-decoration:none;font-weight:600;font-size:1.2em}
+    .cta-btn{background:white;color:#193a65 !important;padding:10px 20px;border-radius:10px;font-weight:bold;text-decoration:none}
+
+    .cta-btn:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 15px rgba(255,255,255,0.7);
+    }
+
+    .social-icons{display:flex;gap:15px;font-size:1.4em}
+    .social-icons a{color:white}
+
+    .page-hero{max-width:1200px;margin:40px auto;padding:28px;background:rgba(255,255,255,0.03);border-radius:14px;backdrop-filter:blur(6px)}
+    .page-hero h1{font-size:2.8em;margin-bottom:10px}
+    .page-hero p{font-size:1.15em;opacity:0.95}
+
+    .content{max-width:1200px;margin:20px auto;padding:20px;display:grid;grid-template-columns:1fr 380px;gap:30px}
+
+
+
+h1 {text-align:center; background:#193a65; color:white; padding:25px 0; font-size:2em; margin-bottom:30px;}
+
+.section {padding:20px; text-align:center;}
+
+/* FOLDERI RAZPOREDENI KOT GALERIJA */
+.folder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+.folder {
+  background:#244c88;
+  border-radius:14px;
+  padding:12px;
+  cursor:pointer;
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+  text-align:center;
+}
+
+.folder:hover {
+  transform:translateY(-6px);
+  box-shadow:0 12px 25px rgba(0,0,0,0.4);
+}
+.folder img {
+  width:100%;
+  height:140px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.folder img {width:100%; border-radius:8px; height:130px; object-fit:cover;}
+.folder-name {margin-top:8px; font-weight:bold; color:white; font-size:1em;}
+
+/* VSEBINA MAPE */
+.folder-content {display:none; margin-top:30px; text-align:center;}
+.folder-content.active {display:block;}
+
+.media-grid {display:flex; flex-wrap:wrap; justify-content:center; gap:15px;}
+.media-grid img, .media-grid video {
+  width:220px; border-radius:10px; cursor:pointer; transition:transform 0.3s ease; border:2px solid white;
+}
+.media-grid img:hover, .media-grid video:hover {transform:scale(1.05);}
+
+footer {text-align:center; padding:15px; background:#193a65; color:white; margin-top:60px;}
+
+/* Lightbox */
+.lightbox {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:5000;}
+.lightbox.active {display:flex;}
+.lightbox-content {position:relative; max-width:90%; max-height:90%;}
+.lightbox-content img, .lightbox-content video {max-width:100%; max-height:90vh; border-radius:10px; box-shadow:0 0 20px rgba(255,255,255,0.3);}
+
+.lightbox-close {position:absolute; top:-40px; right:0; color:white; font-size:2em; cursor:pointer; background:rgba(0,0,0,0.6); border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center;}
+.lightbox-prev, .lightbox-next {position:absolute; top:50%; transform:translateY(-50%); font-size:3em; color:white; cursor:pointer; padding:10px; background:rgba(0,0,0,0.4); border-radius:50%; transition:background 0.3s;}
+.lightbox-prev:hover, .lightbox-next:hover {background:rgba(0,0,0,0.7);}
+.lightbox-prev {left:-60px;}
+.lightbox-next {right:-60px;}
+
+@media (max-width:768px) {
+  .media-grid img, .media-grid video {width:45%;}
+  .folder {width:45%;}
+  .lightbox-prev {left:10px;}
+  .lightbox-next {right:10px;}
+  .lightbox-close {top:10px; right:10px;}
+}
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  font-size: 2em;
+  color: white;
+  cursor: pointer;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 100%;
+  background: #0f2748;
+  padding: 22px;
+  text-align: center;
+  gap: 18px;
+  flex-direction: column;
+  z-index: 1099;
+}
+
+.mobile-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.35em;
+  font-weight: 600;
+}
+
+.cta-mobile {
+  background: white;
+  color: #193a65 !important;
+  padding: 14px 30px;
+  border-radius: 12px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* MOBILE AKTIVACIJA */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+}
+
+.header-inner{
+  max-width:1400px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* HAMBURGER TAČNO U SREDINI */
+.hamburger{
+  display:none;
+  font-size:2em;
+  color:white;
+  cursor:pointer;
+}
+
+/* MOBILE RASPORED */
+@media (max-width: 900px){
+  .nav-links{ display:none; }
+
+  .header-inner{
+    display:grid;
+    grid-template-columns: auto 1fr auto;
+    align-items:center;
+  }
+
+  .logo{
+    justify-self:start;
+  }
+
+  .hamburger{
+    display:block;
+    justify-self:center;
+  }
+
+  .social-icons{
+    justify-self:end;
+  }
+}
+/* === OVERRIDE: folder-grid kao kockice === */
+.folder-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+/* === OVERRIDE: folder izgled === */
+.folder {
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.folder:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
+/* === OVERRIDE: media grid kockice === */
+.media-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.media-grid img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+/* === OVERRIDE: close dugme gore desno === */
+.lightbox-close {
+  position: fixed !important;
+  top: 20px;
+  right: 20px;
+  z-index: 6000;
+}
+/* === OVERRIDE: strelice lightbox === */
+.lightbox-prev,
+.lightbox-next {
+  position: fixed !important;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6000;
+}
+
+.lightbox-prev { left: 15px; }
+.lightbox-next { right: 15px; }
+@media (max-width: 600px) {
+  .media-grid img {
+    height: 150px;
+  }
+}
+/* === FIX: folderi da budu velike kockice kao pre === */
+.folder-grid {
+  grid-template-columns: repeat(auto-fit, 200px) !important;
+  justify-content: center;
+}
+
+.folder {
+  width: 200px;
+}
+/* ===================================================
+   OVERRIDE – zadrži stare veličine (kao pre)
+   =================================================== */
+
+/* FOLDERI – ista veličina kao ranije */
+.folder-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, 200px) !important;
+  justify-content: center;
+  gap: 25px;
+}
+
+.folder {
+  width: 200px;
+}
+
+/* DONJE SLIKE – ista širina kao ranije (220px) */
+.media-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, 220px) !important;
+  justify-content: center;
+  gap: 15px;
+}
+
+.media-grid img {
+  width: 220px;
+  height: auto;
+}
+
+/* LIGHTBOX – X gore desno */
+.lightbox-close {
+  position: fixed !important;
+  top: 20px;
+  right: 20px;
+  z-index: 6000;
+}
+
+/* STRELICE – mobilni friendly */
+.lightbox-prev,
+.lightbox-next {
+  position: fixed !important;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6000;
+}
+
+.lightbox-prev { left: 15px; }
+.lightbox-next { right: 15px; }
+
+/* MOBILNI – kao ranije (2 u redu) */
+
+/* =============================
+   LIGHTBOX FIX – kako želiš
+   ============================= */
+
+/* X GORE DESNO */
+.lightbox-close {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  font-size: 2.2em;
+  z-index: 6000;
+}
+
+/* STRELICE SA STRANE */
+.lightbox-prev,
+.lightbox-next {
+  position: fixed !important;
+  top: 50% !important;
+  transform: translateY(-50%);
+  font-size: 3em;
+  z-index: 6000;
+  background: rgba(0,0,0,0.4);
+  border-radius: 50%;
+}
+
+.lightbox-prev { left: 15px !important; }
+.lightbox-next { right: 15px !important; }
+/* === FINAL FIX: folderi kockice i na mobilnom === */
+.folder-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+}
+
+.folder {
+  width: 100% !important;
+}
+
+.folder img {
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (min-width: 769px) {
+  .folder-grid {
+    grid-template-columns: repeat(auto-fit, 200px);
+  }
+}
+/* =============================
+   FINAL: KOCKE SVUDA (FIX)
+   ============================= */
+
+/* FOLDER GRID */
+.folder-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, 200px) !important;
+  justify-content: center;
+  gap: 25px;
+}
+
+/* FOLDER KOCKA */
+.folder {
+  width: 200px !important;
+}
+
+/* FOLDER SLIKA */
+.folder img {
+  width: 200px !important;
+  height: 200px !important;
+  object-fit: cover;
+  border-radius: 10px;
+}
+/* MEDIA GRID – kocke */
+.media-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, 200px) !important;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* SLIKE + VIDEO ISTA VELIČINA */
+.media-grid img,
+.media-grid video {
+  width: 200px !important;
+  height: 200px !important;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid white;
+}
+.folder {
+  width: 200px !important;
+  height: auto !important;
+  padding: 12px;
+  overflow: hidden; /* ⬅️ KLJUČNO */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* slika ostaje kocka unutar foldera */
+.folder img {
+  width: 100% !important;
+  height: 200px !important;
+  object-fit: cover;
+  border-radius: 10px;
+}
+</style>
+</head>
+<body>
+<div class="header-inner">
+  <!-- LOGO -->
+  <img src="logo.png" class="logo" alt="ŽareX logo">
+
+  <!-- HAMBURGER U SREDINI -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <i class="fa fa-bars"></i>
+  </div>
+
+  <!-- DESNO: SOCIAL -->
+  <div class="social-icons">
+    <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+
+  <!-- DESKTOP NAV (SAKRIVENA NA MOBILE) -->
+  <nav class="nav-links">
+    <a href="index.html#hero">Domov</a>
+    <a href="index.html#ponudba">Ponudba</a>
+    <a href="index.html#reviews">Mnenja</a>
+    <a href="index.html#cenik">Galerija</a>
+    <a href="index.html#cenik">Cenik</a>
+    <a href="index.html#kontakt">Kontakt</a>
+    <a href="ponudba.html" class="cta-btn">Dobi ponudbo</a>
+  </nav>
+</div>
+
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#hero" onclick="toggleMenu()">Domov</a>
+  <a href="index.html#ponudba" onclick="toggleMenu()">Ponudba</a>
+  <a href="index.html#reviews" onclick="toggleMenu()">Mnenja</a>
+  <a href="index.html#cenik" onclick="toggleMenu()">Galerija</a>
+  <a href="index.html#cenik" onclick="toggleMenu()">Cenik</a>
+  <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
+
+  <div class="social-icons" style="justify-content:center; margin-top:10px;">
+    <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+
+  <a href="ponudba.html" class="cta-mobile">Dobi ponudbo</a>
+</div>
+
+<h1>Lasersko čiščenje kamna</h1>
+
+<div class="section">
+
+  <div class="folder-grid">
+    <div class="folder" data-target="stone1">
+      <img src="graniti.jpg" alt="Graniti" />
+      <div class="folder-name">Čiščenje granita in mramorja</div>
+    </div>
+
+    <div class="folder" data-target="stone2">
+      <img src="beton.jpg" alt="Beton" />
+      <div class="folder-name">Brušenje betona, priprava za epoxy premaze</div>
+    </div>
+  </div>
+
+  <div class="folder-content" id="stone1">
+    <div class="media-grid">
+      <img src="graniti1.jpg" alt="graniti1" />
+      <img src="graniti2.jpg" alt="graniti2" />
+      <video controls muted src="graniti3.mp4"></video>
+    </div>
+  </div>
+
+  <div class="folder-content" id="stone2">
+    <div class="media-grid">
+      <video controls muted src="beton1.mp4"></video>
+    </div>
+  </div>
+
+</div>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <span class="lightbox-prev" id="lightbox-prev">&#10094;</span>
+    <span class="lightbox-next" id="lightbox-next">&#10095;</span>
+    <img id="lightbox-img" src="" alt="preview" />
+    <video id="lightbox-video" controls playsinline style="display:none;"></video>
+  </div>
+</div>
+
+<div class="back-button" style="text-align:center; margin:40px 0;">
+  <a href="index.html" style="background:white; color:#193a65; padding:12px 30px; border-radius:8px; text-decoration:none; font-weight:bold; box-shadow:0 4px 10px rgba(0,0,0,0.3);"><i class="fas fa-home"></i> Nazaj na začetno stran</a>
+</div>
+
+<footer><p>© 2025 ŽareX - Vse pravice pridržane</p></footer>
+
+<script>
+  // Samo ena mapa odprta naenkrat
+  const folders = document.querySelectorAll('.folder');
+  const allContents = document.querySelectorAll('.folder-content');
+
+  folders.forEach(folder => {
+    folder.addEventListener('click', () => {
+      const target = folder.getAttribute('data-target');
+      const content = document.getElementById(target);
+
+      // Če je ta že odprta – zapri
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        return;
+      }
+
+      // Zapri vse mape
+      allContents.forEach(c => c.classList.remove('active'));
+
+      // Odpri izbrano mapo
+      content.classList.add('active');
+
+      // Na mobilnih – pomakni pogled
+      if (window.innerWidth <= 768) {
+        content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // LIGHTBOX
+  const lightbox=document.getElementById('lightbox');
+  const lbImg=document.getElementById('lightbox-img');
+  const lbVid=document.getElementById('lightbox-video');
+  const lbClose=document.getElementById('lightbox-close');
+  const lbPrev=document.getElementById('lightbox-prev');
+  const lbNext=document.getElementById('lightbox-next');
+
+  let mediaElements = [];
+  let currentIndex = 0;
+
+  document.querySelectorAll('.media-grid img, .media-grid video').forEach(el => {
+    mediaElements.push(el);
+    el.addEventListener('click', () => showMedia(mediaElements.indexOf(el)));
+  });
+
+  function showMedia(index){
+  const el = mediaElements[index];
+  if(!el) return;
+
+  if(el.tagName === 'IMG'){
+    lbVid.pause();
+    lbVid.style.display = 'none';
+    lbImg.style.display = 'block';
+    lbImg.src = el.src;
+  } else {
+    lbImg.style.display = 'none';
+    lbVid.style.display = 'block';
+    lbVid.src = el.src;
+    lbVid.load();
+    lbVid.play().catch(()=>{});
+  }
+
+  lightbox.classList.add('active');
+  currentIndex = index;
+}
+
+
+  lbClose.addEventListener('click',()=>{
+    lightbox.classList.remove('active');
+    lbVid.pause();
+  });
+
+  lbPrev.addEventListener('click',e=>{
+    e.stopPropagation();
+    currentIndex=(currentIndex-1+mediaElements.length)%mediaElements.length;
+    showMedia(currentIndex);
+  });
+
+  lbNext.addEventListener('click',e=>{
+    e.stopPropagation();
+    currentIndex=(currentIndex+1)%mediaElements.length;
+    showMedia(currentIndex);
+  });
+
+  lightbox.addEventListener('click',e=>{
+    if(e.target===lightbox){
+      lightbox.classList.remove('active');
+      lbVid.pause();
+    }
+  });
+</script>
+<script>
+function toggleMenu(){
+  const m = document.getElementById('mobileMenu');
+  m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
+}
+</script>
+
+</body>
+</html>

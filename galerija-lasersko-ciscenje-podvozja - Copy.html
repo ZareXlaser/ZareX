@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="utf-8"/>
+<title>Lasersko čiščenje podvozja — ŽareX</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Arial,sans-serif;line-height:1.6;color:white;overflow-x:hidden;background:#0f2748;}
+
+ header{position:sticky;top:0;width:100%;z-index:1100;background:#0f2748;padding:12px 28px;box-shadow:0 2px 6px rgba(0,0,0,0.3)}
+    .header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .logo{height:80px}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{color:white;text-decoration:none;font-weight:600;font-size:1.2em}
+    .cta-btn{background:white;color:#193a65 !important;padding:10px 20px;border-radius:10px;font-weight:bold;text-decoration:none}
+
+    .cta-btn:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 15px rgba(255,255,255,0.7);
+    }
+
+    .social-icons{display:flex;gap:15px;font-size:1.4em}
+    .social-icons a{color:white}
+
+    .page-hero{max-width:1200px;margin:40px auto;padding:28px;background:rgba(255,255,255,0.03);border-radius:14px;backdrop-filter:blur(6px)}
+    .page-hero h1{font-size:2.8em;margin-bottom:10px}
+    .page-hero p{font-size:1.15em;opacity:0.95}
+
+    .content{max-width:1200px;margin:20px auto;padding:20px;display:grid;grid-template-columns:1fr 380px;gap:30px}
+
+h1{
+  text-align:center;
+  background:#193a65;
+  color:white;
+  padding:25px 0;
+  font-size:2em;
+  margin-bottom:30px;
+}
+
+.section{padding:20px;text-align:center;}
+
+.folder-grid{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:25px;
+  margin:0 auto;
+  text-align:center;
+}
+
+.folder{
+  width:180px;
+  background:#244c88;
+  border-radius:10px;
+  padding:10px;
+  cursor:pointer;
+  transition:transform 0.2s ease,background 0.3s ease;
+}
+.folder:hover{transform:scale(1.05);background:#305da5;}
+.folder img{width:100%;height:120px;object-fit:cover;border-radius:6px;margin-bottom:10px;}
+.folder-name{color:white;font-weight:bold;font-size:14px;}
+
+.folder-content{display:none;margin-top:25px;text-align:center;animation:fadeIn 0.4s ease;}
+.folder-content.active{display:block;}
+
+.media-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;margin-top:20px;}
+.media-grid img,.media-grid video{
+  width:220px;
+  height:auto;
+  border-radius:10px;
+  border:2px solid #fff;
+  cursor:pointer;
+  transition:transform 0.3s ease;
+}
+.media-grid img:hover,.media-grid video:hover{transform:scale(1.05);}
+
+footer{text-align:center;padding:15px;background:#193a65;color:white;margin-top:40px;}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(-10px);}to{opacity:1;transform:translateY(0);}}
+
+.lightbox{
+  display:none;
+  position:fixed;
+  top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.85);
+  justify-content:center;
+  align-items:center;
+  z-index:5000;
+}
+.lightbox.active{display:flex;}
+.lightbox-content{
+  max-width:80%;
+  max-height:80%;
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.lightbox-content img,
+.lightbox-content video{
+  width:auto;
+  height:auto;
+  max-width:100%;
+  max-height:100%;
+  border-radius:8px;
+  box-shadow:0 0 15px rgba(0,0,0,0.4);
+}
+.lightbox-close{
+  position:absolute;
+  top:10px;
+  right:10px;
+  color:white;
+  font-size:2em;
+  cursor:pointer;
+  z-index:100;
+  text-shadow:0 0 8px rgba(0,0,0,0.7);
+  background:rgba(0,0,0,0.3);
+  border-radius:50%;
+  width:36px;
+  height:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.lightbox-prev,.lightbox-next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  color:white;
+  font-size:2.5em;
+  cursor:pointer;
+  user-select:none;
+  padding:0 15px;
+  transition:color 0.2s;
+}
+.lightbox-prev:hover,.lightbox-next:hover{color:#ccc;}
+.lightbox-prev{left:-60px;}
+.lightbox-next{right:-60px;}
+
+.back-button{text-align:center;margin:40px 0;}
+.back-button a{
+  display:inline-block;
+  padding:14px 30px;
+  background:#fff;
+  color:#193a65;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:1.1em;
+  box-shadow:0 4px 10px rgba(0,0,0,0.4);
+  transition:background 0.3s ease,color 0.3s ease;
+}
+.back-button a i{margin-right:8px;color:#193a65;}
+.back-button a:hover{background:#0056b3;color:#fff;}
+.back-button a:hover i{color:#fff;}
+
+@media(max-width:768px){
+  .folder{width:45%;}
+  .media-grid img,.media-grid video{width:45%;}
+  .lightbox-prev{left:10px;}
+  .lightbox-next{right:10px;}
+}
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  font-size: 2em;
+  color: white;
+  cursor: pointer;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 100%;
+  background: #0f2748;
+  padding: 22px;
+  text-align: center;
+  gap: 18px;
+  flex-direction: column;
+  z-index: 1099;
+}
+
+.mobile-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.35em;
+  font-weight: 600;
+}
+
+.cta-mobile {
+  background: white;
+  color: #193a65 !important;
+  padding: 14px 30px;
+  border-radius: 12px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* MOBILE AKTIVACIJA */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <img src="logo.png" class="logo" alt="ŽareX logo">
+
+    <nav class="nav-links">
+      <a href="index.html#hero">Domov</a>
+      <a href="index.html#ponudba">Ponudba</a>
+      <a href="index.html#reviews">Mnenja</a>
+      <a href="index.html#cenik">Galerija</a>
+      <a href="index.html#cenik">Cenik</a>
+      <a href="index.html#kontakt">Kontakt</a>
+      <a href="ponudba.html" class="cta-btn">Dobi ponudbo</a>
+
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </nav>
+
+    <!-- HAMBURGER (mora biti IZVEN nav) -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <i class="fa fa-bars"></i>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#hero" onclick="toggleMenu()">Domov</a>
+  <a href="index.html#ponudba" onclick="toggleMenu()">Ponudba</a>
+  <a href="index.html#reviews" onclick="toggleMenu()">Mnenja</a>
+  <a href="index.html#cenik" onclick="toggleMenu()">Galerija</a>
+  <a href="index.html#cenik" onclick="toggleMenu()">Cenik</a>
+  <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
+
+  <div class="social-icons" style="justify-content:center; margin-top:10px;">
+    <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+
+  <a href="ponudba.html" class="cta-mobile">Dobi ponudbo</a>
+</div>
+
+
+
+<h1>Lasersko čiščenje podvozja</h1>
+
+<div class="section">
+  <div class="folder-grid">
+    <div class="folder" data-target="f1"><img src="slikica1.jpg"/><div class="folder-name">Volkswagen Touran 2002</div></div>
+    <div class="folder" data-target="f2"><img src="slikica2.jpg"/><div class="folder-name">Chevrolet Avalanche 2006</div></div>
+    <div class="folder" data-target="f3"><img src="slikica3.jpg"/><div class="folder-name">Toyota Yaris 2002</div></div>
+    <div class="folder" data-target="f4"><img src="slikica4.jpg"/><div class="folder-name">Škoda Octavia 2017</div></div>
+    <div class="folder" data-target="f5"><img src="slikica5.jpg"/><div class="folder-name">Škoda Superb 2017</div></div>
+    <div class="folder" data-target="f6"><img src="slikica6.jpg"/><div class="folder-name">BMW 320 2006</div></div>
+    <div class="folder" data-target="f7"><img src="slikica7.jpg"/><div class="folder-name">Volvo V60 2016</div></div>
+    <div class="folder" data-target="f8"><img src="slikica8.jpg"/><div class="folder-name">VW Sharan 2015</div></div>
+    <div class="folder" data-target="f9"><img src="slikica9.jpg"/><div class="folder-name">Platišča / felte</div></div>
+  </div>
+
+  <div class="folder-content" id="f1"><div class="media-grid"><img src="touran1.jpg"/><img src="touran2.jpg"/><img src="touran3.jpg"/><img src="touran4.jpg"/><img src="touran5.jpg"/><img src="touran6.jpg"/></div></div>
+  <div class="folder-content" id="f2"><div class="media-grid"><img src="avalanche1.jpg"/><img src="avalanche2.jpg"/><img src="avalanche3.jpg"/><img src="avalanche4.jpg"/><img src="avalanche5.jpg"/><img src="avalanche6.jpg"/><video controls muted src="avalanche.mp4"></video></div></div>
+  <div class="folder-content" id="f3"><div class="media-grid"><img src="yaris1.jpg"/><img src="yaris2.jpg"/><img src="yaris3.jpg"/><img src="yaris4.jpg"/><img src="yaris5.jpg"/><img src="yaris6.jpg"/><video controls muted src="yaris7.mp4"></video></div></div>
+  <div class="folder-content" id="f4"><div class="media-grid"><img src="octavia1.jpg"/><img src="octavia2.jpg"/><img src="octavia3.jpg"/><img src="octavia4.jpg"/><img src="octavia5.jpg"/></div></div>
+  <div class="folder-content" id="f5"><div class="media-grid"><img src="superb1.jpg"/><img src="superb2.jpg"/><img src="superb3.jpg"/><img src="superb4.jpg"/><img src="superb5.jpg"/><img src="superb6.jpg"/><video controls muted src="superb7.mp4"></video></div></div>
+  <div class="folder-content" id="f6"><div class="media-grid"><img src="bmw1.jpg"/><img src="bmw2.jpg"/><img src="bmw3.jpg"/><img src="bmw4.jpg"/><img src="bmw5.jpg"/><img src="bmw6.jpg"/><video controls muted src="bmw.mp4"></video></div></div>
+  <div class="folder-content" id="f7"><div class="media-grid"><img src="volvo1.jpg"/><img src="volvo2.jpg"/><img src="volvo3.jpg"/><img src="volvo4.jpg"/><img src="volvo5.jpg"/><img src="volvo6.jpg"/><video controls muted src="volvo7.mp4"></video></div></div>
+  <div class="folder-content" id="f8"><div class="media-grid"><img src="sharan1.jpg"/><img src="sharan2.jpg"/><img src="sharan3.jpg"/><img src="sharan4.jpg"/></div></div>
+  <div class="folder-content" id="f9"><div class="media-grid"><img src="felge1.jpg"/><img src="felge2.jpg"/><img src="felge3.jpg"/><img src="felge4.jpg"/><img src="felge5.jpg"/><img src="felge6.jpg"/><video controls muted src="felge7.mp4"></video></div></div>
+</div>
+
+<div class="back-button"><a href="index.html"><i class="fas fa-home"></i> Nazaj na začetno stran</a></div>
+
+<footer><p>© 2025 ŽareX - Vse pravice pridržane</p></footer>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <span class="lightbox-close" id="lightbox-close">×</span>
+    <span class="lightbox-prev" id="lightbox-prev">◀</span>
+    <img alt="" id="lightbox-img" src=""/>
+    <video controls id="lightbox-video" muted style="display:none;"></video>
+    <span class="lightbox-next" id="lightbox-next">▶</span>
+  </div>
+</div>
+
+<script>
+  const folders=document.querySelectorAll('.folder');
+  const allContents=document.querySelectorAll('.folder-content');
+  folders.forEach(folder=>{
+    folder.addEventListener('click',()=>{
+      const target=folder.getAttribute('data-target');
+      const content=document.getElementById(target);
+      if(content.classList.contains('active')){
+        content.classList.remove('active');
+        return;
+      }
+      allContents.forEach(c=>c.classList.remove('active'));
+      content.classList.add('active');
+      if(window.innerWidth<=768){
+        content.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+    });
+  });
+
+  const lightbox=document.getElementById('lightbox');
+  const lbImg=document.getElementById('lightbox-img');
+  const lbVid=document.getElementById('lightbox-video');
+  const lbClose=document.getElementById('lightbox-close');
+  const lbPrev=document.getElementById('lightbox-prev');
+  const lbNext=document.getElementById('lightbox-next');
+  const mediaElements=Array.from(document.querySelectorAll('.media-grid img, .media-grid video'));
+  let currentIndex=0;
+
+  function showMedia(index){
+    const el=mediaElements[index];
+    if(!el)return;
+    if(el.tagName==='IMG'){
+      lbVid.style.display='none';lbImg.style.display='block';lbImg.src=el.src;
+    }else{
+      lbImg.style.display='none';lbVid.style.display='block';lbVid.src=el.src;
+    }
+    lightbox.classList.add('active');currentIndex=index;
+  }
+
+  mediaElements.forEach((el,i)=>{el.addEventListener('click',()=>showMedia(i));});
+  lbClose.addEventListener('click',()=>{lightbox.classList.remove('active');lbVid.pause();});
+  lbPrev.addEventListener('click',e=>{e.stopPropagation();currentIndex=(currentIndex-1+mediaElements.length)%mediaElements.length;showMedia(currentIndex);});
+  lbNext.addEventListener('click',e=>{e.stopPropagation();currentIndex=(currentIndex+1)%mediaElements.length;showMedia(currentIndex);});
+  lightbox.addEventListener('click',e=>{if(e.target===lightbox){lightbox.classList.remove('active');lbVid.pause();}});
+</script>
+<script>
+function toggleMenu(){
+  const m = document.getElementById('mobileMenu');
+  m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
+}
+</script>
+
+</body>
+</html>
