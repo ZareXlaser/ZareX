@@ -236,32 +236,43 @@
       <h2>Izpolnite obrazec</h2>
       <p class="muted">Navedite čim več informacij (površina, material, poškodbe, želeni rezultat).</p>
 
-      <form action="send_mail.php" method="POST" enctype="multipart/form-data">
-        <label>Ime in priimek</label>
-        <input type="text" name="name" required>
+      <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
 
-        <label>Željena storitev</label>
-        <select name="service" required>
-          <option value="">— Izberi —</option>
-          <option>Lasersko čiščenje kovin</option>
-          <option>Lasersko čiščenje lesa</option>
-          <option>Lasersko čiščenje kamna</option>
-          <option>Industrijsko lasersko čiščenje</option>
-          <option>Barvanje in zaščita</option>
-          <option>Izposoja laserja</option>
-        </select>
+  <!-- OVO JE KLJUČ -->
+  <input type="hidden" name="access_key" value="4810a035-3198-40bb-8ef8-4e945afc8d4a">
 
-        <label>Znamka in tip avta (če relevantno)</label>
-        <input type="text" name="car">
+  <!-- NASLOV MAILA -->
+  <input type="hidden" name="subject" value="Nova ponudba – ŽareX">
 
-        <label>Opis dela</label>
-        <textarea name="message" required></textarea>
+  <!-- NAZIV FIRME (opcija, pomaže u inboxu) -->
+  <input type="hidden" name="from_name" value="ŽareX spletna stran">
 
-        <label>Dodaj slike (več datotek dovoljenih)</label>
-        <input type="file" name="attachments[]" multiple accept="image/*">
+  <label>Ime in priimek</label>
+  <input type="text" name="name" required>
 
-        <button class="btn-submit" type="submit">Dobi ponudbo</button>
-      </form>
+  <label>Željena storitev</label>
+  <select name="service" required>
+    <option value="">— Izberi —</option>
+    <option>Lasersko čiščenje kovin</option>
+    <option>Lasersko čiščenje lesa</option>
+    <option>Lasersko čiščenje kamna</option>
+    <option>Industrijsko lasersko čiščenje</option>
+    <option>Barvanje in zaščita</option>
+    <option>Izposoja laserja</option>
+  </select>
+
+  <label>Znamka in tip avta (če relevantno)</label>
+  <input type="text" name="car">
+
+  <label>Opis dela</label>
+  <textarea name="message" required></textarea>
+
+  <label>Dodaj slike (več datotek dovoljenih)</label>
+  <input type="file" name="attachments[]" multiple accept="image/*">
+
+  <button class="btn-submit" type="submit">Dobi ponudbo</button>
+
+</form>
 
       <div class="divider" style="margin-top:22px"></div>
 
