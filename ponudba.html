@@ -236,18 +236,11 @@
       <h2>Izpolnite obrazec</h2>
       <p class="muted">Navedite čim več informacij (površina, material, poškodbe, želeni rezultat).</p>
 
-      <form action="https://formspree.io/f/mjgbvwvp" method="POST">
-  <!-- Forma je povezana na Formspree in pošilja na zarexlaser@gmail.com -->
+      <form id="offerForm" action="https://formspree.io/f/mjgbvwvp" method="POST">
+  <!-- Formspree forma – pošilja na zarexlaser@gmail.com -->
 
-  <!-- Naslov maila, ki ga boš dobila -->
+  <!-- Naslov maila -->
   <input type="hidden" name="_subject" value="Nova ponudba – ŽareX">
-
-  <!-- Ime pošiljatelja, ki se bo pokazalo v inboxu (ni nujno, ampak je lepo) -->
-  <input type="hidden" name="from_name" value="ŽareX spletna stran">
-
-  <!-- (Opcijsko) kam preusmeri po uspešnem pošiljanju
-  <input type="hidden" name="_next" value="https://zarex.si/hvala.html">
-  -->
 
   <label>Ime in priimek</label>
   <input type="text" name="name" required>
@@ -342,6 +335,33 @@ function toggleMenu(){
   const m = document.getElementById('mobileMenu');
   m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
 }
+</script>
+<script>
+document.getElementById('offerForm').addEventListener('submit', async function(e) {
+  e.preventDefault(); // spreči standardni submit
+
+  const form = e.target;
+  const data = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      // uspešno poslano -> preusmeri na hvala.html
+      window.location.href = "hvala.html";
+    } else {
+      alert("Prišlo je do napake pri pošiljanju. Poskusite znova ali pišite na zarexlaser@gmail.com.");
+    }
+  } catch (error) {
+    alert("Povezava je spodletela. Poskusite znova kasneje.");
+  }
+});
 </script>
 
 </body>
