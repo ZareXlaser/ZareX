@@ -236,19 +236,24 @@
       <h2>Izpolnite obrazec</h2>
       <p class="muted">Navedite čim več informacij (površina, material, poškodbe, želeni rezultat).</p>
 
-      <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+      <form action="https://formspree.io/f/mjgbvwvp" method="POST">
+  <!-- Forma je povezana na Formspree in pošilja na zarexlaser@gmail.com -->
 
-  <!-- OVO JE KLJUČ -->
-  <input type="hidden" name="access_key" value="4810a035-3198-40bb-8ef8-4e945afc8d4a">
+  <!-- Naslov maila, ki ga boš dobila -->
+  <input type="hidden" name="_subject" value="Nova ponudba – ŽareX">
 
-  <!-- NASLOV MAILA -->
-  <input type="hidden" name="subject" value="Nova ponudba – ŽareX">
-
-  <!-- NAZIV FIRME (opcija, pomaže u inboxu) -->
+  <!-- Ime pošiljatelja, ki se bo pokazalo v inboxu (ni nujno, ampak je lepo) -->
   <input type="hidden" name="from_name" value="ŽareX spletna stran">
+
+  <!-- (Opcijsko) kam preusmeri po uspešnem pošiljanju
+  <input type="hidden" name="_next" value="https://zarex.si/hvala.html">
+  -->
 
   <label>Ime in priimek</label>
   <input type="text" name="name" required>
+
+  <label>Kontakt e-mail</label>
+  <input type="email" name="email" required>
 
   <label>Željena storitev</label>
   <select name="service" required>
@@ -267,11 +272,7 @@
   <label>Opis dela</label>
   <textarea name="message" required></textarea>
 
-  <label>Dodaj slike (več datotek dovoljenih)</label>
-  <input type="file" name="attachments[]" multiple accept="image/*">
-
   <button class="btn-submit" type="submit">Dobi ponudbo</button>
-
 </form>
 
       <div class="divider" style="margin-top:22px"></div>
