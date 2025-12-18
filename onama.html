@@ -4,92 +4,405 @@
 <meta charset="UTF-8">
 <title>O nas - ŽareX Lasersko Čiščenje</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
-  * {margin:0; padding:0; box-sizing:border-box;}
-  body {font-family: Arial, sans-serif; background:#0f2748; color:white; overflow-x:hidden; animation:fadeIn 1s ease;}
-  header {display:flex; justify-content:center; align-items:center; padding:25px 0; background:#193a65; box-shadow:0 2px 6px rgba(0,0,0,0.3); position:sticky; top:0; z-index:1000;}
-  .logo {height:120px; filter:drop-shadow(0 0 10px rgba(255,255,255,0.7)); transition:transform 0.3s ease;}
-  .logo:hover {transform:scale(1.05);}
-  main {max-width:900px; margin:50px auto; padding:20px; background:rgba(255,255,255,0.08); border-radius:20px; box-shadow:0 6px 12px rgba(0,0,0,0.4); backdrop-filter:blur(5px);}
-  h1, h2 {text-align:center; margin-bottom:20px;}
-  h1 {font-size:2.4em; color:white;}
-  h2 {font-size:1.8em; color:#00ff9d; text-shadow:0 0 10px #00ff9d; margin-top:30px;}
-  p {margin-bottom:15px; line-height:1.7; color:#eaeaea; font-size:1.1em;}
-  ul {margin-left:30px; line-height:1.8;}
-  li::marker {color:#00ff9d;}
-  .highlight {color:#00ff9d; text-shadow:0 0 10px #00ff9d; font-weight:bold;}
-  .emoji {font-size:1.2em;}
-  .back-button {text-align:center; margin:40px 0;}
-  .back-button a {background:white; color:#193a65; padding:12px 30px; border-radius:8px; text-decoration:none; font-weight:bold; box-shadow:0 4px 10px rgba(0,0,0,0.3); transition:background 0.3s ease, color 0.3s ease;}
-  .back-button a:hover {background:#193a65; color:white;}
-  footer {text-align:center; padding:15px; background:#193a65; color:white; margin-top:60px;}
-  @keyframes fadeIn {from {opacity:0;} to {opacity:1;}}
-  @keyframes reveal {from {opacity:0; transform:translateY(30px);} to {opacity:1; transform:translateY(0);}}
-  .reveal {opacity:0; transform:translateY(30px); transition:opacity 1s ease, transform 1s ease;}
-  .reveal.active {opacity:1; transform:translateY(0);}
-  @media (max-width:768px){.logo{height:90px;} h1{font-size:2em;} main{margin:20px; padding:15px;} .back-button a{padding:10px 20px; font-size:1em;}}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Saira',sans-serif;
+  background:#0f2748;
+  color:white;
+  padding-top:120px;
+  line-height:1.7;
+}
+
+/* HEADER */
+header{
+  position:fixed;top:0;width:100%;z-index:1100;
+  background:#0f2748;padding:12px 28px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.3);
+}
+.header-inner{
+  max-width:1400px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{height:80px}
+.nav-links{display:flex;gap:18px;align-items:center}
+.nav-links a{
+  color:white;text-decoration:none;font-weight:600;font-size:1.1rem;
+}
+.cta-btn{
+  background:white;color:#193a65 !important;
+  padding:10px 18px;border-radius:10px;font-weight:bold;text-decoration:none;
+}
+.cta-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 15px rgba(255,255,255,0.7);
+}
+.social-icons{display:flex;gap:15px;font-size:1.25rem}
+.social-icons a{color:white}
+
+/* HERO */
+.page-hero{
+  max-width:1200px;margin:40px auto;
+  padding:30px;background:rgba(255,255,255,0.03);
+  border-radius:14px;backdrop-filter:blur(6px);
+}
+.page-hero h1{
+  font-size:2.8rem;margin-bottom:10px;text-align:center;
+}
+
+/* LAYOUT */
+.content{
+  max-width:1200px;
+  margin:20px auto;
+  padding:20px;
+  display:grid;
+  grid-template-columns: minmax(0,1fr) 360px;
+  gap:30px;
+}
+
+/* LEFT – ASIDE IDENTIČEN OSTALIM STRANEM */
+.aside{
+  background:rgba(255,255,255,0.03);
+  padding:20px;border-radius:14px;
+  border:1px solid rgba(255,255,255,0.06);
+  box-shadow:0 4px 20px rgba(0,0,0,0.15);
+}
+
+.gallery-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:10px;margin-bottom:15px;
+}
+.gallery-grid img{
+  width:100%;height:110px;object-fit:cover;
+  border-radius:8px;transition:0.3s;
+  border:1px solid rgba(255,255,255,0.04);
+}
+.gallery-grid img:hover{
+  transform:scale(1.05);
+  box-shadow:0 4px 12px rgba(0,0,0,0.4);
+}
+
+.gallery-link{
+  text-align:center;display:block;margin-bottom:20px;
+  text-decoration:underline;color:#cdd9f2;font-size:1.05rem;
+}
+
+.divider{
+  height:1px;background:rgba(255,255,255,0.06);
+  margin:20px 0;border-radius:3px;
+}
+
+.aside h3{text-align:center;margin-bottom:10px}
+.aside p{text-align:center;color:#dbe4f3;font-size:1rem}
+
+.cta{
+  display:block;text-align:center;margin:10px auto;
+  background:white;color:#0f2748;
+  padding:12px 18px;border-radius:10px;font-weight:700;
+  max-width:220px;text-decoration:none;
+}
+.cta:hover{transform:scale(1.05)}
+
+.social-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:12px;margin-top:10px;
+}
+.social-grid img{
+  width:100%;height:90px;object-fit:cover;
+  border-radius:10px;transition:0.3s;
+  border:1px solid rgba(255,255,255,0.04);
+}
+.social-grid img:hover{
+  transform:scale(1.05);
+  box-shadow:0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* RIGHT SIDE – MAIN CONTENT */
+.section-box{
+  background:rgba(255,255,255,0.03);
+  padding:30px;border-radius:14px;
+  border:1px solid rgba(255,255,255,0.06);
+  box-shadow:0 4px 20px rgba(0,0,0,0.15);
+  margin-bottom:30px;
+}
+h2{
+  font-size:2rem;
+  color:#00ff9d;
+  text-shadow:0 0 10px #00ff9d;
+  text-align:center;
+  margin-bottom:15px;
+}
+p{color:#e8eef8;font-size:1.1rem;margin-bottom:12px}
+
+ul{margin-left:25px}
+li::marker{color:#00ff9d}
+
+/* BACK BUTTON */
+.back-button{text-align:center;margin:40px 0}
+.back-button a{
+  background:white;color:#193a65;padding:12px 30px;
+  border-radius:10px;font-weight:bold;text-decoration:none;
+}
+.back-button a:hover{transform:scale(1.05)}
+
+footer{text-align:center;padding:18px;background:#0f2748;margin-top:40px;color:#cdd9f2}
+
+@media(max-width:900px){
+  .content{grid-template-columns:1fr}
+  .logo{height:70px}
+}
+.aside{
+  width:100%;
+  max-width:360px;
+}
+.content > div{
+  width:100%;
+}
+.content{
+  align-items:start;
+}
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  font-size: 2em;
+  color: white;
+  cursor: pointer;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 100%;
+  background: #0f2748;
+  padding: 22px;
+  text-align: center;
+  gap: 18px;
+  flex-direction: column;
+  z-index: 1099;
+}
+
+.mobile-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.35em;
+  font-weight: 600;
+}
+
+.cta-mobile {
+  background: white;
+  color: #193a65 !important;
+  padding: 14px 30px;
+  border-radius: 12px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* MOBILE AKTIVACIJA */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+}
+@media (max-width: 768px){
+
+  /* en stolpec */
+  .content{
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  /* enaka širina za vse */
+  .content > div,
+  .aside{
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* odstrani desktop look */
+  .aside{
+    align-self: stretch;
+  }
+
+  /* malo več diha */
+  .section-box,
+  .aside{
+    padding: 22px;
+  }
+
+}
+
 </style>
 </head>
+
 <body>
+
+<!-- HEADER -->
 <header>
-  <img src="logo.png" alt="ŽareX logo" class="logo">
+  <div class="header-inner">
+  <!-- LOGO -->
+  <img src="logo.png" class="logo" alt="ŽareX logo">
+
+  <!-- HAMBURGER U SREDINI -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <i class="fa fa-bars"></i>
+  </div>
+
+  <!-- DESNO: SOCIAL -->
+  <div class="social-icons">
+    <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+
+  <!-- DESKTOP NAV (SAKRIVENA NA MOBILE) -->
+  <nav class="nav-links">
+    <a href="index.html#hero">Domov</a>
+    <a href="index.html#ponudba">Ponudba</a>
+    <a href="index.html#reviews">Mnenja</a>
+    <a href="index.html#cenik">Galerija</a>
+    <a href="index.html#cenik">Cenik</a>
+    <a href="index.html#kontakt">Kontakt</a>
+    <a href="ponudba.html" class="cta-btn">Dobi ponudbo</a>
+  </nav>
+</div>
+
+  </div>
 </header>
-<main>
-  <h1 class="reveal"> O NAS</h1>
-  <section class="reveal">
-    <h2>💡 Kdo smo</h2>
-    <p>Smo <span class="highlight">ŽAREX</span> iz Škofje Loke — ekipa, ki stoji za sodobnim pristopom k laserskemu čiščenju in zaščiti površin.</p>
-    <p>Z lasersko tehnologijo ponujamo <span class="highlight">natančno</span>, <span class="highlight">varno</span> in <span class="highlight">okolju prijazno rešitev</span> za odstranjevanje rje, barv, olj in drugih nečistoč.
-    <p>✨Naš cilj je preprost: čista, pripravljena površina brez prahu, brez kemikalij in brez skrbi. ✨</p>
-    <span class="highlight">✨Zanesljivost</span>, <span class="highlight">kakovost</span> in <span class="highlight">prilagodljivost</span> so temelj našega dela – ne glede na to, ali gre za avtopodvozje, tovorne prikolice, kovinske konstrukcije, les ali kamen. ✨</p>
-  </section>
-  <section class="reveal">
-    <h2>🔬 Kako deluje lasersko čiščenje?</h2>
-    <p>Lasersko čiščenje je sodobna, natančna in okolju prijazna metoda za odstranjevanje nečistoč s površin.</p>
-    <p>Z usmerjenim laserskim žarkom nežno odstranimo rjo, okside, barve, olja ali druge sloje, ne da bi pri tem poškodovali osnovni material.</p>
-    <ul>
-      <li><span class="highlight">Brez kemikalij in mehanskega stika:</span> površina ostane popolnoma čista in pripravljena za nadaljnjo obdelavo.</li>
-      <li><span class="highlight">Natančno in prilagodljivo:</span> moč in hitrost laserskega žarka nastavimo glede na material in zahtevnost dela.</li>
-      <li><span class="highlight">Varno za okolje:</span> brez prahu, brez vode, brez odpadnih kemikalij.</li>
-    </ul>
-  </section>
-  <section class="reveal">
-   <h2>👨🏽‍🔧Po laserskem čiščenju nudimo tudi:</h2>
-<p>✅Odstranjevanje rje z Rust Remover sredstvi</p>
-<p>✅Nanos epoxy prajmerjev in zaščitnih premazov</p>
-<p>✅Ličanje in zaključna zaščita po potrebi</p>
-      <p><span class="highlight">Tako poskrbimo, da površina ni samo čista – ampak tudi zaščitena in pripravljena na dolgotrajno uporabo. ⚙️</span></p>
-  </section>
-<section class="reveal">
-    <h2><strong class="highlight">💥 Zakaj izbrati Žarex?</strong></h2>
-    <p><strong class="highlight">💠 Celovita rešitev</strong> – od laserskega čiščenja do končne zaščite površine.</p>
-    <p><strong class="highlight">💠 Čiščenje brez kompromisov</strong> – brez kemikalij, brez abrazivov in brez poškodb materiala..</p>
-    <p><strong class="highlight">💠 Mobilne storitve</strong> – delo opravimo pri vas, kjerkoli po Gorenjski in Ljubljani.</p>
-    <p><strong class="highlight">💠 Natančnost in kakovost </strong> – vsak detajl obdelamo z mislijo na popoln rezultat.</p>
-    <p><strong class="highlight">💠 Fleksibilnost</strong> – prilagodimo se vrsti materiala in zahtevam naročnika.</p>
-  </section>
-<section class="reveal">
-    <h2><strong class="highlight">🌍 ŽAREX – Čista tehnologija za čisto prihodnost🍃</strong></h2>
-<p>Pri <strong class="highlight">ŽAREX-u</strong> verjamemo, da lahko <span class="highlight">napredek</span> in <span class="highlight">skrb za okolje</span> hodita z roko v roki. 🌿</p>
-    <p>Zato uporabljamo lasersko čiščenje, ki je hitro, učinkovito in prijazno do narave —</p>
-<p> <span class="highlight">brez kemikalij</span> in <span class="highlight">brez odpadnih vod</span>. 💧</p>
-  </section>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#hero" onclick="toggleMenu()">Domov</a>
+  <a href="index.html#ponudba" onclick="toggleMenu()">Ponudba</a>
+  <a href="index.html#reviews" onclick="toggleMenu()">Mnenja</a>
+  <a href="index.html#cenik" onclick="toggleMenu()">Galerija</a>
+  <a href="index.html#cenik" onclick="toggleMenu()">Cenik</a>
+  <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
+
+  <div class="social-icons" style="justify-content:center; margin-top:10px;">
+    <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+
+  <a href="ponudba.html" class="cta-mobile">Dobi ponudbo</a>
+</div>
+
+
+<!-- HERO -->
+<section class="page-hero">
+  <h1>O NAS</h1>
 </section>
-</main>
-<div class="back-button"><a href="index.html"><i class="fas fa-home"></i> Nazaj na začetno stran</a></div>
-<footer><p>© 2025 ŽareX - Vse pravice pridržane</p></footer>
+
+<!-- CONTENT LAYOUT: LEFT + RIGHT -->
+<div class="content">
+
+  <!-- LEFT SIDE – MAIN CONTENT -->
+  <div>
+
+    <div class="section-box">
+      <h2>💡 Kdo smo</h2>
+      <p>Smo <span style="color:#00ff9d;font-weight:700">ŽAREX</span> iz Škofje Loke — ekipa s sodobnim pristopom k laserskemu čiščenju in zaščiti površin.</p>
+      <p>Z lasersko tehnologijo ponujamo <strong>natančno</strong>, <strong>varno</strong> in <strong>okolju prijazno</strong> rešitev za odstranjevanje rje, barv, olj in drugih nečistoč.</p>
+      <p>✨ Površina ostane popolnoma čista, brez kemikalij, brez prahu, brez poškodb. ✨</p>
+    </div>
+
+    <div class="section-box">
+      <h2>🔬 Kako deluje lasersko čiščenje?</h2>
+      <p>Lasersko čiščenje je najsodobnejša in najbolj natančna metoda za odstranjevanje nečistoč.</p>
+      <ul>
+        <li>Brez kemikalij</li>
+        <li>Natančno prilagajanje materialu</li>
+        <li>Brez poškodb podlage</li>
+        <li>Ekološko in varno</li>
+      </ul>
+    </div>
+
+    <div class="section-box">
+      <h2>👨🏽‍🔧 Po čiščenju nudimo:</h2>
+      <p>✔ Odstranjevanje rje</p>
+      <p>✔ Epoxy prajmerji in zaščitni premazi</p>
+      <p>✔ Ličanje po potrebi</p>
+      <p><strong>Površina ostane zaščitena za dolgotrajno uporabo.</strong></p>
+    </div>
+
+    <div class="section-box">
+      <h2>💥 Zakaj izbrati ŽAREX?</h2>
+      <p>💠 Celovita rešitev</p>
+      <p>💠 Brez kompromisov</p>
+      <p>💠 Mobilne storitve</p>
+      <p>💠 Popolna natančnost</p>
+    </div>
+
+    <div class="section-box">
+      <h2>🌍 Čista tehnologija za čisto prihodnost 🍃</h2>
+      <p><strong>ŽAREX</strong> – napredek brez kemikalij.</p>
+      <p>Lasersko čiščenje = brez odpadnih vod, brez škodljivih kemikalij.</p>
+    </div>
+
+  </div>
+
+  <!-- RIGHT SIDE – ASIDE -->
+  <aside class="aside">
+
+    <div class="gallery-grid">
+      <a href="galerija.html"><img src="img/gal1.jpg"></a>
+      <a href="galerija.html"><img src="img/gal2.jpg"></a>
+      <a href="galerija.html"><img src="img/gal3.jpg"></a>
+      <a href="galerija.html"><img src="img/gal4.jpg"></a>
+      <a href="galerija.html"><img src="img/gal5.jpg"></a>
+      <a href="galerija.html"><img src="img/gal6.jpg"></a>
+    </div>
+
+    <a href="galerija.html" class="gallery-link">➜ Odpri celotno galerijo</a>
+
+    <div class="divider"></div>
+
+    <h3>Dobi ponudbo</h3>
+    <p>Pošljite opis dela in fotografije – hitro prejmete informativno ponudbo.</p>
+    <a href="ponudba.html" class="cta">Dobi ponudbo</a>
+
+    <div class="divider"></div>
+
+    <h3>Poveži se z nami</h3>
+    <div class="social-grid">
+        <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><img src="img/fb.jpg" alt=""></a>
+        <a href="https://www.instagram.com/zarexlaser/" target="_blank"><img src="img/ig.jpg" alt=""></a>
+        <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><img src="img/tiktok.jpg" alt=""></a>
+        <a href="https://wa.me/38670808884" target="_blank"><img src="img/wa.jpg" alt=""></a>
+      </div>
+
+    <div class="divider"></div>
+
+    <h3>Kontakt</h3>
+    <p>☎ 070 808 884</p>
+    <p>✉ zarexlaser@gmail.com</p>
+
+  </aside>
+
+</div>
+
+
+  </div>
+
+</div>
+
+<div class="back-button">
+  <a href="index.html"><i class="fas fa-home"></i> Nazaj na začetno stran</a>
+</div>
+
+<footer>© 2025 ŽareX - Vse pravice pridržane</footer>
 <script>
-const reveals = document.querySelectorAll('.reveal');
-function revealOnScroll() {
-  const triggerBottom = window.innerHeight * 0.85;
-  reveals.forEach(el => {
-    const boxTop = el.getBoundingClientRect().top;
-    if(boxTop < triggerBottom) el.classList.add('active');
-  });
+function toggleMenu(){
+  const m = document.getElementById('mobileMenu');
+  m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
 }
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
 </script>
+
 </body>
 </html>
