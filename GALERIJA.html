@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="utf-8" />
+<title>Galerija — ŽareX</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<style>
+/* ------------------ GLOBAL STYLE ------------------ */
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family: Arial, sans-serif; background:#0f2748; color:white; overflow-x:hidden;}
+
+header{position:sticky;top:0;width:100%;z-index:1100;background:#0f2748;padding:12px 28px;box-shadow:0 2px 6px rgba(0,0,0,0.3)}
+    .header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .logo{height:80px}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{color:white;text-decoration:none;font-weight:600;font-size:1.2em}
+    .cta-btn{background:white;color:#193a65 !important;padding:10px 20px;border-radius:10px;font-weight:bold;text-decoration:none}
+
+    .cta-btn:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 15px rgba(255,255,255,0.7);
+    }
+
+    .social-icons{display:flex;gap:15px;font-size:1.4em}
+    .social-icons a{color:white}
+
+    .page-hero{max-width:1200px;margin:40px auto;padding:28px;background:rgba(255,255,255,0.03);border-radius:14px;backdrop-filter:blur(6px)}
+    .page-hero h1{font-size:2.8em;margin-bottom:10px}
+    .page-hero p{font-size:1.15em;opacity:0.95}
+
+    .content{max-width:1200px;margin:20px auto;padding:20px;display:grid;grid-template-columns:1fr 380px;gap:30px}
+
+h1 {
+  text-align:center; background:#193a65; color:white;
+  padding:25px 0; font-size:2em; margin-bottom:30px;
+}
+
+.section {padding:20px; text-align:center;}
+
+.category-title {
+  font-size:1.6em; margin:25px 0 15px;
+  text-align:center; font-weight:bold; color:#fff;
+}
+
+/* ---------- FOLDER GRID ---------- */
+.folder-grid {
+  display:flex; flex-wrap:wrap;
+  justify-content:center; gap:25px;
+  margin:0 auto 25px;
+}
+
+.folder {
+  width:200px;
+  height:230px;              /* ← FIKSNA VISINA */
+  background:#244c88;
+  border-radius:12px;
+  padding:10px;
+  cursor:pointer;
+  display:flex;              /* ← FLEX LAYOUT */
+  flex-direction:column;
+  justify-content:space-between;
+  transition:transform 0.3s ease, background 0.3s ease;
+}
+
+.folder:hover {
+  transform:scale(1.05);
+  background:#305da5;
+}
+
+.folder img {
+  width:100%;
+  height:130px;              /* ← ISTA VISINA SLIKE SVUDA */
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.folder-name {
+  margin-top:10px;
+  font-weight:bold;
+  color:white;
+  text-align:center;
+  font-size:0.95em;
+  min-height:40px;           /* ← PORAVNAVA TEKST */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* ---------- FOLDER CONTENT ---------- */
+.folder-content {
+  display:none;
+  margin:20px auto;
+  max-width:1200px;
+  animation:fadeIn 0.4s ease;
+}
+.folder-content.active {display:block;}
+
+.media-grid {
+  display:flex; flex-wrap:wrap; justify-content:center;
+  gap:15px; margin-top:20px;
+}
+
+.media-grid img,
+.media-grid video {
+  width:220px;
+  height:160px;              /* ← KLJUČNO */
+  object-fit:cover;          /* ← SEČE VIŠAK, NE RAZVLAČI */
+  border-radius:10px;
+  border:2px solid white;
+  cursor:pointer;
+  transition:transform 0.3s ease;
+  background:#000;
+}
+}
+.media-grid img:hover, .media-grid video:hover {
+  transform:scale(1.05);
+}
+
+/* ---------- LIGHTBOX ---------- */
+.lightbox {
+  display:none; position:fixed;
+  top:0; left:0; width:100%; height:100%;
+  background:rgba(0,0,0,0.9);
+  justify-content:center; align-items:center;
+  z-index:5000;
+}
+.lightbox.active {display:flex;}
+
+.lightbox-content {
+  position:relative;
+  max-width:90%; max-height:90%;
+}
+.lightbox-content img,
+.lightbox-content video {
+  max-width:100%; max-height:90vh;
+  border-radius:10px; box-shadow:0 0 20px rgba(255,255,255,0.3);
+}
+
+.lightbox-close {
+  position:absolute; top:-40px; right:0;
+  color:white; font-size:2em; cursor:pointer;
+}
+
+.lightbox-prev, .lightbox-next {
+  position:absolute; top:50%;
+  transform:translateY(-50%);
+  font-size:3em; cursor:pointer;
+  padding:10px; color:white;
+  background:rgba(0,0,0,0.4); border-radius:50%;
+}
+.lightbox-prev {left:-60px;}
+.lightbox-next {right:-60px;}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:768px){
+  .folder {width:45%;}
+  .media-grid img, .media-grid video {width:45%;}
+  .lightbox-prev {left:10px;}
+  .lightbox-next {right:10px;}
+  .lightbox-close {top:10px; right:10px;}
+}
+
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(-10px);}
+  to {opacity:1; transform:translateY(0);}
+}
+/* ---------- HAMBURGER MENU ---------- */
+.hamburger {
+  display:none;
+  flex-direction:column;
+  cursor:pointer;
+  gap:6px;
+}
+
+.hamburger span {
+  width:28px;
+  height:3px;
+  background:white;
+  border-radius:3px;
+  transition:0.3s;
+}
+
+/* ---------- MOBILE NAV ---------- */
+@media (max-width:900px){
+
+  .hamburger {
+    display:flex;
+  }
+
+  .nav-links {
+    position:fixed;
+    top:0;
+    right:-100%;
+    height:100vh;
+    width:260px;
+    background:#0f2748;
+    flex-direction:column;
+    padding:100px 20px;
+    gap:20px;
+    transition:right 0.35s ease;
+    z-index:2000;
+  }
+
+  .nav-links.active {
+    right:0;
+  }
+
+  .nav-links a {
+    font-size:1.4em;
+  }
+
+  .social-icons {
+    margin-top:20px;
+  }
+}
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  font-size: 2em;
+  color: white;
+  cursor: pointer;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 100%;
+  background: #0f2748;
+  padding: 22px;
+  text-align: center;
+  gap: 18px;
+  flex-direction: column;
+  z-index: 1099;
+}
+
+.mobile-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.35em;
+  font-weight: 600;
+}
+
+.cta-mobile {
+  background: white;
+  color: #193a65 !important;
+  padding: 14px 30px;
+  border-radius: 12px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* MOBILE AKTIVACIJA */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+}
+.header-inner{
+  max-width:1400px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* HAMBURGER TAČNO U SREDINI */
+.hamburger{
+  display:none;
+  font-size:2em;
+  color:white;
+  cursor:pointer;
+}
+
+/* MOBILE RASPORED */
+@media (max-width: 900px){
+  .nav-links{ display:none; }
+
+  .header-inner{
+    display:grid;
+    grid-template-columns: auto 1fr auto;
+    align-items:center;
+  }
+
+  .logo{
+    justify-self:start;
+  }
+
+  .hamburger{
+    display:block;
+    justify-self:center;
+  }
+
+  .social-icons{
+    justify-self:end;
+  }
+}
+
+</style>
+</head>
+
+<body>
+<header>
+  <div class="header-inner">
+  <!-- LOGO -->
+  <img src="logo.png" class="logo" alt="ŽareX logo">
+
+  <!-- HAMBURGER U SREDINI -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <i class="fa fa-bars"></i>
+  </div>
+
+  <!-- DESNO: SOCIAL -->
+  <div class="social-icons">
+    <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+
+  <!-- DESKTOP NAV (SAKRIVENA NA MOBILE) -->
+  <nav class="nav-links">
+    <a href="index.html#hero">Domov</a>
+    <a href="index.html#ponudba">Ponudba</a>
+    <a href="index.html#reviews">Mnenja</a>
+    <a href="index.html#cenik">Galerija</a>
+    <a href="index.html#cenik">Cenik</a>
+    <a href="index.html#kontakt">Kontakt</a>
+    <a href="ponudba.html" class="cta-btn">Dobi ponudbo</a>
+  </nav>
+</div>
+
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#hero" onclick="toggleMenu()">Domov</a>
+  <a href="index.html#ponudba" onclick="toggleMenu()">Ponudba</a>
+  <a href="index.html#reviews" onclick="toggleMenu()">Mnenja</a>
+  <a href="index.html#cenik" onclick="toggleMenu()">Galerija</a>
+  <a href="index.html#cenik" onclick="toggleMenu()">Cenik</a>
+  <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
+
+  <div class="social-icons" style="justify-content:center; margin-top:10px;">
+    <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+
+  <a href="ponudba.html" class="cta-mobile">Dobi ponudbo</a>
+</div>
+
+
+<h1>GALERIJA</h1>
+
+<div class="section">
+
+
+
+<!-- ==================== KATEGORIJA 1 ==================== -->
+<h1>Lasersko čiščenje, zaščita in barvanje podvozja</h1> 
+
+<div class="folder-grid">
+  <div class="folder" data-target="f1"><img src="slikica1.jpg"><div class="folder-name">VW Touran 2002</div></div>
+  <div class="folder" data-target="f2"><img src="slikica2.jpg"><div class="folder-name">Chevrolet Avalanche</div></div>
+  <div class="folder" data-target="f3"><img src="slikica3.jpg"><div class="folder-name">Toyota Yaris</div></div>
+  <div class="folder" data-target="f4"><img src="slikica4.jpg"><div class="folder-name">Škoda Octavia</div></div>
+  <div class="folder" data-target="f5"><img src="slikica5.jpg"><div class="folder-name">Škoda Superb</div></div>
+  <div class="folder" data-target="f6"><img src="slikica6.jpg"><div class="folder-name">BMW 320</div></div>
+  <div class="folder" data-target="f7"><img src="slikica7.jpg"><div class="folder-name">Volvo V60</div></div>
+  <div class="folder" data-target="f8"><img src="slikica8.jpg"><div class="folder-name">VW Sharan</div></div>
+  <div class="folder" data-target="f9"><img src="slikica9.jpg"><div class="folder-name">Platišča</div></div>
+</div>
+
+<!-- Folder contents for podvozja -->
+
+<div class="folder-content" id="f1"><div class="media-grid"><img src="touran1.jpg"><img src="touran2.jpg"><img src="touran3.jpg"><img src="touran4.jpg"><img src="touran5.jpg"><img src="touran6.jpg"></div></div>
+
+<div class="folder-content" id="f2"><div class="media-grid"><img src="avalanche1.jpg"><img src="avalanche2.jpg"><img src="avalanche3.jpg"><img src="avalanche4.jpg"><img src="avalanche5.jpg"><img src="avalanche6.jpg"><video controls muted src="avalanche.mp4"></video></div></div>
+
+<div class="folder-content" id="f3"><div class="media-grid"><img src="yaris1.jpg"><img src="yaris2.jpg"><img src="yaris3.jpg"><img src="yaris4.jpg"><img src="yaris5.jpg"><img src="yaris6.jpg"><video controls muted src="yaris7.mp4"></video></div></div>
+
+<div class="folder-content" id="f4"><div class="media-grid"><img src="octavia1.jpg"><img src="octavia2.jpg"><img src="octavia3.jpg"><img src="octavia4.jpg"><img src="octavia5.jpg"></div></div>
+
+<div class="folder-content" id="f5"><div class="media-grid"><img src="superb1.jpg"><img src="superb2.jpg"><img src="superb3.jpg"><img src="superb4.jpg"><img src="superb5.jpg"><img src="superb6.jpg"><video controls muted src="superb7.mp4"></video></div></div>
+
+<div class="folder-content" id="f6"><div class="media-grid"><img src="bmw1.jpg"><img src="bmw2.jpg"><img src="bmw3.jpg"><img src="bmw4.jpg"><img src="bmw5.jpg"><img src="bmw6.jpg"><video controls muted src="bmw.mp4"></video></div></div>
+
+<div class="folder-content" id="f7"><div class="media-grid"><img src="volvo1.jpg"><img src="volvo2.jpg"><img src="volvo3.jpg"><img src="volvo4.jpg"><img src="volvo5.jpg"><img src="volvo6.jpg"><video controls muted src="volvo7.mp4"></video></div></div>
+
+<div class="folder-content" id="f8"><div class="media-grid"><img src="sharan1.jpg"><img src="sharan2.jpg"><img src="sharan3.jpg"><img src="sharan4.jpg"></div></div>
+
+<div class="folder-content" id="f9"><div class="media-grid"><img src="felge1.jpg"><img src="felge2.jpg"><img src="felge3.jpg"><img src="felge4.jpg"><img src="felge5.jpg"><img src="felge6.jpg"><video controls muted src="felge7.mp4"></video></div></div>
+
+</div><!-- END section -->
+
+
+<!-- ==================== KATEGORIJA 2 ==================== -->
+<!-- ==================== KATEGORIJA 2 ==================== -->
+<h1>Lasersko čiščenje, zaščita in barvanje kovin</h1>
+
+<div class="folder-grid">
+  <div class="folder" data-target="p1">
+    <img src="prikolica.jpg">
+    <div class="folder-name">22m kontejnerska prikolica</div>
+  </div>
+
+  <div class="folder" data-target="p2">
+    <img src="slikica12.jpg">
+    <div class="folder-name">Lasersko čiščenje in zaščita brodskega motorja</div>
+  </div>
+
+  <div class="folder" data-target="p3">
+    <img src="slikica11.jpg">
+    <div class="folder-name">Lasersko čiščenje 2 stebrnega dvigala</div>
+  </div>
+</div>
+
+<div class="folder-content" id="p1">
+  <div class="media-grid">
+    <img src="prikolica1.jpg">
+    <img src="prikolica2.jpg">
+    <img src="prikolica3.jpg">
+    <img src="prikolica4.jpg">
+    <img src="prikolica5.jpg">
+    <img src="prikolica6.jpg">
+    <video controls muted src="prikolica7.mp4"></video>
+  </div>
+</div>
+
+<div class="folder-content" id="p2">
+  <div class="media-grid">
+    <img src="motor1.jpg">
+    <img src="motor2.jpg">
+    <img src="motor3.jpg">
+    <img src="motor4.jpg">
+    <img src="motor5.jpg">
+    <img src="motor6.jpg">
+    <img src="motor7.jpg">
+    <img src="motor8.jpg">
+    <img src="motor9.jpg">
+    <img src="motor10.jpg">
+    <img src="motor11.jpg">
+    <img src="motor12.jpg">
+    <img src="motor13.jpg">
+    <img src="motor14.jpg">
+    <img src="motor15.jpg">
+    <img src="motor16.jpg">
+    <img src="motor17.jpg">
+    <video controls muted src="vmotor1.mp4"></video>
+    <video controls muted src="vmotor2.mp4"></video>
+    <video controls muted src="vmotor3.mp4"></video>
+  </div>
+</div>
+
+<div class="folder-content" id="p3">
+  <div class="media-grid">
+    <img src="kovina1.jpg">
+    <img src="kovina2.jpg">
+    <img src="kovina3.jpg">
+    <img src="kovina4.jpg">
+  </div>
+</div>
+
+<!-- ==================== KATEGORIJA 3 ==================== -->
+<h1> Lasersko čiščenje kamna </h1>
+
+<div class="folder-grid">
+  <div class="folder" data-target="stone1">
+    <img src="graniti.jpg"><div class="folder-name">Graniti in marmor</div>
+  </div>
+  <div class="folder" data-target="stone2">
+    <img src="beton.jpg"><div class="folder-name">Brušenje betona</div>
+  </div>
+</div>
+
+<div class="folder-content" id="stone1">
+  <div class="media-grid">
+    <img src="graniti1.jpg">
+    <img src="graniti2.jpg">
+    <video controls muted src="graniti3.mp4"></video>
+  </div>
+</div>
+
+<div class="folder-content" id="stone2">
+  <div class="media-grid">
+    <video controls muted src="beton1.mp4"></video>
+  </div>
+</div>
+
+<!-- ==================== KATEGORIJA 4 ==================== -->
+<h1>Lasersko čiščenje lesa</h1>
+
+<div class="folder-grid">
+  <div class="folder" data-target="wood1">
+    <img src="les1.jpg">
+    <div class="folder-name">Čiščenje lesa</div>
+  </div>
+</div>
+
+<div class="folder-content" id="wood1">
+  <div class="media-grid">
+    <img src="les1.jpg">
+    <img src="les2.jpg">
+    <img src="les3.jpg">
+    <img src="les4.jpg">
+    <img src="les5.jpg">
+    <img src="les6.jpg">
+    <img src="les7.jpg">
+    <img src="les8.jpg">
+    <img src="les9.jpg">
+    <img src="les10.jpg">
+  </div>
+</div>
+
+
+<footer><p>© 2025 ŽareX - Vse pravice pridržane</p></footer>
+
+<!-- ====================================================== -->
+<!-- ====================== LIGHTBOX ======================= -->
+<!-- ====================================================== -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <span class="lightbox-close" id="lb-close">&times;</span>
+    <span class="lightbox-prev" id="lb-prev">&#10094;</span>
+    <span class="lightbox-next" id="lb-next">&#10095;</span>
+    <img id="lb-img" src="" alt="">
+    <video id="lb-video" controls muted style="display:none;"></video>
+  </div>
+</div>
+
+<script>
+/* ------------------ FOLDER LOGIC ------------------ */
+const folders=document.querySelectorAll('.folder');
+const contents=document.querySelectorAll('.folder-content');
+
+folders.forEach(folder=>{
+  folder.addEventListener('click',()=>{
+    const id=folder.getAttribute('data-target');
+    const box=document.getElementById(id);
+
+    if(box.classList.contains('active')){
+      box.classList.remove('active');
+      return;
+    }
+
+    contents.forEach(c=>c.classList.remove('active'));
+    box.classList.add('active');
+    box.scrollIntoView({behavior:"smooth", block:"start"});
+  });
+});
+
+/* ------------------ LIGHTBOX ------------------ */
+const lightbox=document.getElementById('lightbox');
+const lbImg=document.getElementById('lb-img');
+const lbVid=document.getElementById('lb-video');
+const lbClose=document.getElementById('lb-close');
+const lbPrev=document.getElementById('lb-prev');
+const lbNext=document.getElementById('lb-next');
+
+let media = [];
+let index = 0;
+
+// collect all media dynamically
+media = Array.from(document.querySelectorAll('.media-grid img, .media-grid video'));
+
+function show(i){
+  const el = media[i];
+  if(!el) return;
+
+  if(el.tagName === "IMG"){
+    lbVid.style.display="none";
+    lbImg.style.display="block";
+    lbImg.src = el.src;
+  } else {
+    lbImg.style.display="none";
+    lbVid.style.display="block";
+    lbVid.src = el.src;
+  }
+
+  lightbox.classList.add('active');
+  index = i;
+}
+
+// open
+media.forEach((m,i)=>m.addEventListener('click',()=>show(i)));
+
+// close
+lbClose.addEventListener('click',()=>{
+  lightbox.classList.remove('active');
+  lbVid.pause();
+});
+
+// next / prev
+lbNext.addEventListener('click',()=>{
+  index = (index+1) % media.length;
+  show(index);
+});
+lbPrev.addEventListener('click',()=>{
+  index = (index-1+media.length) % media.length;
+  show(index);
+});
+
+// click outside
+lightbox.addEventListener('click',e=>{
+  if(e.target===lightbox){
+    lightbox.classList.remove('active');
+    lbVid.pause();
+  }
+});
+/* ---------- HAMBURGER LOGIC ---------- */
+const hamburger = document.getElementById("hamburger");
+const nav = document.querySelector(".nav-links");
+
+hamburger.addEventListener("click", () => {
+  nav.classList.toggle("active");
+});
+
+/* zatvori meni klikom na link */
+document.querySelectorAll(".nav-links a").forEach(link=>{
+  link.addEventListener("click",()=>{
+    nav.classList.remove("active");
+  });
+});
+
+</script>
+<script>
+function toggleMenu(){
+  const m = document.getElementById('mobileMenu');
+  m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
+}
+</script>
+
+</body>
+</html>

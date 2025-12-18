@@ -2,16 +2,33 @@
 <html lang="sl">
 <head>
 <meta charset="utf-8"/>
-<title>Akcijske cene - ŽareX Lasersko Čiščenje</title>
+<title>Cene - ŽareX Lasersko Čiščenje</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
 <style>
   * {margin:0; padding:0; box-sizing:border-box;}
   body {font-family: Arial, sans-serif; background:#0f2748; color:white; overflow-x:hidden;}
 
-  header {display:flex; justify-content:center; align-items:center; padding:25px 0; background:#193a65; box-shadow:0 2px 6px rgba(0,0,0,0.3); position:sticky; top:0; z-index:1000;}
-  .logo {height:120px; filter:drop-shadow(0 0 10px rgba(255,255,255,0.7)); transition:transform 0.3s ease;}
-  .logo:hover {transform:scale(1.05);}
+  header{position:stickytop:0;width:100%;z-index:1100;background:#0f2748;padding:12px 28px;box-shadow:0 2px 6px rgba(0,0,0,0.3)}
+    .header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .logo{height:80px}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{color:white;text-decoration:none;font-weight:600;font-size:1.2em}
+    .cta-btn{background:white;color:#193a65 !important;padding:10px 20px;border-radius:10px;font-weight:bold;text-decoration:none}
+
+    .cta-btn:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 15px rgba(255,255,255,0.7);
+    }
+
+    .social-icons{display:flex;gap:15px;font-size:1.4em}important!
+    .social-icons a{color:white}
+
+    .page-hero{max-width:1200px;margin:40px auto;padding:28px;background:rgba(255,255,255,0.03);border-radius:14px;backdrop-filter:blur(6px)}
+    .page-hero h1{font-size:2.8em;margin-bottom:10px}
+    .page-hero p{font-size:1.15em;opacity:0.95}
+
+    .content{max-width:1200px;margin:20px auto;padding:20px;display:grid;grid-template-columns:1fr 380px;gap:30px}
 
   h1 {
     text-align:center;
@@ -114,12 +131,101 @@
     .contact-item i {font-size:1.3em;}
     .back-button a {padding:10px 20px; font-size:1em;}
   }
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  font-size: 2em;
+  color: white;
+  cursor: pointer;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 100%;
+  background: #0f2748;
+  padding: 22px;
+  text-align: center;
+  gap: 18px;
+  flex-direction: column;
+  z-index: 1099;
+}
+
+.mobile-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.35em;
+  font-weight: 600;
+}
+
+.cta-mobile {
+  background: white;
+  color: #193a65 !important;
+  padding: 14px 30px;
+  border-radius: 12px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* MOBILE AKTIVACIJA */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+}
+
+
 </style>
 </head>
 <body>
-<header>
-<img alt="ŽareX logo" class="logo" src="logo.png"/>
+  <header>
+  <div class="header-inner">
+    <img src="logo.png" class="logo" alt="ŽareX logo">
+
+    <nav class="nav-links">
+      <a href="index.html#hero">Domov</a>
+      <a href="index.html#ponudba">Ponudba</a>
+      <a href="index.html#reviews">Mnenja</a>
+      <a href="index.html#cenik">Galerija</a>
+      <a href="index.html#cenik">Cenik</a>
+      <a href="index.html#kontakt">Kontakt</a>
+      <a href="ponudba.html" class="cta-btn">Dobi ponudbo</a>
+
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </nav>
+
+    <!-- HAMBURGER (mora biti IZVEN nav) -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <i class="fa fa-bars"></i>
+    </div>
+  </div>
 </header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#hero" onclick="toggleMenu()">Domov</a>
+  <a href="index.html#ponudba" onclick="toggleMenu()">Ponudba</a>
+  <a href="index.html#reviews" onclick="toggleMenu()">Mnenja</a>
+  <a href="index.html#cenik" onclick="toggleMenu()">Galerija</a>
+  <a href="index.html#cenik" onclick="toggleMenu()">Cenik</a>
+  <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
+
+  <div class="social-icons" style="justify-content:center; margin-top:10px;">
+    <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+
+  <a href="ponudba.html" class="cta-mobile">Dobi ponudbo</a>
+</div>
+
 <h1>🔥 CENE STORITEV 🔥</h1>
 
 <table>
@@ -171,5 +277,12 @@
 
 <div class="back-button"><a href="index.html"><i class="fas fa-home"></i> Nazaj na začetno stran</a></div>
 <footer><p>© 2025 ŽareX - Vse pravice pridržane</p></footer>
+<script>
+function toggleMenu(){
+  const m = document.getElementById('mobileMenu');
+  m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
+}
+</script>
+
 </body>
 </html>
