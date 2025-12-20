@@ -164,6 +164,16 @@
     justify-self:end;
   }
 }
+/* MOBILNI: feature boxovi jedan ispod drugog */
+@media (max-width: 600px) {
+  .features {
+    grid-template-columns: 1fr !important; /* sa 2 kolone na 1 */
+  }
+
+  .feature {
+    padding: 18px !important; /* malo veći padding da lijepo izgleda solo */
+  }
+}
 
 </style>
 </head>
@@ -238,11 +248,11 @@
         </div>
         <div class="feature">
           <strong>Ekološko</strong>
-          <p>Deluje brez topil in čistil; ostanki so minimalni in enostavni za odvoz.</p>
+          <p>Deluje brez topil in čistil.</p>
         </div>
         <div class="feature">
           <strong>Precizno</strong>
-          <p>Nastavljiva moč za različne tipke kamna in obloge.</p>
+          <p>Nastavljiva moč za različne tipe kamna in obloge.</p>
         </div>
         <div class="feature">
           <strong>Varno za restavratorska dela</strong>
@@ -251,11 +261,12 @@
       </div>
 
       <h2>Postopek</h2>
-      <p>1. Pregled in testna obdelava  
-         2. Nastavitev laserja glede na tip kamna  
-         3. Slojeno odstranjevanje usedlin  
-         4. Končna kontrola in dokumentacija</p>
-
+      <p>
+         1. Pregled in testna obdelava<br>  
+         2. Nastavitev laserja glede na tip kamna<br>  
+         3. Odstranjevanje usedlin po slojih <br>  
+         4. Končna kontrola in dokumentacija
+         </p>
     </article>
 
     <aside class="aside">
@@ -273,7 +284,7 @@
       <div class="divider"></div>
 
       <h3>Hitra ponudba</h3>
-      <p>Pošljite fotografijo in opis kamnate površine ter prejmite informativno ponudbo.</p>
+      <p>Pošljite opis kamnate površine ter prejmite informativno ponudbo.</p>
       <a class="cta" href="mailto:zarexlaser@gmail.com">Zahtevaj ponudbo</a>
 
       <div class="divider"></div>

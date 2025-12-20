@@ -105,10 +105,10 @@
     .feature strong::before{
       font-family:'Font Awesome 6 Free';font-weight:900;margin-right:8px;opacity:0.85;
     }
-    .feature:nth-child(1) strong::before{content:'\\f00c';}
-    .feature:nth-child(2) strong::before{content:'\\f4fd';}
-    .feature:nth-child(3) strong::before{content:'\\f0e7';}
-    .feature:nth-child(4) strong::before{content:'\\f06c';}
+    .feature:nth-child(1) strong::before{content:'\f00c';}
+    .feature:nth-child(2) strong::before{content:'\f4fd';}
+    .feature:nth-child(3) strong::before{content:'\f0e7';}
+    .feature:nth-child(4) strong::before{content:'\f06c';}
 
     .main p{margin-bottom:20px!important}
     .main{padding:30px}
@@ -201,6 +201,16 @@
     justify-self:end;
   }
 }
+/* MOBILNI: feature boxovi jedan ispod drugog */
+@media (max-width: 600px) {
+  .features {
+    grid-template-columns: 1fr !important; /* sa 2 kolone na 1 */
+  }
+
+  .feature {
+    padding: 18px !important; /* malo veći padding da lijepo izgleda solo */
+  }
+}
 
   </style>
 </head>
@@ -266,7 +276,7 @@
 
   <section class="page-hero">
     <h1>Industrijsko lasersko čiščenje</h1>
-    <p>Visoko zmogljivo čiščenje za proizvodnjo, orodjarstvo, jeklarstvo, kalupe, orodja in težko industrijo.</p>
+    <p>Visoko zmogljivo čiščenje za proizvodnjo, orodjarstvo, jeklarstvo, kalupe, orodja in industrijo.</p>
   </section>
 
   <div class="content">
@@ -274,7 +284,7 @@
     <article class="main">
 
       <h2>Zakaj industrijsko lasersko čiščenje?</h2>
-      <p>Industrijski sistemi zahtevajo hitro, natančno in neabrazivno obnovo površin. Lasersko čiščenje omogoča sprotno čiščenje proizvodnih linij brez zaustavitev.</p>
+      <p>Industrijski sistemi zahtevajo hitro, natančno in neabrazivno obnovo površin. Lasersko čiščenje omogoča sprotno čiščenje proizvodnih linij brez zaustavitev delovnega procesa.</p>
 
       <h2>Prednosti</h2>
 
@@ -325,7 +335,7 @@
       <div class="divider"></div>
 
       <h3>Hitra ponudba</h3>
-      <p>Pošljite kratek opis industrijske opreme za hitro ceno.</p>
+      <p>Opišite nam, kaj potrebujete, mi pa poskrbimo za ostalo.</p>
       <a class="cta" href="mailto:zarexlaser@gmail.com">Zahtevaj ponudbo</a>
 
       <div class="divider"></div>

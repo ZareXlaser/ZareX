@@ -147,6 +147,16 @@
     justify-self:end;
   }
 }
+/* MOBILNI: feature boxovi jedan ispod drugog */
+@media (max-width: 600px) {
+  .features {
+    grid-template-columns: 1fr !important; /* sa 2 kolone na 1 */
+  }
+
+  .feature {
+    padding: 18px !important; /* malo veći padding da lijepo izgleda solo */
+  }
+}
 
 </style>
 </head>
@@ -211,13 +221,13 @@
   <div class="content">
     <article class="main">
       <h2>Kje se uporablja?</h2>
-      <p>Lasersko čiščenje lesa je odlično za restavriranje pohištva, dekorativnih elementov, lesenih fasad in konstrukcij, kjer je potreben natančen nadzor odstranjevanja površinskih slojev.</p>
+      <p>Lasersko čiščenje lesa je odlično za restavriranje pohištva, dekorativnih elementov, lesenih fasad in konstrukcij, kjer je potreben natančen nadzor odstranjevanja slojev umazanije ali poškodbe.</p>
 
       <h2>Prednosti</h2>
       <div class="features">
         <div class="feature">
           <strong>Neabrazivno</strong>
-          <p>Ne bruši lesa — ohranja strukturo in relief.</p>
+          <p>Laser les očisti brez brušenja, struktura pa ostane taka, kot je.</p>
         </div>
         <div class="feature">
           <strong>Selektivno</strong>
@@ -234,10 +244,12 @@
       </div>
 
       <h2>Postopek</h2>
-      <p>1. Pregled in dokumentacija  
-         2. Testna laserska obdelava  
-         3. Natančno odstranjevanje slojev  
-         4. Končna obdelava ali zaščita po dogovoru</p>
+      <p>
+         1. Pregled in dokumentacija<br>  
+         2. Testna laserska obdelava<br>  
+         3. Natančno odstranjevanje slojev<br>  
+         4. Končna obdelava ali zaščita po dogovoru
+      </p>
 
     </article>
 
@@ -256,7 +268,7 @@
       <div class="divider"></div>
 
       <h3>Hitra ponudba</h3>
-      <p>Pošljite kratek opis in slike — odgovorimo s predlogom postopka in predračunom.</p>
+      <p>Pošljite kratek opis — odgovorimo s predlogom postopka in predračunom.</p>
       <a class="cta" href="mailto:zarexlaser@gmail.com">Zahtevaj ponudbo</a>
 
       <div class="divider"></div>

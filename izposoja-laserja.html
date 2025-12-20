@@ -207,6 +207,16 @@
     justify-self:end;
   }
 }
+/* MOBILNI: feature boxovi jedan ispod drugog */
+@media (max-width: 600px) {
+  .features {
+    grid-template-columns: 1fr !important; /* sa 2 kolone na 1 */
+  }
+
+  .feature {
+    padding: 18px !important; /* malo veći padding da lijepo izgleda solo */
+  }
+}
 
 
   </style>
@@ -268,7 +278,7 @@
 
 <section class="page-hero">
   <h1>Izposoja laserske opreme</h1>
-  <p>Najem profesionalnih laserjev moči 1000–3000W z dostavo in usposabljanjem.</p>
+  <p>Najem profesionalnih laserjev različnih moči z dostavo in usposabljanjem.</p>
 </section>
 
 <div class="content">
@@ -287,7 +297,7 @@
       </div>
       <div class="feature">
         <strong>Industrijska moč</strong>
-        <p>1000–3000W laserji za profesionalne rezultate.</p>
+        <p>Laserji različnih moči za profesionalne rezultate.</p>
       </div>
       <div class="feature">
         <strong>Usposabljanje</strong>
@@ -325,7 +335,7 @@
     <div class="divider"></div>
 
     <h3>Hitra ponudba</h3>
-    <p>Pošljite moč laserja in trajanje najema.</p>
+    <p>Pošljite željeno moč laserja in trajanje najema.</p>
     <a class="cta" href="mailto:zarexlaser@gmail.com">Zahtevaj ponudbo</a>
 
     <div class="divider"></div>

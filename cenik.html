@@ -176,6 +176,40 @@
   .hamburger { display: block; }
 }
 
+/* ===============================
+   PRAVI MOBILE FIX (BEZ REZANJA)
+   =============================== */
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+}
+
+header,
+.header-inner,
+.content,
+.page-hero,
+.main,
+.aside {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* slike i gridovi */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  html, body {
+    overflow-x: hidden;
+  }
+}
 
 </style>
 </head>
