@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="utf-8" />
+<title>Industrijsko lasersko čiščenje — ŽareX</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<style>
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family: Arial, sans-serif; background:#0f2748; color:white; overflow-x:hidden;}
+
+/* HEADER */
+.header-inner{
+  max-width:1400px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{height:80px}
+
+.nav-links{display:flex;gap:18px;align-items:center}
+.nav-links a{color:white;text-decoration:none;font-weight:600;font-size:1.2em}
+
+.cta-btn{
+  background:white;
+  color:#193a65 !important;
+  padding:10px 20px;
+  border-radius:10px;
+  font-weight:bold;
+}
+
+.social-icons{display:flex;gap:15px;font-size:1.4em}
+.social-icons a{color:white}
+
+/* MOBILE */
+.hamburger{display:none;font-size:2em;cursor:pointer;}
+.mobile-menu{
+  display:none;
+  position:fixed;
+  top:90px;
+  width:100%;
+  background:#0f2748;
+  flex-direction:column;
+  text-align:center;
+  padding:20px;
+  z-index:999;
+}
+
+@media (max-width:900px){
+  .nav-links{display:none;}
+  .hamburger{display:block;}
+}
+
+/* PAGE */
+h1{text-align:center;background:#193a65;padding:25px;margin-bottom:30px;}
+.section{text-align:center;padding:20px}
+
+/* FOLDER */
+.folder-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,200px);
+  justify-content:center;
+  gap:25px;
+}
+
+.folder{
+  width:200px;
+  background:#244c88;
+  border-radius:14px;
+  padding:12px;
+  cursor:pointer;
+}
+.folder:hover{transform:translateY(-6px);}
+
+.folder img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.folder-name{margin-top:8px;font-weight:bold}
+
+/* MEDIA */
+.folder-content{display:none;margin-top:30px;}
+.folder-content.active{display:block;}
+
+.media-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,200px);
+  justify-content:center;
+  gap:15px;
+}
+
+.media-grid img,
+.media-grid video{
+  width:200px;
+  height:200px;
+  object-fit:cover;
+  border-radius:10px;
+  border:2px solid white;
+  cursor:pointer;
+}
+
+/* LIGHTBOX */
+.lightbox{
+  display:none;
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.9);
+  justify-content:center;
+  align-items:center;
+  z-index:5000;
+}
+.lightbox.active{display:flex;}
+
+.lightbox img,.lightbox video{
+  max-width:90%;
+  max-height:90vh;
+}
+
+.lightbox-close{
+  position:fixed;
+  top:20px;
+  right:20px;
+  font-size:2em;
+  cursor:pointer;
+}
+
+.lightbox-prev,.lightbox-next{
+  position:fixed;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:3em;
+  cursor:pointer;
+}
+.lightbox-prev{left:15px;}
+.lightbox-next{right:15px;}
+
+footer{text-align:center;padding:20px;background:#193a65;margin-top:50px;}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header-inner">
+  <img src="logo.png" class="logo">
+
+  <div class="hamburger" onclick="toggleMenu()">
+    <i class="fa fa-bars"></i>
+  </div>
+
+  <div class="social-icons">
+    <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+
+  <nav class="nav-links">
+    <a href="index.html#hero">Domov</a>
+    <a href="index.html#ponudba">Ponudba</a>
+    <a href="index.html#reviews">Mnenja</a>
+    <a href="index.html#cenik">Galerija</a>
+    <a href="index.html#cenik">Cenik</a>
+    <a href="index.html#kontakt">Kontakt</a>
+    <a href="ponudba.html" class="cta-btn">Dobi ponudbo</a>
+  </nav>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#hero" onclick="toggleMenu()">Domov</a>
+  <a href="index.html#ponudba" onclick="toggleMenu()">Ponudba</a>
+  <a href="index.html#reviews" onclick="toggleMenu()">Mnenja</a>
+  <a href="index.html#cenik" onclick="toggleMenu()">Galerija</a>
+  <a href="index.html#cenik" onclick="toggleMenu()">Cenik</a>
+  <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
+  <a href="ponudba.html" class="cta-btn">Dobi ponudbo</a>
+</div>
+
+<h1>Industrijsko lasersko čiščenje</h1>
+
+<div class="section">
+
+  <div class="folder-grid">
+    <div class="folder" data-target="dvig">
+      <img src="slikicadvig.jpg">
+      <div class="folder-name">DVIG d.o.o.</div>
+    </div>
+  </div>
+
+  <div class="folder-content" id="dvig">
+    <div class="media-grid">
+      <img src="dvig0.jpg">
+      <img src="dvig1.jpg">
+      <img src="dvig2.jpg">
+      <img src="dvig3.jpg">
+      <img src="dvig4.jpg">
+      <img src="dvig5.jpg">
+      <img src="dvig6.jpg">
+      <img src="dvig7.jpg">
+      <video src="dvigv.mp4" controls muted></video>
+      <video src="dvigv1.mp4" controls muted></video>
+      <video src="dvigv2.mp4" controls muted></video>
+      <video src="dvigv3.mp4" controls muted></video>
+      <video src="dvigv4.mp4" controls muted></video>
+    </div>
+  </div>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="close">&times;</span>
+  <span class="lightbox-prev" id="prev">&#10094;</span>
+  <span class="lightbox-next" id="next">&#10095;</span>
+  <img id="lb-img">
+  <video id="lb-video" controls style="display:none;"></video>
+</div>
+<div style="text-align:center; margin:40px 0;">
+  <a href="index.html" 
+     style="background:white; color:#193a65; padding:12px 30px; border-radius:8px; text-decoration:none; font-weight:bold; box-shadow:0 4px 10px rgba(0,0,0,0.3);">
+     <i class="fas fa-home"></i> Nazaj na začetno stran
+  </a>
+</div>
+
+<footer>© 2025 ŽareX</footer>
+
+<script>
+// folder
+document.querySelector('.folder').onclick = () => {
+  document.getElementById('dvig').classList.toggle('active');
+};
+
+// lightbox
+const items=[...document.querySelectorAll('.media-grid img, .media-grid video')];
+const lb=document.getElementById('lightbox');
+const img=document.getElementById('lb-img');
+const vid=document.getElementById('lb-video');
+
+let i=0;
+
+items.forEach((el,index)=>{
+  el.onclick=()=>{i=index;show();}
+});
+
+function show(){
+  let el=items[i];
+  if(el.tagName==='IMG'){
+    vid.style.display='none';
+    img.style.display='block';
+    img.src=el.src;
+  }else{
+    img.style.display='none';
+    vid.style.display='block';
+    vid.src=el.src;
+    vid.play();
+  }
+  lb.classList.add('active');
+}
+
+document.getElementById('close').onclick=()=>lb.classList.remove('active');
+
+document.getElementById('prev').onclick=()=>{
+  i=(i-1+items.length)%items.length;show();
+};
+
+document.getElementById('next').onclick=()=>{
+  i=(i+1)%items.length;show();
+};
+
+// mobile menu
+function toggleMenu(){
+  const m=document.getElementById('mobileMenu');
+  m.style.display=(m.style.display==='flex')?'none':'flex';
+}
+</script>
+
+</body>
+</html>
