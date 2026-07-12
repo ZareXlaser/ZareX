@@ -1,520 +1,680 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="sl">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ŽareX - Lasersko čiščenje kovin</title>
-  <meta name="description" content="Lasersko čiščenje kovin – natančno odstranjevanje rje, premazov, oksidacije in industrijskih nečistoč brez poškodb površine.">
+  <title>Lasersko čiščenje kovin | ŽAREX</title>
+  <meta name="description" content="Najsodobnejše industrijsko lasersko čiščenje za proizvodnjo, orodja, kalupe, stroje in industrijske sisteme.">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Saira',sans-serif;background:#0f2748;color:white;padding-top:120px}
-
-    header{position:fixed;top:0;width:100%;z-index:1100;background:#0f2748;padding:12px 28px;box-shadow:0 2px 6px rgba(0,0,0,0.3)}
-    .header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
-    .logo{height:80px}
-    .nav-links{display:flex;gap:18px;align-items:center}
-    .nav-links a{color:white;text-decoration:none;font-weight:600;font-size:1.2em}
-    .cta-btn{background:white;color:#193a65 !important;padding:10px 20px;border-radius:10px;font-weight:bold;text-decoration:none}
-
-    .cta-btn:hover{
-      transform:scale(1.05);
-      box-shadow:0 0 15px rgba(255,255,255,0.7);
-    }
-
-    .social-icons{display:flex;gap:15px;font-size:1.4em}
-    .social-icons a{color:white}
-
-    .page-hero{max-width:1200px;margin:40px auto;padding:28px;background:rgba(255,255,255,0.03);border-radius:14px;backdrop-filter:blur(6px)}
-    .page-hero h1{font-size:2.8em;margin-bottom:10px}
-    .page-hero p{font-size:1.15em;opacity:0.95}
-
-    .content{max-width:1200px;margin:20px auto;padding:20px;display:grid;grid-template-columns:1fr 380px;gap:30px}
-
-    /* LEVA STRAN OSTANE ISTA */
-    .main{background:rgba(255,255,255,0.03);padding:22px;border-radius:12px}
-    .main h2{margin-bottom:10px}
-    .main p{line-height:1.6;margin-bottom:12px;color:#e8eef8}
-    .features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
-    .feature{background:rgba(255,255,255,0.04);padding:14px;border-radius:10px}
-    .feature p{color:#dbe4f3}
-
-    /* NOVA DESNA STRAN */
-    .aside{background:rgba(255,255,255,0.03);padding:20px;border-radius:12px}
-
-    /* GALERIJA 3×2 */
-    .gallery-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:10px;
-      margin-bottom:15px;
-    }
-    .gallery-grid img{
-      width:100%;
-      height:110px;
-      object-fit:cover;
-      border-radius:8px;
-      transition:0.3s;
-    }
-    .gallery-grid img:hover{
-      transform:scale(1.05);
-      box-shadow:0 4px 12px rgba(0,0,0,0.4);
-    }
-
-    .gallery-link{
-      display:block;
-      text-align:center;
-      font-size:1.1em;
-      color:#cdd9f2;
-      text-decoration:underline;
-      margin-bottom:20px;
-    }
-
-    /* SOCIAL GRID 2×2 */
-    .social-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:12px;
-      margin-top:10px;
-    }
-    .social-grid img{
-      width:100%;
-      height:90px;
-      object-fit:cover;
-      border-radius:10px;
-      transition:0.3s;
-    }
-    .social-grid img:hover{
-      transform:scale(1.05);
-      box-shadow:0 4px 12px rgba(0,0,0,0.4);
-    }
-
-    .divider{
-      height:1px;
-      background:rgba(255,255,255,0.06);
-      margin:20px 0;
-      border-radius:3px;
-    }
-
-    .aside h3{text-align:center;margin-bottom:10px}
-    .aside p{text-align:center;color:#dbe4f3}
-
-    .cta{
-      display:block;
-      text-align:center;
-      margin:10px auto;
-      background:white;
-      color:#0f2748;
-      padding:12px 18px;
-      border-radius:10px;
-      font-weight:700;
-      max-width:220px;
-      text-decoration:none;
-    }
-
-    .contact-box{text-align:center;margin-top:20px}
-
-    @media(max-width:900px){
-      .content{grid-template-columns:1fr}
-      .logo{height:70px}
-    }
-/* ========================
-   1️⃣ OSNOVNA TIPOGRAFIJA
-======================== */
-
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden;scroll-behavior:smooth}
 body{
+  font-family:'Saira',sans-serif;
+  background:#07111f!important;
+  color:white;
   font-size:17px;
   line-height:1.7;
-  color:#f4f6ff !important;
+}
+a{color:inherit}
+
+/* ===== EXACT PREMIUM INDEX HEADER ===== */
+header{
+  position:fixed!important;
+  top:0!important;
+  left:0!important;
+  right:0!important;
+  width:100%!important;
+  max-width:none!important;
+  z-index:3000!important;
+  border-radius:0!important;
+  padding:18px 48px!important;
+  border-left:none!important;
+  border-right:none!important;
+  border-top:none!important;
+  border-bottom:1px solid rgba(160,205,255,0.32)!important;
+  background:linear-gradient(135deg,rgba(9,22,38,0.92),rgba(18,34,54,0.84))!important;
+  box-shadow:0 14px 36px rgba(0,0,0,0.48),inset 0 0 28px rgba(255,255,255,0.035),0 0 22px rgba(0,150,255,0.18)!important;
+  backdrop-filter:blur(14px) saturate(135%)!important;
+  overflow:visible!important;
+}
+header::before{
+  content:"";
+  position:absolute;
+  left:0!important;
+  right:0!important;
+  top:auto!important;
+  bottom:-1px!important;
+  height:2px!important;
+  background:linear-gradient(90deg,transparent,rgba(0,170,255,0.85),rgba(255,255,255,0.65),rgba(0,170,255,0.85),transparent)!important;
+  pointer-events:none;
+}
+header::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:0!important;
+  background:linear-gradient(115deg,rgba(255,255,255,0.18),rgba(255,255,255,0.03) 35%,transparent 65%);
+  opacity:.45;
+  pointer-events:none;
+}
+.header-inner{
+  position:relative;
+  z-index:2;
+  max-width:1500px!important;
+  margin:0 auto!important;
+  width:100%!important;
+  display:flex!important;
+  justify-content:space-between!important;
+  align-items:center!important;
+  gap:25px;
+}
+.logo-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  line-height:1;
+  text-decoration:none;
+}
+.logo{
+  height:78px!important;
+  filter:drop-shadow(0 0 15px rgba(0,160,255,0.65))!important;
+}
+.logo-subtitle{
+  margin-left:74px;
+  margin-top:-8px;
+  color:rgba(255,255,255,0.82);
+  font-size:.72em;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:24px!important;
+}
+.nav-links a{
+  color:white;
+  text-decoration:none;
+  font-size:1.08em!important;
+  font-weight:600;
+  letter-spacing:.3px;
+  text-transform:none;
+  opacity:.95;
+  transition:.3s ease;
+}
+.nav-links a:hover{
+  opacity:1!important;
+  color:#9ed8ff!important;
+  text-shadow:0 0 12px rgba(0,150,255,.7);
+  transform:none!important;
+}
+.nav-links a:first-child::before{
+  content:"\f015";
+  font-family:"Font Awesome 6 Free";
+  font-weight:900;
+  margin-right:8px;
+  color:#dcefff;
+  text-shadow:0 0 12px rgba(110,185,255,.85);
+}
+.cta-btn,.cta-mobile,.cta{
+  background:linear-gradient(135deg,rgba(13,35,63,.78),rgba(10,24,45,.92))!important;
+  color:#fff!important;
+  border:1px solid rgba(60,170,255,.95)!important;
+  box-shadow:0 0 20px rgba(0,145,255,.32),inset 0 0 14px rgba(255,255,255,.06)!important;
+  padding:16px 28px!important;
+  border-radius:10px!important;
+  text-transform:uppercase;
+  letter-spacing:.3px;
+  font-weight:bold;
+  text-decoration:none;
+  transition:.3s ease;
+}
+.cta-btn:hover,.cta-mobile:hover,.cta:hover{
+  transform:translateY(-2px) scale(1.03)!important;
+  box-shadow:0 0 26px rgba(0,165,255,.65)!important;
+}
+.hamburger{
+  display:none;
+  font-size:2em;
+  color:white;
+  cursor:pointer;
+  border:1px solid rgba(255,255,255,.22);
+  background:rgba(255,255,255,.05);
+  border-radius:12px;
+  padding:10px 14px;
+  box-shadow:inset 0 0 12px rgba(255,255,255,.04);
+}
+.mobile-menu{
+  display:none;
+  position:absolute!important;
+  z-index:5;
+  top:calc(100% + 14px)!important;
+  right:48px!important;
+  left:auto!important;
+  width:min(360px,calc(100vw - 56px))!important;
+  flex-direction:column;
+  text-align:center;
+  gap:18px;
+  padding:24px;
+  background:linear-gradient(135deg,rgba(9,22,38,.96),rgba(18,34,54,.92))!important;
+  border:1px solid rgba(160,205,255,.28);
+  border-radius:18px;
+  box-shadow:0 18px 45px rgba(0,0,0,.45),0 0 22px rgba(0,150,255,.18);
+  backdrop-filter:blur(14px);
+}
+.mobile-menu a{
+  color:white;
+  text-decoration:none;
+  font-size:1.25em;
+  font-weight:650;
 }
 
-/* naslovi */
-h1{font-size:2.65rem;font-weight:700;}
-h2{font-size:2rem;margin:20px 0;}
-h3{font-size:1.35rem;font-weight:600;}
-
-/* paragraph */
-p{
-  font-size:1.08rem;
-  color:#f4f6ff !important;
+/* ===== SERVICE LAYOUT ===== */
+.hero{
+  padding:126px 20px 40px;
+  background:radial-gradient(circle at 50% 3%,rgba(0,150,255,.22),transparent 34%),
+             linear-gradient(180deg,rgba(3,10,18,.05),rgba(3,10,18,.62));
+}
+.hero-wrap{max-width:1320px;margin:0 auto}
+.hero-card{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  min-height:520px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:34px;
+  align-items:center;
+  padding:46px;
+  border-radius:30px;
+  background:linear-gradient(135deg,rgba(9,22,38,.78),rgba(18,34,54,.62));
+  border:1px solid rgba(160,205,255,.34);
+  box-shadow:0 18px 45px rgba(0,0,0,.48),0 0 30px rgba(0,150,255,.20),inset 0 0 28px rgba(255,255,255,.035);
+  backdrop-filter:blur(16px) saturate(145%);
+}
+.hero-card::before{
+  content:"";
+  position:absolute;
+  top:-38%;
+  left:-18%;
+  width:72%;
+  height:176%;
+  background:linear-gradient(115deg,rgba(255,255,255,.20),rgba(255,255,255,.07) 48%,rgba(255,255,255,0) 70%);
+  transform:rotate(27deg);
+  pointer-events:none;
+  z-index:1;
+  opacity:.9;
+}
+.hero-card::after{
+  content:"";
+  position:absolute;
+  top:-120%;
+  left:-60%;
+  width:210%;
+  height:300%;
+  background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.13) 48%,transparent 60%);
+  transform:rotate(25deg);
+  pointer-events:none;
+  z-index:2;
+  opacity:.45;
+}
+.hero-text,.hero-image{position:relative;z-index:3}
+.badge{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(143,208,255,.15);
+  border:1px solid rgba(143,208,255,.30);
+  color:#cfeaff;
+  font-size:.92rem;
+  font-weight:800;
+}
+h1{
+  font-size:3.3rem;
+  line-height:1.05;
+  text-transform:uppercase;
+  margin:18px 0 14px;
+  font-weight:800;
+}
+.hero p{color:#edf5ff;max-width:720px;font-size:1.12rem}
+.hero-image{
+  height:430px;
+  border-radius:22px;
+  background:linear-gradient(135deg,rgba(0,150,255,.24),rgba(255,255,255,.06)),url('img/kovina1.jpg') center/cover no-repeat;
+  border:1px solid rgba(160,205,255,.25);
+  box-shadow:inset 0 0 65px rgba(0,0,0,.48),0 14px 36px rgba(0,0,0,.34),0 0 22px rgba(0,150,255,.12);
+  overflow:hidden;
 }
 
-/* ========================
-   2️⃣ KONTRAST + BERLJIVOST
-========================= */
-
-.main p, .page-hero p{
-  color:#f4f6ff !important;
-  opacity:0.93;
+/* CONTENT */
+.content{
+  max-width:1320px;
+  margin:10px auto 20px;
+  padding:20px;
+  display:grid;
+  grid-template-columns:1fr 380px;
+  gap:28px;
 }
-
-/* več prostora med sekcijami */
+.main,.aside{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(115deg,rgba(255,255,255,.10),rgba(255,255,255,.03) 40%,transparent 72%),rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.19);
+  border-radius:24px;
+  box-shadow:0 18px 48px rgba(0,0,0,.38),0 0 28px rgba(0,150,255,.12),inset 0 0 22px rgba(255,255,255,.025);
+  backdrop-filter:blur(14px) saturate(135%);
+  padding:30px;
+}
+.main::before,.aside::before{
+  content:"";
+  position:absolute;
+  top:-60%;
+  left:-45%;
+  width:90%;
+  height:190%;
+  background:linear-gradient(115deg,rgba(255,255,255,.10),rgba(255,255,255,.035) 45%,transparent 70%);
+  transform:rotate(28deg);
+  pointer-events:none;
+}
+.main>*,
+.aside>*{position:relative;z-index:2}
 .main h2{
-  margin-top:25px;
-  margin-bottom:15px;
+  font-size:2rem;
+  margin:25px 0 15px;
 }
-
-/* ========================
-   3️⃣ FEATURE BOXES
-========================= */
-
+.main h2:first-child{margin-top:0}
+.main h2::after{
+  content:"";
+  display:block;
+  width:80px;
+  height:3px;
+  background:linear-gradient(90deg,#4ba3ff,transparent);
+  margin-top:10px;
+  border-radius:2px;
+}
+p{font-size:1.08rem;color:#f4f6ff!important}
+.main p{margin-bottom:20px;opacity:.93}
 .features{
-  gap:20px !important;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+  margin-top:12px;
 }
-
 .feature{
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.16);
-  border-radius:14px;
-  padding:20px !important;
-  box-shadow:0 4px 20px rgba(0,0,0,0.15);
-  transition:0.35s;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 10px 28px rgba(0,0,0,.28);
+  transition:.35s;
 }
-
 .feature:hover{
   transform:translateY(-4px);
-  box-shadow:0 6px 22px rgba(0,0,0,0.25);
+  box-shadow:0 0 26px rgba(0,150,255,.28);
 }
-
-/* ========================
-   3.1 ikone pri feature
-========================= */
 .feature strong::before{
   font-family:"Font Awesome 6 Free";
   font-weight:900;
   margin-right:8px;
-  opacity:0.85;
+  opacity:.85;
 }
+.feature:nth-child(1) strong::before{content:"\f00c"}
+.feature:nth-child(2) strong::before{content:"\f4fd"}
+.feature:nth-child(3) strong::before{content:"\f0e7"}
+.feature:nth-child(4) strong::before{content:"\f06c"}
 
-/* posamezne ikone */
-.feature:nth-child(1) strong::before{content:"\f00c";} /* check */
-.feature:nth-child(2) strong::before{content:"\f4fd";} /* lightning */
-.feature:nth-child(3) strong::before{content:"\f0e7";} /* bolt */
-.feature:nth-child(4) strong::before{content:"\f06c";} /* leaf */
-
-/* ========================
-   4️⃣ LONG TEXT UTRUJENOST
-========================= */
-
-/* razmik med odstavki */
-.main p{
-  margin-bottom:20px !important;
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-bottom:15px;
 }
-
-/* več prostora okoli glavnih sekcij */
-.main{
-  padding:30px;
+.gallery-grid img{
+  width:100%;
+  height:110px;
+  object-fit:cover;
+  border-radius:8px;
+  transition:.3s;
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 10px 26px rgba(0,0,0,.28);
 }
-
-/* dodatni vizualni "air space" */
-.main h2::after{
-  content:"";
+.gallery-grid img:hover{transform:scale(1.05);box-shadow:0 0 24px rgba(0,150,255,.35)}
+.gallery-link{
+  text-align:center;
   display:block;
-  width:40px;
-  height:2px;
-  background:#4ba3ff;
+  margin-bottom:20px;
+  color:#9ed8ff;
+  font-size:1.1em;
+  font-weight:800;
+  text-decoration:none;
+}
+.divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(160,205,255,.35),transparent);
+  margin:20px 0;
+  border-radius:3px;
+}
+.aside h3{text-align:center;margin-bottom:10px;font-size:1.35rem}
+.aside p{text-align:center;color:#dbe4f3!important}
+.social-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
   margin-top:10px;
-  border-radius:2px;
-  opacity:0.45;
 }
-/* =========================
-   MOBILNA OPTIMIZACIJA
-   lasersko-ciscenje-kovin
-========================= */
+.social-grid img{
+  width:100%;
+  height:90px;
+  object-fit:cover;
+  border-radius:10px;
+  transition:.3s;
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 10px 26px rgba(0,0,0,.28);
+}
+.social-grid img:hover{transform:scale(1.05);box-shadow:0 0 24px rgba(0,150,255,.35)}
+.contact-box{text-align:center;margin-top:20px}
 
-@media (max-width: 768px) {
+@media(max-width:1100px){
+  header{padding:14px 24px!important}
+  .nav-links{display:none!important}
+  .hamburger{display:block!important}
+  .logo{height:64px!important}
+  .logo-subtitle{font-size:.6em;margin-left:61px;letter-spacing:2px}
+  .mobile-menu{right:24px!important}
+  .hero{padding:112px 14px 34px}
+  .hero-card{grid-template-columns:1fr}
+  .content{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  header{padding:12px 14px!important}
+  .logo{height:54px!important}
+  .logo-subtitle{display:none}
+  .mobile-menu{right:14px!important;width:calc(100vw - 28px)!important}
+  .hero{padding:96px 10px 30px}
+  .hero-card{padding:28px;border-radius:22px}
+  h1{font-size:2.15rem}
+  .hero-image{height:260px}
+  .features{grid-template-columns:1fr}
+}
+</style>
 
-  body {
-    padding-top: 110px;
-    font-size: 16px;
-  }
+<style>
+/* ===== INDEX PREMIUM SHINE EFFECT ===== */
 
-  /* HEADER */
-  header {
-    padding: 10px 18px;
-  }
-
-  .logo {
-    height: 65px;
-  }
-
-  .nav-links {
-    display: none; /* isto kot index */
-  }
-
-  /* HERO */
-  .page-hero {
-    margin: 20px 14px;
-    padding: 22px;
-    border-radius: 16px;
-  }
-
-  .page-hero h1 {
-    font-size: 2.1em;
-    line-height: 1.2;
-  }
-
-  .page-hero p {
-    font-size: 1.05em;
-  }
-
-  /* CONTENT STACK */
-  .content {
-    grid-template-columns: 1fr;
-    gap: 22px;
-    padding: 0 12px;
-  }
-
-  /* MAIN TEXT */
-  .main {
-    padding: 24px;
-    border-radius: 16px;
-  }
-
-  .main h2 {
-    font-size: 1.55em;
-  }
-
-  .main p {
-    font-size: 1.02em;
-  }
-
-  /* FEATURES – 1 COLUMN */
-  .features {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .feature {
-    padding: 18px;
-    border-radius: 16px;
-  }
-
-  /* ASIDE */
-  .aside {
-    padding: 22px;
-    border-radius: 16px;
-  }
-
-  .aside h3 {
-    font-size: 1.35em;
-  }
-
-  /* GALERIJA – 2 STOLPCA */
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .gallery-grid img {
-    height: 120px;
-    border-radius: 12px;
-  }
-
-  /* SOCIAL GRID */
-  .social-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .social-grid img {
-    height: 100px;
-    border-radius: 14px;
-  }
-
-  /* CTA */
-  .cta {
-    padding: 14px 20px;
-    font-size: 1.05em;
-    border-radius: 14px;
-  }
-
-  /* KONTAKT */
-  .contact-box p {
-    font-size: 1em;
-  }
+.hero-card,
+.main,
+.aside{
+    position:relative !important;
+    overflow:hidden !important;
 }
 
-/* =========================
-   HAMBURGER – MOBILE MENU
-========================= */
-
-.hamburger {
-  display: none;
-  font-size: 2em;
-  color: white;
-  cursor: pointer;
+.hero-card::after{
+    content:'' !important;
+    position:absolute !important;
+    top:-150% !important;
+    left:-60% !important;
+    width:220% !important;
+    height:320% !important;
+    background:linear-gradient(
+        115deg,
+        rgba(255,255,255,0) 35%,
+        rgba(255,255,255,.08) 45%,
+        rgba(255,255,255,.18) 50%,
+        rgba(255,255,255,.08) 55%,
+        rgba(255,255,255,0) 65%
+    ) !important;
+    transform:rotate(25deg) !important;
+    animation:heroShine 12s linear infinite !important;
+    pointer-events:none !important;
+    z-index:2 !important;
 }
 
-/* MOBILE MENU */
-.mobile-menu {
-  display: none;
-  flex-direction: column;
-  background: #0f2748;
-  width: 100%;
-  padding: 22px;
-  text-align: center;
-  gap: 18px;
+.main::after,
+.aside::after{
+    content:'';
+    position:absolute;
+    top:-150%;
+    left:-60%;
+    width:220%;
+    height:320%;
+    background:linear-gradient(
+        115deg,
+        rgba(255,255,255,0) 35%,
+        rgba(255,255,255,.05) 45%,
+        rgba(255,255,255,.10) 50%,
+        rgba(255,255,255,.05) 55%,
+        rgba(255,255,255,0) 65%
+    );
+    transform:rotate(25deg);
+    animation:heroShine 18s linear infinite;
+    pointer-events:none;
+    z-index:1;
 }
 
-.mobile-menu a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.35em;
-  font-weight: 600;
+.hero-card > *,
+.main > *,
+.aside > *{
+    position:relative;
+    z-index:3;
 }
 
-.cta-mobile {
-  background: white;
-  color: #193a65 !important;
-  padding: 14px 30px;
-  border-radius: 12px;
-  font-weight: bold;
-  margin-top: 10px;
+@keyframes heroShine{
+    0%{
+        transform:translateX(-45%) rotate(25deg);
+    }
+    100%{
+        transform:translateX(45%) rotate(25deg);
+    }
+}
+</style>
+
+
+<style>
+/* CTA SPACING FIX */
+
+.aside p{
+    text-align:center !important;
+    line-height:1.75 !important;
+    margin-bottom:22px !important;
 }
 
-/* AKTIVACIJA NA MOBILE */
-@media (max-width: 900px) {
-  .nav-links {
-    display: none;
-  }
-  .hamburger {
-    display: block;
-  }
-}
-.mobile-menu {
-  position: fixed;
-  top: 100px;
-  left: 0;
-  z-index: 1099;
+.aside .cta{
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    width:100% !important;
+    min-height:62px !important;
+    margin-top:20px !important;
+    margin-bottom:10px !important;
+    text-align:center !important;
 }
 
-  </style>
+.divider{
+    margin:26px 0 !important;
+}
+</style>
+
+<style>
+/* ŽAREX PREMIUM SHINE */
+.main,.aside,.hero-card{
+    position:relative!important;
+    overflow:hidden!important;
+}
+.main::before,
+.aside::before,
+.hero-card::before{
+    content:"";
+    position:absolute;
+    top:-120%;
+    left:-50%;
+    width:200%;
+    height:300%;
+    background:linear-gradient(
+        115deg,
+        rgba(255,255,255,0.32) 0%,
+        rgba(255,255,255,0.08) 30%,
+        rgba(255,255,255,0) 60%
+    );
+    transform:rotate(25deg);
+    animation:zarexGlassShine 9s infinite linear;
+    pointer-events:none;
+    z-index:1;
+}
+.main > *,
+.aside > *,
+.hero-card > *{
+    position:relative;
+    z-index:2;
+}
+@keyframes zarexGlassShine{
+    0%{transform:translateX(-60%) rotate(25deg);}
+    100%{transform:translateX(60%) rotate(25deg);}
+}
+</style>
 </head>
-
 <body>
 
-  <header>
+<header>
     <div class="header-inner">
-      <img src="logo.png" class="logo" alt="ŽareX logo">
-
+      <a href="index.html#hero" class="logo-wrap"><img src="logo.png" alt="ŽareX logo" class="logo"><span class="logo-subtitle">Lasersko čiščenje</span></a>
       <nav class="nav-links">
   <a href="index.html#hero">Domov</a>
   <a href="index.html#ponudba">Ponudba</a>
+  <a href="index.html#projekti">Projekti</a>
   <a href="index.html#reviews">Mnenja</a>
   <a href="index.html#cenik">Galerija</a>
   <a href="index.html#cenik">Cenik</a>
   <a href="index.html#kontakt">Kontakt</a>
   <a href="ponudba.html" class="cta-btn">Dobi ponudbo</a>
 </nav>
-
-<!-- HAMBURGER MORA BITI IZVEN NAV -->
-<div class="hamburger" onclick="toggleMenu()">
-  <i class="fa fa-bars"></i>
-</div>
-
-
-
-        <div class="social-icons">
-          <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
-          <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
-          <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        </div>
-      </nav>
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fa fa-bars"></i>
+      </div>
     </div>
-  </header>
-<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu" id="mobileMenu">
   <a href="index.html#hero" onclick="toggleMenu()">Domov</a>
   <a href="index.html#ponudba" onclick="toggleMenu()">Ponudba</a>
+  <a href="index.html#projekti" onclick="toggleMenu()">Projekti</a>
   <a href="index.html#reviews" onclick="toggleMenu()">Mnenja</a>
-  <a href="index.html#cenik" onclick="toggleMenu()">Galerija</a>
+  <a href="GALERIJA.html" onclick="toggleMenu()">Galerija</a>
   <a href="index.html#cenik" onclick="toggleMenu()">Cenik</a>
   <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
   <a href="ponudba.html" class="cta-mobile">Dobi ponudbo</a>
 </div>
+  </header>
 
-
-  <section class="page-hero">
-    <h1>Lasersko čiščenje kovin</h1>
-    <p>Najsodobnejša metoda za odstranjevanje rje, oksidacije, toplotnih sledi, premazov in industrijskih nečistoč z vseh vrst kovinskih površin – hitro, natančno in brez poškodb.</p>
-  </section>
-
-  <div class="content">
-
-    <!-- LEVA STRAN (NE SPREMENIMO) -->
-    <article class="main">
-      <h2>Kaj je lasersko čiščenje kovin?</h2>
-      <p>Laserska tehnologija deluje tako, da usmerjen pulzirajoč laserski žarek selektivno odstranjuje kontaminacijo, premaze in okside s kovinske površine, pri tem pa podlage ne poškoduje ali segreje do stopnje deformacije.</p>
-
-      <h2>Prednosti</h2>
-      <div class="features">
-        <div class="feature"><strong>Brez abrazije</strong><p>Ni brušenja, peskanja ali kemikalij – kovina ostane nepoškodovana.</p></div>
-        <div class="feature"><strong>Visoka hitrost</strong><p>Idealno za industrijo, serijske procese in velike površine.</p></div>
-        <div class="feature"><strong>Odstranjevanje rje in oksida</strong><p>Popolnoma odstrani korozijo vseh stopenj.</p></div>
-        <div class="feature"><strong>Okolju prijazno</strong><p>Brez kemikalij, odpadkov in onesnaževanja okolja.</p></div>
+<section class="hero">
+  <div class="hero-wrap">
+    <div class="hero-card">
+      <div class="hero-text">
+        <span class="badge">Čiščenje kovin</span>
+        <h1>Lasersko čiščenje kovin</h1>
+        <p>Odstranjevanje rje, oksidacije, premazov in industrijskih nečistoč z vseh vrst kovinskih površin brez poškodb materiala.</p>
       </div>
-
-      <h2>Uporaba</h2>
-      <p>Avtoindustrija, industrijski stroji, konstrukcije, aluminij, baker, litina, orodja, kalupi, kmetijski stroji, podvozja, navtika in restavriranje kovinskih predmetov.</p>
-
-      <h2>Postopek</h2>
-      <p>Postopek vključuje pregled površine, testni preizkus, nastavitev optimalnih parametrov ter postopno lasersko čiščenje z možnostjo dodatne zaščite po koncu.</p>
-    </article>
-
-    <!-- DESNA STRAN (NOVA) -->
-    <aside class="aside">
-
-      <!-- Galerija -->
-      <div class="gallery-grid">
-        <img src="img/kovina1.jpg" alt="">
-        <img src="img/kovina2.jpg" alt="">
-        <img src="img/kovina3.jpg" alt="">
-        <img src="img/kovina4.jpg" alt="">
-        <img src="img/kovina5.jpg" alt="">
-        <img src="img/kovina6.jpg" alt="">
-      </div>
-
-      <a class="gallery-link" href="galerija-lasersko-ciscenje-kovin.html">Galerija →</a>
-
-      <div class="divider"></div>
-
-      <!-- Hitra ponudba -->
-      <h3>Hitra ponudba</h3>
-      <p>Pošljite kratek opis kovine, mere in stopnjo rje ter prejmite informativno ceno.</p>
-      <a class="cta" href="mailto:zarexlaser@gmail.com">Zahtevaj ponudbo</a>
-
-      <div class="divider"></div>
-
-      <!-- Socialna omrežja -->
-      <h3>Povežite se z nami – Dnevno spremljanje</h3>
-
-      <div class="social-grid">
-        <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><img src="img/fb.jpg" alt=""></a>
-        <a href="https://www.instagram.com/zarexlaser/" target="_blank"><img src="img/ig.jpg" alt=""></a>
-        <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><img src="img/tiktok.jpg" alt=""></a>
-        <a href="https://wa.me/38670808884" target="_blank"><img src="img/wa.jpg" alt=""></a>
-      </div>
-
-      <div class="divider"></div>
-
-      <!-- Kontakt -->
-      <div class="contact-box">
-        <h3>Kontakt</h3>
-        <p>☎ +386 70 808 884</p>
-        <p>✉ <a href="mailto:zarexlaser@gmail.com" style="color:#cdd9f2;text-decoration:underline">zarexlaser@gmail.com</a></p>
-      </div>
-
-
-    </aside>
-
+      <div class="hero-image"></div>
+    </div>
   </div>
+</section>
+
+<div class="content">
+
+<article class="main">
+
+<h2>Kaj je lasersko čiščenje kovin?</h2>
+<p>Laserska tehnologija omogoča selektivno odstranjevanje rje, oksidacije, barv, premazov in drugih nečistoč brez mehanskih poškodb osnovnega materiala.</p>
+
+<h2>Prednosti</h2>
+
+<div class="features">
+<div class="feature">
+<strong>Brez abrazije</strong>
+<p>Brez brušenja, peskanja ali agresivnih kemikalij.</p>
+</div>
+
+<div class="feature">
+<strong>Visoka hitrost</strong>
+<p>Primerno za industrijo, stroje, konstrukcije in večje površine.</p>
+</div>
+
+<div class="feature">
+<strong>Odstranjevanje rje</strong>
+<p>Učinkovito odstrani korozijo različnih stopenj.</p>
+</div>
+
+<div class="feature">
+<strong>Okolju prijazno</strong>
+<p>Brez dodatnih odpadkov in brez kemičnih čistil.</p>
+</div>
+</div>
+
+<h2>Uporaba</h2>
+<p>
+• Jeklo in inox<br>
+• Aluminij in baker<br>
+• Konstrukcije in stroji<br>
+• Orodja in kalupi<br>
+• Avtomobilska industrija<br>
+• Kmetijska mehanizacija
+</p>
+
+<h2>Postopek</h2>
+<p>
+Pregled površine, testni preizkus, nastavitev parametrov in postopno lasersko čiščenje z možnostjo dodatne zaščite po koncu obdelave.
+</p>
+
+</article>
+
+<aside class="aside">
+
+<div class="gallery-grid">
+<img src="img/kovina1.jpg" alt="">
+<img src="img/kovina2.jpg" alt="">
+<img src="img/kovina3.jpg" alt="">
+<img src="img/kovina4.jpg" alt="">
+<img src="img/kovina5.jpg" alt="">
+<img src="img/kovina6.jpg" alt="">
+</div>
+
+<a class="gallery-link" href="galerija-lasersko-ciscenje-kovin.html">Galerija →</a>
+
+<div class="divider"></div>
+
+<h3>Hitra ponudba</h3>
+<p>Pošljite kratek opis kovine, mere in stopnjo rje ter prejmite informativno ponudbo.</p>
+<a class="cta" href="mailto:zarexlaser@gmail.com">Zahtevaj ponudbo</a>
+
+<div class="divider"></div>
+
+<h3>Povežite se z nami – Dnevno spremljanje</h3>
+
+<div class="social-grid">
+<a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><img src="img/fb.jpg" alt=""></a>
+<a href="https://www.instagram.com/vukoticzarko/" target="_blank"><img src="img/ig.jpg" alt=""></a>
+<a href="https://www.tiktok.com/@zarexlaser" target="_blank"><img src="img/tiktok.jpg" alt=""></a>
+<a href="https://wa.me/38670808884" target="_blank"><img src="img/wa.jpg" alt=""></a>
+</div>
+
+<div class="divider"></div>
+
+<div class="contact-box">
+<h3>Kontakt</h3>
+<p>☎ +386 70 808 884</p>
+<p>✉ zarexlaser@gmail.com</p>
+</div>
+
+</aside>
+
+</div>
+
 <script>
 function toggleMenu(){
-  const m = document.getElementById('mobileMenu');
-  m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
+  const m=document.getElementById('mobileMenu');
+  m.style.display=(m.style.display==='flex')?'none':'flex';
 }
 </script>
+
 </body>
 </html>

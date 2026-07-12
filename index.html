@@ -661,17 +661,1747 @@ header {
   border-radius: 50%;
   object-fit: cover;
 }
+
+
+/* ==========================
+   IZBRANI PROJEKTI + ZAUPAJO NAM
+   Premium glass stil usklajen s CENIK/GALERIJA
+========================== */
+.projects-slider{
+  padding:70px 20px 30px;
+  margin:40px 0 10px;
+  background:#0f2748;
+  color:white;
+  text-align:center;
+}
+
+.projects-slider h2{
+  font-size:3em;
+  margin-bottom:4px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.projects-subtitle{
+  font-size:1.25em;
+  opacity:0.9;
+  margin-bottom:30px;
+}
+
+.projects-glass-wrap{
+  max-width:1400px;
+  margin:0 auto;
+}
+
+.project-slider-box{
+  position:relative;
+  overflow:hidden;
+  height:560px;
+  border-radius:22px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.28);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.45),
+    0 0 28px rgba(0,150,255,0.18);
+  backdrop-filter:blur(8px);
+}
+
+.project-slider-box::before,
+.trusted-logos-box::before{
+  content:"";
+  position:absolute;
+  top:-120%;
+  left:-50%;
+  width:200%;
+  height:300%;
+  background:linear-gradient(
+    115deg,
+    rgba(255,255,255,0.45) 0%,
+    rgba(255,255,255,0.10) 30%,
+    rgba(255,255,255,0) 60%
+  );
+  transform:rotate(25deg);
+  animation:zarexGlassShine 8s infinite linear;
+  pointer-events:none;
+  z-index:4;
+}
+
+@keyframes zarexGlassShine{
+  0%{transform:translateX(-60%) rotate(25deg);}
+  100%{transform:translateX(60%) rotate(25deg);}
+}
+
+.project-slide{
+  display:none;
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+}
+
+.project-slide.active{
+  display:block;
+}
+
+.project-slide img.project-bg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+  transform:scale(1.02);
+}
+
+.project-slide::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg, rgba(0,0,0,0.78), rgba(0,0,0,0.45), rgba(0,0,0,0.18));
+  z-index:1;
+}
+
+.project-overlay{
+  position:absolute;
+  inset:0;
+  z-index:3;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  padding:60px;
+  text-align:left;
+  max-width:760px;
+}
+
+.project-logo{
+  max-height:82px;
+  max-width:230px;
+  background:rgba(255,255,255,0.92);
+  padding:12px 18px;
+  border-radius:12px;
+  margin-bottom:26px;
+  object-fit:contain;
+  box-shadow:0 8px 22px rgba(0,0,0,0.35);
+}
+
+.project-overlay h3{
+  font-size:2.7em;
+  line-height:1.1;
+  margin-bottom:14px;
+  text-shadow:0 3px 12px rgba(0,0,0,0.75);
+}
+
+.project-line{
+  width:56px;
+  height:3px;
+  background:white;
+  opacity:0.9;
+  margin-bottom:20px;
+  box-shadow:0 0 14px rgba(0,150,255,0.65);
+}
+
+.project-overlay p{
+  max-width:620px;
+  font-size:1.25em;
+  margin-bottom:28px;
+  text-shadow:0 2px 10px rgba(0,0,0,0.8);
+}
+
+.project-overlay a{
+  background:rgba(255,255,255,0.12);
+  color:white;
+  border:1px solid rgba(255,255,255,0.65);
+  padding:14px 34px;
+  border-radius:10px;
+  font-weight:bold;
+  text-decoration:none;
+  transition:0.3s ease;
+  backdrop-filter:blur(5px);
+}
+
+.project-overlay a:hover{
+  background:white;
+  color:#193a65;
+  transform:scale(1.05);
+  box-shadow:0 0 25px rgba(0,150,255,0.7);
+}
+
+.project-dots{
+  position:absolute;
+  left:50%;
+  bottom:26px;
+  transform:translateX(-50%);
+  z-index:5;
+  display:flex;
+  justify-content:center;
+  gap:13px;
+}
+
+.project-dot{
+  width:13px;
+  height:13px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.5);
+  border:1px solid rgba(255,255,255,0.8);
+  cursor:pointer;
+  transition:0.3s ease;
+}
+
+.project-dot.active{
+  background:white;
+  transform:scale(1.28);
+  box-shadow:0 0 16px rgba(0,150,255,0.95);
+}
+
+.trusted-logos-box{
+  position:relative;
+  overflow:hidden;
+  margin:20px auto 0;
+  padding:28px 35px 32px;
+  border-radius:22px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.28);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.35),
+    0 0 26px rgba(0,150,255,0.14);
+  backdrop-filter:blur(8px);
+}
+
+.trusted-logos-box h3{
+  font-size:1.55em;
+  margin-bottom:22px;
+  letter-spacing:1px;
+  font-weight:800;
+}
+
+.trusted-grid{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:22px;
+  position:relative;
+  z-index:5;
+}
+
+.trusted-grid img{
+  height:66px;
+  max-width:190px;
+  object-fit:contain;
+  background:rgba(255,255,255,0.92);
+  padding:10px 18px;
+  border-radius:11px;
+  filter:grayscale(100%);
+  opacity:0.86;
+  transition:0.3s ease;
+  box-shadow:0 6px 16px rgba(0,0,0,0.28);
+}
+
+.trusted-grid img:hover{
+  filter:none;
+  opacity:1;
+  transform:translateY(-3px) scale(1.04);
+}
+
+@media(max-width:900px){
+  .projects-slider{padding:50px 12px 20px;margin:25px 0 10px;}
+  .projects-slider h2{font-size:2em;}
+  .projects-subtitle{font-size:1em;margin-bottom:22px;}
+  .project-slider-box{height:470px;border-radius:18px;}
+  .project-overlay{padding:34px 24px;align-items:flex-start;}
+  .project-logo{max-height:64px;max-width:190px;margin-bottom:18px;}
+  .project-overlay h3{font-size:1.75em;}
+  .project-overlay p{font-size:1em;max-width:100%;}
+  .project-overlay a{padding:12px 24px;}
+  .trusted-logos-box{border-radius:18px;padding:25px 16px;}
+  .trusted-grid{gap:14px;}
+  .trusted-grid img{height:54px;max-width:145px;padding:9px 13px;}
+}
+
+@media(max-width:560px){
+  .project-slider-box{height:520px;}
+  .project-slide::after{background:rgba(0,0,0,0.62);}
+  .project-overlay{justify-content:center;align-items:center;text-align:center;padding:30px 18px;}
+  .project-line{margin-left:auto;margin-right:auto;}
+  .project-overlay h3{font-size:1.55em;}
+  .project-dots{bottom:18px;}
+  .trusted-grid img{height:48px;max-width:132px;}
+}
+
+
+/* ==========================
+   PREMIUM GOOGLE MNENJA
+   Usklajeno z IZBRANI PROJEKTI + CENIK/GALERIJA
+========================== */
+.premium-reviews{
+  position:relative;
+  padding:70px 20px 90px !important;
+  margin:40px 0 !important;
+  background:#0f2748 !important;
+  color:white;
+  overflow:hidden;
+}
+
+.premium-reviews::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(0,150,255,0.16), transparent 35%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08), transparent 32%),
+    rgba(0,0,0,0.10);
+  z-index:0;
+}
+
+.reviews-heading{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.reviews-heading h2{
+  font-size:3em !important;
+  font-weight:800;
+  letter-spacing:1px;
+  margin-bottom:6px !important;
+}
+
+.reviews-heading p{
+  font-size:1.18em;
+  opacity:0.9;
+  max-width:760px;
+  margin:0 auto;
+}
+
+.premium-reviews .reviews-wrap{
+  position:relative;
+  z-index:2;
+  max-width:1180px;
+  margin:0 auto;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.premium-reviews #sliderFrame{
+  position:relative;
+  overflow:hidden;
+  max-width:1180px !important;
+  width:100%;
+  min-height:330px;
+  margin:0 auto;
+  padding:42px 46px 34px !important;
+  border-radius:22px !important;
+  background:rgba(255,255,255,0.08) !important;
+  border:1px solid rgba(255,255,255,0.28);
+  backdrop-filter:blur(8px);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.42),
+    0 0 28px rgba(0,150,255,0.16) !important;
+}
+
+.premium-reviews #sliderFrame::before{
+  content:"";
+  position:absolute;
+  top:-120%;
+  left:-50%;
+  width:200%;
+  height:300%;
+  background:linear-gradient(
+    115deg,
+    rgba(255,255,255,0.38) 0%,
+    rgba(255,255,255,0.09) 30%,
+    rgba(255,255,255,0) 60%
+  );
+  transform:rotate(25deg);
+  animation:zarexGlassShine 8s infinite linear;
+  pointer-events:none;
+  z-index:1;
+}
+
+.premium-reviews #cardContainer{
+  position:relative;
+  z-index:2;
+}
+
+.premium-reviews .review-card{
+  display:none;
+  flex-direction:row !important;
+  align-items:flex-start;
+  gap:24px !important;
+  background:transparent !important;
+  color:white !important;
+  text-align:left;
+}
+
+.premium-reviews .avatar{
+  width:76px;
+  height:76px;
+  flex:0 0 76px;
+}
+
+.premium-reviews .avatar img{
+  width:76px;
+  height:76px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid rgba(255,255,255,0.7);
+  box-shadow:0 0 18px rgba(0,150,255,0.45);
+}
+
+.premium-reviews .review-body{
+  flex:1;
+}
+
+.premium-reviews .review-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 18px;
+  align-items:baseline;
+  margin-bottom:6px;
+}
+
+.premium-reviews .author{
+  font-size:1.35em;
+  font-weight:800;
+  color:white;
+}
+
+.premium-reviews .time{
+  font-size:0.95em;
+  opacity:0.72;
+  color:white;
+}
+
+.premium-reviews .rating{
+  color:#ffcc4d !important;
+  font-size:1.25em;
+  letter-spacing:2px;
+  margin-bottom:12px;
+  text-shadow:0 0 14px rgba(255,204,77,0.3);
+}
+
+.premium-reviews .review-text{
+  color:white !important;
+  font-size:1.18em;
+  line-height:1.65;
+  max-width:920px;
+  opacity:0.95;
+}
+
+.premium-reviews .review-text::before{
+  content:"“";
+  font-size:2.3em;
+  line-height:0;
+  opacity:0.45;
+  margin-right:4px;
+}
+
+.premium-reviews .controls{
+  position:relative;
+  z-index:3;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  margin-top:30px;
+}
+
+.premium-reviews .arrow{
+  background:rgba(255,255,255,0.10) !important;
+  color:white !important;
+  border:1px solid rgba(255,255,255,0.55) !important;
+  padding:10px 17px !important;
+  border-radius:10px !important;
+  font-size:1.35em !important;
+  cursor:pointer;
+  transition:0.3s ease;
+  backdrop-filter:blur(5px);
+}
+
+.premium-reviews .arrow:hover{
+  background:white !important;
+  color:#193a65 !important;
+  transform:scale(1.08);
+  box-shadow:0 0 22px rgba(0,150,255,0.6);
+}
+
+.premium-reviews .dots{
+  position:absolute !important;
+  left:50%;
+  bottom:-42px !important;
+  transform:translateX(-50%);
+  z-index:4;
+  display:flex;
+  gap:12px;
+}
+
+.premium-reviews .dot{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.45);
+  border:1px solid rgba(255,255,255,0.8);
+  cursor:pointer;
+  transition:0.3s ease;
+}
+
+.premium-reviews .dot.active{
+  background:white;
+  transform:scale(1.28);
+  box-shadow:0 0 16px rgba(0,150,255,0.95);
+}
+
+@media(max-width:900px){
+  .premium-reviews{padding:55px 12px 80px !important;}
+  .reviews-heading h2{font-size:2em !important;}
+  .reviews-heading p{font-size:1em;}
+  .premium-reviews #sliderFrame{padding:30px 24px 28px !important;min-height:360px;border-radius:18px !important;}
+  .premium-reviews .review-card{flex-direction:column !important;align-items:center;text-align:center;gap:16px !important;}
+  .premium-reviews .review-meta{justify-content:center;}
+  .premium-reviews .review-text{font-size:1.02em;}
+  .premium-reviews .avatar,.premium-reviews .avatar img{width:68px;height:68px;}
+}
+
+@media(max-width:560px){
+  .premium-reviews #sliderFrame{min-height:410px;padding:28px 18px 26px !important;}
+  .premium-reviews .author{font-size:1.15em;}
+  .premium-reviews .rating{font-size:1.05em;}
+}
+
+
+
+/* =========================================================
+   PREMIUM ZAREX FINISH: MNENJA + KONTAKT + ZEMLJEVID + FOOTER
+   Usklajeno z velikim glass/reference dizajnom
+========================================================= */
+
+/* Mehkejši prehod iz mnenj v kontakt */
+.premium-reviews{
+  margin-bottom:0 !important;
+}
+
+/* KONTAKT BLOK - isti premium glass/neon občutek */
+.contact{
+  position:relative !important;
+  min-height:auto !important;
+  padding:80px 20px 55px !important;
+  background:#0f2748 !important;
+  overflow:hidden !important;
+  gap:34px !important;
+}
+
+.contact::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(0,150,255,0.16), transparent 36%),
+    radial-gradient(circle at 82% 62%, rgba(255,255,255,0.08), transparent 34%),
+    linear-gradient(180deg, rgba(0,0,0,0.10), rgba(0,0,0,0.22));
+  z-index:0;
+  pointer-events:none;
+}
+
+.contact::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(1180px, 88vw);
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
+  opacity:0.8;
+  z-index:1;
+}
+
+.contact-container{
+  position:relative !important;
+  z-index:2 !important;
+  max-width:1180px !important;
+  width:100% !important;
+  gap:28px !important;
+  padding:0 !important;
+  align-items:stretch !important;
+}
+
+.contact-content,
+.company-info{
+  position:relative !important;
+  overflow:hidden !important;
+  flex:1 !important;
+  min-height:360px !important;
+  padding:46px 34px !important;
+  border-radius:22px !important;
+  background:rgba(255,255,255,0.08) !important;
+  border:1px solid rgba(255,255,255,0.28) !important;
+  backdrop-filter:blur(8px) !important;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.42),
+    0 0 26px rgba(0,150,255,0.14) !important;
+}
+
+.contact-content::before,
+.company-info::before,
+.coverage-inner::before{
+  content:"";
+  position:absolute;
+  top:-120%;
+  left:-50%;
+  width:200%;
+  height:300%;
+  background:linear-gradient(
+    115deg,
+    rgba(255,255,255,0.32) 0%,
+    rgba(255,255,255,0.08) 30%,
+    rgba(255,255,255,0) 60%
+  );
+  transform:rotate(25deg);
+  animation:zarexGlassShine 9s infinite linear;
+  pointer-events:none;
+  z-index:1;
+}
+
+.contact-content > *,
+.company-info > *,
+.coverage-inner > *{
+  position:relative;
+  z-index:2;
+}
+
+.contact-content h2,
+.company-info h2{
+  font-size:2.55em !important;
+  line-height:1.15 !important;
+  margin-bottom:18px !important;
+  font-weight:800 !important;
+  letter-spacing:1px !important;
+  text-shadow:0 0 18px rgba(0,150,255,0.22);
+}
+
+.contact-content p,
+.company-info p{
+  font-size:1.16em !important;
+  line-height:1.75 !important;
+  opacity:0.95;
+}
+
+.contact-content a{
+  display:inline-flex !important;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  margin:8px 8px !important;
+  color:white !important;
+  text-decoration:none !important;
+  font-size:1.16em !important;
+  font-weight:800 !important;
+  transition:0.3s ease;
+}
+
+.contact-content a:hover{
+  color:white !important;
+  transform:translateY(-2px);
+  text-shadow:0 0 18px rgba(0,150,255,0.75);
+}
+
+.social-icons{
+  margin-top:26px !important;
+  gap:16px !important;
+}
+
+.social-icons a{
+  width:54px;
+  height:54px;
+  border-radius:16px;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  margin:0 !important;
+  background:rgba(255,255,255,0.10);
+  border:1px solid rgba(255,255,255,0.28);
+  box-shadow:0 8px 18px rgba(0,0,0,0.28);
+  font-size:1.75em !important;
+  transition:0.3s ease !important;
+}
+
+.social-icons a:hover{
+  background:white !important;
+  color:#193a65 !important;
+  transform:translateY(-4px) scale(1.04) !important;
+  box-shadow:0 0 22px rgba(0,150,255,0.75) !important;
+}
+
+.onas-btn{
+  margin-top:20px !important;
+  background:rgba(255,255,255,0.10) !important;
+  color:white !important;
+  border:1px solid rgba(255,255,255,0.62) !important;
+  padding:14px 34px !important;
+  border-radius:12px !important;
+  font-size:1.15em !important;
+  font-weight:800 !important;
+  transition:0.3s ease !important;
+  backdrop-filter:blur(5px);
+}
+
+.onas-btn:hover{
+  background:white !important;
+  color:#193a65 !important;
+  transform:translateY(-3px) scale(1.04);
+  box-shadow:0 0 24px rgba(0,150,255,0.72);
+}
+
+/* ZEMLJEVID / DELOVANJE PO SLOVENIJI */
+.coverage{
+  position:relative !important;
+  z-index:2 !important;
+  max-width:1180px !important;
+  width:100% !important;
+  margin:6px auto 0 !important;
+  opacity:1 !important;
+  transform:none !important;
+}
+
+.coverage-inner{
+  position:relative !important;
+  overflow:hidden !important;
+  width:100% !important;
+  max-width:1180px !important;
+  min-height:0 !important;
+  padding:42px 34px !important;
+  border-radius:22px !important;
+  background:rgba(255,255,255,0.08) !important;
+  border:1px solid rgba(255,255,255,0.28) !important;
+  backdrop-filter:blur(8px) !important;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.42),
+    0 0 26px rgba(0,150,255,0.14) !important;
+  display:grid !important;
+  grid-template-columns: minmax(260px, 410px) 1fr !important;
+  gap:34px !important;
+  align-items:center !important;
+  text-align:left !important;
+}
+
+.coverage-inner img{
+  width:100% !important;
+  max-width:410px !important;
+  height:auto !important;
+  margin:0 !important;
+  padding:16px !important;
+  border-radius:18px !important;
+  background:rgba(255,255,255,0.08) !important;
+  border:1px solid rgba(255,255,255,0.20) !important;
+  box-shadow:0 10px 26px rgba(0,0,0,0.36) !important;
+  object-fit:contain;
+}
+
+.coverage-text h3{
+  font-size:2.25em !important;
+  line-height:1.18 !important;
+  margin-bottom:14px !important;
+  font-weight:800 !important;
+  text-shadow:0 0 18px rgba(0,150,255,0.22);
+}
+
+.coverage-text p{
+  font-size:1.14em !important;
+  line-height:1.75 !important;
+  max-width:720px !important;
+  margin:0 !important;
+  opacity:0.94;
+}
+
+footer{
+  position:relative !important;
+  background:#081a31 !important;
+  color:rgba(255,255,255,0.82) !important;
+  padding:24px 15px !important;
+  border-top:1px solid rgba(255,255,255,0.15);
+  text-align:center !important;
+}
+
+footer p{
+  margin:0;
+  font-size:0.98em;
+  letter-spacing:0.3px;
+}
+
+@media(max-width:1000px){
+  .contact{padding:60px 12px 45px !important;}
+  .contact-container{flex-direction:column !important;gap:20px !important;}
+  .contact-content,
+  .company-info{min-height:auto !important;padding:34px 22px !important;border-radius:18px !important;}
+  .coverage-inner{grid-template-columns:1fr !important;text-align:center !important;padding:32px 22px !important;border-radius:18px !important;}
+  .coverage-inner img{margin:0 auto !important;max-width:390px !important;}
+  .coverage-text p{margin:0 auto !important;}
+}
+
+@media(max-width:560px){
+  .contact-content h2,
+  .company-info h2{font-size:2em !important;}
+  .coverage-text h3{font-size:1.8em !important;}
+  .social-icons a{width:48px;height:48px;font-size:1.45em !important;}
+  .contact-content a{font-size:1em !important;margin:6px 4px !important;}
+}
+
+
+
+/* =====================================================
+   PREMIUM GLASS HEADER + HERO STRIP
+   ===================================================== */
+body{
+  padding-top:0 !important;
+  background:#07111f !important;
+}
+header{
+  position:fixed !important;
+  top:24px !important;
+  left:50% !important;
+  transform:translateX(-50%) !important;
+  width:calc(100% - 56px) !important;
+  max-width:1560px !important;
+  z-index:3000 !important;
+  padding:18px 28px !important;
+  border-radius:24px !important;
+  background:linear-gradient(135deg, rgba(9,22,38,0.82), rgba(18,34,54,0.72)) !important;
+  border:1px solid rgba(160,205,255,0.35) !important;
+  box-shadow:
+    0 18px 45px rgba(0,0,0,0.45),
+    inset 0 0 30px rgba(255,255,255,0.04),
+    0 0 22px rgba(0,150,255,0.22) !important;
+  backdrop-filter:blur(14px) saturate(135%) !important;
+  overflow:visible !important;
+}
+header::before{
+  content:"";
+  position:absolute;
+  top:-2px;
+  left:18%;
+  right:18%;
+  height:2px;
+  background:linear-gradient(90deg, transparent, rgba(0,170,255,0.95), transparent);
+  filter:blur(.5px);
+  pointer-events:none;
+}
+header::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:24px;
+  background:linear-gradient(115deg, rgba(255,255,255,0.18), rgba(255,255,255,0.03) 35%, transparent 65%);
+  opacity:.45;
+  pointer-events:none;
+}
+.header-inner{
+  position:relative;
+  z-index:2;
+  max-width:1500px !important;
+}
+.logo-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  line-height:1;
+  text-decoration:none;
+}
+.logo{
+  height:78px !important;
+  filter:drop-shadow(0 0 15px rgba(0,160,255,0.65)) !important;
+}
+.logo-subtitle{
+  margin-left:74px;
+  margin-top:-8px;
+  color:rgba(255,255,255,0.82);
+  font-size:.72em;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+.nav-links{
+  gap:24px !important;
+}
+.nav-links a{
+  font-size:1.08em !important;
+  letter-spacing:.3px;
+  text-transform:none;
+  opacity:.95;
+}
+.nav-links a:hover{
+  opacity:1 !important;
+  color:#9ed8ff !important;
+  text-shadow:0 0 12px rgba(0,150,255,0.7);
+}
+.nav-links a:first-child::before{
+  content:"\f015";
+  font-family:"Font Awesome 6 Free";
+  font-weight:900;
+  margin-right:8px;
+  color:#dcefff;
+  text-shadow:0 0 12px rgba(110,185,255,0.85);
+}
+.cta-btn,
+.cta-mobile{
+  background:linear-gradient(135deg, rgba(13,35,63,0.78), rgba(10,24,45,0.92)) !important;
+  color:#fff !important;
+  border:1px solid rgba(60,170,255,0.95) !important;
+  box-shadow:0 0 20px rgba(0,145,255,0.32), inset 0 0 14px rgba(255,255,255,0.06) !important;
+  padding:16px 28px !important;
+  border-radius:10px !important;
+  text-transform:uppercase;
+  letter-spacing:.3px;
+}
+.cta-btn:hover,
+.cta-mobile:hover{
+  transform:translateY(-2px) scale(1.03) !important;
+  box-shadow:0 0 26px rgba(0,165,255,0.65) !important;
+}
+.hamburger{
+  border:1px solid rgba(255,255,255,0.22);
+  background:rgba(255,255,255,0.05);
+  border-radius:12px;
+  padding:10px 14px;
+  box-shadow:inset 0 0 12px rgba(255,255,255,0.04);
+}
+.mobile-menu{
+  position:absolute;
+  z-index:5;
+  top:calc(100% + 14px);
+  right:0;
+  width:min(360px, calc(100vw - 56px)) !important;
+  background:linear-gradient(135deg, rgba(9,22,38,0.96), rgba(18,34,54,0.92)) !important;
+  border:1px solid rgba(160,205,255,0.28);
+  border-radius:18px;
+  box-shadow:0 18px 45px rgba(0,0,0,0.45), 0 0 22px rgba(0,150,255,0.18);
+  backdrop-filter:blur(14px);
+}
+.hero{
+  min-height:100vh !important;
+  height:auto !important;
+  padding:190px 20px 120px !important;
+  align-items:center !important;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background:
+    radial-gradient(circle at 50% 5%, rgba(0,150,255,0.22), transparent 32%),
+    linear-gradient(180deg, rgba(3,10,18,0.10), rgba(3,10,18,0.68));
+  pointer-events:none;
+}
+.hero-content{
+  background:linear-gradient(135deg, rgba(9,22,38,0.70), rgba(18,34,54,0.58)) !important;
+  border:1px solid rgba(160,205,255,0.30) !important;
+  box-shadow:0 18px 45px rgba(0,0,0,0.45), 0 0 24px rgba(0,150,255,0.18) !important;
+  backdrop-filter:blur(12px) saturate(135%) !important;
+}
+.hero-feature-strip{
+  position:absolute;
+  left:50%;
+  bottom:38px;
+  transform:translateX(-50%);
+  z-index:2;
+  width:min(1120px, calc(100% - 56px));
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:0;
+  background:linear-gradient(135deg, rgba(9,22,38,0.78), rgba(18,34,54,0.68));
+  border:1px solid rgba(160,205,255,0.32);
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 18px 45px rgba(0,0,0,0.42), 0 0 22px rgba(0,150,255,0.16), inset 0 0 22px rgba(255,255,255,0.035);
+  backdrop-filter:blur(13px) saturate(130%);
+}
+.hero-feature{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:20px 26px;
+  border-right:1px solid rgba(255,255,255,0.16);
+}
+.hero-feature:last-child{border-right:none;}
+.hero-feature i{
+  font-size:2em;
+  color:#76bdff;
+  text-shadow:0 0 14px rgba(0,150,255,0.75);
+  min-width:34px;
+  text-align:center;
+}
+.hero-feature strong{
+  display:block;
+  font-size:1em;
+  text-transform:uppercase;
+  letter-spacing:.3px;
+}
+.hero-feature span{
+  display:block;
+  color:rgba(255,255,255,0.76);
+  font-size:.9em;
+  margin-top:2px;
+}
+@media(max-width:1100px){
+  header{top:16px !important; width:calc(100% - 30px) !important; padding:14px 18px !important;}
+  .logo{height:64px !important;}
+  .logo-subtitle{font-size:.6em; margin-left:61px; letter-spacing:2px;}
+  .hero{padding-top:150px !important; padding-bottom:220px !important;}
+  .hero-feature-strip{grid-template-columns:repeat(2, 1fr); bottom:28px;}
+  .hero-feature:nth-child(2){border-right:none;}
+  .hero-feature:nth-child(1), .hero-feature:nth-child(2){border-bottom:1px solid rgba(255,255,255,0.14);}
+}
+@media(max-width:600px){
+  header{top:10px !important; width:calc(100% - 20px) !important; border-radius:18px !important;}
+  header::after{border-radius:18px;}
+  .logo{height:54px !important;}
+  .logo-subtitle{display:none;}
+  .cta-mobile{display:inline-block;}
+  .hero{padding:135px 10px 360px !important;}
+  .hero-feature-strip{grid-template-columns:1fr; bottom:18px; width:calc(100% - 24px); border-radius:16px;}
+  .hero-feature{border-right:none !important; border-bottom:1px solid rgba(255,255,255,0.14); padding:15px 18px;}
+  .hero-feature:last-child{border-bottom:none;}
+  .hero-feature i{font-size:1.65em;}
+  .hero-feature strong{font-size:.9em;}
+  .hero-feature span{font-size:.82em;}
+}
+
+
+
+/* =====================================================
+   FULL WIDTH PREMIUM HEADER OVERRIDE
+   ===================================================== */
+header{
+  top:0 !important;
+  left:0 !important;
+  right:0 !important;
+  transform:none !important;
+  width:100% !important;
+  max-width:none !important;
+  border-radius:0 !important;
+  padding:18px 48px !important;
+  border-left:none !important;
+  border-right:none !important;
+  border-top:none !important;
+  border-bottom:1px solid rgba(160,205,255,0.32) !important;
+  background:linear-gradient(135deg, rgba(9,22,38,0.92), rgba(18,34,54,0.84)) !important;
+  box-shadow:
+    0 14px 36px rgba(0,0,0,0.48),
+    inset 0 0 28px rgba(255,255,255,0.035),
+    0 0 22px rgba(0,150,255,0.18) !important;
+}
+header::before{
+  left:0 !important;
+  right:0 !important;
+  top:auto !important;
+  bottom:-1px !important;
+  height:2px !important;
+  background:linear-gradient(90deg, transparent, rgba(0,170,255,0.85), rgba(255,255,255,0.65), rgba(0,170,255,0.85), transparent) !important;
+}
+header::after{
+  border-radius:0 !important;
+}
+.header-inner{
+  max-width:1500px !important;
+  margin:0 auto !important;
+  width:100% !important;
+}
+.mobile-menu{
+  right:48px !important;
+}
+.hero{
+  padding-top:155px !important;
+}
+@media(max-width:1100px){
+  header{top:0 !important; width:100% !important; padding:14px 24px !important;}
+  .mobile-menu{right:24px !important;}
+  .hero{padding-top:125px !important;}
+}
+@media(max-width:600px){
+  header{top:0 !important; width:100% !important; border-radius:0 !important; padding:12px 14px !important;}
+  header::after{border-radius:0 !important;}
+  .mobile-menu{right:14px !important; width:calc(100vw - 28px) !important;}
+  .hero{padding-top:115px !important;}
+}
+
+
+
+/* ==========================
+   MOBILNA IZVEDBA / SLOVENIJA BLOK
+========================== */
+.location-section{
+  width:100%;
+  max-width:1400px;
+  margin:40px auto 0;
+  padding:0 20px;
+}
+.location-card{
+  display:grid;
+  grid-template-columns:1.15fr 1fr;
+  gap:42px;
+  align-items:center;
+  padding:38px;
+  border-radius:28px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.035)),
+    rgba(15,39,72,0.72);
+  border:1px solid rgba(255,255,255,0.18);
+  box-shadow:0 18px 45px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.08);
+  position:relative;
+  overflow:hidden;
+}
+.location-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(115deg, rgba(255,255,255,.16), rgba(255,255,255,0) 45%, rgba(0,150,255,.12));
+  opacity:.65;
+  pointer-events:none;
+}
+.location-card::after{
+  content:"";
+  position:absolute;
+  top:-40%;
+  left:-20%;
+  width:60%;
+  height:180%;
+  background:linear-gradient(115deg, rgba(255,255,255,.18), rgba(255,255,255,0));
+  transform:rotate(24deg);
+  animation:locationShine 8s infinite linear;
+  pointer-events:none;
+}
+@keyframes locationShine{
+  0%{transform:translateX(-70%) rotate(24deg);}
+  100%{transform:translateX(230%) rotate(24deg);}
+}
+.location-card > *{position:relative;z-index:1;}
+.location-visual{
+  border-radius:22px;
+  overflow:hidden;
+  background:rgba(0,0,0,.22);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 12px 28px rgba(0,0,0,.35);
+}
+.location-visual img{
+  width:100%;
+  display:block;
+  object-fit:cover;
+}
+.location-badge{
+  display:block;
+  color:#63b7ff;
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-size:.98em;
+  margin-bottom:12px;
+}
+.location-content h2{
+  font-size:3.2em;
+  line-height:1.05;
+  margin-bottom:22px;
+  color:#fff;
+  text-shadow:0 3px 18px rgba(0,0,0,.35);
+}
+.location-content p{
+  font-size:1.25em;
+  line-height:1.7;
+  color:rgba(255,255,255,.92);
+  margin-bottom:25px;
+}
+.location-options{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:14px 18px;
+  margin:22px 0 28px;
+}
+.location-option{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 18px;
+  border-radius:12px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);
+  font-weight:700;
+  color:#fff;
+}
+.location-option i{
+  color:#5fb7ff;
+  font-size:1.25em;
+  width:25px;
+  text-align:center;
+}
+.location-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  padding:15px 30px;
+  border-radius:12px;
+  border:1px solid rgba(0,150,255,.75);
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+  letter-spacing:.5px;
+  background:rgba(0,85,155,.22);
+  box-shadow:0 0 22px rgba(0,150,255,.18);
+  transition:.3s ease;
+}
+.location-btn:hover{
+  transform:scale(1.04);
+  background:rgba(0,120,220,.34);
+  box-shadow:0 0 28px rgba(0,150,255,.34);
+}
+@media(max-width:1000px){
+  .location-card{grid-template-columns:1fr;gap:26px;padding:28px;}
+  .location-content h2{font-size:2.35em;}
+  .location-content p{font-size:1.08em;}
+}
+@media(max-width:600px){
+  .location-section{padding:0 12px;margin-top:28px;}
+  .location-card{padding:18px;border-radius:18px;}
+  .location-content{text-align:center;}
+  .location-content h2{font-size:2em;}
+  .location-badge{font-size:.82em;}
+  .location-options{grid-template-columns:1fr;gap:10px;}
+  .location-option{justify-content:center;}
+  .location-btn{width:100%;justify-content:center;padding:14px 18px;}
+}
+
+
+/* =====================================================
+   ŽAREX FINAL: HERO LOGOI + REFERENČNI PROJEKTI GRID
+   ===================================================== */
+.hero-content{
+  max-width:980px !important;
+  width:min(980px, calc(100% - 24px)) !important;
+  padding:48px 42px 38px !important;
+}
+.hero-content h3{
+  font-size:clamp(1.35rem, 3vw, 2.25rem) !important;
+  line-height:1.18 !important;
+  margin-bottom:18px !important;
+  font-weight:800 !important;
+  letter-spacing:.8px !important;
+}
+.hero-content p{
+  max-width:780px;
+  margin:0 auto;
+  font-size:clamp(1rem, 1.45vw, 1.22rem) !important;
+  line-height:1.65 !important;
+}
+.hero-btn{
+  background:linear-gradient(135deg, rgba(13,35,63,0.95), rgba(5,18,36,0.98)) !important;
+  color:#fff !important;
+  border:1px solid rgba(60,170,255,0.95) !important;
+  box-shadow:0 0 24px rgba(0,145,255,0.45), inset 0 0 14px rgba(255,255,255,0.06) !important;
+  padding:15px 34px !important;
+  border-radius:12px !important;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+}
+.hero-btn:hover{
+  background:linear-gradient(135deg, rgba(17,49,88,1), rgba(7,25,48,1)) !important;
+  color:#fff !important;
+  transform:translateY(-3px) scale(1.04) !important;
+  box-shadow:0 0 34px rgba(0,165,255,0.75), 0 10px 26px rgba(0,0,0,.36) !important;
+}
+.hero-trust{
+  margin-top:34px;
+  padding-top:26px;
+  border-top:1px solid rgba(160,205,255,.28);
+}
+.hero-trust-title{
+  font-size:.98rem;
+  font-weight:800;
+  letter-spacing:2.4px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.88);
+  margin-bottom:18px;
+}
+.hero-logo-grid{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:50px;
+  width:100%;
+}
+.hero-logo-row{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:nowrap;
+  overflow:visible;
+}
+.hero-logo-row.hero-logo-row-top{
+  gap:clamp(58px, 6.4vw, 118px);
+}
+.hero-logo-row.hero-logo-row-bottom{
+  gap:clamp(92px, 9.2vw, 178px);
+  transform:translateX(0);
+}
+.hero-logo-card{
+  width:auto;
+  min-width:auto;
+  min-height:128px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  border-radius:14px;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  transition:.28s ease;
+  text-decoration:none;
+  overflow:visible;
+  position:relative;
+}
+.hero-logo-card::before{
+  content:"";
+  position:absolute;
+  inset:-18px -24px;
+  border-radius:999px;
+  background:radial-gradient(circle, rgba(0,150,255,.28), rgba(0,150,255,0) 70%);
+  opacity:0;
+  filter:blur(13px);
+  transition:.28s ease;
+  z-index:-1;
+}
+.hero-logo-card img{
+  width:auto;
+  max-width:none;
+  max-height:none;
+  object-fit:contain;
+  display:block;
+  filter:drop-shadow(0 8px 14px rgba(0,0,0,.55));
+  opacity:.94;
+  transition:.28s ease;
+  transform:translateY(var(--logo-y,0px)) scale(var(--logo-scale,1));
+  transform-origin:center;
+}
+/* DESKTOP: optično poravnani SVG logotipi */
+.logo-dvig img{height:92px; --logo-scale:1; --logo-y:0px;}
+.logo-vostok img{height:96px; --logo-scale:1.34; --logo-y:18px;}
+.logo-vetis img{height:96px; --logo-scale:1.18; --logo-y:18px;}
+.logo-tovar img{height:92px; --logo-scale:1.12; --logo-y:0px;}
+.logo-summit img{height:118px; --logo-scale:2.25; --logo-y:0px;}
+.logo-rabimavto img{height:92px; --logo-scale:1.45; --logo-y:0px;}
+.logo-avtomotiv img{height:92px; --logo-scale:1.55; --logo-y:0px;}
+.hero-logo-card:hover{
+  transform:translateY(-5px) scale(1.055);
+}
+.hero-logo-card:hover::before{
+  opacity:1;
+}
+.hero-logo-card:hover img{
+  opacity:1;
+  transform:translateY(var(--logo-y,0px)) scale(var(--logo-scale,1));
+  filter:drop-shadow(0 0 18px rgba(0,150,255,.78)) drop-shadow(0 8px 14px rgba(0,0,0,.55));
+}
+
+
+
+.reference-projects{
+  position:relative;
+  padding:74px 20px 30px;
+  margin:40px 0 0;
+  background:#0f2748;
+  color:#fff;
+  overflow:hidden;
+}
+.reference-projects::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 18% 8%, rgba(0,150,255,.16), transparent 36%), radial-gradient(circle at 86% 78%, rgba(255,255,255,.08), transparent 34%);
+  pointer-events:none;
+}
+.reference-projects > *{position:relative;z-index:1;}
+.reference-projects h2{
+  font-size:clamp(2rem, 4vw, 3.1rem);
+  line-height:1.1;
+  text-align:center;
+  font-weight:800;
+  letter-spacing:1px;
+  margin-bottom:8px;
+}
+.reference-projects .reference-subtitle{
+  text-align:center;
+  font-size:1.16rem;
+  opacity:.88;
+  margin-bottom:34px;
+}
+.reference-grid{
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:24px;
+}
+.reference-card{
+  position:relative;
+  min-height:280px;
+  border-radius:22px;
+  overflow:hidden;
+  display:flex;
+  align-items:flex-end;
+  text-decoration:none;
+  color:#fff;
+  background:#07111f;
+  border:1px solid rgba(255,255,255,.22);
+  box-shadow:0 14px 34px rgba(0,0,0,.42), 0 0 24px rgba(0,150,255,.10);
+  transition:.3s ease;
+}
+.reference-card.is-featured{
+  grid-column:1 / -1;
+  min-height:330px;
+  max-width:640px;
+  width:100%;
+  justify-self:center;
+}
+.reference-card-bg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1.02);
+  transition:.45s ease;
+}
+.reference-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(2,9,18,.12), rgba(2,9,18,.88));
+  z-index:1;
+}
+.reference-card::before{
+  content:"";
+  position:absolute;
+  top:-120%;
+  left:-60%;
+  width:220%;
+  height:300%;
+  background:linear-gradient(115deg, rgba(255,255,255,.25) 0%, rgba(255,255,255,.06) 32%, transparent 62%);
+  transform:rotate(25deg);
+  animation:zarexGlassShine 9s infinite linear;
+  pointer-events:none;
+  z-index:3;
+}
+.reference-card-content{
+  position:relative;
+  z-index:4;
+  width:100%;
+  padding:26px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+.reference-card-logo{
+  width:auto;
+  max-width:170px;
+  max-height:58px;
+  object-fit:contain;
+  background:rgba(255,255,255,.92);
+  border-radius:12px;
+  padding:10px 14px;
+  margin-bottom:18px;
+  box-shadow:0 8px 18px rgba(0,0,0,.32);
+}
+.reference-card h3{
+  font-size:1.45rem;
+  line-height:1.15;
+  margin:0 0 8px;
+  text-shadow:0 3px 14px rgba(0,0,0,.75);
+}
+.reference-card p{
+  margin:0;
+  max-width:600px;
+  font-size:1rem;
+  line-height:1.5;
+  opacity:.9;
+}
+.reference-hover-label{
+  position:absolute;
+  inset:0;
+  z-index:5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(4,16,31,.58);
+  opacity:0;
+  transform:translateY(8px);
+  transition:.3s ease;
+  font-weight:800;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  text-shadow:0 0 18px rgba(0,150,255,.8);
+}
+.reference-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(90,190,255,.82);
+  box-shadow:0 0 34px rgba(0,150,255,.55), 0 18px 38px rgba(0,0,0,.48);
+}
+.reference-card:hover .reference-card-bg{
+  transform:scale(1.08);
+}
+.reference-card:hover .reference-hover-label{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media(max-width:900px){
+  .hero-content{padding:36px 22px 30px !important;}
+  .hero-logo-grid{gap:14px;}
+  .hero-logo-row,.hero-logo-row.hero-logo-row-top,.hero-logo-row.hero-logo-row-bottom{max-width:100%; justify-content:center; gap:20px; flex-wrap:wrap; transform:none;}
+  .logo-dvig img{height:72px; --logo-scale:1; --logo-y:0px;}
+  .logo-vostok img{height:74px; --logo-scale:1.24; --logo-y:10px;}
+  .logo-vetis img{height:74px; --logo-scale:1.12; --logo-y:10px;}
+  .logo-tovar img{height:72px; --logo-scale:1.08; --logo-y:0px;}
+  .logo-summit img{height:88px; --logo-scale:1.9; --logo-y:0px;}
+  .logo-rabimavto img{height:72px; --logo-scale:1.25; --logo-y:0px;}
+  .logo-avtomotiv img{height:72px; --logo-scale:1.3; --logo-y:0px;}
+  .hero-logo-card{width:auto; min-width:150px; min-height:78px; padding:8px 8px;}
+  .reference-projects{padding:56px 12px 24px;}
+  .reference-grid{grid-template-columns:1fr; gap:18px;}
+  .reference-card,.reference-card.is-featured{grid-column:auto; min-height:260px; max-width:none;}
+}
+@media(max-width:560px){
+  .hero-trust{margin-top:28px; padding-top:22px;}
+  .hero-trust-title{font-size:.78rem; letter-spacing:1.5px;}
+  .hero-logo-card{width:auto; min-width:136px; min-height:64px; border-radius:12px;}
+  .hero-logo-card img{max-height:none;}
+  .reference-card-content{padding:22px;}
+  .reference-card-logo{max-width:142px; max-height:50px;}
+  .reference-card h3{font-size:1.22rem;}
+  .reference-card p{font-size:.94rem;}
+}
+
+
+/* =====================================================
+   FINAL LOGO ALIGNMENT — ONLY EXISTING HERO LOGOS
+   Top:    DVIG | VOSTOK | VETIS | TOVAR
+   Bottom: SUMMIT starts with DVIG, RABIMAVTO center, AVTOMOTIV ends with TOVAR
+   ===================================================== */
+.hero-logo-grid{
+  width:min(100%, 900px) !important;
+  margin:0 auto !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:stretch !important;
+  gap:44px !important;
+  overflow:visible !important;
+}
+
+.hero-logo-row{
+  width:100% !important;
+  display:grid !important;
+  grid-template-columns:repeat(4, minmax(0, 1fr)) !important;
+  align-items:center !important;
+  justify-content:normal !important;
+  justify-items:center !important;
+  gap:0 !important;
+  overflow:visible !important;
+  transform:none !important;
+}
+
+.hero-logo-card{
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  padding:0 !important;
+  margin:0 !important;
+  width:max-content !important;
+  min-width:0 !important;
+  min-height:0 !important;
+  overflow:visible !important;
+}
+
+/* top row positions */
+.hero-logo-row-top .logo-dvig{grid-column:1 !important; justify-self:start !important;}
+.hero-logo-row-top .logo-vostok{grid-column:2 !important; justify-self:center !important;}
+.hero-logo-row-top .logo-vetis{grid-column:3 !important; justify-self:center !important;}
+.hero-logo-row-top .logo-tovar{grid-column:4 !important; justify-self:end !important;}
+
+/* bottom row positions */
+.hero-logo-row-bottom .logo-summit{grid-column:1 !important; justify-self:start !important;}
+.hero-logo-row-bottom .logo-rabimavto{grid-column:2 / span 2 !important; justify-self:center !important;}
+.hero-logo-row-bottom .logo-avtomotiv{grid-column:4 !important; justify-self:end !important;}
+
+/* keep the good optical sizes from your file, but force them to stay visible */
+.logo-dvig img{height:92px !important; --logo-scale:1 !important; --logo-y:0px !important;}
+.logo-vostok img{height:96px !important; --logo-scale:1.34 !important; --logo-y:18px !important;}
+.logo-vetis img{height:96px !important; --logo-scale:1.18 !important; --logo-y:18px !important;}
+.logo-tovar img{height:92px !important; --logo-scale:1.12 !important; --logo-y:0px !important;}
+.logo-summit img{height:118px !important; --logo-scale:2.25 !important; --logo-y:0px !important;}
+.logo-rabimavto img{height:92px !important; --logo-scale:1.45 !important; --logo-y:0px !important;}
+.logo-avtomotiv img{height:92px !important; --logo-scale:1.55 !important; --logo-y:0px !important;}
+
+.hero-logo-card img{
+  width:auto !important;
+  max-width:none !important;
+  max-height:none !important;
+  object-fit:contain !important;
+  display:block !important;
+  transform:translateY(var(--logo-y,0px)) scale(var(--logo-scale,1)) !important;
+}
+
+/* mobile stays readable */
+@media(max-width:600px){
+  .hero-logo-grid{
+    width:100% !important;
+    gap:26px !important;
+  }
+  .hero-logo-row{
+    grid-template-columns:repeat(2, 1fr) !important;
+    row-gap:26px !important;
+  }
+  .hero-logo-row-top .logo-dvig{grid-column:1 !important; justify-self:center !important;}
+  .hero-logo-row-top .logo-vostok{grid-column:2 !important; justify-self:center !important;}
+  .hero-logo-row-top .logo-vetis{grid-column:1 !important; justify-self:center !important;}
+  .hero-logo-row-top .logo-tovar{grid-column:2 !important; justify-self:center !important;}
+  .hero-logo-row-bottom .logo-summit{grid-column:1 !important; justify-self:center !important;}
+  .hero-logo-row-bottom .logo-rabimavto{grid-column:2 !important; justify-self:center !important;}
+  .hero-logo-row-bottom .logo-avtomotiv{grid-column:1 / span 2 !important; justify-self:center !important;}
+}
+
+
+@media (max-width:600px){
+  .logo-dvig img{max-width:130px!important;}
+  .logo-vostok img{max-width:120px!important;}
+  .logo-vetis img{max-width:120px!important;}
+  .logo-tovar img{max-width:118px!important;}
+  .logo-summit img{max-width:118px!important;max-height:58px!important;}
+  .logo-rabimavto img{max-width:122px!important;}
+  .logo-avtomotiv img{max-width:122px!important;}
+}
+
+
+@media (max-width:600px){
+  .logo-dvig img{
+    max-width:110px!important;
+    max-height:56px!important;
+  }
+  .logo-vostok img{
+    max-width:145px!important;
+    max-height:64px!important;
+  }
+  .logo-vetis img{
+    max-width:126px!important;
+    max-height:64px!important;
+  }
+  .logo-tovar img{
+    max-width:138px!important;
+    max-height:70px!important;
+  }
+  .logo-summit img{
+    max-width:205px!important;
+    max-height:88px!important;
+  }
+  .logo-rabimavto img{
+    max-width:158px!important;
+    max-height:68px!important;
+  }
+  .logo-avtomotiv img{
+    max-width:150px!important;
+    max-height:66px!important;
+  }
+}
+
 </style>
+
+<style>
+/* MOBILE ONLY — HERO REFERENCE LOGOS: NO OVERLAP */
+@media(max-width:600px){
+  .hero-content{
+    overflow:hidden !important;
+  }
+
+  .hero-logo-grid{
+    width:100% !important;
+    gap:22px !important;
+  }
+
+  .hero-logo-row{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    column-gap:14px !important;
+    row-gap:22px !important;
+    align-items:center !important;
+    justify-items:center !important;
+    overflow:visible !important;
+  }
+
+  .hero-logo-card{
+    width:100% !important;
+    min-width:0 !important;
+    min-height:74px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    overflow:visible !important;
+  }
+
+  .hero-logo-card img{
+    width:auto !important;
+    height:auto !important;
+    max-width:125px !important;
+    max-height:64px !important;
+    transform:none !important;
+    margin:0 auto !important;
+  }
+
+  .hero-logo-row-top .logo-dvig,
+  .hero-logo-row-top .logo-vostok,
+  .hero-logo-row-top .logo-vetis,
+  .hero-logo-row-top .logo-tovar,
+  .hero-logo-row-bottom .logo-summit,
+  .hero-logo-row-bottom .logo-rabimavto{
+    grid-column:auto !important;
+    justify-self:stretch !important;
+  }
+
+  .hero-logo-row-bottom .logo-summit img{
+    max-width:170px !important;
+    max-height:82px !important;
+  }
+
+  .hero-logo-row-bottom .logo-avtomotiv{
+    grid-column:1 / -1 !important;
+    justify-self:center !important;
+    width:50% !important;
+  }
+
+  .hero-logo-row-bottom .logo-avtomotiv img{
+    max-width:150px !important;
+  }
+  .hero-logo-card img{
+    opacity:1 !important;
+    filter:
+      brightness(1.60)
+      contrast(1.45)
+      saturate(1.05)
+      drop-shadow(0 0 6px rgba(255,255,255,.35))
+      drop-shadow(0 0 12px rgba(0,170,255,.35)) !important;
+  }
+
+  
+}
+</style>
+
 </head>
 
 <body>
 
   <header>
     <div class="header-inner">
-      <img src="logo.png" alt="ŽareX logo" class="logo">
+      <a href="#hero" class="logo-wrap"><img src="logo.png" alt="ŽareX logo" class="logo"><span class="logo-subtitle">Lasersko čiščenje</span></a>
       <nav class="nav-links">
   <a href="#hero">Domov</a>
   <a href="#ponudba">Ponudba</a>
+  <a href="#projekti">Projekti</a>
   <a href="#reviews">Mnenja</a>
   <a href="#cenik">Galerija</a>
   <a href="#cenik">Cenik</a>
@@ -685,6 +2415,7 @@ header {
     <div class="mobile-menu" id="mobileMenu">
   <a href="#hero" onclick="toggleMenu()">Domov</a>
   <a href="#ponudba" onclick="toggleMenu()">Ponudba</a>
+  <a href="#projekti" onclick="toggleMenu()">Projekti</a>
   <a href="#reviews" onclick="toggleMenu()">Mnenja</a>
   <a href="galerija.html" onclick="toggleMenu()">Galerija</a>
   <a href="#cenik" onclick="toggleMenu()">Cenik</a>
@@ -699,6 +2430,23 @@ header {
       <h3>LASERSKO ČIŠČENJE POVRŠIN • PREMAZI • ZAŠČITA • BARVANJE</h3>
       <p>Z Žarex dobite vse na enem mestu – odstranjevanje rje in nečistoč, zaščitne premaze ter barvanje po potrebi za popoln končni rezultat.</p>
       <a href="ponudba.html" class="hero-btn">DOBI PONUDBO</a>
+
+      <div class="hero-trust" aria-label="Referenčni naročniki ŽAREX">
+        <div class="hero-trust-title">PONOSNI SMO, DA NAM ZAUPAJO</div>
+        <div class="hero-logo-grid">
+          <div class="hero-logo-row hero-logo-row-top">
+            <a class="hero-logo-card logo-dvig" href="dvig-vrhnika.html" aria-label="DVIG d.o.o. Vrhnika"><img src="logos/dvig.svg" alt="DVIG d.o.o. Vrhnika" loading="eager" decoding="async"></a>
+            <a class="hero-logo-card logo-vostok" href="vostok-koper.html" aria-label="VOSTOK d.o.o. Koper"><img src="logos/vostok.svg" alt="VOSTOK d.o.o. Koper" loading="eager" decoding="async"></a>
+            <a class="hero-logo-card logo-vetis" href="vetis-brodski-motor.html" aria-label="VETIS"><img src="logos/vetis.svg" alt="VETIS" loading="eager" decoding="async"></a>
+            <a class="hero-logo-card logo-tovar" href="tovar-cerkvena-ograja.html" aria-label="TOVAR"><img src="logos/tovar.svg" alt="TOVAR" loading="eager" decoding="async"></a>
+          </div>
+          <div class="hero-logo-row hero-logo-row-bottom">
+            <a class="hero-logo-card logo-summit" href="summit-avto.html" aria-label="Summit Avto"><img src="logos/summit-avto.svg" alt="Summit Avto" loading="eager" decoding="async"></a>
+            <a class="hero-logo-card logo-rabimavto" href="rabimavto.html" aria-label="Rabimavto"><img src="logos/rabimavto.svg" alt="Rabimavto.si" loading="eager" decoding="async"></a>
+            <a class="hero-logo-card logo-avtomotiv" href="avtomotiv-motorja.html" aria-label="AVTOMOTIV"><img src="logos/avtomotiv.svg" alt="AVTOMOTIV" loading="eager" decoding="async"></a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -724,6 +2472,85 @@ header {
     </div>
   </section>
 
+
+
+<section class="reference-projects" id="projekti">
+  <h2>REFERENČNI PROJEKTI</h2>
+  <p class="reference-subtitle">Izbrani projekti, kjer se vidi rezultat v praksi.</p>
+
+  <div class="reference-grid">
+    <a class="reference-card is-featured" href="reference/dvig-vrhnika.html" aria-label="Preberi referenco DVIG d.o.o. Vrhnika">
+      <img class="reference-card-bg" src="slikicadvig.jpg" alt="Lasersko čiščenje HIAB dvigala DVIG d.o.o. Vrhnika">
+      <div class="reference-card-content">
+        <img class="reference-card-logo" src="logos/dvig.svg" alt="DVIG d.o.o. Vrhnika" loading="eager" decoding="async">
+        <h3>DVIG d.o.o. Vrhnika</h3>
+        <p>Lasersko čiščenje dvigala in priprava kovinske konstrukcije za nadaljnjo zaščito.</p>
+      </div>
+      <span class="reference-hover-label">PREBERI REFERENCO</span>
+    </a>
+
+    <a class="reference-card" href="summit-avto.html" aria-label="Preberi referenco Summit Avto">
+      <img class="reference-card-bg" src="summitmain.jpg" alt="Referenčni projekt Summit Avto">
+      <div class="reference-card-content">
+        <img class="reference-card-logo" src="logos/summit-avto.svg" alt="Summit Avto" loading="eager" decoding="async">
+        <h3>Summit Avto</h3>
+        <p>Projekt laserskega čiščenja in priprave površine v avtomobilskem segmentu.</p>
+      </div>
+      <span class="reference-hover-label">PREBERI REFERENCO</span>
+    </a>
+
+    <a class="reference-card" href="rabimavto.html" aria-label="Preberi referenco Rabimavto">
+      <img class="reference-card-bg" src="rabimavtobogataj.jpg" alt="Referenčni projekt Rabimavto">
+      <div class="reference-card-content">
+        <img class="reference-card-logo" src="logos/rabimavto.svg" alt="Rabimavto.si" loading="eager" decoding="async">
+        <h3>Rabimavto.si</h3>
+        <p>Lasersko čiščenje in zaščita vozil z jasnim prikazom stanja pred in po izvedbi.</p>
+      </div>
+      <span class="reference-hover-label">PREBERI REFERENCO</span>
+    </a>
+
+    <a class="reference-card" href="tovar-cerkvena-ograja.html" aria-label="Preberi referenco TOVAR">
+      <img class="reference-card-bg" src="tovar1.jpg" alt="Lasersko čiščenje cerkvene kovane ograje">
+      <div class="reference-card-content">
+        <img class="reference-card-logo" src="logos/tovar.svg" alt="TOVAR" loading="eager" decoding="async">
+        <h3>TOVAR</h3>
+        <p>Lasersko čiščenje kovane ograje in priprava detajlov za zaščitni premaz.</p>
+      </div>
+      <span class="reference-hover-label">PREBERI REFERENCO</span>
+    </a>
+
+    <a class="reference-card" href="vostok-koper.html" aria-label="Preberi referenco VOSTOK d.o.o. Koper">
+      <img class="reference-card-bg" src="prikolica.jpg" alt="Lasersko čiščenje in zaščita 3-osne kontejnerske prikolice VOSTOK Koper">
+      <div class="reference-card-content">
+        <img class="reference-card-logo" src="logos/vostok.svg" alt="VOSTOK d.o.o. Koper" loading="eager" decoding="async">
+        <h3>VOSTOK d.o.o. Koper</h3>
+        <p>Lasersko čiščenje, epoxy zaščita in 2K barvanje 3-osne kontejnerske prikolice.</p>
+      </div>
+      <span class="reference-hover-label">PREBERI REFERENCO</span>
+    </a>
+
+    <a class="reference-card" href="vetis-brodski-motor.html" aria-label="Preberi referenco VETIS">
+      <img class="reference-card-bg" src="vetis-motor.jpg" alt="Lasersko čiščenje brodskega motorja VETIS">
+      <div class="reference-card-content">
+        <img class="reference-card-logo" src="logos/vetis.svg" alt="VETIS" loading="eager" decoding="async">
+        <h3>VETIS</h3>
+        <p>Lasersko čiščenje brodskega motorja in zahtevnejših kovinskih površin.</p>
+      </div>
+      <span class="reference-hover-label">PREBERI REFERENCO</span>
+    </a>
+
+    <a class="reference-card" href="avtomotiv-motorja.html" aria-label="Preberi referenco AVTOMOTIV">
+      <img class="reference-card-bg" src="avtomotiv2.jpg" alt="Lasersko čiščenje motornih delov AVTOMOTIV">
+      <div class="reference-card-content">
+        <img class="reference-card-logo" src="logos/avtomotiv.svg" alt="AVTOMOTIV" loading="eager" decoding="async">
+        <h3>AVTOMOTIV</h3>
+        <p>Čiščenje motornih delov in priprava kovinskih površin brez agresivnih postopkov.</p>
+      </div>
+      <span class="reference-hover-label">PREBERI REFERENCO</span>
+    </a>
+  </div>
+</section>
+
 <section class="cenik-section" id="cenik">
   <div class="cenik-wide">
     <a href="cenik.html" class="cenik-box" style="background-image:url('price.jpg');">
@@ -736,8 +2563,11 @@ header {
 </section>
 
   
-<section class="reviews" id="reviews">
-  <h2>Google mnenja</h2>
+<section class="reviews premium-reviews" id="reviews">
+  <div class="reviews-heading">
+    <h2>MNENJA STRANK</h2>
+    <p>Izkušnje naročnikov z laserskim čiščenjem, zaščito in izvedbo na terenu.</p>
+  </div>
 
   <div class="reviews-wrap" aria-live="polite">
     <div id="sliderFrame">
@@ -889,16 +2719,28 @@ header {
       </div>
     </div>
 
-    <div class="coverage" id="coverage">
-    <div class="coverage-inner">
-    <img src="slovenia-map.png" alt="Zemljevid Slovenije">
-    <div class="coverage-text">
-      <h3>Delujemo po celi Sloveniji</h3>
-      <p>Kjerkoli nas potrebujete — iz Škofje Loke do največjih mest in industrijskih centrov. 
-         Hitro in zanesljivo pridemo na lokacijo ter izvedemo delo strokovno in varno.</p>
-    </div>
-  </div>
-</div>
+    <section class="location-section" id="delujemo">
+      <div class="location-card">
+        <div class="location-visual">
+          <img src="slovenija-map-kombi.png" alt="Mobilna izvedba laserskega čiščenja po Sloveniji">
+        </div>
+        <div class="location-content">
+          <span class="location-badge">Mobilna izvedba na lokaciji</span>
+          <h2>Delujemo po celi Sloveniji</h2>
+          <p>Kjerkoli nas potrebujete — iz Škofje Loke do industrijskih centrov, delavnic, marin in gradbišč. Na lokacijo pridemo hitro, zanesljivo in delo izvedemo strokovno.</p>
+          <div class="location-options">
+            <div class="location-option"><i class="fa-solid fa-industry"></i><span>Industrija</span></div>
+            <div class="location-option"><i class="fa-solid fa-car"></i><span>Vozila</span></div>
+            <div class="location-option"><i class="fa-solid fa-ship"></i><span>Navtika</span></div>
+            <div class="location-option"><i class="fa-solid fa-building"></i><span>Gradbeništvo</span></div>
+            <div class="location-option"><i class="fa-solid fa-shield-halved"></i><span>Zaščita</span></div>
+            <div class="location-option"><i class="fa-solid fa-landmark"></i><span>Kulturna dediščina</span></div>
+          </div>
+          <a href="ponudba.html" class="location-btn"><i class="fa-solid fa-location-dot"></i> POŠLJI POVPRAŠEVANJE</a>
+        </div>
+      </div>
+    </section>
+
   </section>
 
   <footer><p>© 2025 ŽareX - Vse pravice pridržane</p></footer>
@@ -910,11 +2752,44 @@ function toggleMenu(){
   m.style.display=(m.style.display==='flex')?'none':'flex';
 }
 </script>
+
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const c = document.getElementById("coverage");
-    if (c) c.classList.add("visible");
-});
+(function(){
+  const slides = document.querySelectorAll('.project-slide');
+  const dots = document.querySelectorAll('.project-dot');
+  let current = 0;
+
+  if(!slides.length || !dots.length) return;
+
+  function showSlide(i){
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    slides[i].classList.add('active');
+    dots[i].classList.add('active');
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', function(){
+      current = i;
+      showSlide(current);
+    });
+  });
+
+  setInterval(function(){
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  }, 6000);
+})();
+</script>
+
+
+<script>
+function showProject(index){
+  const slides = document.querySelectorAll('.project-slide');
+  const dots = document.querySelectorAll('.project-dot');
+  slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+  dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+}
 </script>
 </body>
 </html>

@@ -1,406 +1,681 @@
 <!DOCTYPE html>
 <html lang="sl">
 <head>
-<meta charset="UTF-8">
-<title>O nas - ŽareX Lasersko Čiščenje</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O nas | ŽAREX</title>
+  <meta name="description" content="Najsodobnejše industrijsko lasersko čiščenje za proizvodnjo, orodja, kalupe, stroje in industrijske sisteme.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
 *{margin:0;padding:0;box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden;scroll-behavior:smooth}
 body{
   font-family:'Saira',sans-serif;
-  background:#0f2748;
+  background:#07111f!important;
   color:white;
-  padding-top:120px;
+  font-size:17px;
   line-height:1.7;
 }
+a{color:inherit}
 
-/* HEADER */
+/* ===== EXACT PREMIUM INDEX HEADER ===== */
 header{
-  position:fixed;top:0;width:100%;z-index:1100;
-  background:#0f2748;padding:12px 28px;
-  box-shadow:0 2px 6px rgba(0,0,0,0.3);
+  position:fixed!important;
+  top:0!important;
+  left:0!important;
+  right:0!important;
+  width:100%!important;
+  max-width:none!important;
+  z-index:3000!important;
+  border-radius:0!important;
+  padding:18px 48px!important;
+  border-left:none!important;
+  border-right:none!important;
+  border-top:none!important;
+  border-bottom:1px solid rgba(160,205,255,0.32)!important;
+  background:linear-gradient(135deg,rgba(9,22,38,0.92),rgba(18,34,54,0.84))!important;
+  box-shadow:0 14px 36px rgba(0,0,0,0.48),inset 0 0 28px rgba(255,255,255,0.035),0 0 22px rgba(0,150,255,0.18)!important;
+  backdrop-filter:blur(14px) saturate(135%)!important;
+  overflow:visible!important;
+}
+header::before{
+  content:"";
+  position:absolute;
+  left:0!important;
+  right:0!important;
+  top:auto!important;
+  bottom:-1px!important;
+  height:2px!important;
+  background:linear-gradient(90deg,transparent,rgba(0,170,255,0.85),rgba(255,255,255,0.65),rgba(0,170,255,0.85),transparent)!important;
+  pointer-events:none;
+}
+header::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:0!important;
+  background:linear-gradient(115deg,rgba(255,255,255,0.18),rgba(255,255,255,0.03) 35%,transparent 65%);
+  opacity:.45;
+  pointer-events:none;
 }
 .header-inner{
-  max-width:1400px;margin:0 auto;
-  display:flex;align-items:center;justify-content:space-between;
+  position:relative;
+  z-index:2;
+  max-width:1500px!important;
+  margin:0 auto!important;
+  width:100%!important;
+  display:flex!important;
+  justify-content:space-between!important;
+  align-items:center!important;
+  gap:25px;
 }
-.logo{height:80px}
-.nav-links{display:flex;gap:18px;align-items:center}
+.logo-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  line-height:1;
+  text-decoration:none;
+}
+.logo{
+  height:78px!important;
+  filter:drop-shadow(0 0 15px rgba(0,160,255,0.65))!important;
+}
+.logo-subtitle{
+  margin-left:74px;
+  margin-top:-8px;
+  color:rgba(255,255,255,0.82);
+  font-size:.72em;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:24px!important;
+}
 .nav-links a{
-  color:white;text-decoration:none;font-weight:600;font-size:1.1rem;
+  color:white;
+  text-decoration:none;
+  font-size:1.08em!important;
+  font-weight:600;
+  letter-spacing:.3px;
+  text-transform:none;
+  opacity:.95;
+  transition:.3s ease;
 }
-.cta-btn{
-  background:white;color:#193a65 !important;
-  padding:10px 18px;border-radius:10px;font-weight:bold;text-decoration:none;
+.nav-links a:hover{
+  opacity:1!important;
+  color:#9ed8ff!important;
+  text-shadow:0 0 12px rgba(0,150,255,.7);
+  transform:none!important;
 }
-.cta-btn:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 15px rgba(255,255,255,0.7);
+.nav-links a:first-child::before{
+  content:"\f015";
+  font-family:"Font Awesome 6 Free";
+  font-weight:900;
+  margin-right:8px;
+  color:#dcefff;
+  text-shadow:0 0 12px rgba(110,185,255,.85);
 }
-.social-icons{display:flex;gap:15px;font-size:1.25rem}
-.social-icons a{color:white}
+.cta-btn,.cta-mobile,.cta{
+  background:linear-gradient(135deg,rgba(13,35,63,.78),rgba(10,24,45,.92))!important;
+  color:#fff!important;
+  border:1px solid rgba(60,170,255,.95)!important;
+  box-shadow:0 0 20px rgba(0,145,255,.32),inset 0 0 14px rgba(255,255,255,.06)!important;
+  padding:16px 28px!important;
+  border-radius:10px!important;
+  text-transform:uppercase;
+  letter-spacing:.3px;
+  font-weight:bold;
+  text-decoration:none;
+  transition:.3s ease;
+}
+.cta-btn:hover,.cta-mobile:hover,.cta:hover{
+  transform:translateY(-2px) scale(1.03)!important;
+  box-shadow:0 0 26px rgba(0,165,255,.65)!important;
+}
+.hamburger{
+  display:none;
+  font-size:2em;
+  color:white;
+  cursor:pointer;
+  border:1px solid rgba(255,255,255,.22);
+  background:rgba(255,255,255,.05);
+  border-radius:12px;
+  padding:10px 14px;
+  box-shadow:inset 0 0 12px rgba(255,255,255,.04);
+}
+.mobile-menu{
+  display:none;
+  position:absolute!important;
+  z-index:5;
+  top:calc(100% + 14px)!important;
+  right:48px!important;
+  left:auto!important;
+  width:min(360px,calc(100vw - 56px))!important;
+  flex-direction:column;
+  text-align:center;
+  gap:18px;
+  padding:24px;
+  background:linear-gradient(135deg,rgba(9,22,38,.96),rgba(18,34,54,.92))!important;
+  border:1px solid rgba(160,205,255,.28);
+  border-radius:18px;
+  box-shadow:0 18px 45px rgba(0,0,0,.45),0 0 22px rgba(0,150,255,.18);
+  backdrop-filter:blur(14px);
+}
+.mobile-menu a{
+  color:white;
+  text-decoration:none;
+  font-size:1.25em;
+  font-weight:650;
+}
 
-/* HERO */
-.page-hero{
-  max-width:1200px;margin:40px auto;
-  padding:30px;background:rgba(255,255,255,0.03);
-  border-radius:14px;backdrop-filter:blur(6px);
+/* ===== SERVICE LAYOUT ===== */
+.hero{
+  padding:126px 20px 40px;
+  background:radial-gradient(circle at 50% 3%,rgba(0,150,255,.22),transparent 34%),
+             linear-gradient(180deg,rgba(3,10,18,.05),rgba(3,10,18,.62));
 }
-.page-hero h1{
-  font-size:2.8rem;margin-bottom:10px;text-align:center;
+.hero-wrap{max-width:1320px;margin:0 auto}
+.hero-card{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  min-height:520px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:34px;
+  align-items:center;
+  padding:46px;
+  border-radius:30px;
+  background:linear-gradient(135deg,rgba(9,22,38,.78),rgba(18,34,54,.62));
+  border:1px solid rgba(160,205,255,.34);
+  box-shadow:0 18px 45px rgba(0,0,0,.48),0 0 30px rgba(0,150,255,.20),inset 0 0 28px rgba(255,255,255,.035);
+  backdrop-filter:blur(16px) saturate(145%);
+}
+.hero-card::before{
+  content:"";
+  position:absolute;
+  top:-38%;
+  left:-18%;
+  width:72%;
+  height:176%;
+  background:linear-gradient(115deg,rgba(255,255,255,.20),rgba(255,255,255,.07) 48%,rgba(255,255,255,0) 70%);
+  transform:rotate(27deg);
+  pointer-events:none;
+  z-index:1;
+  opacity:.9;
+}
+.hero-card::after{
+  content:"";
+  position:absolute;
+  top:-120%;
+  left:-60%;
+  width:210%;
+  height:300%;
+  background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.13) 48%,transparent 60%);
+  transform:rotate(25deg);
+  pointer-events:none;
+  z-index:2;
+  opacity:.45;
+}
+.hero-text,.hero-image{position:relative;z-index:3}
+.badge{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(143,208,255,.15);
+  border:1px solid rgba(143,208,255,.30);
+  color:#cfeaff;
+  font-size:.92rem;
+  font-weight:800;
+}
+h1{
+  font-size:3.3rem;
+  line-height:1.05;
+  text-transform:uppercase;
+  margin:18px 0 14px;
+  font-weight:800;
+}
+.hero p{color:#edf5ff;max-width:720px;font-size:1.12rem}
+.hero-image{
+  height:430px;
+  border-radius:22px;
+  background:linear-gradient(135deg,rgba(0,150,255,.24),rgba(255,255,255,.06)),url('img/gal1.jpg') center/cover no-repeat;
+  border:1px solid rgba(160,205,255,.25);
+  box-shadow:inset 0 0 65px rgba(0,0,0,.48),0 14px 36px rgba(0,0,0,.34),0 0 22px rgba(0,150,255,.12);
+  overflow:hidden;
 }
 
-/* LAYOUT */
+/* CONTENT */
 .content{
-  max-width:1200px;
-  margin:20px auto;
+  max-width:1320px;
+  margin:10px auto 20px;
   padding:20px;
   display:grid;
-  grid-template-columns: minmax(0,1fr) 360px;
-  gap:30px;
+  grid-template-columns:1fr 380px;
+  gap:28px;
 }
-
-/* LEFT – ASIDE IDENTIČEN OSTALIM STRANEM */
-.aside{
-  background:rgba(255,255,255,0.03);
-  padding:20px;border-radius:14px;
-  border:1px solid rgba(255,255,255,0.06);
-  box-shadow:0 4px 20px rgba(0,0,0,0.15);
+.main,.aside{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(115deg,rgba(255,255,255,.10),rgba(255,255,255,.03) 40%,transparent 72%),rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.19);
+  border-radius:24px;
+  box-shadow:0 18px 48px rgba(0,0,0,.38),0 0 28px rgba(0,150,255,.12),inset 0 0 22px rgba(255,255,255,.025);
+  backdrop-filter:blur(14px) saturate(135%);
+  padding:30px;
 }
+.main::before,.aside::before{
+  content:"";
+  position:absolute;
+  top:-60%;
+  left:-45%;
+  width:90%;
+  height:190%;
+  background:linear-gradient(115deg,rgba(255,255,255,.10),rgba(255,255,255,.035) 45%,transparent 70%);
+  transform:rotate(28deg);
+  pointer-events:none;
+}
+.main>*,
+.aside>*{position:relative;z-index:2}
+.main h2{
+  font-size:2rem;
+  margin:25px 0 15px;
+}
+.main h2:first-child{margin-top:0}
+.main h2::after{
+  content:"";
+  display:block;
+  width:80px;
+  height:3px;
+  background:linear-gradient(90deg,#4ba3ff,transparent);
+  margin-top:10px;
+  border-radius:2px;
+}
+p{font-size:1.08rem;color:#f4f6ff!important}
+.main p{margin-bottom:20px;opacity:.93}
+.features{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+  margin-top:12px;
+}
+.feature{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 10px 28px rgba(0,0,0,.28);
+  transition:.35s;
+}
+.feature:hover{
+  transform:translateY(-4px);
+  box-shadow:0 0 26px rgba(0,150,255,.28);
+}
+.feature strong::before{
+  font-family:"Font Awesome 6 Free";
+  font-weight:900;
+  margin-right:8px;
+  opacity:.85;
+}
+.feature:nth-child(1) strong::before{content:"\f00c"}
+.feature:nth-child(2) strong::before{content:"\f4fd"}
+.feature:nth-child(3) strong::before{content:"\f0e7"}
+.feature:nth-child(4) strong::before{content:"\f06c"}
 
 .gallery-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:10px;margin-bottom:15px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-bottom:15px;
 }
 .gallery-grid img{
-  width:100%;height:110px;object-fit:cover;
-  border-radius:8px;transition:0.3s;
-  border:1px solid rgba(255,255,255,0.04);
+  width:100%;
+  height:110px;
+  object-fit:cover;
+  border-radius:8px;
+  transition:.3s;
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 10px 26px rgba(0,0,0,.28);
 }
-.gallery-grid img:hover{
-  transform:scale(1.05);
-  box-shadow:0 4px 12px rgba(0,0,0,0.4);
+.gallery-grid img:hover{transform:scale(1.05);box-shadow:0 0 24px rgba(0,150,255,.35)}
+.gallery-link{
+  text-align:center;
+  display:block;
+  margin-bottom:20px;
+  color:#9ed8ff;
+  font-size:1.1em;
+  font-weight:800;
+  text-decoration:none;
+}
+.divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(160,205,255,.35),transparent);
+  margin:20px 0;
+  border-radius:3px;
+}
+.aside h3{text-align:center;margin-bottom:10px;font-size:1.35rem}
+.aside p{text-align:center;color:#dbe4f3!important}
+.social-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-top:10px;
+}
+.social-grid img{
+  width:100%;
+  height:90px;
+  object-fit:cover;
+  border-radius:10px;
+  transition:.3s;
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 10px 26px rgba(0,0,0,.28);
+}
+.social-grid img:hover{transform:scale(1.05);box-shadow:0 0 24px rgba(0,150,255,.35)}
+.contact-box{text-align:center;margin-top:20px}
+
+@media(max-width:1100px){
+  header{padding:14px 24px!important}
+  .nav-links{display:none!important}
+  .hamburger{display:block!important}
+  .logo{height:64px!important}
+  .logo-subtitle{font-size:.6em;margin-left:61px;letter-spacing:2px}
+  .mobile-menu{right:24px!important}
+  .hero{padding:112px 14px 34px}
+  .hero-card{grid-template-columns:1fr}
+  .content{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  header{padding:12px 14px!important}
+  .logo{height:54px!important}
+  .logo-subtitle{display:none}
+  .mobile-menu{right:14px!important;width:calc(100vw - 28px)!important}
+  .hero{padding:96px 10px 30px}
+  .hero-card{padding:28px;border-radius:22px}
+  h1{font-size:2.15rem}
+  .hero-image{height:260px}
+  .features{grid-template-columns:1fr}
+}
+</style>
+
+<style>
+/* ===== INDEX PREMIUM SHINE EFFECT ===== */
+
+.hero-card,
+.main,
+.aside{
+    position:relative !important;
+    overflow:hidden !important;
 }
 
-.gallery-link{
-  text-align:center;display:block;margin-bottom:20px;
-  text-decoration:underline;color:#cdd9f2;font-size:1.05rem;
+.hero-card::after{
+    content:'' !important;
+    position:absolute !important;
+    top:-150% !important;
+    left:-60% !important;
+    width:220% !important;
+    height:320% !important;
+    background:linear-gradient(
+        115deg,
+        rgba(255,255,255,0) 35%,
+        rgba(255,255,255,.08) 45%,
+        rgba(255,255,255,.18) 50%,
+        rgba(255,255,255,.08) 55%,
+        rgba(255,255,255,0) 65%
+    ) !important;
+    transform:rotate(25deg) !important;
+    animation:heroShine 12s linear infinite !important;
+    pointer-events:none !important;
+    z-index:2 !important;
+}
+
+.main::after,
+.aside::after{
+    content:'';
+    position:absolute;
+    top:-150%;
+    left:-60%;
+    width:220%;
+    height:320%;
+    background:linear-gradient(
+        115deg,
+        rgba(255,255,255,0) 35%,
+        rgba(255,255,255,.05) 45%,
+        rgba(255,255,255,.10) 50%,
+        rgba(255,255,255,.05) 55%,
+        rgba(255,255,255,0) 65%
+    );
+    transform:rotate(25deg);
+    animation:heroShine 18s linear infinite;
+    pointer-events:none;
+    z-index:1;
+}
+
+.hero-card > *,
+.main > *,
+.aside > *{
+    position:relative;
+    z-index:3;
+}
+
+@keyframes heroShine{
+    0%{
+        transform:translateX(-45%) rotate(25deg);
+    }
+    100%{
+        transform:translateX(45%) rotate(25deg);
+    }
+}
+</style>
+
+
+<style>
+/* CTA SPACING FIX */
+
+.aside p{
+    text-align:center !important;
+    line-height:1.75 !important;
+    margin-bottom:22px !important;
+}
+
+.aside .cta{
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    width:100% !important;
+    min-height:62px !important;
+    margin-top:20px !important;
+    margin-bottom:10px !important;
+    text-align:center !important;
 }
 
 .divider{
-  height:1px;background:rgba(255,255,255,0.06);
-  margin:20px 0;border-radius:3px;
+    margin:26px 0 !important;
 }
+</style>
 
-.aside h3{text-align:center;margin-bottom:10px}
-.aside p{text-align:center;color:#dbe4f3;font-size:1rem}
-
-.cta{
-  display:block;text-align:center;margin:10px auto;
-  background:white;color:#0f2748;
-  padding:12px 18px;border-radius:10px;font-weight:700;
-  max-width:220px;text-decoration:none;
+<style>
+/* ŽAREX PREMIUM SHINE */
+.main,.aside,.hero-card{
+    position:relative!important;
+    overflow:hidden!important;
 }
-.cta:hover{transform:scale(1.05)}
-
-.social-grid{
-  display:grid;grid-template-columns:repeat(2,1fr);
-  gap:12px;margin-top:10px;
+.main::before,
+.aside::before,
+.hero-card::before{
+    content:"";
+    position:absolute;
+    top:-120%;
+    left:-50%;
+    width:200%;
+    height:300%;
+    background:linear-gradient(
+        115deg,
+        rgba(255,255,255,0.32) 0%,
+        rgba(255,255,255,0.08) 30%,
+        rgba(255,255,255,0) 60%
+    );
+    transform:rotate(25deg);
+    animation:zarexGlassShine 9s infinite linear;
+    pointer-events:none;
+    z-index:1;
 }
-.social-grid img{
-  width:100%;height:90px;object-fit:cover;
-  border-radius:10px;transition:0.3s;
-  border:1px solid rgba(255,255,255,0.04);
+.main > *,
+.aside > *,
+.hero-card > *{
+    position:relative;
+    z-index:2;
 }
-.social-grid img:hover{
-  transform:scale(1.05);
-  box-shadow:0 4px 12px rgba(0,0,0,0.4);
+@keyframes zarexGlassShine{
+    0%{transform:translateX(-60%) rotate(25deg);}
+    100%{transform:translateX(60%) rotate(25deg);}
 }
-
-/* RIGHT SIDE – MAIN CONTENT */
-.section-box{
-  background:rgba(255,255,255,0.03);
-  padding:30px;border-radius:14px;
-  border:1px solid rgba(255,255,255,0.06);
-  box-shadow:0 4px 20px rgba(0,0,0,0.15);
-  margin-bottom:30px;
-}
-h2{
-  font-size:2rem;
-  color:#00ff9d;
-  text-shadow:0 0 10px #00ff9d;
-  text-align:center;
-  margin-bottom:15px;
-}
-p{color:#e8eef8;font-size:1.1rem;margin-bottom:12px}
-
-ul{margin-left:25px}
-li::marker{color:#00ff9d}
-
-/* BACK BUTTON */
-.back-button{text-align:center;margin:40px 0}
-.back-button a{
-  background:white;color:#193a65;padding:12px 30px;
-  border-radius:10px;font-weight:bold;text-decoration:none;
-}
-.back-button a:hover{transform:scale(1.05)}
-
-footer{text-align:center;padding:18px;background:#0f2748;margin-top:40px;color:#cdd9f2}
-
-@media(max-width:900px){
-  .content{grid-template-columns:1fr}
-  .logo{height:70px}
-}
-.aside{
-  width:100%;
-  max-width:360px;
-}
-.content > div{
-  width:100%;
-}
-.content{
-  align-items:start;
-}
-/* HAMBURGER */
-.hamburger {
-  display: none;
-  font-size: 2em;
-  color: white;
-  cursor: pointer;
-}
-
-/* MOBILE MENU */
-.mobile-menu {
-  display: none;
-  position: fixed;
-  top: 90px;
-  left: 0;
-  width: 100%;
-  background: #0f2748;
-  padding: 22px;
-  text-align: center;
-  gap: 18px;
-  flex-direction: column;
-  z-index: 1099;
-}
-
-.mobile-menu a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.35em;
-  font-weight: 600;
-}
-
-.cta-mobile {
-  background: white;
-  color: #193a65 !important;
-  padding: 14px 30px;
-  border-radius: 12px;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-/* MOBILE AKTIVACIJA */
-@media (max-width: 900px) {
-  .nav-links { display: none; }
-  .hamburger { display: block; }
-}
-@media (max-width: 768px){
-
-  /* en stolpec */
-  .content{
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  /* enaka širina za vse */
-  .content > div,
-  .aside{
-    max-width: 100%;
-    width: 100%;
-  }
-
-  /* odstrani desktop look */
-  .aside{
-    align-self: stretch;
-  }
-
-  /* malo več diha */
-  .section-box,
-  .aside{
-    padding: 22px;
-  }
-
-}
-
 </style>
 </head>
-
 <body>
 
-<!-- HEADER -->
 <header>
-  <div class="header-inner">
-  <!-- LOGO -->
-  <img src="logo.png" class="logo" alt="ŽareX logo">
-
-  <!-- HAMBURGER U SREDINI -->
-  <div class="hamburger" onclick="toggleMenu()">
-    <i class="fa fa-bars"></i>
-  </div>
-
-  <!-- DESNO: SOCIAL -->
-  <div class="social-icons">
-    <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
-  </div>
-
-  <!-- DESKTOP NAV (SAKRIVENA NA MOBILE) -->
-  <nav class="nav-links">
-    <a href="index.html#hero">Domov</a>
-    <a href="index.html#ponudba">Ponudba</a>
-    <a href="index.html#reviews">Mnenja</a>
-    <a href="index.html#cenik">Galerija</a>
-    <a href="index.html#cenik">Cenik</a>
-    <a href="index.html#kontakt">Kontakt</a>
-    <a href="ponudba.html" class="cta-btn">Dobi ponudbo</a>
-  </nav>
-</div>
-
-  </div>
-</header>
-<div class="mobile-menu" id="mobileMenu">
+    <div class="header-inner">
+      <a href="index.html#hero" class="logo-wrap"><img src="logo.png" alt="ŽareX logo" class="logo"><span class="logo-subtitle">Lasersko čiščenje</span></a>
+      <nav class="nav-links">
+  <a href="index.html#hero">Domov</a>
+  <a href="index.html#ponudba">Ponudba</a>
+  <a href="index.html#projekti">Projekti</a>
+  <a href="index.html#reviews">Mnenja</a>
+  <a href="index.html#cenik">Galerija</a>
+  <a href="index.html#cenik">Cenik</a>
+  <a href="index.html#kontakt">Kontakt</a>
+  <a href="ponudba.html" class="cta-btn">Dobi ponudbo</a>
+</nav>
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fa fa-bars"></i>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
   <a href="index.html#hero" onclick="toggleMenu()">Domov</a>
   <a href="index.html#ponudba" onclick="toggleMenu()">Ponudba</a>
+  <a href="index.html#projekti" onclick="toggleMenu()">Projekti</a>
   <a href="index.html#reviews" onclick="toggleMenu()">Mnenja</a>
-  <a href="index.html#cenik" onclick="toggleMenu()">Galerija</a>
+  <a href="GALERIJA.html" onclick="toggleMenu()">Galerija</a>
   <a href="index.html#cenik" onclick="toggleMenu()">Cenik</a>
   <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
-
-  <div class="social-icons" style="justify-content:center; margin-top:10px;">
-    <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
-  </div>
-
   <a href="ponudba.html" class="cta-mobile">Dobi ponudbo</a>
 </div>
+  </header>
 
-
-<!-- HERO -->
-<section class="page-hero">
-  <h1>O NAS</h1>
+<section class="hero">
+  <div class="hero-wrap">
+    <div class="hero-card">
+      <div class="hero-text">
+        <span class="badge">ŽAREX</span>
+        <h1>O nas</h1>
+        <p>Sodobno lasersko čiščenje, zaščita površin in celovite rešitve za industrijo, vozila, konstrukcije in zahtevne projekte po Sloveniji.</p>
+      </div>
+      <div class="hero-image"></div>
+    </div>
+  </div>
 </section>
 
-<!-- CONTENT LAYOUT: LEFT + RIGHT -->
 <div class="content">
 
-  <!-- LEFT SIDE – MAIN CONTENT -->
-  <div>
+<article class="main">
 
-    <div class="section-box">
-      <h2>💡 Kdo smo</h2>
-      <p>Smo <span style="color:#00ff9d;font-weight:700">ŽAREX</span> iz Škofje Loke — ekipa s sodobnim pristopom k laserskemu čiščenju in zaščiti površin.</p>
-      <p>Z lasersko tehnologijo ponujamo <strong>natančno</strong>, <strong>varno</strong> in <strong>okolju prijazno</strong> rešitev za odstranjevanje rje, barv, olj in drugih nečistoč.</p>
-      <p>✨ Površina ostane popolnoma čista, brez kemikalij, brez prahu, brez poškodb. ✨</p>
-    </div>
+<h2>Kdo smo</h2>
+<p>ŽAREX je podjetje iz Škofje Loke, specializirano za lasersko čiščenje, zaščito površin in pripravo materialov za nadaljnjo obdelavo.</p>
 
-    <div class="section-box">
-      <h2>🔬 Kako deluje lasersko čiščenje?</h2>
-      <p>Lasersko čiščenje je najsodobnejša in najbolj natančna metoda za odstranjevanje nečistoč.</p>
-      <ul>
-        <li>Brez kemikalij</li>
-        <li>Natančno prilagajanje materialu</li>
-        <li>Brez poškodb podlage</li>
-        <li>Ekološko in varno</li>
-      </ul>
-    </div>
+<p>S pomočjo sodobne laserske tehnologije odstranjujemo rjo, premaze, oksidacijo, olja in druge nečistoče brez uporabe agresivnih kemikalij in brez poškodb osnovnega materiala.</p>
 
-    <div class="section-box">
-      <h2>👨🏽‍🔧 Po čiščenju nudimo:</h2>
-      <p>✔ Odstranjevanje rje</p>
-      <p>✔ Epoxy prajmerji in zaščitni premazi</p>
-      <p>✔ Ličanje po potrebi</p>
-      <p><strong>Površina ostane zaščitena za dolgotrajno uporabo.</strong></p>
-    </div>
+<h2>Kaj ponujamo</h2>
 
-    <div class="section-box">
-      <h2>💥 Zakaj izbrati ŽAREX?</h2>
-      <p>💠 Celovita rešitev</p>
-      <p>💠 Brez kompromisov</p>
-      <p>💠 Mobilne storitve</p>
-      <p>💠 Popolna natančnost</p>
-    </div>
+<div class="features">
 
-    <div class="section-box">
-      <h2>🌍 Čista tehnologija za čisto prihodnost 🍃</h2>
-      <p><strong>ŽAREX</strong> – napredek brez kemikalij.</p>
-      <p>Lasersko čiščenje = brez odpadnih vod, brez škodljivih kemikalij.</p>
-    </div>
+<div class="feature">
+<strong>Lasersko čiščenje</strong>
+<p>Kovine, podvozja, stroji, konstrukcije, les in kamen.</p>
+</div>
 
-  </div>
+<div class="feature">
+<strong>Zaščita površin</strong>
+<p>Epoxy premazi, zaščitni premazi in priprava za barvanje.</p>
+</div>
 
-  <!-- RIGHT SIDE – ASIDE -->
-  <aside class="aside">
+<div class="feature">
+<strong>Mobilna izvedba</strong>
+<p>Izvajanje storitev na lokaciji naročnika po Sloveniji.</p>
+</div>
 
-    <div class="gallery-grid">
-      <a href="galerija.html"><img src="img/gal1.jpg"></a>
-      <a href="galerija.html"><img src="img/gal2.jpg"></a>
-      <a href="galerija.html"><img src="img/gal3.jpg"></a>
-      <a href="galerija.html"><img src="img/gal4.jpg"></a>
-      <a href="galerija.html"><img src="img/gal5.jpg"></a>
-      <a href="galerija.html"><img src="img/gal6.jpg"></a>
-    </div>
-
-    <a href="galerija.html" class="gallery-link">➜ Odpri celotno galerijo</a>
-
-    <div class="divider"></div>
-
-    <h3>Dobi ponudbo</h3>
-    <p>Pošljite opis dela in fotografije – hitro prejmete informativno ponudbo.</p>
-    <a href="ponudba.html" class="cta">Dobi ponudbo</a>
-
-    <div class="divider"></div>
-
-    <h3>Poveži se z nami</h3>
-    <div class="social-grid">
-        <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><img src="img/fb.jpg" alt=""></a>
-        <a href="https://www.instagram.com/zarexlaser/" target="_blank"><img src="img/ig.jpg" alt=""></a>
-        <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><img src="img/tiktok.jpg" alt=""></a>
-        <a href="https://wa.me/38670808884" target="_blank"><img src="img/wa.jpg" alt=""></a>
-      </div>
-
-    <div class="divider"></div>
-
-    <h3>Kontakt</h3>
-    <p>☎ 070 808 884</p>
-    <p>✉ zarexlaser@gmail.com</p>
-
-  </aside>
+<div class="feature">
+<strong>Celovita rešitev</strong>
+<p>Od čiščenja do končne zaščite površine.</p>
+</div>
 
 </div>
 
+<h2>Zakaj ŽAREX?</h2>
 
-  </div>
+<p>
+• Brez kemikalij<br>
+• Brez abrazivov<br>
+• Natančna obdelava<br>
+• Mobilne storitve<br>
+• Industrijski in individualni projekti
+</p>
+
+<h2>Čista tehnologija za prihodnost</h2>
+
+<p>Lasersko čiščenje predstavlja sodoben, učinkovit in okolju prijazen način priprave površin, ki zmanjšuje uporabo kemikalij in nastajanje odpadkov.</p>
+
+</article>
+
+<aside class="aside">
+
+<div class="gallery-grid">
+<img src="img/gal1.jpg" alt="">
+<img src="img/gal2.jpg" alt="">
+<img src="img/gal3.jpg" alt="">
+<img src="img/gal4.jpg" alt="">
+<img src="img/gal5.jpg" alt="">
+<img src="img/gal6.jpg" alt="">
+</div>
+
+<a class="gallery-link" href="galerija.html">Galerija →</a>
+
+<div class="divider"></div>
+
+<h3>Dobi ponudbo</h3>
+<p>Pošljite opis dela in fotografije za hitro informativno ponudbo.</p>
+<a class="cta" href="ponudba.html">Dobi ponudbo</a>
+
+<div class="divider"></div>
+
+<h3>Poveži se z nami</h3>
+
+<div class="social-grid">
+<a href="#"><img src="img/fb.jpg" alt=""></a>
+<a href="#"><img src="img/ig.jpg" alt=""></a>
+<a href="#"><img src="img/tiktok.jpg" alt=""></a>
+<a href="#"><img src="img/wa.jpg" alt=""></a>
+</div>
+
+<div class="divider"></div>
+
+<div class="contact-box">
+<h3>Kontakt</h3>
+<p>☎ 070 808 884</p>
+<p>✉ zarexlaser@gmail.com</p>
+</div>
+
+</aside>
 
 </div>
 
-<div class="back-button">
-  <a href="index.html"><i class="fas fa-home"></i> Nazaj na začetno stran</a>
-</div>
-
-<footer>© 2025 ŽareX - Vse pravice pridržane</footer>
 <script>
 function toggleMenu(){
-  const m = document.getElementById('mobileMenu');
-  m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
+  const m=document.getElementById('mobileMenu');
+  m.style.display=(m.style.display==='flex')?'none':'flex';
 }
 </script>
 

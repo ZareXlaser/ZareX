@@ -1,468 +1,380 @@
 <!DOCTYPE html>
+
 <html lang="sl">
 <head>
-<meta charset="utf-8" />
-<title>Lasersko čiščenje lesa — ŽareX</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lasersko čiščenje lesa in obnova lesenih površin | ŽAREX</title>
+<meta content="Lasersko čiščenje lesa, obnova vintage pohištva, lesenih vrat in dekorativnih elementov. Primerno za zahtevne detajle, kjer je klasično brušenje zamudno ali težko izvedljivo." name="description"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
 <style>
-* {margin:0; padding:0; box-sizing:border-box;}
-body {font-family: Arial, sans-serif; background:#0f2748; color:white; overflow-x:hidden;}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden;scroll-behavior:smooth}
+body{font-family:'Saira',sans-serif;line-height:1.6;color:white;background:#07111f!important}
+a{color:inherit}
 
-header{position:sticky;top:0;width:100%;z-index:1100;background:#0f2748;padding:12px 28px;box-shadow:0 2px 6px rgba(0,0,0,0.3)}
-    .header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
-    .logo{height:80px}
-    .nav-links{display:flex;gap:18px;align-items:center}
-    .nav-links a{color:white;text-decoration:none;font-weight:600;font-size:1.2em}
-    .cta-btn{background:white;color:#193a65 !important;padding:10px 20px;border-radius:10px;font-weight:bold;text-decoration:none}
+/* INDEX PREMIUM HEADER */
+header{position:fixed!important;top:0!important;left:0!important;right:0!important;transform:none!important;width:100%!important;max-width:none!important;z-index:3000!important;border-radius:0!important;padding:18px 48px!important;border-left:none!important;border-right:none!important;border-top:none!important;border-bottom:1px solid rgba(160,205,255,0.32)!important;background:linear-gradient(135deg,rgba(9,22,38,.92),rgba(18,34,54,.84))!important;box-shadow:0 14px 36px rgba(0,0,0,.48),inset 0 0 28px rgba(255,255,255,.035),0 0 22px rgba(0,150,255,.18)!important;backdrop-filter:blur(14px) saturate(135%)!important;overflow:visible!important}
+header::before{content:"";position:absolute;left:0!important;right:0!important;top:auto!important;bottom:-1px!important;height:2px!important;background:linear-gradient(90deg,transparent,rgba(0,170,255,.85),rgba(255,255,255,.65),rgba(0,170,255,.85),transparent)!important;pointer-events:none}
+header::after{content:"";position:absolute;inset:0;border-radius:0!important;background:linear-gradient(115deg,rgba(255,255,255,.18),rgba(255,255,255,.03) 35%,transparent 65%);opacity:.45;pointer-events:none}
+.header-inner{position:relative;z-index:2;max-width:1500px!important;margin:0 auto!important;width:100%!important;display:flex!important;justify-content:space-between!important;align-items:center!important}
+.logo-wrap{display:flex;flex-direction:column;align-items:flex-start;line-height:1;text-decoration:none}
+.logo{height:78px!important;filter:drop-shadow(0 0 15px rgba(0,160,255,.65))!important}
+.logo-subtitle{margin-left:74px;margin-top:-8px;color:rgba(255,255,255,0.82);font-size:.72em;letter-spacing:3px;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:24px!important}
+.nav-links a{color:white;text-decoration:none;font-size:1.08em!important;font-weight:600;letter-spacing:.3px;text-transform:none;opacity:.95;transition:.3s ease}
+.nav-links a:hover{opacity:1!important;color:#9ed8ff!important;text-shadow:0 0 12px rgba(0,150,255,0.7);transform:none!important}
+.nav-links a:first-child::before{content:"\f015";font-family:"Font Awesome 6 Free";font-weight:900;margin-right:8px;color:#dcefff;text-shadow:0 0 12px rgba(110,185,255,0.85)}
+.cta-btn,.cta-mobile,.btn-primary{background:linear-gradient(135deg,rgba(13,35,63,0.78),rgba(10,24,45,0.92))!important;color:#fff!important;border:1px solid rgba(60,170,255,0.95)!important;box-shadow:0 0 20px rgba(0,145,255,0.32),inset 0 0 14px rgba(255,255,255,0.06)!important;padding:16px 28px!important;border-radius:10px!important;text-transform:uppercase;letter-spacing:.3px;font-weight:bold;text-decoration:none;transition:.3s ease}
+.cta-btn:hover,.cta-mobile:hover,.btn-primary:hover{transform:translateY(-2px) scale(1.03)!important;box-shadow:0 0 26px rgba(0,165,255,0.65)!important}
+.hamburger{display:none;font-size:2em;color:white;cursor:pointer;border:1px solid rgba(255,255,255,0.22);background:rgba(255,255,255,0.05);border-radius:12px;padding:10px 14px;box-shadow:inset 0 0 12px rgba(255,255,255,0.04)}
+.mobile-menu{display:none;position:absolute!important;z-index:5;top:calc(100% + 14px)!important;right:48px!important;left:auto!important;width:min(360px,calc(100vw - 56px))!important;flex-direction:column;text-align:center;gap:18px;padding:24px;background:linear-gradient(135deg,rgba(9,22,38,0.96),rgba(18,34,54,0.92))!important;border:1px solid rgba(160,205,255,0.28);border-radius:18px;box-shadow:0 18px 45px rgba(0,0,0,0.45),0 0 22px rgba(0,150,255,0.18);backdrop-filter:blur(14px)}
+.mobile-menu a{color:white;text-decoration:none;font-size:1.25em;font-weight:650}
 
-    .cta-btn:hover{
-      transform:scale(1.05);
-      box-shadow:0 0 15px rgba(255,255,255,0.7);
-    }
+/* COMMON */
+section{padding:70px 20px}
+.wrap{max-width:1320px;margin:0 auto}
+.glass{position:relative;overflow:hidden;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:24px;box-shadow:0 18px 48px rgba(0,0,0,.38),0 0 28px rgba(0,150,255,.12);backdrop-filter:blur(12px)}
+.glass::before{content:"";position:absolute;top:-120%;left:-55%;width:210%;height:300%;background:linear-gradient(115deg,rgba(255,255,255,.26) 0%,rgba(255,255,255,.07) 28%,rgba(255,255,255,0) 60%);transform:rotate(25deg);animation:shine 9s infinite linear;pointer-events:none;z-index:1}
+@keyframes shine{0%{transform:translateX(-60%) rotate(25deg)}100%{transform:translateX(60%) rotate(25deg)}}
+.badge{display:inline-block;padding:8px 14px;border-radius:999px;background:rgba(143,208,255,.15);border:1px solid rgba(143,208,255,.30);color:#cfeaff;font-size:.86rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.btn-secondary{display:inline-block;border:1px solid rgba(255,255,255,.45);border-radius:12px;padding:13px 28px;text-decoration:none;font-weight:750;background:rgba(255,255,255,.08);transition:.3s}
+.btn-secondary:hover{background:rgba(255,255,255,.16);transform:translateY(-2px)}
 
-    .social-icons{display:flex;gap:15px;font-size:1.4em}
-    .social-icons a{color:white}
+/* HERO */
+.hero{padding:155px 20px 50px;background:radial-gradient(circle at 50% 5%,rgba(0,150,255,.20),transparent 32%),linear-gradient(180deg,rgba(3,10,18,.10),rgba(3,10,18,.68))}
+.hero-card{min-height:520px;display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;padding:46px;background:linear-gradient(135deg,rgba(9,22,38,.70),rgba(18,34,54,.58));border:1px solid rgba(160,205,255,.30);box-shadow:0 18px 45px rgba(0,0,0,.45),0 0 24px rgba(0,150,255,.18);backdrop-filter:blur(12px) saturate(135%)}
+.hero h1{font-size:3.25em;line-height:1.06;margin:16px 0 14px;text-transform:uppercase}
+.hero h3{font-size:1.45em;color:#cfe5ff;margin-bottom:18px;font-weight:650}
+.hero p{font-size:1.13em;color:#edf5ff;margin-bottom:26px;max-width:720px}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
+.hero-visual{height:430px;border-radius:22px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,.17);box-shadow:inset 0 0 60px rgba(0,0,0,.45),0 14px 36px rgba(0,0,0,.32);background:linear-gradient(135deg,rgba(0,150,255,.24),rgba(255,255,255,.06)),url('les-main.jpg') center/cover no-repeat}
+.hero-visual::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.58))}
+.hero-visual::after{content:"Les dobi novo življenje";position:absolute;left:22px;bottom:22px;background:rgba(15,39,72,.78);backdrop-filter:blur(10px);padding:12px 18px;border-radius:14px;font-weight:800;letter-spacing:.4px}
 
-    .page-hero{max-width:1200px;margin:40px auto;padding:28px;background:rgba(255,255,255,0.03);border-radius:14px;backdrop-filter:blur(6px)}
-    .page-hero h1{font-size:2.8em;margin-bottom:10px}
-    .page-hero p{font-size:1.15em;opacity:0.95}
+/* CARDS LIKE OTHER GALLERIES */
+.section-title{text-align:center;margin-bottom:34px}
+.section-title h2{font-size:2.6em;line-height:1.15;margin:8px 0;text-transform:uppercase}
+.section-title p{color:#dce8ff;font-size:1.12em;max-width:820px;margin:0 auto}
+.featured-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch}
+.project-card{position:relative;min-height:520px;height:100%;border:0;color:white;text-align:left;cursor:pointer;font-family:inherit;transition:.32s}
+.project-card.large{grid-row:auto;min-height:520px}
+.project-card:hover{transform:translateY(-5px);box-shadow:0 0 32px rgba(0,150,255,.34)}
+.project-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.45s;z-index:0}
+.project-card:hover img{transform:scale(1.06)}
+.project-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.80));z-index:1}
+.project-info{position:absolute;z-index:2;left:22px;right:22px;bottom:22px}
+.project-info h3{font-size:1.45em;line-height:1.15;margin:8px 0}
+.project-info p{color:#dce8ff;font-size:.98em}
+.project-meta{margin-top:12px;font-weight:800;color:#bfe7ff}
+.project-card.large .project-info h3{font-size:2.1em}
 
-    .content{max-width:1200px;margin:20px auto;padding:20px;display:grid;grid-template-columns:1fr 380px;gap:30px}
+.category-card{padding:32px}
+.category-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-end;margin-bottom:24px}
+.category-head h2{font-size:2.3em;line-height:1.1;margin-top:8px}
+.category-head p{color:#dbeaff;max-width:580px;text-align:right}
+.album-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.album{position:relative;height:290px;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.14);background:#0b1c33;cursor:pointer;box-shadow:0 10px 28px rgba(0,0,0,.32);transition:.3s}
+.album:hover{transform:translateY(-4px);box-shadow:0 0 26px rgba(0,150,255,.32)}
+.album img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.42s}
+.album:hover img{transform:scale(1.06)}
+.album::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.78))}
+.album-body{position:absolute;z-index:2;left:18px;right:18px;bottom:18px}
+.album-body h3{font-size:1.25em;line-height:1.18}
+.album-body p{color:#dce8ff;font-size:.95em;margin-top:8px}
+.album-body span{display:inline-block;margin-bottom:8px;font-size:.75em;font-weight:900;letter-spacing:.08em;color:#cfeaff;background:rgba(15,39,72,.72);padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.14)}
+.album-content{display:none}
 
+/* ALBUM MODAL */
+.album-modal{display:none;position:fixed;inset:0;z-index:4200;background:rgba(3,10,22,.88);backdrop-filter:blur(16px);padding:28px;overflow:auto}
+.album-modal.active{display:block;animation:fadeIn .22s ease}
+.album-modal-card{max-width:1240px;margin:95px auto 35px;padding:30px;border-radius:30px;background:rgba(15,39,72,.88);border:1px solid rgba(255,255,255,.18);box-shadow:0 22px 60px rgba(0,0,0,.55);position:relative}
+.album-modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:24px}
+.album-modal-title h2{font-size:2rem;line-height:1.1;margin-top:8px}
+.album-modal-title p{color:#dce8ff}
+.album-close{background:white;color:#0f2748;border:none;border-radius:14px;padding:12px 16px;font-weight:900;cursor:pointer;transition:.25s;min-width:92px}
+.album-close:hover{transform:scale(1.04);box-shadow:0 0 24px rgba(0,150,255,.45)}
+.album-modal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.album-modal-grid img,.album-modal-grid video{width:100%;height:190px;object-fit:cover;border-radius:18px;border:1px solid rgba(255,255,255,.18);background:#000;cursor:pointer;transition:.25s}
+.album-modal-grid img:hover,.album-modal-grid video:hover{transform:scale(1.025);box-shadow:0 0 24px rgba(0,150,255,.32)}
+.album-hint{margin-top:18px;text-align:center;color:#cfeaff;font-weight:700;opacity:.9}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
 
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:5000;align-items:center;justify-content:center;padding:24px}
+.lightbox.active{display:flex}
+.lightbox-content{position:relative;max-width:92vw;max-height:92vh}
+.lightbox-content img{max-width:92vw;max-height:86vh;border-radius:14px;box-shadow:0 0 35px rgba(255,255,255,.22)}
+.lightbox-close{position:absolute;top:-46px;right:0;color:white;font-size:2.2em;cursor:pointer}
+.lightbox-prev,.lightbox-next{position:absolute;top:50%;transform:translateY(-50%);font-size:2.6em;cursor:pointer;color:white;background:rgba(15,39,72,.65);border:1px solid rgba(255,255,255,.18);border-radius:50%;width:58px;height:58px;display:flex;align-items:center;justify-content:center}
+.lightbox-prev{left:-76px}.lightbox-next{right:-76px}
 
-h1 {text-align:center; background:#193a65; color:white; padding:25px 0; font-size:2em; margin-bottom:30px;}
+/* CTA */
+.cta-card{padding:40px;text-align:center}
+.cta-card>*{position:relative;z-index:2}
+.cta-card h2{font-size:2.35em;margin-bottom:10px}
+.cta-card p{color:#e9f2ff;margin-bottom:22px}
+.contact-line{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin-bottom:24px;color:#eaf4ff;font-weight:700}
+.contact-line a{text-decoration:none}
+.social-premium{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;margin-top:25px}
+.social-premium a{width:70px;height:70px;display:flex;align-items:center;justify-content:center;border-radius:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:white;font-size:1.8rem;transition:.3s;text-decoration:none}
+.social-premium a:hover{transform:translateY(-5px) scale(1.08);box-shadow:0 0 25px rgba(0,150,255,.4)}
+footer{text-align:center;padding:22px 20px;background:#081a31;color:rgba(255,255,255,.82);border-top:1px solid rgba(255,255,255,.15)}
 
-.section {padding:20px; text-align:center;}
-
-/* FOLDERI RAZPOREDENI KOT GALERIJA */
-.folder-grid {display:flex; flex-wrap:wrap; justify-content:center; gap:25px; margin-bottom:30px;}
-.folder {
-  width:200px; background:#244c88; border-radius:12px; padding:10px;
-  cursor:pointer; transition:transform 0.3s ease, background 0.3s ease;
+@media(max-width:1100px){
+  header{padding:14px 24px!important}.nav-links{display:none}.hamburger{display:block}.logo{height:64px!important}.logo-subtitle{font-size:.6em;margin-left:61px;letter-spacing:2px}.mobile-menu{right:24px!important}
+  .hero{padding-top:125px}
+  .hero-card{grid-template-columns:1fr}
+  .hero-visual{height:340px}
+  .featured-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .project-card,.project-card.large{grid-column:auto;grid-row:auto;min-height:420px}
+  .album-grid{grid-template-columns:1fr}
+  .album-modal-grid{grid-template-columns:repeat(3,1fr)}
+  .category-head{display:block}.category-head p{text-align:left;margin-top:10px}
 }
-.folder:hover {transform:scale(1.05); background:#305da5;}
-.folder img {width:100%; border-radius:8px; height:130px; object-fit:cover;}
-.folder-name {margin-top:8px; font-weight:bold; color:white; font-size:1em;}
-
-/* VSEBINA MAPE */
-.folder-content {display:none; margin-top:30px; text-align:center;}
-.folder-content.active {display:block;}
-
-.media-grid {display:flex; flex-wrap:wrap; justify-content:center; gap:15px;}
-.media-grid img, .media-grid video {
-  width:150px;
-  height:150px;
-  object-fit:cover;
-  border-radius:10px;
-  cursor:pointer;
-  transition:transform 0.3s ease;
-  border:2px solid white;
+@media(max-width:650px){
+  header{padding:12px 14px!important}.logo{height:54px!important}.logo-subtitle{display:none}.mobile-menu{right:14px!important;width:calc(100vw - 28px)!important}
+  section{padding:48px 14px}
+  .hero{padding:115px 10px 35px}
+  .hero-card,.category-card,.cta-card{padding:24px;border-radius:22px}
+  .hero h1{font-size:2.05em}.hero h3{font-size:1.15em}.hero-visual{height:260px}
+  .featured-grid{grid-template-columns:1fr}
+  .project-card.large,.project-card{grid-column:auto;min-height:340px}
+  .project-card.large .project-info h3{font-size:1.55em}
+  .section-title h2,.category-head h2,.cta-card h2{font-size:1.8em}
+  .album{height:250px}
+  .album-modal{padding:14px}
+  .album-modal-card{margin:78px auto 20px;padding:20px;border-radius:22px}
+  .album-modal-head{display:block}
+  .album-close{position:fixed;top:108px;right:18px;z-index:4300;width:52px;height:52px;min-width:52px;padding:0;border-radius:50%;font-size:0;box-shadow:0 0 24px rgba(0,150,255,.45)}
+  .album-close::after{content:'×';font-size:2rem;line-height:1}
+  .album-modal-grid{grid-template-columns:1fr}
+  .album-modal-grid img{height:220px}
+  .lightbox-prev{left:10px}.lightbox-next{right:10px}.lightbox-close{top:10px;right:10px}.lightbox-content img{max-width:96vw;max-height:82vh}
 }
-
-.media-grid img:hover, .media-grid video:hover {transform:scale(1.05);}
-
-footer {text-align:center; padding:15px; background:#193a65; color:white; margin-top:60px;}
-
-/* Lightbox */
-.lightbox {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:5000;}
-.lightbox.active {display:flex;}
-.lightbox-content {position:relative; max-width:90%; max-height:90%;}
-.lightbox-content img, .lightbox-content video {max-width:100%; max-height:90vh; border-radius:10px; box-shadow:0 0 20px rgba(255,255,255,0.3);}
-
-.lightbox {
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.9);
-  z-index:5000;
-  justify-content:center;
-  align-items:center;
-}
-
-.lightbox.active {
-  display:flex;
-}
-
-.lightbox-content img {
-  max-width:90%;
-  max-height:90vh;
-  border-radius:12px;
-  box-shadow:0 0 25px rgba(255,255,255,0.4);
-}
-
-/* IKS */
-.lightbox-close {
-  position:absolute;
-  top:20px;
-  right:25px;
-  font-size:2.5em;
-  color:white;
-  cursor:pointer;
-}
-
-/* STRELICE */
-.lightbox-prev,
-.lightbox-next {
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  font-size:3em;
-  color:white;
-  cursor:pointer;
-  padding:10px;
-  user-select:none;
-}
-
-.lightbox-prev { left:25px; }
-.lightbox-next { right:25px; }
-
-
-@media (max-width:768px) {
-  .media-grid img, .media-grid video {
-    width:110px;
-    height:110px;
-  }
-}
-@media (max-width:768px) {
-
-  .lightbox-content img {
-    max-width:92%;
-    max-height:75vh;
-  }
-
-  .lightbox-prev,
-  .lightbox-next {
-    font-size:2.2em;
-    padding:6px;
-  }
-
-  .lightbox-close {
-    font-size:2em;
-    top:15px;
-    right:15px;
-  }
-}
-@media (max-width:480px) {
-  .lightbox-content img {
-    max-height:65vh;
-  }
-}
-@media (max-width:768px) {
-
-  .lightbox-content img {
-    width:auto;
-    max-width:85vw;   /* ← OVO JE KLJUČ */
-    max-height:75vh;
-    margin:auto;
-  }
-}
-@media (max-width:768px) {
-
-  .content {
-    grid-template-columns:1fr !important;
-    max-width:100%;
-    padding:15px;
-  }
-
-  header,
-  .header-inner,
-  .page-hero,
-  .section,
-  footer {
-    max-width:100%;
-  }
-
-  img, video {
-    max-width:100%;
-    height:auto;
-  }
-}
-@media (max-width:768px) {
-
-  .content {
-    grid-template-columns:1fr;
-    max-width:100%;
-    padding:15px;
-  }
-
-  .header-inner {
-    flex-wrap:wrap;
-  }
-
-  .nav-links {
-    flex-wrap:wrap;
-    justify-content:center;
-    text-align:center;
-  }
-
-  img {
-    max-width:100%;
-    height:auto;
-  }
-}
-html, body {
-  max-width:100%;
-  overflow-x:hidden;
-}
-/* HAMBURGER */
-.hamburger {
-  display: none;
-  font-size: 2em;
-  color: white;
-  cursor: pointer;
-}
-
-/* MOBILE MENU */
-.mobile-menu {
-  display: none;
-  position: fixed;
-  top: 90px;
-  left: 0;
-  width: 100%;
-  background: #0f2748;
-  padding: 22px;
-  text-align: center;
-  gap: 18px;
-  flex-direction: column;
-  z-index: 1099;
-}
-
-.mobile-menu a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.35em;
-  font-weight: 600;
-}
-
-.cta-mobile {
-  background: white;
-  color: #193a65 !important;
-  padding: 14px 30px;
-  border-radius: 12px;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-/* MOBILE AKTIVACIJA */
-@media (max-width: 900px) {
-  .nav-links { display: none; }
-  .hamburger { display: block; }
-}
-.header-inner{
-  max-width:1400px;
-  margin:0 auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-/* HAMBURGER TAČNO U SREDINI */
-.hamburger{
-  display:none;
-  font-size:2em;
-  color:white;
-  cursor:pointer;
-}
-
-/* MOBILE RASPORED */
-@media (max-width: 900px){
-  .nav-links{ display:none; }
-
-  .header-inner{
-    display:grid;
-    grid-template-columns: auto 1fr auto;
-    align-items:center;
-  }
-
-  .logo{
-    justify-self:start;
-  }
-
-  .hamburger{
-    display:block;
-    justify-self:center;
-  }
-
-  .social-icons{
-    justify-self:end;
-  }
-}
-
 </style>
 </head>
 <body>
 <header>
-  <div class="header-inner">
-  <!-- LOGO -->
-  <img src="logo.png" class="logo" alt="ŽareX logo">
-
-  <!-- HAMBURGER U SREDINI -->
-  <div class="hamburger" onclick="toggleMenu()">
-    <i class="fa fa-bars"></i>
-  </div>
-
-  <!-- DESNO: SOCIAL -->
-  <div class="social-icons">
-    <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
-  </div>
-
-  <!-- DESKTOP NAV (SAKRIVENA NA MOBILE) -->
-  <nav class="nav-links">
-    <a href="index.html#hero">Domov</a>
-    <a href="index.html#ponudba">Ponudba</a>
-    <a href="index.html#reviews">Mnenja</a>
-    <a href="index.html#cenik">Galerija</a>
-    <a href="index.html#cenik">Cenik</a>
-    <a href="index.html#kontakt">Kontakt</a>
-    <a href="ponudba.html" class="cta-btn">Dobi ponudbo</a>
-  </nav>
+<div class="header-inner">
+<a class="logo-wrap" href="index.html#hero"><img alt="ŽareX logo" class="logo" src="logo.png"/><span class="logo-subtitle">Lasersko čiščenje</span></a>
+<nav class="nav-links">
+<a href="index.html#hero">Domov</a>
+<a href="index.html#ponudba">Ponudba</a>
+<a href="index.html#projekti">Projekti</a>
+<a href="index.html#reviews">Mnenja</a>
+<a href="index.html#cenik">Galerija</a>
+<a href="index.html#cenik">Cenik</a>
+<a href="index.html#kontakt">Kontakt</a>
+<a class="cta-btn" href="ponudba.html">Dobi ponudbo</a>
+</nav>
+<div class="hamburger" onclick="toggleMenu()">
+<i class="fa fa-bars"></i>
 </div>
-
-  </div>
-</header>
-</header>
+</div>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html#hero" onclick="toggleMenu()">Domov</a>
-  <a href="index.html#ponudba" onclick="toggleMenu()">Ponudba</a>
-  <a href="index.html#reviews" onclick="toggleMenu()">Mnenja</a>
-  <a href="index.html#cenik" onclick="toggleMenu()">Galerija</a>
-  <a href="index.html#cenik" onclick="toggleMenu()">Cenik</a>
-  <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
-
-  <div class="social-icons" style="justify-content:center; margin-top:10px;">
-    <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
-  </div>
-
-  <a href="ponudba.html" class="cta-mobile">Dobi ponudbo</a>
+<a href="index.html#hero" onclick="toggleMenu()">Domov</a>
+<a href="index.html#ponudba" onclick="toggleMenu()">Ponudba</a>
+<a href="index.html#projekti" onclick="toggleMenu()">Projekti</a>
+<a href="index.html#reviews" onclick="toggleMenu()">Mnenja</a>
+<a href="GALERIJA.html" onclick="toggleMenu()">Galerija</a>
+<a href="index.html#cenik" onclick="toggleMenu()">Cenik</a>
+<a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
+<a class="cta-mobile" href="ponudba.html">Dobi ponudbo</a>
 </div>
-
+</header>
+<section class="hero">
+<div class="wrap">
+<div class="hero-card glass">
+<div>
+<span class="badge">Obnova lesenih površin</span>
 <h1>Lasersko čiščenje lesa</h1>
-
-<div class="section">
-
-  <div class="folder-grid">
-    <div class="folder" data-target="wood1">
-      <img src="les.jpg" alt="Les" />
-      <div class="folder-name">Lasersko čiščenje lesa</div>
-    </div>
-
-   
-  <div class="folder-content" id="wood1">
-    <div class="media-grid">
-      <img src="les1.jpg" alt="les1" />
-      <img src="les2.jpg" alt="les2" />
-     <img src="les3.jpg" alt="les3" />
-     <img src="les4.jpg" alt="les4" />
-     <img src="les5.jpg" alt="les5"/>
-     <img src="les6.jpg" alt="les6"/>
-     <img src="les7.jpg" alt="les7"/>
-     <img src="les8.jpg" alt="les8"/>
-     <img src="les9.jpg" alt="les9"/>
-     <img src="les10.jpg" alt="les10"/>
-    </div>
-  </div>
+<h3>Vintage pohištvo • lesena vrata • dekorativni elementi</h3>
+<p>Natančno odstranjevanje starih nanosov, umazanije in površinskih nečistoč z lesa. Posebej uporabno pri vintage pohištvu, vratih, profilih in zahtevnih detajlih, kjer je klasično brušenje zamudno ali težko izvedljivo.</p>
+<div class="hero-buttons">
+<a class="btn-primary" href="#projekti">Oglej projekte</a>
+<a class="btn-secondary" href="ponudba.html">Zahtevaj ponudbo</a>
 </div>
-  </div>
-
+</div>
+<div aria-label="Les dobi novo življenje" class="hero-visual" role="img"></div>
+</div>
+</div>
+</section>
+<section id="projekti">
+<div class="wrap">
+<div class="section-title">
+<span class="badge">Izbrani primeri</span>
+<h2>Les dobi novo življenje</h2>
+<p>Pregledno po projektih — odpri album, ki te zanima.</p>
+</div>
+<div class="featured-grid">
+<button class="project-card glass" data-target="wood-main" type="button">
+<img alt="Vintage omara - lasersko čiščenje lesa" src="les-main.jpg"/>
+<div class="project-info">
+<span class="badge">OBNOVA</span>
+<h3>Vintage omara</h3>
+<p>Lasersko čiščenje ornamentov in zahtevnih lesenih detajlov.</p>
+<div class="project-meta">Odpri projekt →</div>
+</div>
+</button>
+<button class="project-card glass" data-target="wood-general" type="button">
+<img alt="Lesene površine" src="les1.jpg"/>
+<div class="project-info">
+<span class="badge">LES</span>
+<h3>Lesene površine</h3>
+<p>Primeri čiščenja lesa in priprave za nadaljnjo obdelavo.</p>
+<div class="project-meta">Odpri →</div>
+</div>
+</button>
+</div>
+</div>
+</section>
+<section>
+<div class="wrap">
+<div class="cta-card glass">
+<h2>Več primerov izvedbe</h2>
+<p>Spremljajte naše projekte, videoposnetke in rezultate laserskega čiščenja na družbenih omrežjih.</p>
+<div class="social-premium">
+<a aria-label="TikTok" href="https://www.tiktok.com/@zarexlaser" rel="noopener" target="_blank"><i class="fab fa-tiktok"></i></a>
+<a aria-label="Instagram" href="https://www.instagram.com/vukoticzarko/" rel="noopener" target="_blank"><i class="fab fa-instagram"></i></a>
+<a aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61576688676907" rel="noopener" target="_blank"><i class="fab fa-facebook"></i></a>
+<a aria-label="WhatsApp" href="https://wa.me/38670808884" rel="noopener" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="wrap">
+<div class="cta-card glass">
+<h2>Želite obnoviti leseno površino?</h2>
+<p>Pošljite slike lesa, opis stanja in lokacijo izvedbe. Pripravimo vam informativno oceno.</p>
+<div class="contact-line">
+<a href="tel:+38670808884">☎ +386 70 808 884</a>
+<a href="mailto:zarexlaser@gmail.com?subject=Povpraševanje%20-%20lasersko%20čiščenje%20lesa">✉ zarexlaser@gmail.com</a>
+</div>
+<a class="btn-primary" href="ponudba.html">Zahtevaj ponudbo</a>
+</div>
+</div>
+</section>
+<footer>© 2025 ŽAREX - Vse pravice pridržane</footer>
+<div class="album-content" id="wood-main"><h3>Vintage omara</h3><div class="media-grid"><img alt="Vintage omara - lasersko čiščenje lesa 1" loading="lazy" src="omara1.jpg"/><img alt="Vintage omara - lasersko čiščenje lesa 2" loading="lazy" src="omara2.jpg"/><img alt="Vintage omara - lasersko čiščenje lesa 3" loading="lazy" src="omara3.jpg"/><img alt="Vintage omara - lasersko čiščenje lesa 4" loading="lazy" src="omara4.jpg"/><img alt="Vintage omara - lasersko čiščenje lesa 5" loading="lazy" src="omara5.jpg"/><img alt="Vintage omara - lasersko čiščenje lesa 6" loading="lazy" src="omara6.jpg"/><img alt="Vintage omara - lasersko čiščenje lesa 7" loading="lazy" src="omara7.jpg"/><img alt="Vintage omara - lasersko čiščenje lesa 8" loading="lazy" src="omara8.jpg"/><img alt="Vintage omara - lasersko čiščenje lesa 9" loading="lazy" src="omara9.jpg"/><img alt="Vintage omara - lasersko čiščenje lesa 10" loading="lazy" src="omara10.jpg"/><img alt="Vintage omara - lasersko čiščenje lesa 11" loading="lazy" src="omara11.jpg"/><img alt="Vintage omara - lasersko čiščenje lesa 12" loading="lazy" src="omara12.jpg"/><video controls="" muted="" playsinline="" preload="metadata" src="omara1.mp4"></video><video controls="" muted="" playsinline="" preload="metadata" src="omara2.mp4"></video><video controls="" muted="" playsinline="" preload="metadata" src="omara3.mp4"></video></div></div><div class="album-content" id="wood-general"><h3>Lesene površine</h3><div class="media-grid"><img alt="" src="les1.jpg"/><img alt="" src="les2.jpg"/><img alt="" src="les3.jpg"/><img alt="" src="les4.jpg"/><img alt="" src="les5.jpg"/><img alt="" src="les6.jpg"/><img alt="" src="les7.jpg"/><img alt="" src="les8.jpg"/><img alt="" src="les9.jpg"/><img alt="" src="les10.jpg"/></div></div><div class="album-modal" id="albumModal">
+<div class="album-modal-card">
+<div class="album-modal-head">
+<div class="album-modal-title">
+<span class="badge">GALERIJA PROJEKTA</span>
+<h2 id="albumModalTitle">Projekt</h2>
+<p>Kliknite na sliko za večji prikaz.</p>
+</div>
+<button class="album-close" id="albumClose">Zapri ✕</button>
+</div>
+<div class="album-modal-grid" id="albumModalGrid"></div>
+</div>
+</div>
 <div class="lightbox" id="lightbox">
-  <span class="lightbox-close" id="lightbox-close">&times;</span>
-  <span class="lightbox-prev" id="lightbox-prev">&#10094;</span>
-  <span class="lightbox-next" id="lightbox-next">&#10095;</span>
-
-  <div class="lightbox-content">
-    <img id="lightbox-img" src="" alt="preview" />
-  </div>
+<div class="lightbox-content">
+<span class="lightbox-close" id="lb-close">×</span>
+<span class="lightbox-prev" id="lb-prev">❮</span>
+<span class="lightbox-next" id="lb-next">❯</span>
+<img alt="" id="lb-img" src=""/><video controls="" id="lb-video" muted="" playsinline="" style="display:none;max-width:92vw;max-height:86vh;border-radius:14px;box-shadow:0 0 35px rgba(255,255,255,.22)"></video>
 </div>
-
-
-<div class="back-button" style="text-align:center; margin:40px 0;">
-  <a href="index.html" style="background:white; color:#193a65; padding:12px 30px; border-radius:8px; text-decoration:none; font-weight:bold; box-shadow:0 4px 10px rgba(0,0,0,0.3);"><i class="fas fa-home"></i> Nazaj na začetno stran</a>
 </div>
-
-<footer><p>© 2025 ŽareX - Vse pravice pridržane</p></footer>
-
-<script>
-/* ===== FOLDERI ===== */
-const folders = document.querySelectorAll('.folder');
-const allContents = document.querySelectorAll('.folder-content');
-
-folders.forEach(folder => {
-  folder.addEventListener('click', () => {
-    const target = folder.getAttribute('data-target');
-    const content = document.getElementById(target);
-
-    if (content.classList.contains('active')) {
-      content.classList.remove('active');
-      return;
-    }
-
-    allContents.forEach(c => c.classList.remove('active'));
-    content.classList.add('active');
-
-    if (window.innerWidth <= 768) {
-      content.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
-/* ===== LIGHTBOX ===== */
-const images = document.querySelectorAll('.media-grid img');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const closeBtn = document.getElementById('lightbox-close');
-const prevBtn = document.getElementById('lightbox-prev');
-const nextBtn = document.getElementById('lightbox-next');
-
-let currentIndex = 0;
-
-images.forEach((img, index) => {
-  img.addEventListener('click', (e) => {
-    e.stopPropagation(); // VAŽNO
-    currentIndex = index;
-    showImage();
-  });
-});
-
-function showImage() {
-  lightboxImg.src = images[currentIndex].src;
-  lightbox.classList.add('active');
-}
-
-closeBtn.addEventListener('click', () => {
-  lightbox.classList.remove('active');
-});
-
-lightbox.addEventListener('click', (e) => {
-  if (e.target === lightbox) {
-    lightbox.classList.remove('active');
-  }
-});
-
-prevBtn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  showImage();
-});
-
-nextBtn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  currentIndex = (currentIndex + 1) % images.length;
-  showImage();
-});
-</script>
 <script>
 function toggleMenu(){
-  const m = document.getElementById('mobileMenu');
-  m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
+  const m=document.getElementById('mobileMenu');
+  m.style.display=(m.style.display==='flex')?'none':'flex';
 }
-</script>
 
+const triggers=document.querySelectorAll('[data-target]');
+const albumModal=document.getElementById('albumModal');
+const albumModalTitle=document.getElementById('albumModalTitle');
+const albumModalGrid=document.getElementById('albumModalGrid');
+const albumClose=document.getElementById('albumClose');
+
+let media=[];
+let index=0;
+
+function refreshModalMedia(){
+  media=Array.from(albumModalGrid.querySelectorAll('img, video'));
+  media.forEach((m,i)=>{m.addEventListener('click',()=>show(i));});
+}
+
+function openAlbum(id){
+  const source=document.getElementById(id);
+  if(!source) return;
+  const title=source.querySelector('h3')?.textContent || 'Projekt';
+  albumModalTitle.textContent=title;
+  albumModalGrid.innerHTML='';
+  source.querySelectorAll('img, video').forEach(el=>{
+    const clone=el.cloneNode(true);
+    if(clone.tagName==='VIDEO') clone.setAttribute('controls','');
+    albumModalGrid.appendChild(clone);
+  });
+  albumModal.classList.add('active');
+  document.body.style.overflow='hidden';
+  refreshModalMedia();
+}
+
+function closeAlbum(){
+  albumModal.classList.remove('active');
+  document.body.style.overflow='';
+}
+
+triggers.forEach(trigger=>{trigger.addEventListener('click',()=>openAlbum(trigger.getAttribute('data-target')));});
+albumClose.addEventListener('click',closeAlbum);
+albumModal.addEventListener('click',e=>{if(e.target===albumModal) closeAlbum();});
+
+const lightbox=document.getElementById('lightbox');
+const lbImg=document.getElementById('lb-img');
+const lbClose=document.getElementById('lb-close');
+const lbPrev=document.getElementById('lb-prev');
+const lbNext=document.getElementById('lb-next');
+
+function show(i){
+  const el=media[i];
+  if(!el)return;
+  const lbVideo=document.getElementById('lb-video');
+
+  if(el.tagName==='VIDEO'){
+    lbImg.style.display='none';
+    lbVideo.style.display='block';
+    lbVideo.src=el.src;
+    lbVideo.load();
+  }else{
+    lbVideo.pause();
+    lbVideo.style.display='none';
+    lbImg.style.display='block';
+    lbImg.src=el.src;
+  }
+
+  lightbox.classList.add('active');
+  index=i;
+}
+
+lbClose.addEventListener('click',()=>{lightbox.classList.remove('active');});
+lbNext.addEventListener('click',()=>{if(!media.length)return;index=(index+1)%media.length;show(index);});
+lbPrev.addEventListener('click',()=>{if(!media.length)return;index=(index-1+media.length)%media.length;show(index);});
+lightbox.addEventListener('click',e=>{if(e.target===lightbox){lightbox.classList.remove('active');}});
+document.addEventListener('keydown',e=>{
+  if(lightbox.classList.contains('active')){
+    if(e.key==='Escape')lightbox.classList.remove('active');
+    if(e.key==='ArrowRight')lbNext.click();
+    if(e.key==='ArrowLeft')lbPrev.click();
+    return;
+  }
+  if(albumModal.classList.contains('active') && e.key==='Escape') closeAlbum();
+});
+
+let touchStartX=0;
+lightbox.addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].screenX;},{passive:true});
+lightbox.addEventListener('touchend',e=>{
+  const diff=e.changedTouches[0].screenX-touchStartX;
+  if(Math.abs(diff)>60){
+    if(diff<0)lbNext.click();
+    else lbPrev.click();
+  }
+},{passive:true});
+</script>
 </body>
 </html>

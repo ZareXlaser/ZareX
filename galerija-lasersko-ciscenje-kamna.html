@@ -1,606 +1,403 @@
 <!DOCTYPE html>
+
 <html lang="sl">
 <head>
-<meta charset="utf-8" />
-<title>Lasersko čiščenje kamna — ŽareX</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lasersko čiščenje kamna, betona in odprtih teras | ŽAREX</title>
+<meta content="Galerija laserskega čiščenja kamna, granita, marmorja, betona in odprtih teras. Primeri čiščenja površin, odstranjevanja oblog in priprave za nadaljnjo zaščito." name="description"/>
+<link href="https://www.zarex.si/galerija-lasersko-ciscenje-kamna.html" rel="canonical"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
 <style>
-* {margin:0; padding:0; box-sizing:border-box;}
-body {font-family: Arial, sans-serif; background:#0f2748; color:white; overflow-x:hidden;}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden;scroll-behavior:smooth}
+body{font-family:'Saira',sans-serif;line-height:1.6;color:white;background:#07111f!important}
+a{color:inherit}
 
-header{position:sticky;top:0;width:100%;z-index:1100;background:#0f2748;padding:12px 28px;box-shadow:0 2px 6px rgba(0,0,0,0.3)}
-    .header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
-    .logo{height:80px}
-    .nav-links{display:flex;gap:18px;align-items:center}
-    .nav-links a{color:white;text-decoration:none;font-weight:600;font-size:1.2em}
-    .cta-btn{background:white;color:#193a65 !important;padding:10px 20px;border-radius:10px;font-weight:bold;text-decoration:none}
+/* INDEX PREMIUM HEADER */
+header{position:fixed!important;top:0!important;left:0!important;right:0!important;transform:none!important;width:100%!important;max-width:none!important;z-index:3000!important;border-radius:0!important;padding:18px 48px!important;border-left:none!important;border-right:none!important;border-top:none!important;border-bottom:1px solid rgba(160,205,255,0.32)!important;background:linear-gradient(135deg,rgba(9,22,38,.92),rgba(18,34,54,.84))!important;box-shadow:0 14px 36px rgba(0,0,0,.48),inset 0 0 28px rgba(255,255,255,.035),0 0 22px rgba(0,150,255,.18)!important;backdrop-filter:blur(14px) saturate(135%)!important;overflow:visible!important}
+header::before{content:"";position:absolute;left:0!important;right:0!important;top:auto!important;bottom:-1px!important;height:2px!important;background:linear-gradient(90deg,transparent,rgba(0,170,255,.85),rgba(255,255,255,.65),rgba(0,170,255,.85),transparent)!important;pointer-events:none}
+header::after{content:"";position:absolute;inset:0;border-radius:0!important;background:linear-gradient(115deg,rgba(255,255,255,.18),rgba(255,255,255,.03) 35%,transparent 65%);opacity:.45;pointer-events:none}
+.header-inner{position:relative;z-index:2;max-width:1500px!important;margin:0 auto!important;width:100%!important;display:flex!important;justify-content:space-between!important;align-items:center!important}
+.logo-wrap{display:flex;flex-direction:column;align-items:flex-start;line-height:1;text-decoration:none}
+.logo{height:78px!important;filter:drop-shadow(0 0 15px rgba(0,160,255,.65))!important}
+.logo-subtitle{margin-left:74px;margin-top:-8px;color:rgba(255,255,255,0.82);font-size:.72em;letter-spacing:3px;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:24px!important}
+.nav-links a{color:white;text-decoration:none;font-size:1.08em!important;font-weight:600;letter-spacing:.3px;text-transform:none;opacity:.95;transition:.3s ease}
+.nav-links a:hover{opacity:1!important;color:#9ed8ff!important;text-shadow:0 0 12px rgba(0,150,255,0.7);transform:none!important}
+.nav-links a:first-child::before{content:"\f015";font-family:"Font Awesome 6 Free";font-weight:900;margin-right:8px;color:#dcefff;text-shadow:0 0 12px rgba(110,185,255,0.85)}
+.cta-btn,.cta-mobile,.btn-primary{background:linear-gradient(135deg,rgba(13,35,63,0.78),rgba(10,24,45,0.92))!important;color:#fff!important;border:1px solid rgba(60,170,255,0.95)!important;box-shadow:0 0 20px rgba(0,145,255,0.32),inset 0 0 14px rgba(255,255,255,0.06)!important;padding:16px 28px!important;border-radius:10px!important;text-transform:uppercase;letter-spacing:.3px;font-weight:bold;text-decoration:none;transition:.3s ease}
+.cta-btn:hover,.cta-mobile:hover,.btn-primary:hover{transform:translateY(-2px) scale(1.03)!important;box-shadow:0 0 26px rgba(0,165,255,0.65)!important}
+.hamburger{display:none;font-size:2em;color:white;cursor:pointer;border:1px solid rgba(255,255,255,0.22);background:rgba(255,255,255,0.05);border-radius:12px;padding:10px 14px;box-shadow:inset 0 0 12px rgba(255,255,255,0.04)}
+.mobile-menu{display:none;position:absolute!important;z-index:5;top:calc(100% + 14px)!important;right:48px!important;left:auto!important;width:min(360px,calc(100vw - 56px))!important;flex-direction:column;text-align:center;gap:18px;padding:24px;background:linear-gradient(135deg,rgba(9,22,38,0.96),rgba(18,34,54,0.92))!important;border:1px solid rgba(160,205,255,0.28);border-radius:18px;box-shadow:0 18px 45px rgba(0,0,0,0.45),0 0 22px rgba(0,150,255,0.18);backdrop-filter:blur(14px)}
+.mobile-menu a{color:white;text-decoration:none;font-size:1.25em;font-weight:650}
 
-    .cta-btn:hover{
-      transform:scale(1.05);
-      box-shadow:0 0 15px rgba(255,255,255,0.7);
-    }
+section{padding:70px 20px}
+.wrap{max-width:1320px;margin:0 auto}
+.glass{position:relative;overflow:hidden;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:24px;box-shadow:0 18px 48px rgba(0,0,0,.38),0 0 28px rgba(0,150,255,.12);backdrop-filter:blur(12px)}
+.glass::before{content:"";position:absolute;top:-120%;left:-55%;width:210%;height:300%;background:linear-gradient(115deg,rgba(255,255,255,.26) 0%,rgba(255,255,255,.07) 28%,rgba(255,255,255,0) 60%);transform:rotate(25deg);animation:shine 9s infinite linear;pointer-events:none;z-index:1}
+@keyframes shine{0%{transform:translateX(-60%) rotate(25deg)}100%{transform:translateX(60%) rotate(25deg)}}
+.badge{display:inline-block;padding:8px 14px;border-radius:999px;background:rgba(143,208,255,.15);border:1px solid rgba(143,208,255,.30);color:#cfeaff;font-size:.86rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.btn-secondary{display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(60,170,255,.95);border-radius:12px;padding:13px 28px;text-decoration:none;font-weight:750;background:linear-gradient(135deg,rgba(13,35,63,0.78),rgba(10,24,45,0.92));box-shadow:0 0 20px rgba(0,145,255,.32),inset 0 0 14px rgba(255,255,255,.06);transition:.3s}
+.btn-secondary:hover{border-color:rgba(60,170,255,.95);background:rgba(0,85,155,.18);transform:translateY(-2px);box-shadow:0 0 26px rgba(0,165,255,.55),inset 0 0 14px rgba(255,255,255,.06)}
 
-    .social-icons{display:flex;gap:15px;font-size:1.4em}
-    .social-icons a{color:white}
+.hero{padding:155px 20px 50px;background:radial-gradient(circle at 50% 5%,rgba(0,150,255,.20),transparent 32%),linear-gradient(180deg,rgba(3,10,18,.10),rgba(3,10,18,.68))}
+.hero-card{min-height:520px;display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;padding:46px;background:linear-gradient(135deg,rgba(9,22,38,.70),rgba(18,34,54,.58));border:1px solid rgba(160,205,255,.30);box-shadow:0 18px 45px rgba(0,0,0,.45),0 0 24px rgba(0,150,255,.18);backdrop-filter:blur(12px) saturate(135%)}
+.hero h1{font-size:3.25em;line-height:1.06;margin:16px 0 14px;text-transform:uppercase}
+.hero h3{font-size:1.45em;color:#cfe5ff;margin-bottom:18px;font-weight:650}
+.hero p{font-size:1.13em;color:#edf5ff;margin-bottom:26px;max-width:720px}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
+.hero-visual{height:430px;border-radius:22px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,.17);box-shadow:inset 0 0 60px rgba(0,0,0,.45),0 14px 36px rgba(0,0,0,.32);background:linear-gradient(135deg,rgba(0,150,255,.24),rgba(255,255,255,.06)),url('graniti.jpg') center/cover no-repeat}
+.hero-visual::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.58))}
+.hero-visual::after{content:"Kamen • beton • odprte terase";position:absolute;left:22px;bottom:22px;background:rgba(15,39,72,.78);backdrop-filter:blur(10px);padding:12px 18px;border-radius:14px;font-weight:800;letter-spacing:.4px}
 
-    .page-hero{max-width:1200px;margin:40px auto;padding:28px;background:rgba(255,255,255,0.03);border-radius:14px;backdrop-filter:blur(6px)}
-    .page-hero h1{font-size:2.8em;margin-bottom:10px}
-    .page-hero p{font-size:1.15em;opacity:0.95}
+.section-title{text-align:center;margin-bottom:34px}
+.section-title h2{font-size:2.6em;line-height:1.15;margin:8px 0;text-transform:uppercase}
+.section-title p{color:#dce8ff;font-size:1.12em;max-width:820px;margin:0 auto}
+.featured-grid{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:18px}
+.project-card{position:relative;min-height:270px;border:0;color:white;text-align:left;cursor:pointer;font-family:inherit;transition:.32s}
+.project-card.large{grid-row:span 2;min-height:560px}
+.project-card:hover{transform:translateY(-5px);box-shadow:0 0 32px rgba(0,150,255,.34)}
+.project-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.45s;z-index:0}
+.project-card:hover img{transform:scale(1.06)}
+.project-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.80));z-index:1}
+.project-info{position:absolute;z-index:2;left:22px;right:22px;bottom:22px}
+.project-info h3{font-size:1.45em;line-height:1.15;margin:8px 0}
+.project-info p{color:#dce8ff;font-size:.98em}
+.project-meta{margin-top:12px;font-weight:800;color:#bfe7ff}
+.project-card.large .project-info h3{font-size:2.1em}
 
-    .content{max-width:1200px;margin:20px auto;padding:20px;display:grid;grid-template-columns:1fr 380px;gap:30px}
+.category-card{padding:32px}
+.category-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-end;margin-bottom:24px}
+.category-head h2{font-size:2.3em;line-height:1.1;margin-top:8px}
+.category-head p{color:#dbeaff;max-width:580px;text-align:right}
+.album-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.album{position:relative;height:270px;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.14);background:#0b1c33;cursor:pointer;box-shadow:0 10px 28px rgba(0,0,0,.32);transition:.3s}
+.album:hover{transform:translateY(-4px);box-shadow:0 0 26px rgba(0,150,255,.32)}
+.album img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.42s}
+.album:hover img{transform:scale(1.06)}
+.album::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.78))}
+.album-body{position:absolute;z-index:2;left:18px;right:18px;bottom:18px}
+.album-body h3{font-size:1.25em;line-height:1.18}
+.album-body span{display:inline-block;margin-bottom:8px;font-size:.75em;font-weight:900;letter-spacing:.08em;color:#cfeaff;background:rgba(15,39,72,.72);padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.14)}
+.album-content{display:none}
 
+.album-modal{display:none;position:fixed;inset:0;z-index:4200;background:rgba(3,10,22,.88);backdrop-filter:blur(16px);padding:28px;overflow:auto}
+.album-modal.active{display:block;animation:fadeIn .22s ease}
+.album-modal-card{max-width:1240px;margin:95px auto 35px;padding:30px;border-radius:30px;background:rgba(15,39,72,.88);border:1px solid rgba(255,255,255,.18);box-shadow:0 22px 60px rgba(0,0,0,.55);position:relative}
+.album-modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:24px}
+.album-modal-title h2{font-size:2rem;line-height:1.1;margin-top:8px}
+.album-modal-title p{color:#dce8ff}
+.album-close{background:white;color:#0f2748;border:none;border-radius:14px;padding:12px 16px;font-weight:900;cursor:pointer;transition:.25s;min-width:92px}
+.album-close:hover{transform:scale(1.04);box-shadow:0 0 24px rgba(0,150,255,.45)}
+.album-modal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.album-modal-grid img,.album-modal-grid video{width:100%;height:190px;object-fit:cover;border-radius:18px;border:1px solid rgba(255,255,255,.18);background:#000;cursor:pointer;transition:.25s}
+.album-modal-grid img:hover,.album-modal-grid video:hover{transform:scale(1.025);box-shadow:0 0 24px rgba(0,150,255,.32)}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
 
+.cta-card{padding:40px;text-align:center}
+.cta-card>*{position:relative;z-index:2}
+.cta-card h2{font-size:2.35em;margin-bottom:10px}
+.cta-card p{color:#e9f2ff;margin-bottom:22px}
+.contact-line{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin-bottom:24px;color:#eaf4ff;font-weight:700}
+.contact-line a{text-decoration:none}
+.social-premium{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;margin-top:25px}
+.social-premium a{width:70px;height:70px;display:flex;align-items:center;justify-content:center;border-radius:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:white;font-size:1.8rem;transition:.3s;text-decoration:none}
+.social-premium a:hover{transform:translateY(-5px) scale(1.08);box-shadow:0 0 25px rgba(0,150,255,.4)}
+footer{text-align:center;padding:22px 20px;background:#081a31;color:rgba(255,255,255,.82);border-top:1px solid rgba(255,255,255,.15)}
 
-h1 {text-align:center; background:#193a65; color:white; padding:25px 0; font-size:2em; margin-bottom:30px;}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:5000;align-items:center;justify-content:center;padding:24px}
+.lightbox.active{display:flex}
+.lightbox-content{position:relative;max-width:92vw;max-height:92vh}
+.lightbox-content img,.lightbox-content video{max-width:92vw;max-height:86vh;border-radius:14px;box-shadow:0 0 35px rgba(255,255,255,.22)}
+.lightbox-close{position:absolute;top:-46px;right:0;color:white;font-size:2.2em;cursor:pointer}
+.lightbox-prev,.lightbox-next{position:absolute;top:50%;transform:translateY(-50%);font-size:2.6em;cursor:pointer;color:white;background:rgba(15,39,72,.65);border:1px solid rgba(255,255,255,.18);border-radius:50%;width:58px;height:58px;display:flex;align-items:center;justify-content:center}
+.lightbox-prev{left:-76px}.lightbox-next{right:-76px}
 
-.section {padding:20px; text-align:center;}
-
-/* FOLDERI RAZPOREDENI KOT GALERIJA */
-.folder-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 25px;
-  max-width: 1200px;
-  margin: 0 auto 40px;
+@media(max-width:1100px){
+  header{padding:14px 24px!important}.nav-links{display:none}.hamburger{display:block}.logo{height:64px!important}.logo-subtitle{font-size:.6em;margin-left:61px;letter-spacing:2px}.mobile-menu{right:24px!important}
+  .hero{padding-top:125px}.hero-card{grid-template-columns:1fr}.hero-visual{height:340px}
+  .featured-grid{grid-template-columns:1fr 1fr}.project-card.large{grid-column:span 2;grid-row:auto;min-height:390px}
+  .album-grid{grid-template-columns:repeat(2,1fr)}.album-modal-grid{grid-template-columns:repeat(3,1fr)}
+  .category-head{display:block}.category-head p{text-align:left;margin-top:10px}
 }
-.folder {
-  background:#244c88;
-  border-radius:14px;
-  padding:12px;
-  cursor:pointer;
-  transition:transform 0.3s ease, box-shadow 0.3s ease;
-  text-align:center;
-}
-
-.folder:hover {
-  transform:translateY(-6px);
-  box-shadow:0 12px 25px rgba(0,0,0,0.4);
-}
-.folder img {
-  width:100%;
-  height:140px;
-  object-fit:cover;
-  border-radius:10px;
-}
-
-.folder img {width:100%; border-radius:8px; height:130px; object-fit:cover;}
-.folder-name {margin-top:8px; font-weight:bold; color:white; font-size:1em;}
-
-/* VSEBINA MAPE */
-.folder-content {display:none; margin-top:30px; text-align:center;}
-.folder-content.active {display:block;}
-
-.media-grid {display:flex; flex-wrap:wrap; justify-content:center; gap:15px;}
-.media-grid img, .media-grid video {
-  width:220px; border-radius:10px; cursor:pointer; transition:transform 0.3s ease; border:2px solid white;
-}
-.media-grid img:hover, .media-grid video:hover {transform:scale(1.05);}
-
-footer {text-align:center; padding:15px; background:#193a65; color:white; margin-top:60px;}
-
-/* Lightbox */
-.lightbox {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:5000;}
-.lightbox.active {display:flex;}
-.lightbox-content {position:relative; max-width:90%; max-height:90%;}
-.lightbox-content img, .lightbox-content video {max-width:100%; max-height:90vh; border-radius:10px; box-shadow:0 0 20px rgba(255,255,255,0.3);}
-
-.lightbox-close {position:absolute; top:-40px; right:0; color:white; font-size:2em; cursor:pointer; background:rgba(0,0,0,0.6); border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center;}
-.lightbox-prev, .lightbox-next {position:absolute; top:50%; transform:translateY(-50%); font-size:3em; color:white; cursor:pointer; padding:10px; background:rgba(0,0,0,0.4); border-radius:50%; transition:background 0.3s;}
-.lightbox-prev:hover, .lightbox-next:hover {background:rgba(0,0,0,0.7);}
-.lightbox-prev {left:-60px;}
-.lightbox-next {right:-60px;}
-
-@media (max-width:768px) {
-  .media-grid img, .media-grid video {width:45%;}
-  .folder {width:45%;}
-  .lightbox-prev {left:10px;}
-  .lightbox-next {right:10px;}
-  .lightbox-close {top:10px; right:10px;}
-}
-/* HAMBURGER */
-.hamburger {
-  display: none;
-  font-size: 2em;
-  color: white;
-  cursor: pointer;
-}
-
-/* MOBILE MENU */
-.mobile-menu {
-  display: none;
-  position: fixed;
-  top: 90px;
-  left: 0;
-  width: 100%;
-  background: #0f2748;
-  padding: 22px;
-  text-align: center;
-  gap: 18px;
-  flex-direction: column;
-  z-index: 1099;
-}
-
-.mobile-menu a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.35em;
-  font-weight: 600;
-}
-
-.cta-mobile {
-  background: white;
-  color: #193a65 !important;
-  padding: 14px 30px;
-  border-radius: 12px;
-  font-weight: bold;
-  margin-top: 10px;
+@media(max-width:650px){
+  header{padding:12px 14px!important}.logo{height:54px!important}.logo-subtitle{display:none}.mobile-menu{right:14px!important;width:calc(100vw - 28px)!important}
+  section{padding:48px 14px}.hero{padding:115px 10px 35px}.hero-card,.category-card,.cta-card{padding:24px;border-radius:22px}
+  .hero h1{font-size:2.05em}.hero h3{font-size:1.15em}.hero-visual{height:260px}.hero-buttons a{width:100%;text-align:center;display:flex;align-items:center;justify-content:center}
+  .featured-grid,.album-grid{grid-template-columns:1fr}.project-card.large,.project-card{grid-column:auto;min-height:270px}.project-card.large .project-info h3{font-size:1.55em}
+  .section-title h2,.category-head h2,.cta-card h2{font-size:1.8em}.album{height:250px}
+  .album-modal{padding:14px}.album-modal-card{margin:78px auto 20px;padding:20px;border-radius:22px}.album-modal-head{display:block}
+  .album-close{position:fixed;top:108px;right:18px;z-index:4300;width:52px;height:52px;min-width:52px;padding:0;border-radius:50%;font-size:0;box-shadow:0 0 24px rgba(0,150,255,.45)}
+  .album-close::after{content:'×';font-size:2rem;line-height:1}.album-modal-grid{grid-template-columns:1fr}.album-modal-grid img,.album-modal-grid video{height:220px}
+  .lightbox-prev{left:10px}.lightbox-next{right:10px}.lightbox-close{top:10px;right:10px}.lightbox-content img,.lightbox-content video{max-width:96vw;max-height:82vh}
 }
 
-/* MOBILE AKTIVACIJA */
-@media (max-width: 900px) {
-  .nav-links { display: none; }
-  .hamburger { display: block; }
+/* FINAL: THREE PROJECT CARDS, NO DUPLICATE ALBUM SECTION */
+.featured-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.project-card,.project-card.large{
+  grid-column:auto!important;
+  grid-row:auto!important;
+  min-height:420px!important
 }
-
-.header-inner{
-  max-width:1400px;
-  margin:0 auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+@media(max-width:1100px){
+  .featured-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .project-card,.project-card.large{grid-column:auto!important;min-height:360px!important}
 }
-
-/* HAMBURGER TAČNO U SREDINI */
-.hamburger{
-  display:none;
-  font-size:2em;
-  color:white;
-  cursor:pointer;
-}
-
-/* MOBILE RASPORED */
-@media (max-width: 900px){
-  .nav-links{ display:none; }
-
-  .header-inner{
-    display:grid;
-    grid-template-columns: auto 1fr auto;
-    align-items:center;
-  }
-
-  .logo{
-    justify-self:start;
-  }
-
-  .hamburger{
-    display:block;
-    justify-self:center;
-  }
-
-  .social-icons{
-    justify-self:end;
-  }
-}
-/* === OVERRIDE: folder-grid kao kockice === */
-.folder-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 25px;
-  max-width: 1200px;
-  margin: 0 auto 40px;
-}
-/* === OVERRIDE: folder izgled === */
-.folder {
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.folder:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
-}
-/* === OVERRIDE: media grid kockice === */
-.media-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 18px;
-  margin-top: 25px;
-}
-
-.media-grid img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-/* === OVERRIDE: close dugme gore desno === */
-.lightbox-close {
-  position: fixed !important;
-  top: 20px;
-  right: 20px;
-  z-index: 6000;
-}
-/* === OVERRIDE: strelice lightbox === */
-.lightbox-prev,
-.lightbox-next {
-  position: fixed !important;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 6000;
-}
-
-.lightbox-prev { left: 15px; }
-.lightbox-next { right: 15px; }
-@media (max-width: 600px) {
-  .media-grid img {
-    height: 150px;
-  }
-}
-/* === FIX: folderi da budu velike kockice kao pre === */
-.folder-grid {
-  grid-template-columns: repeat(auto-fit, 200px) !important;
-  justify-content: center;
-}
-
-.folder {
-  width: 200px;
-}
-/* ===================================================
-   OVERRIDE – zadrži stare veličine (kao pre)
-   =================================================== */
-
-/* FOLDERI – ista veličina kao ranije */
-.folder-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, 200px) !important;
-  justify-content: center;
-  gap: 25px;
-}
-
-.folder {
-  width: 200px;
-}
-
-/* DONJE SLIKE – ista širina kao ranije (220px) */
-.media-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, 220px) !important;
-  justify-content: center;
-  gap: 15px;
-}
-
-.media-grid img {
-  width: 220px;
-  height: auto;
-}
-
-/* LIGHTBOX – X gore desno */
-.lightbox-close {
-  position: fixed !important;
-  top: 20px;
-  right: 20px;
-  z-index: 6000;
-}
-
-/* STRELICE – mobilni friendly */
-.lightbox-prev,
-.lightbox-next {
-  position: fixed !important;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 6000;
-}
-
-.lightbox-prev { left: 15px; }
-.lightbox-next { right: 15px; }
-
-/* MOBILNI – kao ranije (2 u redu) */
-
-/* =============================
-   LIGHTBOX FIX – kako želiš
-   ============================= */
-
-/* X GORE DESNO */
-.lightbox-close {
-  position: fixed !important;
-  top: 20px !important;
-  right: 20px !important;
-  font-size: 2.2em;
-  z-index: 6000;
-}
-
-/* STRELICE SA STRANE */
-.lightbox-prev,
-.lightbox-next {
-  position: fixed !important;
-  top: 50% !important;
-  transform: translateY(-50%);
-  font-size: 3em;
-  z-index: 6000;
-  background: rgba(0,0,0,0.4);
-  border-radius: 50%;
-}
-
-.lightbox-prev { left: 15px !important; }
-.lightbox-next { right: 15px !important; }
-/* === FINAL FIX: folderi kockice i na mobilnom === */
-.folder-grid {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  justify-content: center;
-}
-
-.folder {
-  width: 100% !important;
-}
-
-.folder img {
-  aspect-ratio: 1 / 1;
-  height: auto;
-  object-fit: cover;
-}
-
-@media (min-width: 769px) {
-  .folder-grid {
-    grid-template-columns: repeat(auto-fit, 200px);
-  }
-}
-/* =============================
-   FINAL: KOCKE SVUDA (FIX)
-   ============================= */
-
-/* FOLDER GRID */
-.folder-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, 200px) !important;
-  justify-content: center;
-  gap: 25px;
-}
-
-/* FOLDER KOCKA */
-.folder {
-  width: 200px !important;
-}
-
-/* FOLDER SLIKA */
-.folder img {
-  width: 200px !important;
-  height: 200px !important;
-  object-fit: cover;
-  border-radius: 10px;
-}
-/* MEDIA GRID – kocke */
-.media-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, 200px) !important;
-  justify-content: center;
-  gap: 15px;
-}
-
-/* SLIKE + VIDEO ISTA VELIČINA */
-.media-grid img,
-.media-grid video {
-  width: 200px !important;
-  height: 200px !important;
-  object-fit: cover;
-  border-radius: 10px;
-  border: 2px solid white;
-}
-.folder {
-  width: 200px !important;
-  height: auto !important;
-  padding: 12px;
-  overflow: hidden; /* ⬅️ KLJUČNO */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* slika ostaje kocka unutar foldera */
-.folder img {
-  width: 100% !important;
-  height: 200px !important;
-  object-fit: cover;
-  border-radius: 10px;
+@media(max-width:650px){
+  .featured-grid{grid-template-columns:1fr!important}
+  .project-card,.project-card.large{min-height:300px!important}
 }
 </style>
 </head>
 <body>
+<header>
 <div class="header-inner">
-  <!-- LOGO -->
-  <img src="logo.png" class="logo" alt="ŽareX logo">
-
-  <!-- HAMBURGER U SREDINI -->
-  <div class="hamburger" onclick="toggleMenu()">
-    <i class="fa fa-bars"></i>
-  </div>
-
-  <!-- DESNO: SOCIAL -->
-  <div class="social-icons">
-    <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
-  </div>
-
-  <!-- DESKTOP NAV (SAKRIVENA NA MOBILE) -->
-  <nav class="nav-links">
-    <a href="index.html#hero">Domov</a>
-    <a href="index.html#ponudba">Ponudba</a>
-    <a href="index.html#reviews">Mnenja</a>
-    <a href="index.html#cenik">Galerija</a>
-    <a href="index.html#cenik">Cenik</a>
-    <a href="index.html#kontakt">Kontakt</a>
-    <a href="ponudba.html" class="cta-btn">Dobi ponudbo</a>
-  </nav>
+<a class="logo-wrap" href="index.html#hero"><img alt="ŽareX logo" class="logo" src="logo.png"/><span class="logo-subtitle">Lasersko čiščenje</span></a>
+<nav class="nav-links">
+<a href="index.html#hero">Domov</a>
+<a href="index.html#ponudba">Ponudba</a>
+<a href="index.html#projekti">Projekti</a>
+<a href="index.html#reviews">Mnenja</a>
+<a href="index.html#cenik">Galerija</a>
+<a href="index.html#cenik">Cenik</a>
+<a href="index.html#kontakt">Kontakt</a>
+<a class="cta-btn" href="ponudba.html">Dobi ponudbo</a>
+</nav>
+<div class="hamburger" onclick="toggleMenu()">
+<i class="fa fa-bars"></i>
 </div>
-
-  </div>
-</header>
+</div>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html#hero" onclick="toggleMenu()">Domov</a>
-  <a href="index.html#ponudba" onclick="toggleMenu()">Ponudba</a>
-  <a href="index.html#reviews" onclick="toggleMenu()">Mnenja</a>
-  <a href="index.html#cenik" onclick="toggleMenu()">Galerija</a>
-  <a href="index.html#cenik" onclick="toggleMenu()">Cenik</a>
-  <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
-
-  <div class="social-icons" style="justify-content:center; margin-top:10px;">
-    <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
-  </div>
-
-  <a href="ponudba.html" class="cta-mobile">Dobi ponudbo</a>
+<a href="index.html#hero" onclick="toggleMenu()">Domov</a>
+<a href="index.html#ponudba" onclick="toggleMenu()">Ponudba</a>
+<a href="index.html#projekti" onclick="toggleMenu()">Projekti</a>
+<a href="index.html#reviews" onclick="toggleMenu()">Mnenja</a>
+<a href="GALERIJA.html" onclick="toggleMenu()">Galerija</a>
+<a href="index.html#cenik" onclick="toggleMenu()">Cenik</a>
+<a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
+<a class="cta-mobile" href="ponudba.html">Dobi ponudbo</a>
 </div>
-
+</header>
+<section class="hero">
+<div class="wrap">
+<div class="hero-card glass">
+<div>
+<span class="badge">Galerija projektov</span>
 <h1>Lasersko čiščenje kamna</h1>
+<h3>Granit • marmor • beton • odprte terase</h3>
+<p>Primeri čiščenja kamnitih in betonskih površin, kjer je pomembna kontrola postopka, čist rob in priprava površine za nadaljnjo zaščito. Odpri projekt in poglej fotografije ter video izvedbe.</p>
+<div class="hero-buttons">
+<a class="btn-primary" href="#projekti">Oglej projekte</a>
+<a class="btn-secondary" href="ponudba.html">ZAHTEVAJ PONUDBO</a>
+</div>
+</div>
+<div aria-label="Lasersko čiščenje kamna, betona in odprte terase" class="hero-visual" role="img"></div>
+</div>
+</div>
+</section>
+<section id="projekti">
+<div class="wrap">
+<div class="section-title">
+<span class="badge">Izbrani projekti</span>
+<h2>Kamen, beton in odprte terase</h2>
+<p>Najbolj uporabni primeri izvedbe na zunanjih in notranjih površinah.</p>
+</div>
+<div class="featured-grid">
+<button class="project-card large glass" data-target="terasa">
+<img alt="Čiščenje odprte terase" loading="lazy" src="terasa1.jpg"/>
+<div class="project-info">
+<span class="badge">TERASA</span>
+<h3>Čiščenje odprte terase</h3>
+<p>Odstranjevanje oblog, umazanije in vremenskih nanosov na zunanji pohodni površini.</p>
+<div class="project-meta">Odpri projekt →</div>
+</div>
+</button>
+<button class="project-card glass" data-target="granit">
+<img alt="Lasersko čiščenje granita" loading="lazy" src="graniti1.jpg"/>
+<div class="project-info">
+<span class="badge">KAMEN</span>
+<h3>Granit in marmor</h3>
+<p>Natančno čiščenje kamnitih površin brez agresivnih kemikalij.</p>
+<div class="project-meta">Odpri projekt →</div>
+</div>
+</button>
+<button class="project-card glass" data-target="beton">
+<img alt="Priprava betona za epoxy" loading="lazy" src="graniti.jpg"/>
+<div class="project-info">
+<span class="badge">BETON</span>
+<h3>Priprava betona za epoxy</h3>
+<p>Obdelava betonske površine pred nanosom zaščitnega premaza.</p>
+<div class="project-meta">Odpri projekt →</div>
+</div>
+</button>
 
-<div class="section">
-
-  <div class="folder-grid">
-    <div class="folder" data-target="stone1">
-      <img src="graniti.jpg" alt="Graniti" />
-      <div class="folder-name">Čiščenje granita in mramorja</div>
-    </div>
-
-    <div class="folder" data-target="stone2">
-      <img src="beton.jpg" alt="Beton" />
-      <div class="folder-name">Brušenje betona, priprava za epoxy premaze</div>
-    </div>
-  </div>
-
-  <div class="folder-content" id="stone1">
-    <div class="media-grid">
-      <img src="graniti1.jpg" alt="graniti1" />
-      <img src="graniti2.jpg" alt="graniti2" />
-      <video controls muted src="graniti3.mp4"></video>
-    </div>
-  </div>
-
-  <div class="folder-content" id="stone2">
-    <div class="media-grid">
-      <video controls muted src="beton1.mp4"></video>
-    </div>
-  </div>
 
 </div>
+</div>
+</section>
 
+<div aria-hidden="true" class="album-data"><div class="album-content" id="terasa">
+<h3>Čiščenje odprte terase</h3>
+<div class="media-grid"><img alt="Čiščenje odprte terase 1" loading="lazy" src="terasa1.jpg"/><img alt="Čiščenje odprte terase 2" loading="lazy" src="terasa2.jpg"/><img alt="Čiščenje odprte terase 3" loading="lazy" src="terasa3.jpg"/><img alt="Čiščenje odprte terase 4" loading="lazy" src="terasa4.jpg"/><img alt="Čiščenje odprte terase 5" loading="lazy" src="terasa5.jpg"/><img alt="Čiščenje odprte terase 6" loading="lazy" src="terasa6.jpg"/><img alt="Čiščenje odprte terase 7" loading="lazy" src="terasa7.jpg"/><img alt="Čiščenje odprte terase 8" loading="lazy" src="terasa8.jpg"/><img alt="Čiščenje odprte terase 9" loading="lazy" src="terasa9.jpg"/><img alt="Čiščenje odprte terase 10" loading="lazy" src="terasa10.jpg"/><img alt="Čiščenje odprte terase 11" loading="lazy" src="terasa11.jpg"/><img alt="Čiščenje odprte terase 12" loading="lazy" src="terasa12.jpg"/></div>
+</div><div class="album-content" id="granit">
+<h3>Granit in marmor</h3>
+<div class="media-grid">
+<img alt="Lasersko čiščenje granita" loading="lazy" src="graniti1.jpg"/>
+<img alt="Čiščenje kamnite površine" loading="lazy" src="graniti2.jpg"/>
+<video controls="" muted="" playsinline="" src="graniti3.mp4"></video>
+</div>
+</div><div class="album-content" id="beton">
+<h3>Beton / epoxy priprava</h3>
+<div class="media-grid">
+<img alt="Betonska površina pred obdelavo" loading="lazy" src="graniti.jpg"/>
+<video controls="" muted="" playsinline="" src="beton1.mp4"></video>
+</div>
+</div></div><section>
+<div class="wrap">
+<div class="cta-card glass">
+<h2>Več primerov izvedbe</h2>
+<p>Spremljajte naše projekte, videoposnetke in rezultate laserskega čiščenja na družbenih omrežjih.</p>
+<div class="social-premium">
+<a aria-label="TikTok" href="https://www.tiktok.com/@zarexlaser" rel="noopener" target="_blank"><i class="fab fa-tiktok"></i></a>
+<a aria-label="Instagram" href="https://www.instagram.com/vukoticzarko/" rel="noopener" target="_blank"><i class="fab fa-instagram"></i></a>
+<a aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61576688676907" rel="noopener" target="_blank"><i class="fab fa-facebook"></i></a>
+<a aria-label="WhatsApp" href="https://wa.me/38670808884" rel="noopener" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="wrap">
+<div class="cta-card glass">
+<h2>Potrebujete čiščenje kamna, betona ali terase?</h2>
+<p>Pošljite slike površine, opis materiala in lokacijo izvedbe. Pripravimo vam informativno oceno.</p>
+<div class="contact-line">
+<a href="tel:+38670808884">☎ +386 70 808 884</a>
+<a href="mailto:zarexlaser@gmail.com?subject=Povpraševanje%20-%20lasersko%20čiščenje%20kamna%20in%20terase">✉ zarexlaser@gmail.com</a>
+</div>
+<a class="btn-primary" href="ponudba.html">ZAHTEVAJ PONUDBO</a>
+</div>
+</div>
+</section>
+<footer>© 2025 ŽAREX - Vse pravice pridržane</footer>
+<div class="album-modal" id="albumModal">
+<div class="album-modal-card">
+<div class="album-modal-head">
+<div class="album-modal-title">
+<span class="badge">GALERIJA PROJEKTA</span>
+<h2 id="albumModalTitle">Projekt</h2>
+<p>Kliknite na sliko ali video za večji prikaz.</p>
+</div>
+<button class="album-close" id="albumClose">Zapri ✕</button>
+</div>
+<div class="album-modal-grid" id="albumModalGrid"></div>
+</div>
+</div>
 <div class="lightbox" id="lightbox">
-  <div class="lightbox-content">
-    <span class="lightbox-close" id="lightbox-close">&times;</span>
-    <span class="lightbox-prev" id="lightbox-prev">&#10094;</span>
-    <span class="lightbox-next" id="lightbox-next">&#10095;</span>
-    <img id="lightbox-img" src="" alt="preview" />
-    <video id="lightbox-video" controls playsinline style="display:none;"></video>
-  </div>
+<div class="lightbox-content">
+<span class="lightbox-close" id="lb-close">×</span>
+<span class="lightbox-prev" id="lb-prev">❮</span>
+<span class="lightbox-next" id="lb-next">❯</span>
+<img alt="" id="lb-img" src=""/>
+<video controls="" id="lb-video" muted="" style="display:none;"></video>
 </div>
-
-<div class="back-button" style="text-align:center; margin:40px 0;">
-  <a href="index.html" style="background:white; color:#193a65; padding:12px 30px; border-radius:8px; text-decoration:none; font-weight:bold; box-shadow:0 4px 10px rgba(0,0,0,0.3);"><i class="fas fa-home"></i> Nazaj na začetno stran</a>
 </div>
-
-<footer><p>© 2025 ŽareX - Vse pravice pridržane</p></footer>
-
-<script>
-  // Samo ena mapa odprta naenkrat
-  const folders = document.querySelectorAll('.folder');
-  const allContents = document.querySelectorAll('.folder-content');
-
-  folders.forEach(folder => {
-    folder.addEventListener('click', () => {
-      const target = folder.getAttribute('data-target');
-      const content = document.getElementById(target);
-
-      // Če je ta že odprta – zapri
-      if (content.classList.contains('active')) {
-        content.classList.remove('active');
-        return;
-      }
-
-      // Zapri vse mape
-      allContents.forEach(c => c.classList.remove('active'));
-
-      // Odpri izbrano mapo
-      content.classList.add('active');
-
-      // Na mobilnih – pomakni pogled
-      if (window.innerWidth <= 768) {
-        content.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-
-  // LIGHTBOX
-  const lightbox=document.getElementById('lightbox');
-  const lbImg=document.getElementById('lightbox-img');
-  const lbVid=document.getElementById('lightbox-video');
-  const lbClose=document.getElementById('lightbox-close');
-  const lbPrev=document.getElementById('lightbox-prev');
-  const lbNext=document.getElementById('lightbox-next');
-
-  let mediaElements = [];
-  let currentIndex = 0;
-
-  document.querySelectorAll('.media-grid img, .media-grid video').forEach(el => {
-    mediaElements.push(el);
-    el.addEventListener('click', () => showMedia(mediaElements.indexOf(el)));
-  });
-
-  function showMedia(index){
-  const el = mediaElements[index];
-  if(!el) return;
-
-  if(el.tagName === 'IMG'){
-    lbVid.pause();
-    lbVid.style.display = 'none';
-    lbImg.style.display = 'block';
-    lbImg.src = el.src;
-  } else {
-    lbImg.style.display = 'none';
-    lbVid.style.display = 'block';
-    lbVid.src = el.src;
-    lbVid.load();
-    lbVid.play().catch(()=>{});
-  }
-
-  lightbox.classList.add('active');
-  currentIndex = index;
-}
-
-
-  lbClose.addEventListener('click',()=>{
-    lightbox.classList.remove('active');
-    lbVid.pause();
-  });
-
-  lbPrev.addEventListener('click',e=>{
-    e.stopPropagation();
-    currentIndex=(currentIndex-1+mediaElements.length)%mediaElements.length;
-    showMedia(currentIndex);
-  });
-
-  lbNext.addEventListener('click',e=>{
-    e.stopPropagation();
-    currentIndex=(currentIndex+1)%mediaElements.length;
-    showMedia(currentIndex);
-  });
-
-  lightbox.addEventListener('click',e=>{
-    if(e.target===lightbox){
-      lightbox.classList.remove('active');
-      lbVid.pause();
-    }
-  });
-</script>
 <script>
 function toggleMenu(){
-  const m = document.getElementById('mobileMenu');
-  m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
+  const m=document.getElementById('mobileMenu');
+  m.style.display=(m.style.display==='flex')?'none':'flex';
 }
-</script>
 
+const triggers=document.querySelectorAll('[data-target]');
+const albumModal=document.getElementById('albumModal');
+const albumModalTitle=document.getElementById('albumModalTitle');
+const albumModalGrid=document.getElementById('albumModalGrid');
+const albumClose=document.getElementById('albumClose');
+
+let media=[];
+let index=0;
+
+function refreshModalMedia(){
+  media=Array.from(albumModalGrid.querySelectorAll('img, video'));
+  media.forEach((m,i)=>{m.addEventListener('click',()=>show(i));});
+}
+
+function openAlbum(id){
+  const source=document.getElementById(id);
+  if(!source) return;
+  const title=source.querySelector('h3')?.textContent || 'Projekt';
+  albumModalTitle.textContent=title;
+  albumModalGrid.innerHTML='';
+  source.querySelectorAll('img, video').forEach(el=>{
+    const clone=el.cloneNode(true);
+    if(clone.tagName==='VIDEO') clone.setAttribute('controls','');
+    albumModalGrid.appendChild(clone);
+  });
+  albumModal.classList.add('active');
+  document.body.style.overflow='hidden';
+  refreshModalMedia();
+}
+
+function closeAlbum(){
+  albumModal.classList.remove('active');
+  document.body.style.overflow='';
+  albumModalGrid.querySelectorAll('video').forEach(v=>v.pause());
+}
+
+triggers.forEach(trigger=>{trigger.addEventListener('click',()=>openAlbum(trigger.getAttribute('data-target')));});
+albumClose.addEventListener('click',closeAlbum);
+albumModal.addEventListener('click',e=>{if(e.target===albumModal) closeAlbum();});
+
+const lightbox=document.getElementById('lightbox');
+const lbImg=document.getElementById('lb-img');
+const lbVid=document.getElementById('lb-video');
+const lbClose=document.getElementById('lb-close');
+const lbPrev=document.getElementById('lb-prev');
+const lbNext=document.getElementById('lb-next');
+
+function show(i){
+  const el=media[i];
+  if(!el)return;
+  if(el.tagName==='IMG'){
+    lbVid.pause();
+    lbVid.style.display='none';
+    lbImg.style.display='block';
+    lbImg.src=el.src;
+  }else{
+    lbImg.style.display='none';
+    lbVid.style.display='block';
+    lbVid.src=el.src;
+  }
+  lightbox.classList.add('active');
+  index=i;
+}
+
+lbClose.addEventListener('click',()=>{lightbox.classList.remove('active');lbVid.pause();});
+lbNext.addEventListener('click',()=>{if(!media.length)return;index=(index+1)%media.length;show(index);});
+lbPrev.addEventListener('click',()=>{if(!media.length)return;index=(index-1+media.length)%media.length;show(index);});
+lightbox.addEventListener('click',e=>{if(e.target===lightbox){lightbox.classList.remove('active');lbVid.pause();}});
+document.addEventListener('keydown',e=>{
+  if(lightbox.classList.contains('active')){
+    if(e.key==='Escape'){lightbox.classList.remove('active');lbVid.pause();}
+    if(e.key==='ArrowRight')lbNext.click();
+    if(e.key==='ArrowLeft')lbPrev.click();
+    return;
+  }
+  if(albumModal.classList.contains('active') && e.key==='Escape') closeAlbum();
+});
+
+let touchStartX=0;
+lightbox.addEventListener('touchstart',e=>{touchStartX=e.changedTouches[0].screenX;},{passive:true});
+lightbox.addEventListener('touchend',e=>{
+  const diff=e.changedTouches[0].screenX-touchStartX;
+  if(Math.abs(diff)>60){
+    if(diff<0)lbNext.click();
+    else lbPrev.click();
+  }
+},{passive:true});
+</script>
 </body>
 </html>

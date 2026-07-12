@@ -1,327 +1,359 @@
 <!DOCTYPE html>
 <html lang="sl">
 <head>
-<meta charset="utf-8"/>
-<title>Cene - ŽareX Lasersko Čiščenje</title>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cenik storitev | ŽAREX</title>
+<meta name="description" content="Cenik laserskega čiščenja, zaščite podvozja, protikorozijske zaščite in drugih storitev ŽAREX. Končna cena se določi po ogledu in oceni stanja.">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
-  * {margin:0; padding:0; box-sizing:border-box;}
-  body {font-family: Arial, sans-serif; background:#0f2748; color:white; overflow-x:hidden;}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden;scroll-behavior:smooth}
+body{font-family:'Saira',sans-serif;background:#0f2748;color:white;line-height:1.65;padding-top:110px}
+a{color:inherit}
 
-  header{position:stickytop:0;width:100%;z-index:1100;background:#0f2748;padding:12px 28px;box-shadow:0 2px 6px rgba(0,0,0,0.3)}
-    .header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
-    .logo{height:80px}
-    .nav-links{display:flex;gap:18px;align-items:center}
-    .nav-links a{color:white;text-decoration:none;font-weight:600;font-size:1.2em}
-    .cta-btn{background:white;color:#193a65 !important;padding:10px 20px;border-radius:10px;font-weight:bold;text-decoration:none}
+/* HEADER */
+header{position:fixed;top:0;left:0;width:100%;z-index:1100;background:rgba(15,39,72,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.14);box-shadow:0 10px 35px rgba(0,0,0,.35)}
+.header-inner{max-width:1450px;margin:0 auto;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:25px;padding:12px 28px}
+.logo{height:78px;filter:drop-shadow(0 0 10px rgba(255,255,255,.45))}
+.nav-links{display:flex;justify-content:center;align-items:center;gap:22px}
+.nav-links a{text-decoration:none;font-weight:650;font-size:1.12em;opacity:.95;transition:.25s}
+.nav-links a:hover{opacity:.7;transform:translateY(-1px)}
+.cta-btn,.btn-primary{display:inline-block;background:white;color:#0f2748!important;text-decoration:none;font-weight:800;border-radius:12px;padding:13px 28px;transition:.3s;box-shadow:0 0 20px rgba(255,255,255,.16)}
+.cta-btn:hover,.btn-primary:hover{transform:scale(1.04);box-shadow:0 0 24px rgba(0,150,255,.55)}
+.hamburger{display:none;font-size:2em;cursor:pointer}
+.mobile-menu{display:none;position:fixed;top:103px;left:0;width:100%;z-index:1099;flex-direction:column;text-align:center;gap:18px;padding:24px;background:rgba(15,39,72,.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.12)}
+.mobile-menu a{text-decoration:none;font-size:1.25em;font-weight:650}
 
-    .cta-btn:hover{
-      transform:scale(1.05);
-      box-shadow:0 0 15px rgba(255,255,255,0.7);
-    }
+section{padding:70px 20px}
+.wrap{max-width:1250px;margin:0 auto}
+.glass{position:relative;overflow:hidden;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.17);border-radius:28px;box-shadow:0 18px 48px rgba(0,0,0,.38);backdrop-filter:blur(14px)}
+.glass::before{content:"";position:absolute;top:-120%;left:-55%;width:210%;height:300%;background:linear-gradient(115deg,rgba(255,255,255,.30) 0%,rgba(255,255,255,.08) 28%,rgba(255,255,255,0) 60%);transform:rotate(25deg);animation:shine 8s infinite linear;pointer-events:none}
+@keyframes shine{0%{transform:translateX(-60%) rotate(25deg)}100%{transform:translateX(60%) rotate(25deg)}}
+.section-title{text-align:center;margin-bottom:34px}
+.section-title h2{font-size:2.6em;line-height:1.15;margin-bottom:8px}
+.section-title p{color:#dce8ff;font-size:1.12em}
+.badge{display:inline-block;padding:8px 14px;border-radius:999px;background:rgba(143,208,255,.15);border:1px solid rgba(143,208,255,.30);color:#cfeaff;font-size:.86rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
 
-    .social-icons{display:flex;gap:15px;font-size:1.4em}important!
-    .social-icons a{color:white}
+/* HERO */
+.hero{padding:55px 20px 35px}
+.hero-card{padding:46px;text-align:center}
+.hero h1{font-size:3.2em;line-height:1.08;text-transform:uppercase;margin:12px 0}
+.hero p{max-width:850px;margin:0 auto 26px;color:#e9f2ff;font-size:1.15em}
+.hero-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.btn-secondary{display:inline-block;border:1px solid rgba(255,255,255,.35);border-radius:12px;padding:12px 26px;text-decoration:none;font-weight:750;background:rgba(255,255,255,.08);transition:.3s}
+.btn-secondary:hover{background:rgba(255,255,255,.16);transform:translateY(-2px)}
 
-    .page-hero{max-width:1200px;margin:40px auto;padding:28px;background:rgba(255,255,255,0.03);border-radius:14px;backdrop-filter:blur(6px)}
-    .page-hero h1{font-size:2.8em;margin-bottom:10px}
-    .page-hero p{font-size:1.15em;opacity:0.95}
+/* PRICE CARDS */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.price-card{padding:30px;min-height:310px;display:flex;flex-direction:column;justify-content:space-between}
+.price-card.featured{border-color:rgba(143,208,255,.55);box-shadow:0 0 38px rgba(0,150,255,.23),0 18px 48px rgba(0,0,0,.38)}
+.price-top i{font-size:2.2em;color:#8fd0ff;text-shadow:0 0 18px rgba(0,150,255,.45);margin-bottom:14px}
+.price-card h3{font-size:1.55em;margin-bottom:10px}
+.price-card p{color:#dce8ff;font-size:1.02em}
+.price{font-size:2.05em;font-weight:800;margin-top:22px;color:white}
+.price small{font-size:.48em;color:#dce8ff;font-weight:600}
 
-    .content{max-width:1200px;margin:20px auto;padding:20px;display:grid;grid-template-columns:1fr 380px;gap:30px}
+.vehicle-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.vehicle-card{padding:24px;text-align:center}
+.vehicle-card i{font-size:2em;color:#8fd0ff;margin-bottom:12px;text-shadow:0 0 18px rgba(0,150,255,.45)}
+.vehicle-card h3{font-size:1.14em;margin-bottom:8px}
+.vehicle-card .price{font-size:1.5em;margin-top:12px}
 
-  h1 {
-    text-align:center;
-    color:white;
-    margin:40px 0 20px;
-    font-size:2.5em;
-    font-weight:bold;
-    text-shadow: 0 0 10px rgba(0,200,255,0.6),
-                 0 0 20px rgba(0,200,255,0.8),
-                 0 0 30px rgba(0,200,255,1),
-                 0 0 40px rgba(255,255,255,0.9);
-    animation: pulse 2s infinite ease-in-out;
-  }
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.service-card{padding:24px;min-height:230px}
+.service-card i{font-size:2em;color:#8fd0ff;margin-bottom:14px;text-shadow:0 0 18px rgba(0,150,255,.45)}
+.service-card h3{font-size:1.16em;margin-bottom:10px}
+.service-card p{color:#dce8ff;font-size:.98em}
 
-  @keyframes pulse {
-    0%, 100% {
-      text-shadow: 0 0 10px rgba(0,200,255,0.6),
-                   0 0 20px rgba(0,200,255,0.8),
-                   0 0 30px rgba(0,200,255,1),
-                   0 0 40px rgba(255,255,255,0.9);
-      transform: scale(1);
-    }
-    50% {
-      text-shadow: 0 0 20px rgba(0,220,255,1),
-                   0 0 40px rgba(0,220,255,1),
-                   0 0 60px rgba(255,255,255,1),
-                   0 0 80px rgba(0,220,255,1);
-      transform: scale(1.08);
-    }
-  }
+/* NOTES */
+.notes-card{padding:34px}
+.notes-card ul{list-style:none;display:grid;gap:14px}
+.notes-card li{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px 18px;color:#e9f2ff}
+.notes-card li i{color:#8fd0ff;margin-right:10px}
 
-  table {width:90%; max-width:900px; margin:0 auto; border-collapse:collapse; background:white; color:#193a65; border-radius:15px; overflow:hidden; box-shadow:0 6px 12px rgba(0,0,0,0.4);}
-  th, td {padding:18px; border-bottom:1px solid #ddd; font-size:1.1em;}
-  th {background:#193a65; color:white; text-transform:uppercase; letter-spacing:0.5px;}
-  tr:last-child td {border-bottom:none;}
-  tr:hover td {background:#f1f1f1;}
+/* CONTACT */
+.contact-card{padding:40px;text-align:center}
+.contact-card h2{font-size:2.35em;margin-bottom:10px}
+.contact-card p{color:#e9f2ff;margin-bottom:22px}
+.contact-line{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin-bottom:24px;color:#eaf4ff;font-weight:700}
+.contact-line a{text-decoration:none}
+.social-buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:850px;margin:26px auto 0}
+.social-button{display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;padding:16px;border-radius:16px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);font-weight:800;transition:.3s}
+.social-button:hover{transform:translateY(-3px);box-shadow:0 0 24px rgba(0,150,255,.35)}
+.social-button i{font-size:1.45em}
 
-  .notes, .contact-section {
-    background: rgba(25, 58, 101, 0.6);
-    backdrop-filter: blur(10px);
-    color: white;
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
-  }
+footer{text-align:center;padding:22px 20px;background:rgba(10,27,52,.65);border-top:1px solid rgba(255,255,255,.12);color:#dce8ff}
 
-  .notes h2, .contact-section h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #fff;
-  }
-
-  .notes ul {list-style: disc; padding-left: 30px; line-height: 1.8;}
-
-  .social-icons {
-    margin: 25px 0;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-  }
-
-  .social-icons a {
-    color: white;
-    font-size: 3em;
-    transition: transform 0.3s ease, color 0.3s ease;
-  }
-  .social-icons a:hover {
-    transform: scale(1.3);
-    color: #00bfff;
-  }
-
-  .contact-info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 25px;
-    font-size: 1.3em;
-  }
-
-  .contact-item {display: flex; align-items: center; gap: 10px;}
-  .contact-item i {font-size: 1.5em; color: #ffffff;}
-  .contact-item a {color: white; text-decoration: none; font-weight: bold;}
-  .contact-item a:hover {text-decoration: underline; color: #ffffff;}
-
-  .back-button {text-align:center; margin:40px 0;}
-  .back-button a {background:white; color:#193a65; padding:12px 30px; border-radius:8px; text-decoration:none; font-weight:bold; box-shadow:0 4px 10px rgba(0,0,0,0.3); transition:background 0.3s ease, color 0.3s ease;}
-  .back-button a:hover {background:#193a65; color:white;}
-
-  footer {text-align:center; padding:15px; background:#193a65; color:white; margin-top:60px;}
-
-  @media (max-width:768px) {
-    th, td {font-size:1em;}
-    h1 {font-size:2em;}
-    .logo {height:90px;}
-    .social-icons a {font-size:2.5em;}
-    .contact-item i {font-size:1.3em;}
-    .back-button a {padding:10px 20px; font-size:1em;}
-  }
-/* HAMBURGER */
-.hamburger {
-  display: none;
-  font-size: 2em;
-  color: white;
-  cursor: pointer;
+@media(max-width:1050px){
+  body{padding-top:98px}.nav-links{display:none}.hamburger{display:block;justify-self:end}.header-inner{grid-template-columns:auto 1fr auto}.logo{height:70px}
+  .pricing-grid,.vehicle-grid,.services-grid{grid-template-columns:repeat(2,1fr)}
+  .social-buttons{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:620px){
+  section{padding:48px 14px}.hero{padding-top:35px}.hero-card,.price-card,.notes-card,.contact-card{padding:24px;border-radius:22px}
+  .hero h1{font-size:2.1em}.section-title h2,.contact-card h2{font-size:1.8em}
+  .pricing-grid,.vehicle-grid,.services-grid,.social-buttons{grid-template-columns:1fr}
+  .mobile-menu{top:94px}
+  .price-card{min-height:auto}
 }
 
-/* MOBILE MENU */
-.mobile-menu {
-  display: none;
-  position: fixed;
-  top: 90px;
-  left: 0;
-  width: 100%;
-  background: #0f2748;
-  padding: 22px;
-  text-align: center;
-  gap: 18px;
-  flex-direction: column;
-  z-index: 1099;
+/* ===== INDEX PREMIUM HEADER SYNC ===== */
+body{padding-top:0!important;background:#07111f!important;}
+
+header{
+position:fixed!important;top:0!important;left:0!important;right:0!important;
+width:100%!important;max-width:none!important;z-index:3000!important;
+border-radius:0!important;padding:18px 48px!important;
+border-bottom:1px solid rgba(160,205,255,.32)!important;
+background:linear-gradient(135deg,rgba(9,22,38,.92),rgba(18,34,54,.84))!important;
+box-shadow:0 14px 36px rgba(0,0,0,.48),inset 0 0 28px rgba(255,255,255,.035),0 0 22px rgba(0,150,255,.18)!important;
+backdrop-filter:blur(14px) saturate(135%)!important;
 }
 
-.mobile-menu a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.35em;
-  font-weight: 600;
+header::before{
+content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;
+background:linear-gradient(90deg,transparent,rgba(0,170,255,.85),rgba(255,255,255,.65),rgba(0,170,255,.85),transparent);
 }
 
-.cta-mobile {
-  background: white;
-  color: #193a65 !important;
-  padding: 14px 30px;
-  border-radius: 12px;
-  font-weight: bold;
-  margin-top: 10px;
+header::after{
+content:"";position:absolute;inset:0;
+background:linear-gradient(115deg,rgba(255,255,255,.18),rgba(255,255,255,.03) 35%,transparent 65%);
+opacity:.45;
 }
 
-/* MOBILE AKTIVACIJA */
-@media (max-width: 900px) {
-  .nav-links { display: none; }
-  .hamburger { display: block; }
+.header-inner{
+position:relative;z-index:2;
+max-width:1500px!important;
+display:flex!important;
+justify-content:space-between!important;
+align-items:center!important;
 }
 
-/* ===============================
-   PRAVI MOBILE FIX (BEZ REZANJA)
-   =============================== */
+.logo{height:78px!important;filter:drop-shadow(0 0 15px rgba(0,160,255,.65))!important}
 
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
+.nav-links{
+display:flex;
+align-items:center;
+gap:24px!important;
 }
 
-body {
-  width: 100%;
+.nav-links a{
+font-size:1.08em!important;
+font-weight:600!important;
 }
 
-header,
-.header-inner,
-.content,
-.page-hero,
-.main,
-.aside {
-  max-width: 100%;
-  overflow-x: hidden;
+.nav-links a:hover{
+color:#9ed8ff!important;
+transform:none!important;
 }
 
-/* slike i gridovi */
-img {
-  max-width: 100%;
-  height: auto;
+.cta-btn{
+background:linear-gradient(135deg,rgba(13,35,63,.78),rgba(10,24,45,.92))!important;
+color:#fff!important;
+border:1px solid rgba(60,170,255,.95)!important;
+box-shadow:0 0 20px rgba(0,145,255,.32)!important;
 }
 
-@media (max-width: 900px) {
-  html, body {
-    overflow-x: hidden;
-  }
+.mobile-menu{
+position:absolute!important;
+top:calc(100% + 14px)!important;
+right:48px!important;
+left:auto!important;
+width:min(360px,calc(100vw - 56px))!important;
+background:linear-gradient(135deg,rgba(9,22,38,.96),rgba(18,34,54,.92))!important;
+border-radius:18px;
+}
+
+.hero{
+padding-top:155px!important;
+background:
+radial-gradient(circle at 50% 5%, rgba(0,150,255,.20), transparent 32%),
+linear-gradient(180deg, rgba(3,10,18,.10), rgba(3,10,18,.68))!important;
+}
+
+.hero-card{
+background:linear-gradient(135deg,rgba(9,22,38,.70),rgba(18,34,54,.58))!important;
+border:1px solid rgba(160,205,255,.30)!important;
+box-shadow:0 18px 45px rgba(0,0,0,.45),0 0 24px rgba(0,150,255,.18)!important;
+}
+
+footer{
+background:#081a31!important;
+}
+
+@media(max-width:1100px){
+header{padding:14px 24px!important}
+.nav-links{display:none!important}
+.hamburger{display:block!important}
+.hero{padding-top:125px!important}
+}
+
+@media(max-width:600px){
+header{padding:12px 14px!important}
+.mobile-menu{right:14px!important;width:calc(100vw - 28px)!important}
+.hero{padding-top:115px!important}
 }
 
 </style>
 </head>
 <body>
-  <header>
-  <div class="header-inner">
-    <img src="logo.png" class="logo" alt="ŽareX logo">
 
-    <nav class="nav-links">
-      <a href="index.html#hero">Domov</a>
-      <a href="index.html#ponudba">Ponudba</a>
-      <a href="index.html#reviews">Mnenja</a>
-      <a href="index.html#cenik">Galerija</a>
-      <a href="index.html#cenik">Cenik</a>
-      <a href="index.html#kontakt">Kontakt</a>
-      <a href="ponudba.html" class="cta-btn">Dobi ponudbo</a>
-
-      <div class="social-icons">
-        <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<header>
+    <div class="header-inner">
+      <a href="index.html#hero" class="logo-wrap"><img src="logo.png" alt="ŽareX logo" class="logo"><span class="logo-subtitle">Lasersko čiščenje</span></a>
+      <nav class="nav-links">
+  <a href="index.html#hero">Domov</a>
+  <a href="index.html#ponudba">Ponudba</a>
+  <a href="index.html#projekti">Projekti</a>
+  <a href="index.html#reviews">Mnenja</a>
+  <a href="index.html#cenik">Galerija</a>
+  <a href="index.html#cenik">Cenik</a>
+  <a href="index.html#kontakt">Kontakt</a>
+  <a href="ponudba.html" class="cta-btn">Dobi ponudbo</a>
+</nav>
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fa fa-bars"></i>
       </div>
-    </nav>
-
-    <!-- HAMBURGER (mora biti IZVEN nav) -->
-    <div class="hamburger" onclick="toggleMenu()">
-      <i class="fa fa-bars"></i>
     </div>
-  </div>
-</header>
-
-<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu" id="mobileMenu">
   <a href="index.html#hero" onclick="toggleMenu()">Domov</a>
   <a href="index.html#ponudba" onclick="toggleMenu()">Ponudba</a>
+  <a href="index.html#projekti" onclick="toggleMenu()">Projekti</a>
   <a href="index.html#reviews" onclick="toggleMenu()">Mnenja</a>
-  <a href="index.html#cenik" onclick="toggleMenu()">Galerija</a>
+  <a href="GALERIJA.html" onclick="toggleMenu()">Galerija</a>
   <a href="index.html#cenik" onclick="toggleMenu()">Cenik</a>
   <a href="index.html#kontakt" onclick="toggleMenu()">Kontakt</a>
-
-  <div class="social-icons" style="justify-content:center; margin-top:10px;">
-    <a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a href="https://wa.me/38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
-  </div>
-
   <a href="ponudba.html" class="cta-mobile">Dobi ponudbo</a>
 </div>
+  </header>
 
-<h1>🔥 CENE STORITEV 🔥</h1>
-
-<table>
-  <tr style="background:#193a65; height:60px; text-align:center; color:white; font-size:1.3em; font-weight:bold;">
-    <td colspan="3">Lasersko čiščenje in zaščita podvozja</td>
-  </tr>
-  <tr><td>🥉 BASIC</td><td>Osnovna obnova podvozja + zaščita</td><td>od 600 €</td></tr>
-  <tr><td>🥈 STANDARD</td><td>Temeljito lasersko čiščenje + večslojna zaščita</td><td>od 900/1100 €</td></tr>
-  <tr><td>🥇 PREMIUM</td><td>Kompleksna obnova + dolgotrajna zaščita (več let)</td><td>od 1300/1600 €</td></tr>
-  <tr><td>🚙 TERENCI / SUV</td><td>✅ NOVO </td><td>od 1200/1800 €</td></tr>
-  <tr><td>🚐 KOMBIJI</td><td>✅ NOVO </td><td>od 900/1400 €</td></tr>
-  <tr><td>🚌 AVTOBUSI</td><td>✅ NOVO </td><td>od 3000/5000 €</td></tr>
-  <tr><td>🚛 TOVORNJAKI / STROJI</td><td>✅ NOVO</td><td>od 2500/6000 €</td></tr>
-  
-
-  <tr style="background:#193a65; height:60px; text-align:center; color:white; font-size:1.3em; font-weight:bold;">
-    <td colspan="3">Druge storitve</td>
-  </tr>
-  <tr><td>LASER-EPOXY</td><td>Brušenje betona z laserjem, priprava za epoxy premaze. HITRO in enostavno!</td><td></td></tr>
-  <tr><td>Lasersko čiščenje kovin</td><td>Lasersko odstranjevanje rje in oksidov z vseh kovinskih površin.</td><td></td></tr>
-  <tr><td>Lasersko čiščenje/obnova kamna</td><td>Lasersko odstranjevanje nečistot z vseh tipov kamna (granit, mermer).</td><td></td></tr>
-  <tr><td>Obnova lesa</td><td>Lasersko obnovimo in vrnemo prvobitni izgled vseh vrst lesa. Odlično za pohištvo, inštrumente, itd.</td><td></td></tr>
-
-  <tr style="background:#193a65; height:60px; text-align:center; color:white; font-size:1.3em; font-weight:bold;">
-    <td colspan="3">Večji projekti</td>
-  </tr>
-  <tr><td>Večji projekti</td><td>Čiščenje večjih objektov in industrijskih površin.</td><td>po dogovoru + potni stroški</td></tr>
-
-  <tr style="background:#193a65; height:40px;"><td colspan="3"></td></tr>
-</table>
-
-<section class="notes">
-<h2>❗️Opombe o cenah❗️</h2>
-<ul>
-<li>CENO DOLOČIMO OB OGLEDU TER IZBIRI MATERIJALA</li>
-<li>Cene se lahko zvišajo glede na stanje obrabljenosti in porabo ur ter materialov.</li>
-<li>Končno ponudbo prejmete po ogledu in oceni stanja.</li>
-</ul>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-card glass">
+      <span class="badge">CENIK STORITEV</span>
+      <h1>Okvirne cene laserskega čiščenja in zaščite</h1>
+      <p>Cene so informativne. Končna ponudba je odvisna od stanja površine, zahtevnosti dostopa, izbire materiala, obsega dela in lokacije izvedbe.</p>
+      <div class="hero-actions">
+        <a href="ponudba.html" class="btn-primary">Zahtevaj ponudbo</a>
+        <a href="#opombe" class="btn-secondary">Preberi opombe</a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="contact-section">
-<h2>Kontakt in rezervacije</h2>
-<div class="social-icons">
-<a href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank"><i class="fab fa-facebook"></i></a>
-<a href="https://www.instagram.com/vukoticzarko/" target="_blank"><i class="fab fa-instagram"></i></a>
-<a href="https://www.tiktok.com/@zarexlaser" target="_blank"><i class="fab fa-tiktok"></i></a>
-<a href="https://api.whatsapp.com/send/?phone=38670808884" target="_blank"><i class="fab fa-whatsapp"></i></a>
-</div>
-<div class="contact-info">
-<div class="contact-item"><i class="fas fa-phone"></i><a href="tel:+38670808884">070 808 884</a></div>
-<div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:zarexlaser@gmail.com">zarexlaser@gmail.com</a></div>
-</div>
+<section>
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Zaščita podvozja</h2>
+      <p>Lasersko čiščenje in protikorozijska zaščita podvozja.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card glass">
+        <div class="price-top">
+          <i class="fa-solid fa-medal"></i>
+          <h3>BASIC</h3>
+          <p>Osnovna obnova podvozja in zaščita za manj zahtevne primere.</p>
+        </div>
+        <div class="price"><small>od</small> 600 €</div>
+      </div>
+      <div class="price-card glass featured">
+        <div class="price-top">
+          <i class="fa-solid fa-star"></i>
+          <h3>STANDARD</h3>
+          <p>Temeljito lasersko čiščenje in večslojna zaščita za boljšo obstojnost.</p>
+        </div>
+        <div class="price"><small>od</small> 900 / 1100 €</div>
+      </div>
+      <div class="price-card glass">
+        <div class="price-top">
+          <i class="fa-solid fa-crown"></i>
+          <h3>PREMIUM</h3>
+          <p>Kompleksna obnova in dolgotrajna zaščita za zahtevnejša vozila.</p>
+        </div>
+        <div class="price"><small>od</small> 1300 / 1600 €</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<div class="back-button"><a href="index.html"><i class="fas fa-home"></i> Nazaj na začetno stran</a></div>
-<footer><p>© 2025 ŽareX - Vse pravice pridržane</p></footer>
+<section>
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Vozila in večji stroji</h2>
+      <p>Okvirne cene za večje izvedbe in zahtevnejša vozila.</p>
+    </div>
+    <div class="vehicle-grid">
+      <div class="vehicle-card glass"><i class="fa-solid fa-car-side"></i><h3>Terenci / SUV</h3><div class="price"><small>od</small> 1200 / 1800 €</div></div>
+      <div class="vehicle-card glass"><i class="fa-solid fa-van-shuttle"></i><h3>Kombiji</h3><div class="price"><small>od</small> 900 / 1400 €</div></div>
+      <div class="vehicle-card glass"><i class="fa-solid fa-bus"></i><h3>Avtobusi</h3><div class="price"><small>od</small> 3000 / 5000 €</div></div>
+      <div class="vehicle-card glass"><i class="fa-solid fa-truck"></i><h3>Tovornjaki / stroji</h3><div class="price"><small>od</small> 2500 / 6000 €</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Druge storitve</h2>
+      <p>Za industrijo, gradbeništvo, les, kamen in večje projekte.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card glass"><i class="fa-solid fa-layer-group"></i><h3>LASER-EPOXY</h3><p>Brušenje betona z laserjem in priprava za epoxy premaze.</p></div>
+      <div class="service-card glass"><i class="fa-solid fa-bolt"></i><h3>Lasersko čiščenje kovin</h3><p>Odstranjevanje rje in oksidov z različnih kovinskih površin.</p></div>
+      <div class="service-card glass"><i class="fa-solid fa-mountain"></i><h3>Obnova kamna</h3><p>Lasersko odstranjevanje nečistoč s kamna, granita in marmorja.</p></div>
+      <div class="service-card glass"><i class="fa-solid fa-tree"></i><h3>Obnova lesa</h3><p>Laserska obnova lesa za pohištvo, elemente in posebne projekte.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="opombe">
+  <div class="wrap">
+    <div class="notes-card glass">
+      <div class="section-title" style="margin-bottom:24px">
+        <h2>Opombe o cenah</h2>
+        <p>Končna cena se določi po ogledu in oceni stanja.</p>
+      </div>
+      <ul>
+        <li><i class="fa-solid fa-circle-info"></i>Ceno določimo ob ogledu ter izbiri materiala.</li>
+        <li><i class="fa-solid fa-clock"></i>Cena se lahko spremeni glede na stanje obrabljenosti, porabo ur in materialov.</li>
+        <li><i class="fa-solid fa-handshake"></i>Večji projekti in industrijske površine se obračunajo po dogovoru + potni stroški.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="contact-card glass">
+      <h2>Želite točno ponudbo?</h2>
+      <p>Pošljite slike, opis površine in lokacijo izvedbe. Pripravimo vam informativno oceno.</p>
+      <div class="contact-line">
+        <a href="tel:+38670808884">☎ +386 70 808 884</a>
+        <a href="mailto:zarexlaser@gmail.com?subject=Povpraševanje%20-%20cenik">✉ zarexlaser@gmail.com</a>
+      </div>
+      <a href="ponudba.html" class="btn-primary">Dobi ponudbo</a>
+
+      <div class="social-buttons">
+        <a class="social-button" href="https://www.tiktok.com/@zarexlaser" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> TikTok</a>
+        <a class="social-button" href="https://www.instagram.com/vukoticzarko/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> Instagram</a>
+        <a class="social-button" href="https://www.facebook.com/profile.php?id=61576688676907" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a>
+        <a class="social-button" href="https://wa.me/38670808884" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2025 ŽAREX - Vse pravice pridržane</footer>
+
 <script>
 function toggleMenu(){
-  const m = document.getElementById('mobileMenu');
-  m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
+  const m=document.getElementById('mobileMenu');
+  m.style.display=(m.style.display==='flex')?'none':'flex';
 }
 </script>
-
 </body>
 </html>
