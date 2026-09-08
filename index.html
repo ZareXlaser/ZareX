@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lasersko Čiščenje- ŽAREX</title>
   <meta name="description" content="ŽareX - Strokovno lasersko čiščenje kovin in površin po vsej Sloveniji. Brez kemikalij, hitro, učinkovito in okolju prijazno.">
-  <meta name="keywords" content="lasersko čiščenje, lasersko odstranjevanje rje,lasersko čiščenje kovin,izposoja laserja, lasersko čiščenje podvozja ŽareX, Slovenija">
+  <meta name="keywords" content="lasersko čiščenje, lasersko odstranjevanje rje,lasersko čiščenje kovin, lasersko čiščenje podvozja ŽareX, Slovenija">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -321,10 +321,19 @@ body{
 /* END */
 .services-wide {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   width: 100%;
   margin: 0;
   padding: 0;
+}
+
+.services-wide .sv-btn {
+  grid-column: span 2;
+}
+
+.services-wide .sv-btn:nth-child(4),
+.services-wide .sv-btn:nth-child(5) {
+  grid-column: span 3;
 }
 
 .sv-btn {
@@ -353,6 +362,11 @@ body{
 @media(max-width:900px) {
   .services-wide {
     grid-template-columns: 1fr;
+  }
+  .services-wide .sv-btn,
+  .services-wide .sv-btn:nth-child(4),
+  .services-wide .sv-btn:nth-child(5) {
+    grid-column: span 1;
   }
   .sv-btn {
     height: 260px;
@@ -2460,7 +2474,6 @@ header::after{
   
   <a class="sv-btn" style="background-image:url('4k.jpg');" href="industrijsko-lasersko-ciscenje.html">Industrijsko lasersko čiščenje</a>
   <a class="sv-btn new" style="background-image:url('5k.jpg');" href="barvanje-in-zascita.html">Zaščita in barvanje podvozja</a>
-  <a class="sv-btn new" style="background-image:url('6k.jpg');" href="izposoja-laserja.html">Izposoja laserja</a>
 </div>
 
     
